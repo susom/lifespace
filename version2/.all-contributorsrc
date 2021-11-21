@@ -1,0 +1,72 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "ssgutierrez42",
+      "name": "Santiago Gutierrez",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/5482213?v=4",
+      "profile": "http://gutierrezsantiago.com",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "varunshenoy",
+      "name": "Varun Shenoy",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/10859091?v=4",
+      "profile": "http://varunshenoy.com",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "mhittle",
+      "name": "mhittle",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/1742619?v=4",
+      "profile": "https://github.com/mhittle",
+      "contributions": [
+        "ideas",
+        "maintenance",
+        "projectManagement"
+      ]
+    },
+    {
+      "login": "aamirrasheed",
+      "name": "aamirrasheed",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/7892721?v=4",
+      "profile": "https://github.com/aamirrasheed",
+      "contributions": [
+        "content",
+        "video"
+      ]
+    },
+    {
+      "login": "ApolloZhu",
+      "name": "Zhiyu Zhu/朱智语",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/10842684?v=4",
+      "profile": "http://apollozhu.github.io/en",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "vishnuravi",
+      "name": "Vishnu Ravi",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1212163?v=4",
+      "profile": "http://vishnu.io",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "CardinalKit",
+  "projectOwner": "CardinalKit",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
