@@ -20,7 +20,7 @@ class ScheduleViewController: OCKDailyPageViewController {
     
     override func dailyPageViewController(_ dailyPageViewController: OCKDailyPageViewController, prepare listViewController: OCKListViewController, for date: Date) {
         
-        let identifiers = ["doxylamine", "nausea", "coffee", "survey", "steps", "heartRate", "surveys"]
+        let identifiers = ["doxylamine", "nausea", "coffee", "survey", "steps", "heartRate", "surveys", "DailySurvey"]
         var query = OCKTaskQuery(for: date)
         query.ids = identifiers
         query.excludesTasksWithNoEvents = true
@@ -106,6 +106,17 @@ class ScheduleViewController: OCKDailyPageViewController {
 //                    listViewController.appendViewController(doxylamineCard, animated: false)
 //                }
 
+                
+                if let dailySurveyTask = tasks.first(where: { $0.id == "DailySurvey"}){
+                    let surveyCard = DailySurveyViewController(
+                        viewSynchronizer: DailySurveyViewSynchronizer(),
+                        task: dailySurveyTask,
+                        eventQuery: .init(for: date),
+                        storeManager: self.storeManager)
+                    
+                    listViewController.appendViewController(surveyCard, animated: false)
+                }
+                
                 // Create a card for the nausea task if there are events for it on this day.
                 // Its OCKSchedule was defined to have daily events, so this task should be
                 // found in `tasks` every day after the task start date.

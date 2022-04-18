@@ -149,6 +149,22 @@ internal extension OCKStore {
     }
     // Adds tasks and contacts into the store
     func populateSampleData(lastUpdateDate: Date?,completion:@escaping () -> Void) {
+        let date = Calendar.current.date(bySettingHour: 19, minute: 0, second: 0, of: Date())!
+                
+        let surveySchedule = OCKSchedule(composing: [
+            OCKScheduleElement(start: date, end: nil, interval: DateComponents(day: 1),
+                               text: "Survey 7 pm", targetValues: [], duration: .allDay)
+            ])
+
+        var surveyTask = OCKTask(id: "DailySurvey", title: "Daily Questionnaire",
+                             carePlanUUID: nil, schedule: surveySchedule)
+        
+        surveyTask.impactsAdherence = false
+        surveyTask.instructions = "Daily Survey"
+        /* ---- */
+
+        addTask(surveyTask, callbackQueue: .main, completion: nil)
+
         
         let collection: String = "carekit-store/v2/tasks"
         // Download Tasks By Study
