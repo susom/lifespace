@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>CardinalKit 2 </string>
+	<string>Jackson Heart</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -58,8 +58,13 @@
 	<string>Used for sensor collection demo tasks.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Used for sensor collection demo tasks.</string>
+	<key>NSLocationTemporaryUsageDescriptionDictionary</key>
+	<dict>
+		<key>LocationAccuracyAuthorizationDescription</key>
+		<string>Please enable precise location. Turn-by-turn directions only work when precise location data is available.</string>
+	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Used for sensor collection demo tasks.</string>
+	<string>Your precise location is used to calculate turn-by-turn directions, show your location on the map, and help improve the map.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Used In ResearchKit Active Tasks.</string>
 	<key>NSMotionUsageDescription</key>
