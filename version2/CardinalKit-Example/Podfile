@@ -13,5 +13,6 @@ target 'CardinalKit_Example' do
   pod 'Firebase/Analytics'
   pod 'Firebase/DynamicLinks'
   
+  pod 'MapboxMaps', '10.1.0'
 
 end

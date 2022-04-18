@@ -40,6 +40,8 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>MBXAccessToken</key>
+	<string></string>
 	<key>NSBluetoothAlwaysUsageDescription</key>
 	<string>Used for sensor collection demo tasks.</string>
 	<key>NSCameraUsageDescription</key>
