@@ -38,6 +38,22 @@ class CKUploadToGCPTaskViewControllerDelegate : NSObject, ORKTaskViewControllerD
         }
     }
     
+    func taskViewController(_ taskViewController: ORKTaskViewController, viewControllerFor step: ORKStep) -> ORKStepViewController? {
+        if step.identifier == "mapstep"{
+            return JHMapQuestionStepViewController(step: step)
+        }
+        else{
+            switch step{
+                case is ORKInstructionStep:
+                    return ORKInstructionStepViewController(step: step)
+                case is ORKCompletionStep:
+                    return ORKCompletionStepViewController(step: step)
+                default:
+                    return ORKQuestionStepViewController(step: step)
+                }
+        }
+    }
+    
     /**
     Create an output directory for a given task.
     You may move this directory.
