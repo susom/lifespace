@@ -20,6 +20,7 @@ class AlternovaLocationFetcher {
     var tracking:Bool = false
     
     var previousLocation:CLLocationCoordinate2D?
+    var previousDate:Date?
     
     init(){
         locationFetcher = LocationFetcher()
@@ -35,7 +36,8 @@ class AlternovaLocationFetcher {
     
     func appendNewLocationPoint(point:CLLocationCoordinate2D) -> Bool{
         var add = true
-        if let previousLocation = previousLocation {
+        if let previousLocation = previousLocation,
+           let previousDate = previousDate {
             add = false
             let lastLongitude = previousLocation.longitude
             let lastLatitude = previousLocation.latitude
@@ -48,9 +50,8 @@ class AlternovaLocationFetcher {
             let c = 2 * atan2(sqrt(a), sqrt(1-a));
             distance = 6367 * c;
 
-            if distance>0.1 {
+            if distance>0.1 || Date().startOfDay != previousDate.startOfDay{
                 add = true
-
             }
         }
         
@@ -58,7 +59,8 @@ class AlternovaLocationFetcher {
             allLocations.append(point)
             onLocationsUpdated?(allLocations)
         }
-        
+        previousLocation = point
+        previousDate = Date()
         return add
     }
     
