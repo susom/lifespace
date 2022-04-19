@@ -23,6 +23,13 @@ class AlternovaLocationFetcher {
     
     init(){
         locationFetcher = LocationFetcher()
+        // Get all previous poitnt
+        JHMapDataManager.shared.getAllMapPoints(onCompletion: {(results) in
+            if let results = results as? [CLLocationCoordinate2D]{
+                self.allLocations = results
+                self.onLocationsUpdated?(self.allLocations)
+            }
+        })
     }
     
     func appendNewLocationPoint(point:CLLocationCoordinate2D) -> Bool{
