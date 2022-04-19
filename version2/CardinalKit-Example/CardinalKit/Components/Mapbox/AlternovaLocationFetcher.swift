@@ -23,6 +23,7 @@ class AlternovaLocationFetcher {
     
     init(){
         locationFetcher = LocationFetcher()
+        startStopTracking()
         // Get all previous poitnt
         JHMapDataManager.shared.getAllMapPoints(onCompletion: {(results) in
             if let results = results as? [CLLocationCoordinate2D]{

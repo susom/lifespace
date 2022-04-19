@@ -20,12 +20,12 @@ struct MapManagerViewWrapper: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: MapManagerView, context: Context) {
         
     }
-    
 }
 
 class MapManagerView: UIViewController {
     internal var mapView: MapView!
     var trackingButton:UIButton?=nil
+    let pointsFetcher = AlternovaLocationFetcher.shared
     
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -49,13 +49,16 @@ class MapManagerView: UIViewController {
         mapView = MapView(frame: CGRect(x: 0, y: 120, width: 480, height: 480))
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.view.addSubview(mapView)
+        
+        MapboxMap.initialiceMap(mapView: mapView, reload: true)
+        mapView.location.options.puckType = .puck2D()
     }
     
     @objc
     func startStopTracking(){
-        AlternovaLocationFetcher.shared.startStopTracking()
+        pointsFetcher.startStopTracking()
         
-        if AlternovaLocationFetcher.shared.tracking{
+        if pointsFetcher.tracking{
             self.trackingButton?.setTitle("stop", for: .normal)
             self.trackingButton?.backgroundColor = .systemRed
         }
