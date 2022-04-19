@@ -25,6 +25,7 @@ struct MapManagerViewWrapper: UIViewControllerRepresentable {
 
 class MapManagerView: UIViewController {
     internal var mapView: MapView!
+    var trackingButton:UIButton?=nil
     
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -34,12 +35,14 @@ class MapManagerView: UIViewController {
         
         // TODO: add if location is tracking or not
         
-        button.setTitle("stop", for: .normal)
+        button.setTitle("start", for: .normal)
         button.backgroundColor = .systemBlue
         
         button.setTitleColor(.white, for: .normal)
         button.addTarget(self, action: #selector(startStopTracking), for: .touchUpInside)
         button.layer.cornerRadius = 10
+        
+        trackingButton = button
         
         self.view.addSubview(button)
         
@@ -50,7 +53,16 @@ class MapManagerView: UIViewController {
     
     @objc
     func startStopTracking(){
-       
+        AlternovaLocationFetcher.shared.startStopTracking()
+        
+        if AlternovaLocationFetcher.shared.tracking{
+            self.trackingButton?.setTitle("stop", for: .normal)
+            self.trackingButton?.backgroundColor = .systemRed
+        }
+        else{
+            self.trackingButton?.setTitle("start", for: .normal)
+            self.trackingButton?.backgroundColor = .systemBlue
+        }
     }
     
 }
