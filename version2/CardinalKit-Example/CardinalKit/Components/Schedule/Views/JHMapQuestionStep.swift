@@ -10,6 +10,7 @@ import Foundation
 import ResearchKit
 import UIKit
 import SwiftUI
+import MapboxMaps
 
 public class JHMapQuestionStep: ORKQuestionStep{
     public override init(identifier: String){
@@ -24,13 +25,18 @@ public class JHMapQuestionStep: ORKQuestionStep{
 }
 
 public class JHMapQuestionStepViewController: ORKQuestionStepViewController {
-    
+    internal var mapView: MapView!
     public override func viewDidLoad() {
         let QuestionLabel = UILabel(frame: CGRect(x: 0, y: 60, width: 450, height: 50 ))
         QuestionLabel.center.x = view.center.x
         QuestionLabel.text = "Is this map of your daily activity accurate?"
         QuestionLabel.textAlignment = NSTextAlignment.center
         self.view.addSubview(QuestionLabel)
+        
+        mapView = MapView(frame: CGRect(x: 0, y: 120, width: 400, height: 400))
+        mapView.center.x = view.center.x
+        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.view.addSubview(mapView)
         
         let button = UIButton(frame: CGRect(x: 0, y: 450, width: 350, height: 50))
         button.center.x = view.center.x
@@ -51,6 +57,7 @@ public class JHMapQuestionStepViewController: ORKQuestionStepViewController {
         self.view.addSubview(noButton)
         
         self.view.backgroundColor = .white
+        MapboxMap.initialiceMap(mapView: mapView, reload: false)
     }
     
     @objc func OnClickYesButton(){
