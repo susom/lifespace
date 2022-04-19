@@ -22,11 +22,12 @@
 		4F02D97D274871C800F203B5 /* NotificationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F02D97C274871C800F203B5 /* NotificationFetcher.swift */; };
 		4F02D9852748861800F203B5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F02D9842748861800F203B5 /* GoogleService-Info.plist */; };
 		63A143DD280EDBA9001A54BC /* MapboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A143DC280EDBA9001A54BC /* MapboxView.swift */; };
+		63A143DF280F1AAD001A54BC /* DailySurveyStartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A143DE280F1AAC001A54BC /* DailySurveyStartButton.swift */; };
+		63A82390280DAD49001D49A8 /* DailySurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A8238F280DAD49001D49A8 /* DailySurveyViewController.swift */; };
+		63A82392280DAF2F001D49A8 /* JHMapQuestionStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A82391280DAF2F001D49A8 /* JHMapQuestionStep.swift */; };
 		63A8239A280DD26E001D49A8 /* MapBoxMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A82399280DD26E001D49A8 /* MapBoxMap.swift */; };
 		63A8239C280DD499001D49A8 /* AlternovaLocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A8239B280DD499001D49A8 /* AlternovaLocationFetcher.swift */; };
 		63A823A1280DFCBF001D49A8 /* JHMapDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A823A0280DFCBF001D49A8 /* JHMapDataManager.swift */; };
-		63A82390280DAD49001D49A8 /* DailySurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A8238F280DAD49001D49A8 /* DailySurveyViewController.swift */; };
-		63A82392280DAF2F001D49A8 /* JHMapQuestionStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A82391280DAF2F001D49A8 /* JHMapQuestionStep.swift */; };
 		8E0A43AC244A4A0400656518 /* CKStudyUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A4382244A4A0400656518 /* CKStudyUser.swift */; };
 		8E0A43AD244A4A0400656518 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A4384244A4A0400656518 /* Constants.swift */; };
 		8E0A43AE244A4A0400656518 /* ORKESerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A4386244A4A0400656518 /* ORKESerialization.m */; };
@@ -130,9 +131,10 @@
 		4F02D9842748861800F203B5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* CardinalKit Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CardinalKit Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		62AA5CD1C2188D392530510F /* CardinalKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CardinalKit.podspec; path = ../CardinalKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		63A143DC280EDBA9001A54BC /* MapboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapboxView.swift; sourceTree = "<group>"; };
+		63A143DE280F1AAC001A54BC /* DailySurveyStartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySurveyStartButton.swift; sourceTree = "<group>"; };
 		63A8238F280DAD49001D49A8 /* DailySurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySurveyViewController.swift; sourceTree = "<group>"; };
 		63A82391280DAF2F001D49A8 /* JHMapQuestionStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHMapQuestionStep.swift; sourceTree = "<group>"; };
-		63A143DC280EDBA9001A54BC /* MapboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapboxView.swift; sourceTree = "<group>"; };
 		63A82399280DD26E001D49A8 /* MapBoxMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBoxMap.swift; sourceTree = "<group>"; };
 		63A8239B280DD499001D49A8 /* AlternovaLocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlternovaLocationFetcher.swift; sourceTree = "<group>"; };
 		63A823A0280DFCBF001D49A8 /* JHMapDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHMapDataManager.swift; sourceTree = "<group>"; };
@@ -480,6 +482,7 @@
 				8EA664AF25941A4D00B6A45A /* SurveyItemViewController.swift */,
 				63A8238F280DAD49001D49A8 /* DailySurveyViewController.swift */,
 				63A82391280DAF2F001D49A8 /* JHMapQuestionStep.swift */,
+				63A143DE280F1AAC001A54BC /* DailySurveyStartButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -789,6 +792,7 @@
 				2BF6451826C1D0040020C206 /* (null) in Sources */,
 				2B19DD9226FE1BEB00649CE1 /* JsonToSurvey.swift in Sources */,
 				8E0A43B5244A4A0400656518 /* TaskItem_.swift in Sources */,
+				63A143DF280F1AAD001A54BC /* DailySurveyStartButton.swift in Sources */,
 				2BD5328326C2CC4E00C4636E /* CkResearchSurveysManager.swift in Sources */,
 				8E6E1E2C253539AE0024B8DF /* ChangePasscodeView.swift in Sources */,
 				8E0A43AD244A4A0400656518 /* Constants.swift in Sources */,
