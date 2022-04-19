@@ -13,6 +13,7 @@ import Firebase
 class CKUploadToGCPTaskViewControllerDelegate : NSObject, ORKTaskViewControllerDelegate {
         
     public func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
+        LaunchModel.sharedinstance.showSurvey = false
         switch reason {
         case .completed:
            do {

@@ -113,6 +113,12 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
         }
     }
     
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        LaunchModel.sharedinstance.showSurveyAfterPasscode = true
+        // you must call the completion handler when you're done
+        completionHandler()
+    }
+    
 }
 
 
