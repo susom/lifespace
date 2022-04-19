@@ -27,7 +27,7 @@ class MapboxMap {
                 try mapView.mapboxMap.style.addLayer(circlesLayer, layerPosition: .above("country-label"))
                 mapView.mapboxMap.setCamera(
                     to: CameraOptions(
-                        center: AlternovaLocationFetcher.shared.locationFetcher.lastKnownLocation,
+                        center: AlternovaLocationFetcher.shared.allLocations.last,
                         zoom: 14.0
                     )
                 )
@@ -35,6 +35,12 @@ class MapboxMap {
                     AlternovaLocationFetcher.shared.onLocationsUpdated = { locations in
                         do{
                             try mapView.mapboxMap.style.updateGeoJSONSource(withId: "GEOSOURCE", geoJSON: .feature(Feature(geometry: .lineString(LineString(locations)))))
+                            mapView.mapboxMap.setCamera(
+                                to: CameraOptions(
+                                    center: AlternovaLocationFetcher.shared.allLocations.last,
+                                    zoom: 14.0
+                                )
+                            )
                         }
                         catch{
                             print("error updating points")

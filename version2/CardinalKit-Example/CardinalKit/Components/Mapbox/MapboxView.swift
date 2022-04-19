@@ -35,8 +35,8 @@ class MapManagerView: UIViewController {
         
         // TODO: add if location is tracking or not
         
-        button.setTitle("start", for: .normal)
-        button.backgroundColor = .systemBlue
+        button.setTitle("stop", for: .normal)
+        button.backgroundColor = .red
         
         button.setTitleColor(.white, for: .normal)
         button.addTarget(self, action: #selector(startStopTracking), for: .touchUpInside)
