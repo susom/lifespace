@@ -23,10 +23,12 @@ struct MainUIView: View {
     
     var body: some View {
         TabView {
-            TasksUIView(color: self.color).tabItem {
-                Image("tab_tasks").renderingMode(.template)
-                Text("Tasks")
-            }
+            MapManagerViewWrapper()
+                .tabItem{
+                    Image("tab_profile")
+                        .renderingMode(.template)
+                    Text("Home")
+                }
             
             if useCareKit && carekitLoaded {
                 ScheduleViewControllerRepresentable()
