@@ -26,6 +26,10 @@ class AlternovaLocationFetcher {
         locationFetcher = LocationFetcher()
         startStopTracking()
         // Get all previous poitnt
+       fetchAllTodaypoints()
+    }
+    
+    func fetchAllTodaypoints(){
         JHMapDataManager.shared.getAllMapPoints(onCompletion: {(results) in
             if let results = results as? [CLLocationCoordinate2D]{
                 self.allLocations = results
@@ -50,8 +54,14 @@ class AlternovaLocationFetcher {
             let c = 2 * atan2(sqrt(a), sqrt(1-a));
             distance = 6367 * c;
 
-            if distance>0.1 || Date().startOfDay != previousDate.startOfDay{
+            if distance>0.1 {
                 add = true
+            }
+            
+            // Reset all points when day change
+            if Date().startOfDay != previousDate.startOfDay{
+                add = true
+                fetchAllTodaypoints()
             }
         }
         
