@@ -50,6 +50,29 @@ class CKAppNetworkManager: CKAPIDeliveryDelegate, CKAPIReceiverDelegate {
         }
     }
     
+    func requestFilter(byDate date:Date, route: String, field: String, onCompletion: @escaping (Any)->Void){
+        let startTimestamp: Timestamp = Timestamp(date: date.startOfDay)
+        let endTimestamp: Timestamp = Timestamp(date: date.endOfDay!)
+        
+        var objResult = [String:Any]()
+        let db=firestoreDb()
+        db.collection(route)
+            .whereField("\(field)", isGreaterThanOrEqualTo: startTimestamp)
+            .whereField("\(field)", isLessThanOrEqualTo: endTimestamp)
+            .order(by: "\(field)").getDocuments(){
+                (querySnapshot, err) in
+                if let err = err{
+                    print("error \(err)")
+                }
+                else{
+                    for document in querySnapshot!.documents {
+                        objResult[document.documentID]=document.data()
+                    }
+                    onCompletion(objResult)
+                }
+            }
+    }
+    
     private func firestoreDb()->Firestore{
         let settings = FirestoreSettings()
         settings.isPersistenceEnabled = false

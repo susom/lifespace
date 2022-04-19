@@ -35,6 +35,13 @@ class CKStudyUser {
         return nil
     }
     
+    var mapPointsCollection : String? {
+        if let authCollection = authCollection{
+            return "\(authCollection)location-data/"
+        }
+        return nil
+    }
+    
     var surveysCollection: String? {
         if let bundleId = Bundle.main.bundleIdentifier {
             return "/studies/\(bundleId)/surveys/"

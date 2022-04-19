@@ -19,4 +19,14 @@ class DownloadManager: NSObject {
         }
     }
     
+    func fetchDataFiltered(byDate date:Date, route: String, field: String, onCompletion: @escaping (Any)->Void){
+        if let customDelegate = CKApp.instance.options.networkReceiverDelegate{
+            customDelegate.requestFilter(byDate: date, route: route, field: field, onCompletion: onCompletion)
+        }
+        else{
+            // Return surveys by defect
+        }
+        
+    }
+    
 }

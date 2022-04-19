@@ -28,7 +28,9 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate, ObservableObject {
             
             //print (latitude)
             //print (longitude)
-            
+           
+        if let lastKnownLocation = lastKnownLocation,
+            AlternovaLocationFetcher.shared.appendNewLocationPoint(point: lastKnownLocation){
             let db = Firestore.firestore()
             db.collection(authCollection! + "location-data")
                 .document(UUID().uuidString)
@@ -45,7 +47,7 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate, ObservableObject {
                     print("[CKSendHelper] sendToFirestoreWithUUID() - document successfully written!")
                 }
             }
-        
+        }
         }
     }
 
