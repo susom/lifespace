@@ -10,7 +10,6 @@ import Foundation
 import HealthKit
 import CareKit
 import CareKitFHIR
-import CareKitStore
 
 class CKHealthRecordsManager: NSObject {
     

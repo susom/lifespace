@@ -31,19 +31,19 @@ struct MainUIView: View {
                 }
             
             if useCareKit && carekitLoaded {
-                ScheduleViewControllerRepresentable()
-                    .ignoresSafeArea(edges: .all)
-                    .tabItem {
-                        Image("tab_schedule").renderingMode(.template)
-                        Text("Schedule")
-                }
+//                ScheduleViewControllerRepresentable()
+//                    .ignoresSafeArea(edges: .all)
+//                    .tabItem {
+//                        Image("tab_schedule").renderingMode(.template)
+//                        Text("Schedule")
+//                }
                 
-                CareTeamViewControllerRepresentable()
-                    .ignoresSafeArea(edges: .all)
-                    .tabItem {
-                        Image("tab_care").renderingMode(.template)
-                        Text("Contact")
-                }
+//                CareTeamViewControllerRepresentable()
+//                    .ignoresSafeArea(edges: .all)
+//                    .tabItem {
+//                        Image("tab_care").renderingMode(.template)
+//                        Text("Contact")
+//                }
             }
 
             ProfileUIView(color: self.color).tabItem {
@@ -56,9 +56,9 @@ struct MainUIView: View {
             self.useCareKit = config.readBool(query: "Use CareKit")
             
             let lastUpdateDate:Date? = UserDefaults.standard.object(forKey: Constants.prefCareKitCoreDataInitDate) as? Date
-            CKCareKitManager.shared.coreDataStore.populateSampleData(lastUpdateDate:lastUpdateDate){() in
-                self.carekitLoaded = true
-            }
+//            CKCareKitManager.shared.coreDataStore.populateSampleData(lastUpdateDate:lastUpdateDate){() in
+//                self.carekitLoaded = true
+//            }
             
             
         })
