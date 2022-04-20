@@ -81,8 +81,10 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         lastKnownLocation = locations.first?.coordinate
     }
-        
     
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        AlternovaLocationFetcher.shared.calculeIfCanShowRequestMessage()
+    }
 }
 
 
