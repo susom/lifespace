@@ -9,7 +9,7 @@
 import CoreLocation
 import Foundation
 
-class AlternovaLocationFetcher {
+class AlternovaLocationFetcher: NSObject, ObservableObject {
     static let shared = AlternovaLocationFetcher()
     
     var allLocations = [CLLocationCoordinate2D]()
@@ -22,11 +22,51 @@ class AlternovaLocationFetcher {
     var previousLocation:CLLocationCoordinate2D?
     var previousDate:Date?
     
-    init(){
+    @Published var authorizationStatus:CLAuthorizationStatus = CLLocationManager().authorizationStatus
+    @Published var canShowRequestMessage:Bool = true
+    
+    override init(){
         locationFetcher = LocationFetcher()
+        super.init()
         startStopTracking()
         // Get all previous poitnt
-       fetchAllTodaypoints()
+        fetchAllTodaypoints()
+        calculeIfCanShowRequestMessage()
+    }
+    
+    func calculeIfCanShowRequestMessage(){
+        let manager = locationFetcher.manager
+        
+        let previousState = authorizationStatus
+        authorizationStatus = manager.authorizationStatus
+        
+        let first = UserDefaults.standard.bool(forKey: Constants.JHFirstLocationRequest)
+        
+        if(authorizationStatus == .authorizedWhenInUse && !first && previousState != authorizationStatus){
+            UserDefaults.standard.set(true, forKey: Constants.JHFirstLocationRequest)
+        }
+        else{
+            UserDefaults.standard.set(false, forKey: Constants.JHFirstLocationRequest)
+        }
+        
+        if authorizationStatus == .authorizedAlways{
+            LaunchModel.sharedinstance.showPermissionView = false
+        }
+        
+        
+        
+        
+        if manager.authorizationStatus == .notDetermined || (manager.authorizationStatus == .authorizedWhenInUse && UserDefaults.standard.bool(forKey: Constants.JHFirstLocationRequest)){
+            canShowRequestMessage = true
+        }
+        else{
+            canShowRequestMessage = false
+        }
+    }
+    
+    func requestAuthorizationLocation() {
+        locationFetcher.manager.requestWhenInUseAuthorization()
+        locationFetcher.manager.requestAlwaysAuthorization()
     }
     
     func fetchAllTodaypoints(){
@@ -87,5 +127,15 @@ class AlternovaLocationFetcher {
                 locationFetcher.manager.allowsBackgroundLocationUpdates = true
             }
         }
+    }
+    
+    func userAuthorizeAlways() -> Bool {
+        let manager = locationFetcher.manager
+        return manager.authorizationStatus == .authorizedAlways
+    }
+    
+    func userAuthorizeWhenInUse() -> Bool {
+        let manager = locationFetcher.manager
+        return manager.authorizationStatus == .authorizedWhenInUse
     }
 }

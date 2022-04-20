@@ -23,6 +23,7 @@
 		4F02D9852748861800F203B5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F02D9842748861800F203B5 /* GoogleService-Info.plist */; };
 		63A143DD280EDBA9001A54BC /* MapboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A143DC280EDBA9001A54BC /* MapboxView.swift */; };
 		63A143DF280F1AAD001A54BC /* DailySurveyStartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A143DE280F1AAC001A54BC /* DailySurveyStartButton.swift */; };
+		63A143E1280F579E001A54BC /* PermissionLocationUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A143E0280F579E001A54BC /* PermissionLocationUIView.swift */; };
 		63A82390280DAD49001D49A8 /* DailySurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A8238F280DAD49001D49A8 /* DailySurveyViewController.swift */; };
 		63A82392280DAF2F001D49A8 /* JHMapQuestionStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A82391280DAF2F001D49A8 /* JHMapQuestionStep.swift */; };
 		63A8239A280DD26E001D49A8 /* MapBoxMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A82399280DD26E001D49A8 /* MapBoxMap.swift */; };
@@ -133,6 +134,7 @@
 		62AA5CD1C2188D392530510F /* CardinalKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CardinalKit.podspec; path = ../CardinalKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		63A143DC280EDBA9001A54BC /* MapboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapboxView.swift; sourceTree = "<group>"; };
 		63A143DE280F1AAC001A54BC /* DailySurveyStartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySurveyStartButton.swift; sourceTree = "<group>"; };
+		63A143E0280F579E001A54BC /* PermissionLocationUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionLocationUIView.swift; sourceTree = "<group>"; };
 		63A8238F280DAD49001D49A8 /* DailySurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySurveyViewController.swift; sourceTree = "<group>"; };
 		63A82391280DAF2F001D49A8 /* JHMapQuestionStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHMapQuestionStep.swift; sourceTree = "<group>"; };
 		63A82399280DD26E001D49A8 /* MapBoxMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBoxMap.swift; sourceTree = "<group>"; };
@@ -419,6 +421,7 @@
 				8E7FFFB725DE350A002982B4 /* CoffeeUIView.swift */,
 				8E7FFFBA25DE37FF002982B4 /* CoffeePieChartView.swift */,
 				27653A12272A2E7700D74E83 /* LocalTaskListItemView.swift */,
+				63A143E0280F579E001A54BC /* PermissionLocationUIView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -743,6 +746,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2DF9F0A2500C9CE00A93B93 /* LoginViewController.swift in Sources */,
+				63A143E1280F579E001A54BC /* PermissionLocationUIView.swift in Sources */,
 				8E6E1E14253520440024B8DF /* PasscodeViewController.swift in Sources */,
 				2B19DD9626FE1D2F00649CE1 /* CheckListItemViewController.swift in Sources */,
 				2B19DD9426FE1D2600649CE1 /* TestViewController.swift in Sources */,

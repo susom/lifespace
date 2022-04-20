@@ -29,6 +29,9 @@ struct LaunchUIView: View {
                 if launchData.showSurvey {
                     DailySurveyStartButton()
                 }
+                else if launchData.showPermissionView{
+                    PermissionLocationUIView()
+                }
                 else{
                     MainUIView()
                 }
@@ -42,6 +45,9 @@ struct LaunchUIView: View {
                 }
             }
         }.onAppear(perform: {
+            launchData.showPermissionView = !AlternovaLocationFetcher.shared.userAuthorizeAlways()
+            
+            
             if let completed = UserDefaults.standard.object(forKey: Constants.onboardingDidComplete) as? Bool {
                self.didCompleteOnboarding = completed
             }

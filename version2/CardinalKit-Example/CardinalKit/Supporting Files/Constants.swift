@@ -28,4 +28,6 @@ class Constants {
     
     static let onboardingDidComplete = "didCompleteOnboarding"
     
+    static let JHFirstLocationRequest = "JHFirstLocationRequest"
+    
 }
