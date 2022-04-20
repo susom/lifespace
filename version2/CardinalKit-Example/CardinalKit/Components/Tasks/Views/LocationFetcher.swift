@@ -9,13 +9,13 @@ import CoreLocation
 import Firebase
 import Foundation
 
-class LocationFetcher: NSObject, CLLocationManagerDelegate, ObservableObject {
+class LocationFetcher: NSObject, CLLocationManagerDelegate {
     let manager = CLLocationManager()
     let date = NSDate()
     let unixtime = NSTimeIntervalSince1970
     let authCollection = CKStudyUser.shared.authCollection
     
-    @Published var lastKnownLocation: CLLocationCoordinate2D? {
+    var lastKnownLocation: CLLocationCoordinate2D? {
         didSet {
                 
             guard let longitude = lastKnownLocation?.longitude else {
@@ -31,23 +31,31 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate, ObservableObject {
            
         if let lastKnownLocation = lastKnownLocation,
             AlternovaLocationFetcher.shared.appendNewLocationPoint(point: lastKnownLocation){
-            let db = Firestore.firestore()
-            db.collection(authCollection! + "location-data")
-                .document(UUID().uuidString)
-                .setData([
-                            "currentdate": date,
-                            "epoch time (seconds)": unixtime,
-                            "latitude": latitude,
-                            "longitude": longitude
-                ]) { err in
+                if let authCollection = CKStudyUser.shared.authCollection {
+                let settings = FirestoreSettings()
+                settings.isPersistenceEnabled = false
                 
-                if let err = err {
-                    print("[CKSendHelper] sendToFirestoreWithUUID() - error writing document: \(err)")
-                } else {
-                    print("[CKSendHelper] sendToFirestoreWithUUID() - document successfully written!")
+                let db = Firestore.firestore()
+                
+                db.settings = settings
+                    
+                db.collection(authCollection + "location-data")
+                    .document(UUID().uuidString)
+                    .setData([
+                                "currentdate": date,
+                                "epoch time (seconds)": unixtime,
+                                "latitude": latitude,
+                                "longitude": longitude
+                    ]) { err in
+                    
+                    if let err = err {
+                        print("[CKSendHelper] sendToFirestoreWithUUID() - error writing document: \(err)")
+                    } else {
+                        print("[CKSendHelper] sendToFirestoreWithUUID() - document successfully written!")
+                    }
+                }
                 }
             }
-        }
         }
     }
 

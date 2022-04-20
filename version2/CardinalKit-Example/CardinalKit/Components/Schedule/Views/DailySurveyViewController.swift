@@ -13,14 +13,16 @@ import CareKitUI
 import CareKitStore
 
 class DailySurveyTask:ORKNavigableOrderedTask{
-    init(){
+    init(showInstructions:Bool = true){
         var steps = [ORKStep]()
-
-        // Instruction step
-        let instructionStep = ORKInstructionStep(identifier: "IntroStep")
-        instructionStep.title = "Daily Questionnaire"
-        instructionStep.text = "Please complete this survey daily to assess your own health."
-        steps += [instructionStep]
+        
+        if(showInstructions){
+            // Instruction step
+            let instructionStep = ORKInstructionStep(identifier: "IntroStep")
+            instructionStep.title = "Daily Questionnaire"
+            instructionStep.text = "Please complete this survey daily to assess your own health."
+            steps += [instructionStep]
+        }
 
         //How would you rate your health today?
         let healthScaleAnswerFormat = ORKAnswerFormat.scale(withMaximumValue: 5, minimumValue: 1, defaultValue: 3, step: 1, vertical: false, maximumValueDescription: "Excellent", minimumValueDescription: "Poor")
