@@ -365,6 +365,15 @@ PODS:
   - gRPC-Core/Interface (1.28.2)
   - GTMSessionFetcher/Core (1.5.0)
   - leveldb-library (1.22.1)
+  - MapboxCommon (20.1.0)
+  - MapboxCoreMaps (10.1.0):
+    - MapboxCommon (~> 20.1)
+  - MapboxMaps (10.1.0):
+    - MapboxCommon (= 20.1.0)
+    - MapboxCoreMaps (= 10.1.0)
+    - MapboxMobileEvents (= 1.0.6)
+    - Turf (~> 2.0)
+  - MapboxMobileEvents (1.0.6)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
     - nanopb/encode (= 2.30908.0)
@@ -382,6 +391,7 @@ PODS:
   - ResearchKit (2.1.0-beta)
   - SAMKeychain (1.5.3)
   - SwiftyJSON (4.1.0)
+  - Turf (2.3.0)
   - Zip (1.1.0)
 
 DEPENDENCIES:
@@ -392,6 +402,7 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/Storage
   - Granola (from `https://github.com/Alternova-Inc/Granola.git`, branch `Main`)
+  - MapboxMaps (= 10.1.0)
   - ResearchKit (from `https://github.com/ResearchKit/ResearchKit.git`, branch `master`)
 
 SPEC REPOS:
@@ -414,6 +425,10 @@ SPEC REPOS:
     - gRPC-Core
     - GTMSessionFetcher
     - leveldb-library
+    - MapboxCommon
+    - MapboxCoreMaps
+    - MapboxMaps
+    - MapboxMobileEvents
     - nanopb
     - ObjectiveSugar
     - ObjectMapper
@@ -423,6 +438,7 @@ SPEC REPOS:
     - RealmSwift
     - SAMKeychain
     - SwiftyJSON
+    - Turf
     - Zip
 
 EXTERNAL SOURCES:
@@ -464,6 +480,10 @@ SPEC CHECKSUMS:
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
+  MapboxCommon: 8dd878a6c444b78bc1a819af1920dd1a0bb9f732
+  MapboxCoreMaps: 6ecb358c04600f6a947e52d41b78ac0c2570f930
+  MapboxMaps: c19e24617b7135f87fac7dbad3a4baef657555ae
+  MapboxMobileEvents: 14d7ac3ee95b4142c4fec2205dfd48ff453e8871
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   ObjectiveSugar: a6a25f23d657c19df0a0b972466d5b5ca9f5295c
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
@@ -474,8 +494,9 @@ SPEC CHECKSUMS:
   ResearchKit: 449f96824c4e71c70a9278953c3b279f0fe10805
   SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
+  Turf: d8d52444483c968cf2d65b8b54640f8faf4dda03
   Zip: 8877eede3dda76bcac281225c20e71c25270774c
 
-PODFILE CHECKSUM: cc50d0a51750b74329c348a3a4f6965ce59c9ff6
+PODFILE CHECKSUM: 10be4eb9f2a60f2ce8e5be84020b482883051de8
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2
