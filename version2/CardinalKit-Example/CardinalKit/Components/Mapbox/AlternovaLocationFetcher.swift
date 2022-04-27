@@ -108,9 +108,10 @@ class AlternovaLocationFetcher: NSObject, ObservableObject {
         if add {
             allLocations.append(point)
             onLocationsUpdated?(allLocations)
+            previousLocation = point
+            previousDate = Date()
         }
-        previousLocation = point
-        previousDate = Date()
+        
         return add
     }
     
