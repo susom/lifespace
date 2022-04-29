@@ -53,6 +53,10 @@ extension SceneDelegate: ORKPasscodeDelegate {
     }
     
     func passcodeViewControllerDidFinish(withSuccess viewController: UIViewController) {
+        if(LaunchModel.sharedinstance.showSurveyAfterPasscode){
+            LaunchModel.sharedinstance.showSurveyAfterPasscode = false
+            LaunchModel.sharedinstance.showSurvey = true
+        }
         // dismiss passcode prompt screen
         toggleContainer(hidden: false)
         viewController.dismiss(animated: true, completion: nil)

@@ -13,6 +13,7 @@ import Firebase
 class CKUploadToGCPTaskViewControllerDelegate : NSObject, ORKTaskViewControllerDelegate {
         
     public func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
+        LaunchModel.sharedinstance.showSurvey = false
         switch reason {
         case .completed:
            do {
@@ -34,6 +35,22 @@ class CKUploadToGCPTaskViewControllerDelegate : NSObject, ORKTaskViewControllerD
         default:
             taskViewController.dismiss(animated: true, completion: nil)
             
+        }
+    }
+    
+    func taskViewController(_ taskViewController: ORKTaskViewController, viewControllerFor step: ORKStep) -> ORKStepViewController? {
+        if step.identifier == "mapstep"{
+            return JHMapQuestionStepViewController(step: step)
+        }
+        else{
+            switch step{
+                case is ORKInstructionStep:
+                    return ORKInstructionStepViewController(step: step)
+                case is ORKCompletionStep:
+                    return ORKCompletionStepViewController(step: step)
+                default:
+                    return ORKQuestionStepViewController(step: step)
+                }
         }
     }
     

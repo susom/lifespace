@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // (1) initialize Firebase SDK
         FirebaseApp.configure()
+        configureNotifications()
         
         // (2) check if this is the first time
         // that the app runs!
@@ -57,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 // Extensions add new functionality to an existing class, structure, enumeration, or protocol type.
 // https://docs.swift.org/swift-book/LanguageGuide/Extensions.html
-extension AppDelegate {
+extension AppDelegate: UNUserNotificationCenterDelegate{
     
     /**
      The first time that our app runs we have to make sure that :
@@ -75,6 +76,47 @@ extension AppDelegate {
             try? Auth.auth().signOut()
             UserDefaults.standard.set(true, forKey: Constants.prefFirstRunWasMarked)
         }
+    }
+    
+    fileprivate func configureNotifications(){
+        let center = UNUserNotificationCenter.current()
+        center.delegate = self
+        if !UserDefaults.standard.bool(forKey: Constants.prefsNotificationsSchedule) {
+            center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+                if granted {
+                    center.removeAllPendingNotificationRequests()
+                    center.removeAllDeliveredNotifications()
+                    
+                    UserDefaults.standard.set(true, forKey: Constants.prefsNotificationsSchedule)
+                    let content = UNMutableNotificationContent()
+                    content.title = "Jackson Heart"
+                    content.body = "Please Complete Daily Survey"
+                    // Configure the recurring date.
+                    var dateComponents = DateComponents()
+                    dateComponents.calendar = Calendar.current
+
+                    dateComponents.hour = 19  // 19:00 hours
+                    dateComponents.minute = 00
+
+                    // Create the trigger as a repeating event.
+                    let trigger = UNCalendarNotificationTrigger(
+                             dateMatching: dateComponents, repeats: true)
+                    // Create the request
+                    let uuidString = UUID().uuidString
+                    let request = UNNotificationRequest(identifier: uuidString,
+                                content: content, trigger: trigger)
+                    
+                    // Schedule the request with the system.
+                    center.add(request) { (error) in }
+                }
+            }
+        }
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        LaunchModel.sharedinstance.showSurveyAfterPasscode = true
+        // you must call the completion handler when you're done
+        completionHandler()
     }
     
 }
