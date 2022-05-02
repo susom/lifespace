@@ -30,7 +30,14 @@ class MapManagerView: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         
-        let button = UIButton(frame: CGRect(x: 200, y: 35, width: 350, height: 50))
+        mapView = MapView(frame: view.bounds)
+        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.view.addSubview(mapView)
+        MapboxMap.initialiceMap(mapView: mapView, reload: true)
+        mapView.location.options.puckType = .puck2D()
+        
+        
+        let button = UIButton(frame: CGRect(x: 200, y: 45, width: 350, height: 50))
         button.center.x = view.center.x
         
         // TODO: add if location is tracking or not
@@ -45,13 +52,6 @@ class MapManagerView: UIViewController {
         trackingButton = button
         
         self.view.addSubview(button)
-        
-        mapView = MapView(frame: CGRect(x: 0, y: 120, width: 480, height: 480))
-        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.view.addSubview(mapView)
-        
-        MapboxMap.initialiceMap(mapView: mapView, reload: true)
-        mapView.location.options.puckType = .puck2D()
     }
     
     @objc
