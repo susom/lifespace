@@ -11,7 +11,6 @@ import Foundation
 
 class LocationFetcher: NSObject, CLLocationManagerDelegate {
     let manager = CLLocationManager()
-    let date = NSDate()
     let unixtime = NSTimeIntervalSince1970
     let authCollection = CKStudyUser.shared.authCollection
     
@@ -42,7 +41,7 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate {
                 db.collection(authCollection + "location-data")
                     .document(UUID().uuidString)
                     .setData([
-                                "currentdate": date,
+                                "currentdate": Date(),
                                 "epoch time (seconds)": unixtime,
                                 "latitude": latitude,
                                 "longitude": longitude
@@ -63,6 +62,7 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate {
         super.init()
         manager.delegate = self
         self.manager.startMonitoringSignificantLocationChanges()
+        self.manager.startUpdatingLocation()
     }
 
     func start() {
@@ -70,6 +70,7 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate {
         manager.requestAlwaysAuthorization()
         if CLLocationManager.locationServicesEnabled(){
             self.manager.startMonitoringSignificantLocationChanges()
+            self.manager.startUpdatingLocation()
         }
     }
 

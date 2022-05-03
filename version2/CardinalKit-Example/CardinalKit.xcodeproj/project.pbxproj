@@ -441,7 +441,6 @@
 				E29143FB24E74AD100EE97B2 /* LaunchUIView.swift */,
 				8E0A4399244A4A0400656518 /* Onboarding */,
 				8E9CDEA525915F6600C8A228 /* Schedule */,
-				8E9CDEB42591818200C8A228 /* Care Team */,
 				8E0A438D244A4A0400656518 /* Tasks */,
 				8E0A4379244A4A0400656518 /* Profile */,
 			);
@@ -466,13 +465,6 @@
 				63A143DE280F1AAC001A54BC /* DailySurveyStartButton.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		8E9CDEB42591818200C8A228 /* Care Team */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Care Team";
 			sourceTree = "<group>";
 		};
 		8E9CDECE2591ABDF00C8A228 /* HealthKit */ = {

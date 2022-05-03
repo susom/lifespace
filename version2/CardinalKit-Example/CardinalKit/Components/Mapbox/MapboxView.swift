@@ -52,6 +52,21 @@ class MapManagerView: UIViewController {
         trackingButton = button
         
         self.view.addSubview(button)
+        
+        
+//
+//        let buttonUpdate = UIButton(frame: CGRect(x: 200, y: 150, width: 350, height: 50))
+//        buttonUpdate.center.x = view.center.x
+//
+//        // TODO: add if location is tracking or not
+//
+//        buttonUpdate.setTitle("update", for: .normal)
+//        buttonUpdate.backgroundColor = .blue
+//
+//        buttonUpdate.setTitleColor(.white, for: .normal)
+//        buttonUpdate.addTarget(self, action: #selector(updateLocation), for: .touchUpInside)
+//        buttonUpdate.layer.cornerRadius = 10
+//        self.view.addSubview(buttonUpdate)
     }
     
     @objc
@@ -66,6 +81,11 @@ class MapManagerView: UIViewController {
             self.trackingButton?.setTitle("start", for: .normal)
             self.trackingButton?.backgroundColor = .systemBlue
         }
+    }
+    
+    @objc
+    func updateLocation(){
+        pointsFetcher.locationFetcher.lastKnownLocation = mapView.location.latestLocation?.coordinate
     }
     
 }
