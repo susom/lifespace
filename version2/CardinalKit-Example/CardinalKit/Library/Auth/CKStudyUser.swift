@@ -26,6 +26,8 @@ class CKStudyUser {
      * store your Firebase objects under this path in order to
      * be compatible with CardinalKit GCP rules.
     **************************************************************/
+    let baseCollection = "/com.odden.lifespace"
+    
     var authCollection: String? {
         if let userId = currentUser?.uid,
             let root = rootAuthCollection {
@@ -37,32 +39,21 @@ class CKStudyUser {
     
     var mapPointsCollection : String? {
         if let authCollection = authCollection{
-            return "\(authCollection)location-data/"
+            return "\(authCollection)ls_location_data/"
         }
         return nil
     }
     
     var surveysCollection: String? {
-        if let bundleId = Bundle.main.bundleIdentifier {
-            return "/studies/\(bundleId)/surveys/"
-        }
-        
-        return nil
+        return "\(baseCollection)/ls_surveys/"
     }
     
-    var studyCollection: String?{
-        if let bundleId = Bundle.main.bundleIdentifier {
-            return "/studies/\(bundleId)/"
-        }
-        return nil
+    var studyCollection: String? {
+        return "\(baseCollection)/"
     }
     
     fileprivate var rootAuthCollection: String? {
-        if let bundleId = Bundle.main.bundleIdentifier {
-            return "/studies/\(bundleId)/users/"
-        }
-        
-        return nil
+        return "\(baseCollection)/ls_users/"
     }
 
     var email: String? {

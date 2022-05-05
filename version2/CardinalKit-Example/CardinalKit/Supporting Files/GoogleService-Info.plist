@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>679196320947-nv1el320pl8a5ske9h6ec6np2a6hatk9.apps.googleusercontent.com</string>
+	<string>730559611242-ofo0cc94tvapj5qb2mdh08c575jcnetn.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.679196320947-nv1el320pl8a5ske9h6ec6np2a6hatk9</string>
+	<string>com.googleusercontent.apps.730559611242-ofo0cc94tvapj5qb2mdh08c575jcnetn</string>
 	<key>API_KEY</key>
-	<string>AIzaSyB6hVc1piym0Y3ZXiVFJP7JT1utHuBOXR4</string>
+	<string>AIzaSyAPwwt4YKMTAgwGtDKen0vMe1jSGWtbTMU</string>
 	<key>GCM_SENDER_ID</key>
-	<string>679196320947</string>
+	<string>730559611242</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.odden.jhsapp</string>
+	<string>com.odden.lifespace-dev</string>
 	<key>PROJECT_ID</key>
-	<string>jackson-heart</string>
+	<string>lifespace-95f52</string>
 	<key>STORAGE_BUCKET</key>
-	<string>jackson-heart.appspot.com</string>
+	<string>lifespace-95f52.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:679196320947:ios:3ab0b46c6abe48698dbcc6</string>
-	<key>DATABASE_URL</key>
-	<string>https://jackson-heart-default-rtdb.firebaseio.com</string>
+	<string>1:730559611242:ios:f22cd899ccefb0534ca513</string>
 </dict>
 </plist>
