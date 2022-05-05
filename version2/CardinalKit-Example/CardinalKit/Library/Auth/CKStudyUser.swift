@@ -53,7 +53,7 @@ class CKStudyUser {
     }
     
     fileprivate var rootAuthCollection: String? {
-        return "\(baseCollection)/ls_users/"
+        return "\(baseCollection)/study/ls_users/"
     }
 
     var email: String? {
