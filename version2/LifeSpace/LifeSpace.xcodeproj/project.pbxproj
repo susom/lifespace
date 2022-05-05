@@ -16,7 +16,6 @@
 		2BF6451826C1D0040020C206 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		2BF6452026C1DBE70020C206 /* CK_ORKSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF6451F26C1DBE70020C206 /* CK_ORKSerialization.swift */; };
 		2F94C5F22536543600DF8866 /* SceneDelegate+CardinalKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F94C5F12536543600DF8866 /* SceneDelegate+CardinalKit.swift */; };
-		46EC692E2E0C09FCC9887E90 /* Pods_CardinalKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6968D7D05F928BB9D62AB8E3 /* Pods_CardinalKit_Example.framework */; };
 		4F02D979274871A200F203B5 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F02D978274871A200F203B5 /* LocationView.swift */; };
 		4F02D97B274871C300F203B5 /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F02D97A274871C300F203B5 /* LocationFetcher.swift */; };
 		4F02D97D274871C800F203B5 /* NotificationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F02D97C274871C800F203B5 /* NotificationFetcher.swift */; };
@@ -84,6 +83,7 @@
 		8EA664AD2593380D00B6A45A /* SendRecordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA664AC2593380D00B6A45A /* SendRecordsView.swift */; };
 		8EA664B42594387900B6A45A /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA664B32594387900B6A45A /* Errors.swift */; };
 		8EBE6F9C24B3C0E60093D07C /* AppDelegate+CardinalKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBE6F9B24B3C0E60093D07C /* AppDelegate+CardinalKit.swift */; };
+		CDB17A80343E2173687D95D4 /* Pods_LifeSpace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84BBA002F4BBD324CC7C43DB /* Pods_LifeSpace.framework */; };
 		D253D132250D1BDB00A363E4 /* CKSignInWithAppleStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253D131250D1BDB00A363E4 /* CKSignInWithAppleStep.swift */; };
 		E235077724F7082700CC1899 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E235077624F7082700CC1899 /* SceneDelegate.swift */; };
 		E2680B1B260A72DD00B755EA /* LoginExistingUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2680B1A260A72DD00B755EA /* LoginExistingUserViewController.swift */; };
@@ -116,13 +116,13 @@
 		2BD5328426C30F2E00C4636E /* TaskItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItem.swift; sourceTree = "<group>"; };
 		2BF6451F26C1DBE70020C206 /* CK_ORKSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CK_ORKSerialization.swift; sourceTree = "<group>"; };
 		2F94C5F12536543600DF8866 /* SceneDelegate+CardinalKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SceneDelegate+CardinalKit.swift"; sourceTree = "<group>"; };
-		3C547BEF3DCA919DD22A2179 /* Pods-CardinalKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CardinalKit_Example.debug.xcconfig"; path = "Target Support Files/Pods-CardinalKit_Example/Pods-CardinalKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		41DC264876E45FE5A3FD8701 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		4F02D978274871A200F203B5 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		4F02D97A274871C300F203B5 /* LocationFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
 		4F02D97C274871C800F203B5 /* NotificationFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationFetcher.swift; sourceTree = "<group>"; };
-		607FACD01AFB9204008FA782 /* CardinalKit Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CardinalKit Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACD01AFB9204008FA782 /* LifeSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifeSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62AA5CD1C2188D392530510F /* CardinalKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CardinalKit.podspec; path = ../CardinalKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		633F929062350C5C4BCB4ABB /* Pods-LifeSpace.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeSpace.debug.xcconfig"; path = "Target Support Files/Pods-LifeSpace/Pods-LifeSpace.debug.xcconfig"; sourceTree = "<group>"; };
 		63A143DC280EDBA9001A54BC /* MapboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapboxView.swift; sourceTree = "<group>"; };
 		63A143DE280F1AAC001A54BC /* DailySurveyStartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySurveyStartButton.swift; sourceTree = "<group>"; };
 		63A143E0280F579E001A54BC /* PermissionLocationUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionLocationUIView.swift; sourceTree = "<group>"; };
@@ -131,15 +131,16 @@
 		63A82399280DD26E001D49A8 /* MapBoxMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBoxMap.swift; sourceTree = "<group>"; };
 		63A8239B280DD499001D49A8 /* AlternovaLocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlternovaLocationFetcher.swift; sourceTree = "<group>"; };
 		63A823A0280DFCBF001D49A8 /* JHMapDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHMapDataManager.swift; sourceTree = "<group>"; };
-		6968D7D05F928BB9D62AB8E3 /* Pods_CardinalKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CardinalKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8E0A4378244A4A0300656518 /* CardinalKit_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CardinalKit_Example-Bridging-Header.h"; sourceTree = "<group>"; };
+		7DF7E6FA70D4ACCD7B6FAA24 /* Pods-LifeSpace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeSpace.release.xcconfig"; path = "Target Support Files/Pods-LifeSpace/Pods-LifeSpace.release.xcconfig"; sourceTree = "<group>"; };
+		84BBA002F4BBD324CC7C43DB /* Pods_LifeSpace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LifeSpace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E0A4378244A4A0300656518 /* LifeSpace-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LifeSpace-Bridging-Header.h"; sourceTree = "<group>"; };
 		8E0A4382244A4A0400656518 /* CKStudyUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKStudyUser.swift; sourceTree = "<group>"; };
 		8E0A4384244A4A0400656518 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8E0A4386244A4A0400656518 /* ORKESerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORKESerialization.m; sourceTree = "<group>"; };
 		8E0A4387244A4A0400656518 /* ORKESerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORKESerialization.h; sourceTree = "<group>"; };
 		8E0A4388244A4A0400656518 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E0A438A244A4A0400656518 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8E0A438B244A4A0400656518 /* CardinalKit-Example.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "CardinalKit-Example.entitlements"; sourceTree = "<group>"; };
+		8E0A438B244A4A0400656518 /* LifeSpace.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = LifeSpace.entitlements; sourceTree = "<group>"; };
 		8E0A438F244A4A0400656518 /* TaskSamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskSamples.swift; sourceTree = "<group>"; };
 		8E0A4391244A4A0400656518 /* TaskItem_.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskItem_.swift; sourceTree = "<group>"; };
 		8E0A4396244A4A0400656518 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -189,7 +190,6 @@
 		8EA664AC2593380D00B6A45A /* SendRecordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendRecordsView.swift; sourceTree = "<group>"; };
 		8EA664B32594387900B6A45A /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		8EBE6F9B24B3C0E60093D07C /* AppDelegate+CardinalKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+CardinalKit.swift"; sourceTree = "<group>"; };
-		9DE0B4F50417600869EA8F41 /* Pods-CardinalKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CardinalKit_Example.release.xcconfig"; path = "Target Support Files/Pods-CardinalKit_Example/Pods-CardinalKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		D253D131250D1BDB00A363E4 /* CKSignInWithAppleStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKSignInWithAppleStep.swift; sourceTree = "<group>"; };
 		E235077624F7082700CC1899 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E2680B1A260A72DD00B755EA /* LoginExistingUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginExistingUserViewController.swift; sourceTree = "<group>"; };
@@ -208,7 +208,7 @@
 				8E9CDE972591534B00C8A228 /* CareKitUI in Frameworks */,
 				8E0A43D5244A693D00656518 /* HealthKit.framework in Frameworks */,
 				8E9CDE932591534B00C8A228 /* CareKitFHIR in Frameworks */,
-				46EC692E2E0C09FCC9887E90 /* Pods_CardinalKit_Example.framework in Frameworks */,
+				CDB17A80343E2173687D95D4 /* Pods_LifeSpace.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,7 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				8E0A43D4244A693D00656518 /* HealthKit.framework */,
-				6968D7D05F928BB9D62AB8E3 /* Pods_CardinalKit_Example.framework */,
+				84BBA002F4BBD324CC7C43DB /* Pods_LifeSpace.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -227,9 +227,9 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
-				8E0A438B244A4A0400656518 /* CardinalKit-Example.entitlements */,
+				8E0A438B244A4A0400656518 /* LifeSpace.entitlements */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
-				607FACD21AFB9204008FA782 /* CardinalKit-Example */,
+				607FACD21AFB9204008FA782 /* LifeSpace */,
 				607FACD11AFB9204008FA782 /* Products */,
 				A562A578C883F67F0DAE1385 /* Pods */,
 				2C45A885E8BD0CAC5349997A /* Frameworks */,
@@ -239,12 +239,12 @@
 		607FACD11AFB9204008FA782 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				607FACD01AFB9204008FA782 /* CardinalKit Example.app */,
+				607FACD01AFB9204008FA782 /* LifeSpace.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		607FACD21AFB9204008FA782 /* CardinalKit-Example */ = {
+		607FACD21AFB9204008FA782 /* LifeSpace */ = {
 			isa = PBXGroup;
 			children = (
 				8E0A4383244A4A0400656518 /* Supporting Files */,
@@ -255,7 +255,7 @@
 				E235077624F7082700CC1899 /* SceneDelegate.swift */,
 				2F94C5F12536543600DF8866 /* SceneDelegate+CardinalKit.swift */,
 			);
-			name = "CardinalKit-Example";
+			name = LifeSpace;
 			path = CardinalKit;
 			sourceTree = "<group>";
 		};
@@ -312,7 +312,7 @@
 				8E0A4388244A4A0400656518 /* Assets.xcassets */,
 				8E0A4389244A4A0400656518 /* LaunchScreen.storyboard */,
 				8E0A4384244A4A0400656518 /* Constants.swift */,
-				8E0A4378244A4A0300656518 /* CardinalKit_Example-Bridging-Header.h */,
+				8E0A4378244A4A0300656518 /* LifeSpace-Bridging-Header.h */,
 				8E0A43C9244A4C6500656518 /* Info.plist */,
 				276B0252282355A600FF6CA7 /* GoogleService-Info.plist */,
 				E2F1FD7724D62064006C39DF /* CKConfiguration.plist */,
@@ -514,8 +514,8 @@
 		A562A578C883F67F0DAE1385 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3C547BEF3DCA919DD22A2179 /* Pods-CardinalKit_Example.debug.xcconfig */,
-				9DE0B4F50417600869EA8F41 /* Pods-CardinalKit_Example.release.xcconfig */,
+				633F929062350C5C4BCB4ABB /* Pods-LifeSpace.debug.xcconfig */,
+				7DF7E6FA70D4ACCD7B6FAA24 /* Pods-LifeSpace.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -523,29 +523,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		607FACCF1AFB9204008FA782 /* CardinalKit_Example */ = {
+		607FACCF1AFB9204008FA782 /* LifeSpace */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "CardinalKit_Example" */;
+			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "LifeSpace" */;
 			buildPhases = (
-				F3E25ADCEEA8016ACFA43C89 /* [CP] Check Pods Manifest.lock */,
+				E5FB38512B2256FDB7A2A587 /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				8E0A43D0244A60D800656518 /* Embed Frameworks */,
-				D74F383095255630E04D8C22 /* [CP] Embed Pods Frameworks */,
+				84A40799C9944E3F9270152C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = CardinalKit_Example;
+			name = LifeSpace;
 			packageProductDependencies = (
 				8E9CDE922591534B00C8A228 /* CareKitFHIR */,
 				8E9CDE942591534B00C8A228 /* CareKit */,
 				8E9CDE962591534B00C8A228 /* CareKitUI */,
 			);
 			productName = CardinalKit;
-			productReference = 607FACD01AFB9204008FA782 /* CardinalKit Example.app */;
+			productReference = 607FACD01AFB9204008FA782 /* LifeSpace.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -564,7 +564,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "CardinalKit" */;
+			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "LifeSpace" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -581,7 +581,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				607FACCF1AFB9204008FA782 /* CardinalKit_Example */,
+				607FACCF1AFB9204008FA782 /* LifeSpace */,
 			);
 		};
 /* End PBXProject section */
@@ -602,13 +602,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		D74F383095255630E04D8C22 /* [CP] Embed Pods Frameworks */ = {
+		84A40799C9944E3F9270152C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CardinalKit_Example/Pods-CardinalKit_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-LifeSpace/Pods-LifeSpace-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/CardinalKit/CardinalKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FirebaseAuth/FirebaseAuth.framework",
@@ -681,10 +681,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CardinalKit_Example/Pods-CardinalKit_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LifeSpace/Pods-LifeSpace-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F3E25ADCEEA8016ACFA43C89 /* [CP] Check Pods Manifest.lock */ = {
+		E5FB38512B2256FDB7A2A587 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -699,7 +699,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CardinalKit_Example-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-LifeSpace-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -906,11 +906,11 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3C547BEF3DCA919DD22A2179 /* Pods-CardinalKit_Example.debug.xcconfig */;
+			baseConfigurationReference = 633F929062350C5C4BCB4ABB /* Pods-LifeSpace.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "CardinalKit-Example.entitlements";
+				CODE_SIGN_ENTITLEMENTS = LifeSpace.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ;
 				INFOPLIST_FILE = "CardinalKit/Supporting Files/Info.plist";
@@ -922,8 +922,8 @@
 				MARKETING_VERSION = 0.4;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.odden.lifespace-dev";
-				PRODUCT_NAME = "CardinalKit Example";
-				SWIFT_OBJC_BRIDGING_HEADER = "CardinalKit/Supporting Files/CardinalKit_Example-Bridging-Header.h";
+				PRODUCT_NAME = LifeSpace;
+				SWIFT_OBJC_BRIDGING_HEADER = "CardinalKit/Supporting Files/LifeSpace-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.2;
@@ -932,11 +932,11 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9DE0B4F50417600869EA8F41 /* Pods-CardinalKit_Example.release.xcconfig */;
+			baseConfigurationReference = 7DF7E6FA70D4ACCD7B6FAA24 /* Pods-LifeSpace.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "CardinalKit-Example.entitlements";
+				CODE_SIGN_ENTITLEMENTS = LifeSpace.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ;
 				INFOPLIST_FILE = "CardinalKit/Supporting Files/Info.plist";
@@ -948,8 +948,8 @@
 				MARKETING_VERSION = 0.4;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.odden.lifespace-dev";
-				PRODUCT_NAME = "CardinalKit Example";
-				SWIFT_OBJC_BRIDGING_HEADER = "CardinalKit/Supporting Files/CardinalKit_Example-Bridging-Header.h";
+				PRODUCT_NAME = LifeSpace;
+				SWIFT_OBJC_BRIDGING_HEADER = "CardinalKit/Supporting Files/LifeSpace-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.2;
 			};
@@ -958,7 +958,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "CardinalKit" */ = {
+		607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "LifeSpace" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				607FACED1AFB9204008FA782 /* Debug */,
@@ -967,7 +967,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "CardinalKit_Example" */ = {
+		607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "LifeSpace" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				607FACF01AFB9204008FA782 /* Debug */,

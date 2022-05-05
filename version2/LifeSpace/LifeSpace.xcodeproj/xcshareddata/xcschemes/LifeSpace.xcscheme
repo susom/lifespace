@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-               BuildableName = "CardinalKit Example.app"
-               BlueprintName = "CardinalKit_Example"
-               ReferencedContainer = "container:CardinalKit.xcodeproj">
+               BuildableName = "LifeSpace Example.app"
+               BlueprintName = "LifeSpace"
+               ReferencedContainer = "container:LifeSpace.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -31,7 +31,7 @@
                BlueprintIdentifier = "607FACE41AFB9204008FA782"
                BuildableName = "CardinalKit_Tests.xctest"
                BlueprintName = "CardinalKit_Tests"
-               ReferencedContainer = "container:CardinalKit.xcodeproj">
+               ReferencedContainer = "container:LifeSpace.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -59,9 +59,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "CardinalKit Example.app"
-            BlueprintName = "CardinalKit_Example"
-            ReferencedContainer = "container:CardinalKit.xcodeproj">
+            BuildableName = "LifeSpace Example.app"
+            BlueprintName = "LifeSpace"
+            ReferencedContainer = "container:LifeSpace.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <Testables>
@@ -72,7 +72,7 @@
                BlueprintIdentifier = "607FACE41AFB9204008FA782"
                BuildableName = "CardinalKit_Tests.xctest"
                BlueprintName = "CardinalKit_Tests"
-               ReferencedContainer = "container:CardinalKit.xcodeproj">
+               ReferencedContainer = "container:LifeSpace.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -92,9 +92,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "CardinalKit Example.app"
-            BlueprintName = "CardinalKit_Example"
-            ReferencedContainer = "container:CardinalKit.xcodeproj">
+            BuildableName = "LifeSpace Example.app"
+            BlueprintName = "LifeSpace"
+            ReferencedContainer = "container:LifeSpace.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -109,9 +109,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "CardinalKit Example.app"
-            BlueprintName = "CardinalKit_Example"
-            ReferencedContainer = "container:CardinalKit.xcodeproj">
+            BuildableName = "LifeSpace Example.app"
+            BlueprintName = "LifeSpace"
+            ReferencedContainer = "container:LifeSpace.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -93,7 +93,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
                     
                     UserDefaults.standard.set(true, forKey: Constants.prefsNotificationsSchedule)
                     let content = UNMutableNotificationContent()
-                    content.title = "Jackson Heart"
+                    content.title = "LifeSpace"
                     content.body = "Please Complete Daily Survey"
                     // Configure the recurring date.
                     var dateComponents = DateComponents()

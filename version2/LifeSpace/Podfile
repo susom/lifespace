@@ -1,6 +1,6 @@
 use_frameworks!
 
-target 'CardinalKit_Example' do
+target 'LifeSpace' do
   pod 'CardinalKit', :path => '../'
   
   # CK Sample Pods
