@@ -42,15 +42,15 @@ struct OnboardingViewController: UIViewControllerRepresentable {
         reviewConsentStep.reasonForConsent = config.read(query: "Reason for Consent Text")
         
         /* **************************************************************
-        *  STEP (3): get permission to collect HealthKit data
+        *  STEP (3): get permission to collect HealthKit data - DISABLED
         **************************************************************/
         // see `HealthDataStep` to configure!
-        let healthDataStep = CKHealthDataStep(identifier: "Healthkit")
+        // let healthDataStep = CKHealthDataStep(identifier: "Healthkit")
         
         /* **************************************************************
-        *  STEP (3.5): get permission to collect HealthKit health records data
+        *  STEP (3.5): get permission to collect HealthKit health records data - DISABLED
         **************************************************************/
-        let healthRecordsStep = CKHealthRecordsStep(identifier: "HealthRecords")
+        // let healthRecordsStep = CKHealthRecordsStep(identifier: "HealthRecords")
         
         /* **************************************************************
         *  STEP (4): ask user to enter their email address for login
@@ -107,7 +107,7 @@ struct OnboardingViewController: UIViewControllerRepresentable {
         let introSteps: [ORKStep] = [consentStep, reviewConsentStep]
         
         // and steps regarding login / security
-        let emailVerificationSteps = loginSteps + [passcodeStep, healthDataStep, healthRecordsStep, completionStep]
+        let emailVerificationSteps = loginSteps + [passcodeStep, completionStep]
         
         // guide the user through ALL steps
         let fullSteps = introSteps + emailVerificationSteps
