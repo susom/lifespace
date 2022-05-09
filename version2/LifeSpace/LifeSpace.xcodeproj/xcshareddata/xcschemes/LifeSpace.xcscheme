@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-               BuildableName = "LifeSpace Example.app"
+               BuildableName = "LifeSpace.app"
                BlueprintName = "LifeSpace"
                ReferencedContainer = "container:LifeSpace.xcodeproj">
             </BuildableReference>
@@ -59,7 +59,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "LifeSpace Example.app"
+            BuildableName = "LifeSpace.app"
             BlueprintName = "LifeSpace"
             ReferencedContainer = "container:LifeSpace.xcodeproj">
          </BuildableReference>
@@ -92,7 +92,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "LifeSpace Example.app"
+            BuildableName = "LifeSpace.app"
             BlueprintName = "LifeSpace"
             ReferencedContainer = "container:LifeSpace.xcodeproj">
          </BuildableReference>
@@ -109,7 +109,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "LifeSpace Example.app"
+            BuildableName = "LifeSpace.app"
             BlueprintName = "LifeSpace"
             ReferencedContainer = "container:LifeSpace.xcodeproj">
          </BuildableReference>

@@ -13,8 +13,8 @@ struct MainUIView: View {
     let color: Color
     let config = CKConfig.shared
     
-    @State var useCareKit = false
-    @State var carekitLoaded = false
+//    @State var useCareKit = false
+//    @State var carekitLoaded = false
     
     init() {
         self.color = Color(config.readColor(query: "Primary Color"))
@@ -25,12 +25,12 @@ struct MainUIView: View {
         TabView {
             MapManagerViewWrapper()
                 .tabItem{
-                    Image("tab_profile")
+                    Image(systemName: "house")
                         .renderingMode(.template)
                     Text("Home")
                 }
             
-            if useCareKit && carekitLoaded {
+//            if useCareKit && carekitLoaded {
 //                ScheduleViewControllerRepresentable()
 //                    .ignoresSafeArea(edges: .all)
 //                    .tabItem {
@@ -44,24 +44,23 @@ struct MainUIView: View {
 //                        Image("tab_care").renderingMode(.template)
 //                        Text("Contact")
 //                }
-            }
+//              }
 
             ProfileUIView(color: self.color).tabItem {
-                Image("tab_profile").renderingMode(.template)
+                Image("tab_profile")
+                    .renderingMode(.template)
                 Text("Profile")
             }
         }
         .accentColor(self.color)
-        .onAppear(perform: {
-            self.useCareKit = config.readBool(query: "Use CareKit")
+//        .onAppear(perform: {
+//            self.useCareKit = config.readBool(query: "Use CareKit")
             
-            let lastUpdateDate:Date? = UserDefaults.standard.object(forKey: Constants.prefCareKitCoreDataInitDate) as? Date
+//            let lastUpdateDate:Date? = UserDefaults.standard.object(forKey: Constants.prefCareKitCoreDataInitDate) as? Date
 //            CKCareKitManager.shared.coreDataStore.populateSampleData(lastUpdateDate:lastUpdateDate){() in
 //                self.carekitLoaded = true
 //            }
-            
-            
-        })
+//        })
     }
 }
 

@@ -11,7 +11,7 @@
 	<key>Phone</key>
 	<string></string>
 	<key>Copyright</key>
-	<string>Made at Stanford with ❤️</string>
+	<string>Built with CardinalKit at Stanford</string>
 	<key>Website</key>
 	<string>https://cardinalkit.org</string>
 	<key>Tint Color</key>
@@ -73,9 +73,9 @@
 	<key>Login Step Text</key>
 	<string>We need to confirm your email address and send you a copy of the consent you just signed.</string>
 	<key>Withdrawal Instruction Title</key>
-	<string>Are you sure you want to withdraw?</string>
+	<string>Are you sure you want to log out?</string>
 	<key>Withdrawal Instruction Text</key>
-	<string>Withdrawing from the study will reset the app to the state it was in prior to you originally joining the study.</string>
+	<string>Logging out from the study will reset the app to the state it was in prior to you originally joining the study.</string>
 	<key>Withdraw Title</key>
 	<string>We appreciate your time.</string>
 	<key>Withdraw Text</key>

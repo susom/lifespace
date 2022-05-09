@@ -20,7 +20,7 @@ struct PatientIDView: View {
     var body: some View {
         VStack {
             HStack {
-                Text("PATIENT ID").font(.system(.headline)).foregroundColor(Color(.greyText()))
+                Text("Participant ID").font(.system(.headline)).foregroundColor(Color(.greyText()))
                 Spacer()
             }
             HStack {

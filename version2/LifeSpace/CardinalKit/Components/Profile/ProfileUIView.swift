@@ -27,12 +27,12 @@ struct ProfileUIView: View {
                 Section {
                     // SendRecordsView()
                     ChangePasscodeView()
-                    HelpView(site: config.read(query: "Website"))
+                    //HelpView(site: config.read(query: "Website"))
                 }
                 
                 Section {
                     ReportView(color: self.color, email: config.read(query: "Email"))
-                    SupportView(color: self.color, phone: config.read(query: "Phone"))
+                    //SupportView(color: self.color, phone: config.read(query: "Phone"))
                     DocumentView()
                 }
                 

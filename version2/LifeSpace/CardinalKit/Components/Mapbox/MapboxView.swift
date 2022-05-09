@@ -27,6 +27,9 @@ class MapManagerView: UIViewController {
     var trackingButton:UIButton?=nil
     let pointsFetcher = AlternovaLocationFetcher.shared
     
+    let startTrackingLabel = "Start Tracking My Location"
+    let stopTrackingLabel = "Stop Tracking My Location"
+    
     override public func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,7 +45,7 @@ class MapManagerView: UIViewController {
         
         // TODO: add if location is tracking or not
         
-        button.setTitle("stop", for: .normal)
+        button.setTitle(stopTrackingLabel, for: .normal)
         button.backgroundColor = .red
         
         button.setTitleColor(.white, for: .normal)
@@ -74,12 +77,12 @@ class MapManagerView: UIViewController {
         pointsFetcher.startStopTracking()
         
         if pointsFetcher.tracking{
-            self.trackingButton?.setTitle("stop", for: .normal)
+            self.trackingButton?.setTitle(stopTrackingLabel, for: .normal)
             self.trackingButton?.backgroundColor = .systemRed
         }
         else{
-            self.trackingButton?.setTitle("start", for: .normal)
-            self.trackingButton?.backgroundColor = .systemBlue
+            self.trackingButton?.setTitle(startTrackingLabel, for: .normal)
+            self.trackingButton?.backgroundColor = .systemGreen
         }
     }
     

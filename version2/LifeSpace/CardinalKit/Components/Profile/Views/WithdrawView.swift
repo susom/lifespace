@@ -18,7 +18,7 @@ struct WithdrawView: View {
     
     var body: some View {
         HStack {
-            Text("Withdraw from Study").foregroundColor(self.color)
+            Text("Log out of Study").foregroundColor(self.color)
             Spacer()
             Text("›").foregroundColor(self.color)
         }.frame(height: 60)

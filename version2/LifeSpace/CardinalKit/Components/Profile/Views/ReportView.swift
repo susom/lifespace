@@ -19,7 +19,7 @@ struct ReportView: View {
     
     var body: some View {
         HStack {
-            Text("Report a Problem")
+            Text("Need Help?")
             Spacer()
             Text(self.email).foregroundColor(self.color)
         }
