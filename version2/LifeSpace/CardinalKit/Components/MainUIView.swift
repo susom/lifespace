@@ -51,6 +51,7 @@ struct MainUIView: View {
                     .renderingMode(.template)
                 Text("Profile")
             }
+            
         }
         .accentColor(self.color)
 //        .onAppear(perform: {
