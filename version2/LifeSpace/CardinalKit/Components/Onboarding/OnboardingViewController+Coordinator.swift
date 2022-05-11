@@ -22,6 +22,17 @@ class OnboardingViewCoordinator: NSObject, ORKTaskViewControllerDelegate {
             // trigger "Studies UI"
             UserDefaults.standard.set(true, forKey: Constants.onboardingDidComplete)
             
+            if let studyIDResult = taskViewController.result.stepResult(forStepIdentifier: "StudyIDEntryStep")?.results {
+                
+                let user = CKStudyUser.shared
+                
+                if let studyID = studyIDResult[0] as? ORKTextQuestionResult {
+                    user.studyID = studyID.textAnswer ?? ""
+                }
+                
+                user.save()
+            }
+            
             if let signatureResult = taskViewController.result.stepResult(forStepIdentifier: "ConsentReviewStep")?.results?.first as? ORKConsentSignatureResult {
                 
                 let consentDocument = ConsentDocument()

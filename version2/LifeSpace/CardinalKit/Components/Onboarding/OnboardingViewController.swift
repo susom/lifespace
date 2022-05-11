@@ -57,6 +57,9 @@ struct OnboardingViewController: UIViewControllerRepresentable {
         **************************************************************/
         // the `LoginStep` collects and email address, and
         // the `LoginCustomWaitStep` waits for email verification.
+        
+        let studyIDAnswerFormat = ORKAnswerFormat.textAnswerFormat(withMaximumLength: 10)
+        let studyIDEntryStep = ORKQuestionStep(identifier: "StudyIDEntryStep", title: "Study ID", question: "Enter your study ID:", answer: studyIDAnswerFormat)
 
         var loginSteps: [ORKStep]
         if config["Login-Sign-In-With-Apple"]["Enabled"] as? Bool == true {
@@ -107,7 +110,7 @@ struct OnboardingViewController: UIViewControllerRepresentable {
         let introSteps: [ORKStep] = [consentStep, reviewConsentStep]
         
         // and steps regarding login / security
-        let emailVerificationSteps = loginSteps + [passcodeStep, completionStep]
+        let emailVerificationSteps = loginSteps + [studyIDEntryStep, passcodeStep, completionStep]
         
         // guide the user through ALL steps
         let fullSteps = introSteps + emailVerificationSteps

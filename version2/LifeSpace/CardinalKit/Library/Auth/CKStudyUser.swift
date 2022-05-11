@@ -73,6 +73,8 @@ class CKStudyUser {
         return (currentUser?.isEmailVerified ?? false) && UserDefaults.standard.bool(forKey: Constants.prefConfirmedLogin)
     }
     
+    var studyID: String = ""
+    
     /**
     Send a login email to the user.
 
@@ -118,7 +120,7 @@ class CKStudyUser {
             settings.isPersistenceEnabled = false
             let db = Firestore.firestore()
             db.settings = settings
-            db.collection(dataBucket).document(uid).setData(["userID":uid, "lastActive":Date().ISOStringFromDate(),"email":email])
+            db.collection(dataBucket).document(uid).setData(["userID":uid, "studyID":studyID, "lastActive":Date().ISOStringFromDate(),"email":email])
         }
     }
     
