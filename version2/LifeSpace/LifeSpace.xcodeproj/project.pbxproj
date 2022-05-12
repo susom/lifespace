@@ -60,7 +60,7 @@
 		8E6E1E28253538CC0024B8DF /* TaskListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6E1E27253538CC0024B8DF /* TaskListItemView.swift */; };
 		8E6E1E2A2535398D0024B8DF /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6E1E292535398D0024B8DF /* HelpView.swift */; };
 		8E6E1E2C253539AE0024B8DF /* ChangePasscodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6E1E2B253539AE0024B8DF /* ChangePasscodeView.swift */; };
-		8E6E1E2E25353A1E0024B8DF /* PatientIDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6E1E2D25353A1E0024B8DF /* PatientIDView.swift */; };
+		8E6E1E2E25353A1E0024B8DF /* StudyIDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6E1E2D25353A1E0024B8DF /* StudyIDView.swift */; };
 		8E6E1E3225353ABE0024B8DF /* ProfileUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6E1E3125353ABE0024B8DF /* ProfileUIView.swift */; };
 		8E6E1E3425353AFE0024B8DF /* EmailHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6E1E3325353AFE0024B8DF /* EmailHelper.swift */; };
 		8E7FFFB425DCE9B7002982B4 /* CKUploadToGCPTaskViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7FFFB325DCE9B7002982B4 /* CKUploadToGCPTaskViewControllerDelegate.swift */; };
@@ -170,7 +170,7 @@
 		8E6E1E27253538CC0024B8DF /* TaskListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListItemView.swift; sourceTree = "<group>"; };
 		8E6E1E292535398D0024B8DF /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		8E6E1E2B253539AE0024B8DF /* ChangePasscodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasscodeView.swift; sourceTree = "<group>"; };
-		8E6E1E2D25353A1E0024B8DF /* PatientIDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientIDView.swift; sourceTree = "<group>"; };
+		8E6E1E2D25353A1E0024B8DF /* StudyIDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyIDView.swift; sourceTree = "<group>"; };
 		8E6E1E3125353ABE0024B8DF /* ProfileUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUIView.swift; sourceTree = "<group>"; };
 		8E6E1E3325353AFE0024B8DF /* EmailHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailHelper.swift; sourceTree = "<group>"; };
 		8E7FFFB325DCE9B7002982B4 /* CKUploadToGCPTaskViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKUploadToGCPTaskViewControllerDelegate.swift; sourceTree = "<group>"; };
@@ -419,7 +419,7 @@
 				8E6E1E1D253528F50024B8DF /* SupportView.swift */,
 				8E6E1E292535398D0024B8DF /* HelpView.swift */,
 				8E6E1E2B253539AE0024B8DF /* ChangePasscodeView.swift */,
-				8E6E1E2D25353A1E0024B8DF /* PatientIDView.swift */,
+				8E6E1E2D25353A1E0024B8DF /* StudyIDView.swift */,
 				8EA664AC2593380D00B6A45A /* SendRecordsView.swift */,
 			);
 			path = Views;
@@ -725,7 +725,7 @@
 				8E0A43B3244A4A0400656518 /* TaskSamples.swift in Sources */,
 				8E6E1E2225352C780024B8DF /* OnboardingUIView.swift in Sources */,
 				8E6E1E1A253528450024B8DF /* WithdrawView.swift in Sources */,
-				8E6E1E2E25353A1E0024B8DF /* PatientIDView.swift in Sources */,
+				8E6E1E2E25353A1E0024B8DF /* StudyIDView.swift in Sources */,
 				8E6E1E0B2534FF640024B8DF /* OnboardingViewController+Coordinator.swift in Sources */,
 				8E40DC042471E5940027536B /* CKNetworkManager.swift in Sources */,
 				63A82392280DAF2F001D49A8 /* JHMapQuestionStep.swift in Sources */,

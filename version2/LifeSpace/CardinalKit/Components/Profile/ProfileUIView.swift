@@ -21,7 +21,7 @@ struct ProfileUIView: View {
             Text("Profile").font(.system(size: 25, weight:.bold))
             List {
                 Section {
-                    PatientIDView()
+                    StudyIDView()
                 }.listRowBackground(Color.white)
                 
                 Section {
