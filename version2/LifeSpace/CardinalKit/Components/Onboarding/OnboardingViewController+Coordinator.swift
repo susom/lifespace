@@ -13,6 +13,9 @@ import CardinalKit
 class OnboardingViewCoordinator: NSObject, ORKTaskViewControllerDelegate {
     
     public func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
+        
+        let storage = Storage.storage()
+        
         switch reason {
         case .completed:
             // if we completed the onboarding task view controller, go to study.
@@ -41,10 +44,10 @@ class OnboardingViewCoordinator: NSObject, ORKTaskViewControllerDelegate {
                 consentDocument.makePDF { (data, error) -> Void in
                     
                     let config = CKPropertyReader(file: "CKConfiguration")
+                    let consentFileName = config.read(query: "Consent File Name")
                         
                     var docURL = (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)).last as NSURL?
-                    docURL = docURL?.appendingPathComponent("\(config.read(query: "Consent File Name")).pdf") as NSURL?
-                    
+                    docURL = docURL?.appendingPathComponent("\(consentFileName).pdf") as NSURL?
 
                     do {
                         let url = docURL! as URL
@@ -52,14 +55,26 @@ class OnboardingViewCoordinator: NSObject, ORKTaskViewControllerDelegate {
                         
                         UserDefaults.standard.set(url.path, forKey: "consentFormURL")
                         print(url.path)
+                        
+                        let storageRef = storage.reference()
+                        
+                        if let DocumentCollection = CKStudyUser.shared.authCollection {
+                            let DocumentRef = storageRef.child("\(DocumentCollection)/\(consentFileName).pdf")
+                            
+                            DocumentRef.putFile(from: url, metadata: nil) { metadata, error in
+                                if let error = error {
+                                    print(error.localizedDescription)
+                                } else {
+                                    print("Consent form uploaded successfully!")
+                                }
+                            }
+                        }
 
                     } catch let error {
-
                         print(error.localizedDescription)
                     }
                 }
             }
-            
             
             print("Login successful! task: \(taskViewController.task?.identifier ?? "(no ID)")")
             

@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct DocumentView: View {
     
@@ -14,11 +15,24 @@ struct DocumentView: View {
     var documentsURL: URL? = nil
     
     init() {
-        if let documentsPath = UserDefaults.standard.object(forKey: "consentFormURL") as? String {
-            self.documentsURL = URL(fileURLWithPath: documentsPath, isDirectory: false)
-            print("Opening document at:" + self.documentsURL!.path)
-        } else {
-            print("No consent document to open")
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+        if let DocumentCollection = CKStudyUser.shared.authCollection {
+            let config = CKPropertyReader(file: "CKConfiguration")
+            let consentFileName = config.read(query: "Consent File Name")
+            let DocumentRef = storageRef.child("\(DocumentCollection)/\(consentFileName).pdf")
+            // Create local filesystem URL
+            var docURL = (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)).last as NSURL?
+            docURL = docURL?.appendingPathComponent("\(consentFileName).pdf") as NSURL?
+            let url = docURL! as URL
+            self.documentsURL = URL(fileURLWithPath: url.path, isDirectory: false)
+            UserDefaults.standard.set(url.path, forKey: "consentFormURL")
+            // Download to the local filesystem
+            let downloadTask = DocumentRef.write(toFile: url) { url, error in
+              if let error = error {
+                  print("error \(error)")
+              }
+            }
         }
     }
     
