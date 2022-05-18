@@ -24,26 +24,24 @@ struct PermissionLocationUIView: View {
     var body: some View {
         
         VStack(spacing: 10) {
-            Image("CKLogo")
+            Image("LifeSpace")
                 .resizable()
                 .scaledToFit()
                 .padding(.leading, Metrics.PADDING_HORIZONTAL_MAIN*4)
                 .padding(.trailing, Metrics.PADDING_HORIZONTAL_MAIN*4)
             
-            Text("To ensure the collection of the information, it is necessary to authorize the use of the location for the application")
-                .multilineTextAlignment(.leading)
-                .font(.system(size: 18, weight: .bold, design: .default))
-                .padding(.leading, Metrics.PADDING_HORIZONTAL_MAIN*2)
-                .padding(.trailing, Metrics.PADDING_HORIZONTAL_MAIN*2)
+            Text("To participate in the study, please allow LifeSpace to access your location.")
+                .multilineTextAlignment(.center)
+                .font(.title)
+                .padding(10)
             
             if locationFetcher.canShowRequestMessage {
                 if locationFetcher.authorizationStatus == .authorizedWhenInUse{
-                    //Spacer()
-                    Text("click on the button and a window will appear where you must select Change to Always Allow.")
-                        .multilineTextAlignment(.leading)
-                        .font(.system(size: 18, weight: .regular, design: .default))
-                        .padding(.leading, Metrics.PADDING_HORIZONTAL_MAIN*2)
-                        .padding(.trailing, Metrics.PADDING_HORIZONTAL_MAIN*2)
+
+                    Text("Please tap the button below and select \"Change to Always Allow\" on the window that pops up.")
+                        .multilineTextAlignment(.center)
+                        .font(.title2)
+                        .padding(10)
                     
                     HStack {
                         
@@ -74,11 +72,10 @@ struct PermissionLocationUIView: View {
                     Image("secondTime")
                 }
                 else{
-                    Text("when you click on the button a window will appear in which you must select Allow While Using App.")
-                        .multilineTextAlignment(.leading)
-                        .font(.system(size: 18, weight: .regular, design: .default))
-                        .padding(.leading, Metrics.PADDING_HORIZONTAL_MAIN*2)
-                        .padding(.trailing, Metrics.PADDING_HORIZONTAL_MAIN*2)
+                    Text("Please tap the button below and select \"Allow While Using App\" on the window that pops up.")
+                        .multilineTextAlignment(.center)
+                        .font(.title2)
+                        .padding(10)
                     
                     HStack {
                         Spacer()
@@ -101,16 +98,15 @@ struct PermissionLocationUIView: View {
                 
                         Spacer()
                     }
-                    Image("firstTime")
+                    
                 }
                 
             }
             else{
-                Text("Please go to the localization settings and select ALWAYS")
-                    .multilineTextAlignment(.leading)
-                    .font(.system(size: 18, weight: .regular, design: .default))
-                    .padding(.leading, Metrics.PADDING_HORIZONTAL_MAIN*2)
-                    .padding(.trailing, Metrics.PADDING_HORIZONTAL_MAIN*2)
+                Text("Please go to location settings and select \"Always\".")
+                    .multilineTextAlignment(.center)
+                    .font(.title2)
+                    .padding(10)
                 HStack {
                     Spacer()
                     Button(action: {
@@ -121,7 +117,7 @@ struct PermissionLocationUIView: View {
                             UIApplication.shared.open(settingsUrl, completionHandler: { (success) in })
                          }
                     }, label: {
-                        Text("Allow")
+                        Text("Location Settings")
                             .padding(Metrics.PADDING_BUTTON_LABEL)
                             .frame(maxWidth: .infinity)
                             .foregroundColor(self.color)
@@ -136,26 +132,10 @@ struct PermissionLocationUIView: View {
                         Spacer()
                     
                 }
-                    Image("external1")
-                    Image("external2")
                 
             }
             
-//            Text("\(locationFetcher.authorizationStatus.rawValue)")
-//
-//            if locationFetcher.authorizationStatus != .authorizedWhenInUse && locationFetcher.authorizationStatus != .authorizedAlways{
-//
-//            }
-//            else if (locationFetcher.authorizationStatus == .authorizedWhenInUse){
-//
-//            }
             Spacer()
-            
-            Image("SBDLogoGrey")
-                .resizable()
-                .scaledToFit()
-                .padding(.leading, Metrics.PADDING_HORIZONTAL_MAIN*4)
-                .padding(.trailing, Metrics.PADDING_HORIZONTAL_MAIN*4)
             
         }
     }

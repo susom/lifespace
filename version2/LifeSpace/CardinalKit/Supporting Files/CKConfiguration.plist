@@ -31,17 +31,11 @@
 	<key>Completion Step Title</key>
 	<string>Welcome aboard.</string>
 	<key>Completion Step Text</key>
-	<string>This step concludes the onboarding and consent process of the CardinalKit framework. Next up, you will see main app functionality.</string>
+	<string>This step concludes the onboarding and consent process for LifeSpace!</string>
 	<key>Failed Login Title</key>
 	<string>Unable to Login 😔</string>
 	<key>Failed Login Text</key>
 	<string>Please try again in five minutes.</string>
-	<key>Health Permissions Title</key>
-	<string>Permission to read Activity Data 🏃🏽‍♀️</string>
-	<key>Health Permissions Text</key>
-	<string>Use this text to provide an explanation to your app participants about what activity data you intend to read from the Health app and why. This sample will read step count, distance, heart rate, and flights climbed data.</string>
-	<key>Background Read Frequency</key>
-	<string>immediate</string>
 	<key>Login-Sign-In-With-Apple</key>
 	<dict>
 		<key>Enabled</key>
@@ -68,9 +62,9 @@
 	<key>Passcode On Return Text</key>
 	<string>Welcome back!</string>
 	<key>Consent Title</key>
-	<string>Research Health Study Consent Form</string>
+	<string>LifeSpace Study Consent Form</string>
 	<key>Use CareKit</key>
-	<true/>
+	<false/>
 	<key>Consent Form</key>
 	<dict>
 		<key>Overview</key>
