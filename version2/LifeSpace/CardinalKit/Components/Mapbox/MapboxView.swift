@@ -54,16 +54,17 @@ class MapManagerView: UIViewController {
         
         trackingButton = button
         
-        self.view.addSubview(button)
+//        *** MOVED Tracking Button to HomeView ***
+//        self.view.addSubview(button)
         
-        let surveyButton = UIButton(frame: CGRect(x: 200, y: 100, width: 350, height: 50))
-        surveyButton.center.x = view.center.x
-        surveyButton.backgroundColor = .red
-        surveyButton.setTitle("Take Daily Survey", for: .normal)
-        surveyButton.addTarget(self, action: #selector(startSurvey), for: .touchUpInside)
-        surveyButton.layer.cornerRadius = 10
-        
-        self.view.addSubview(surveyButton)
+//        let surveyButton = UIButton(frame: CGRect(x: 200, y: 100, width: 350, height: 50))
+//        surveyButton.center.x = view.center.x
+//        surveyButton.backgroundColor = .red
+//        surveyButton.setTitle("Take Daily Survey", for: .normal)
+//        surveyButton.addTarget(self, action: #selector(startSurvey), for: .touchUpInside)
+//        surveyButton.layer.cornerRadius = 10
+//
+//        self.view.addSubview(surveyButton)
         
     }
     
@@ -86,19 +87,19 @@ class MapManagerView: UIViewController {
         pointsFetcher.locationFetcher.lastKnownLocation = mapView.location.latestLocation?.coordinate
     }
     
-    @objc
-    func startSurvey(){
-        // Only show survey if it is later than 7pm in the user's local time zone
-        let hour = Calendar.current.component(.hour, from: Date())
-        if(hour >= 19){
-            let surveyUIView = CKTaskViewController(tasks: DailySurveyTask(showInstructions: false))
-            let hostingController = UIHostingController(rootView: surveyUIView)
-            present(hostingController, animated: true, completion: nil)
-        } else {
-            let alert = UIAlertController(title: "Survey Not Available", message:"Please come back after 7pm to take your survey!", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
-    }
+//    @objc
+//    func startSurvey(){
+//        // Only show survey if it is later than 7pm in the user's local time zone
+//        let hour = Calendar.current.component(.hour, from: Date())
+//        if(hour >= 19){
+//            let surveyUIView = CKTaskViewController(tasks: DailySurveyTask(showInstructions: false))
+//            let hostingController = UIHostingController(rootView: surveyUIView)
+//            present(hostingController, animated: true, completion: nil)
+//        } else {
+//            let alert = UIAlertController(title: "Survey Not Available", message:"Please come back after 7pm to take your survey!", preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+//            self.present(alert, animated: true, completion: nil)
+//        }
+//    }
     
 }

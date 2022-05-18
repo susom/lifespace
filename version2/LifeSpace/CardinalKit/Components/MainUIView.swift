@@ -23,7 +23,7 @@ struct MainUIView: View {
     
     var body: some View {
         TabView {
-            MapManagerViewWrapper()
+            HomeView()
                 .tabItem{
                     Image(systemName: "house")
                         .renderingMode(.template)

@@ -18,7 +18,7 @@ struct mapPoint: Hashable{
 class JHMapDataManager: NSObject{
     static let shared = JHMapDataManager()
     
-    func getAllMapPoints(onCompletion: @escaping (Any) ->Void){
+    func getAllMapPoints(date: Date, onCompletion: @escaping (Any) ->Void){
         guard let mapPointPath = CKStudyUser.shared.mapPointsCollection else {
             onCompletion(false)
             return
