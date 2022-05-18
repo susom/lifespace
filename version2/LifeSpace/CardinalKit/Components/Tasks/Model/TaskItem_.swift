@@ -17,8 +17,7 @@ enum LocalTaskItem: Int {
      * Give each item a recognizable name!
      */
     case sampleResearchKitSurvey,
-         sampleLocation,
-         sampleLearnItem
+         sampleLocation
          
     /*
      * STEP (2) for each item, what should its
@@ -30,8 +29,6 @@ enum LocalTaskItem: Int {
             return "Location"
         case .sampleResearchKitSurvey:
             return "Survey (ResearchKit)"
-        case .sampleLearnItem:
-            return "About CardinalKit"
         }
     }
         
@@ -44,8 +41,6 @@ enum LocalTaskItem: Int {
             return "Track your location"
         case .sampleResearchKitSurvey:
             return "Daily Survey"
-        case .sampleLearnItem:
-            return "Visit cardinalkit.org"
         }
     }
     
@@ -58,8 +53,6 @@ enum LocalTaskItem: Int {
         switch self {
         case .sampleLocation:
              return getImage(named: "ActivityIcon")
-        case .sampleLearnItem:
-            return getImage(named: "CKLogoIcon")
         default:
             return getImage(named: "SurveyIcon")
         }
@@ -72,8 +65,6 @@ enum LocalTaskItem: Int {
         switch self {
         case .sampleResearchKitSurvey, .sampleLocation:
             return "Current Tasks"
-        case .sampleLearnItem:
-            return "Learn"
         }
     }
 
@@ -87,8 +78,6 @@ enum LocalTaskItem: Int {
             return AnyView(CKTaskViewController(tasks: TaskSamples.sampleSurveyTask))
         case .sampleLocation:
             return AnyView(LocationView())
-        case .sampleLearnItem:
-            return AnyView(LearnUIView())
         }
     }
     
