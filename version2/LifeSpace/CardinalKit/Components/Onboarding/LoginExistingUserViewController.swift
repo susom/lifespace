@@ -46,12 +46,20 @@ struct LoginExistingUserViewController: UIViewControllerRepresentable {
         }
         passcodeStep.text = config.read(query: "Passcode Text")
         
-        // set health data permissions
+        // *** Health Data collection is disabled for this project ***
         // let healthDataStep = CKHealthDataStep(identifier: "HealthKit")
         // let healthRecordsStep = CKHealthRecordsStep(identifier: "HealthRecords")
         
+        // get consent if user doesn't have a consent document in cloud storage
+        let consentDocument = ConsentDocument()
+        let signature = consentDocument.signatures?.first
+        let reviewConsentStep = ORKConsentReviewStep(identifier: "ConsentReviewStep", signature: signature, in: consentDocument)
+        reviewConsentStep.text = config.read(query: "Review Consent Step Text")
+        reviewConsentStep.reasonForConsent = config.read(query: "Reason for Consent Text")
+        let consentReview = CKReviewConsentDocument(identifier: "ConsentReview")
+        
         // create a task with each step
-        loginSteps += [passcodeStep]
+        loginSteps += [consentReview, reviewConsentStep, passcodeStep]
         let orderedTask = ORKOrderedTask(identifier: "StudyLoginTask", steps: loginSteps)
         
         // wrap that task on a view controller

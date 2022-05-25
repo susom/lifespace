@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		27653A13272A2E7700D74E83 /* LocalTaskListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27653A12272A2E7700D74E83 /* LocalTaskListItemView.swift */; };
 		276B0253282355A600FF6CA7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 276B0252282355A600FF6CA7 /* GoogleService-Info.plist */; };
+		277DC91928355FC100C12FB2 /* CKReviewConsentDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277DC91828355FC100C12FB2 /* CKReviewConsentDocument.swift */; };
 		27FCB9652834A828009B02CD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FCB9642834A828009B02CD /* HomeView.swift */; };
 		2B19DD9226FE1BEB00649CE1 /* JsonToSurvey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B19DD9126FE1BEB00649CE1 /* JsonToSurvey.swift */; };
 		2B19DD9426FE1D2600649CE1 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B19DD9326FE1D2600649CE1 /* TestViewController.swift */; };
 		2BD5328326C2CC4E00C4636E /* CkResearchSurveysManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD5328226C2CC4E00C4636E /* CkResearchSurveysManager.swift */; };
 		2BD5328526C30F2E00C4636E /* TaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD5328426C30F2E00C4636E /* TaskItem.swift */; };
-		2BF6451826C1D0040020C206 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		2BF6451826C1D0040020C206 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		2BF6452026C1DBE70020C206 /* CK_ORKSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF6451F26C1DBE70020C206 /* CK_ORKSerialization.swift */; };
 		2F94C5F22536543600DF8866 /* SceneDelegate+CardinalKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F94C5F12536543600DF8866 /* SceneDelegate+CardinalKit.swift */; };
 		4F02D979274871A200F203B5 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F02D978274871A200F203B5 /* LocationView.swift */; };
@@ -106,6 +107,7 @@
 		07D78DA16FC9C3C7709EA243 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		27653A12272A2E7700D74E83 /* LocalTaskListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTaskListItemView.swift; sourceTree = "<group>"; };
 		276B0252282355A600FF6CA7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		277DC91828355FC100C12FB2 /* CKReviewConsentDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKReviewConsentDocument.swift; sourceTree = "<group>"; };
 		27FCB9642834A828009B02CD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2B19DD9126FE1BEB00649CE1 /* JsonToSurvey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonToSurvey.swift; sourceTree = "<group>"; };
 		2B19DD9326FE1D2600649CE1 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 				8E6E1E0C25351D8F0024B8DF /* PageViewController.swift */,
 				8E6E1E13253520440024B8DF /* PasscodeViewController.swift */,
 				E2680B1A260A72DD00B755EA /* LoginExistingUserViewController.swift */,
+				277DC91828355FC100C12FB2 /* CKReviewConsentDocument.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -743,10 +746,11 @@
 				8EA664B42594387900B6A45A /* Errors.swift in Sources */,
 				8E6E1E1225351F830024B8DF /* DocumentPreviewViewController.swift in Sources */,
 				8E6E1E20253529760024B8DF /* DocumentView.swift in Sources */,
-				2BF6451826C1D0040020C206 /* BuildFile in Sources */,
+				2BF6451826C1D0040020C206 /* (null) in Sources */,
 				27FCB9652834A828009B02CD /* HomeView.swift in Sources */,
 				2B19DD9226FE1BEB00649CE1 /* JsonToSurvey.swift in Sources */,
 				8E0A43B5244A4A0400656518 /* TaskItem_.swift in Sources */,
+				277DC91928355FC100C12FB2 /* CKReviewConsentDocument.swift in Sources */,
 				63A143DF280F1AAD001A54BC /* DailySurveyStartButton.swift in Sources */,
 				2BD5328326C2CC4E00C4636E /* CkResearchSurveysManager.swift in Sources */,
 				8E6E1E2C253539AE0024B8DF /* ChangePasscodeView.swift in Sources */,
