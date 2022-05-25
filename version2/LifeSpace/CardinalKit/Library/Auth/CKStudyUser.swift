@@ -52,6 +52,14 @@ class CKStudyUser {
         return "\(baseCollection)/"
     }
     
+    var consentCollection: String? {
+        if let authCollection = authCollection {
+            return "\(authCollection)ls_consent/"
+        }
+        
+        return nil
+    }
+    
     fileprivate var rootAuthCollection: String? {
         return "\(baseCollection)/study/ls_users/"
     }

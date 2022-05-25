@@ -34,10 +34,10 @@ public class CKReviewConsentDocumentViewController:ORKQuestionStepViewController
         let storage = Storage.storage()
         let storageRef = storage.reference()
         // REVIEW IF DOCUMENT EXIST
-        if let DocumentCollection = CKStudyUser.shared.authCollection {
+        if let DocumentCollection = CKStudyUser.shared.consentCollection {
             let config = CKPropertyReader(file: "CKConfiguration")
             let consentFileName = config.read(query: "Consent File Name")
-            let DocumentRef = storageRef.child("\(DocumentCollection)/Consent.pdf")
+            let DocumentRef = storageRef.child("\(DocumentCollection)\(consentFileName).pdf")
             // Create local filesystem URL
             var docURL = (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)).last as NSURL?
             docURL = docURL?.appendingPathComponent("\(consentFileName).pdf") as NSURL?
@@ -45,17 +45,13 @@ public class CKReviewConsentDocumentViewController:ORKQuestionStepViewController
             // Download to the local filesystem
             let downloadTask = DocumentRef.write(toFile: url) { url, error in
               if let error = error {
-                // Uh-oh, an error occurred!
+                  print(error.localizedDescription)
                   self.setAnswer(false)
               } else {
                   self.setAnswer(true)
-                  
               }
                 super.goForward()
             }
         }
-        
-        // SELF IF DOCUMENT EXIST
-       
     }
 }

@@ -17,10 +17,10 @@ struct DocumentView: View {
     init() {
         let storage = Storage.storage()
         let storageRef = storage.reference()
-        if let DocumentCollection = CKStudyUser.shared.authCollection {
+        if let DocumentCollection = CKStudyUser.shared.consentCollection {
             let config = CKPropertyReader(file: "CKConfiguration")
             let consentFileName = config.read(query: "Consent File Name")
-            let DocumentRef = storageRef.child("\(DocumentCollection)/\(consentFileName).pdf")
+            let DocumentRef = storageRef.child("\(DocumentCollection)\(consentFileName).pdf")
             // Create local filesystem URL
             var docURL = (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)).last as NSURL?
             docURL = docURL?.appendingPathComponent("\(consentFileName).pdf") as NSURL?
