@@ -12,7 +12,7 @@ struct StudyIDView: View {
     var studyID = ""
     
     init() {
-        self.studyID = CKStudyUser.shared.studyID
+        self.studyID = CKStudyUser.shared.studyID ?? "No ID registered"
     }
     
     var body: some View {

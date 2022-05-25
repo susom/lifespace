@@ -73,7 +73,18 @@ class CKStudyUser {
         return (currentUser?.isEmailVerified ?? false) && UserDefaults.standard.bool(forKey: Constants.prefConfirmedLogin)
     }
     
-    var studyID: String = ""
+    var studyID: String? {
+        get {
+            return UserDefaults.standard.string(forKey: Constants.prefStudyID)
+        }
+        set {
+            if let newValue = newValue {
+                UserDefaults.standard.set(newValue, forKey: Constants.prefStudyID)
+            } else {
+                UserDefaults.standard.removeObject(forKey: Constants.prefStudyID)
+            }
+        }
+    }
     
     /**
     Send a login email to the user.
@@ -120,7 +131,7 @@ class CKStudyUser {
             settings.isPersistenceEnabled = false
             let db = Firestore.firestore()
             db.settings = settings
-            db.collection(dataBucket).document(uid).setData(["userID":uid, "studyID":studyID, "lastActive":Date().ISOStringFromDate(),"email":email])
+            db.collection(dataBucket).document(uid).setData(["userID":uid, "studyID":studyID ?? "", "lastActive":Date().ISOStringFromDate(),"email":email])
         }
     }
     
@@ -129,6 +140,7 @@ class CKStudyUser {
     */
     func signOut() throws {
         email = nil
+        studyID = nil
         try Auth.auth().signOut()
     }
     
