@@ -71,29 +71,45 @@
 		<dict>
 			<key>Title</key>
 			<string>Hi there! 👋🏽</string>
+			<key>FormalTitle</key>
+			<string>Introduction</string>
 			<key>Summary</key>
-			<string>This is a pilot study to develop individual life space maps of the geographic footprint where you spend time each day. This data will be collected using the Life Space app. The app will passively collect your location and will require 5 minutes to complete a survey at the end of each day. You can turn off the app temporarily if you visit a location that you wish to keep private. The duration of this study will be two weeks (14 days). At the end of the data collection period you will be sent a survey asking about your experiences using the app; this survey will take less than 10 minutes to complete.
-</string>
+			<string>This is a pilot study to develop individual life space maps of the geographic footprint where you spend time each day. This data will be collected using the Life Space app.
+
+The app will passively collect your location and will require 5 minutes to complete a survey at the end of each day. You can turn off the app temporarily if you visit a location that you wish to keep private. 
+
+The duration of this study will be two weeks (14 days). At the end of the data collection period you will be sent a survey asking about your experiences using the app; this survey will take less than 10 minutes to complete.</string>
 			<key>Content</key>
-			<string>This is a pilot study to develop individual life space maps of the geographic footprint where you spend time each day. This data will be collected using the Life Space app. The app will passively collect your location and will require 5 minutes to complete a survey at the end of each day. You can turn off the app temporarily if you visit a location that you wish to keep private. The duration of this study will be two weeks (14 days). At the end of the data collection period you will be sent a survey asking about your experiences using the app; this survey will take less than 10 minutes to complete.
-</string>
+			<string>This is a pilot study to develop individual life space maps of the geographic footprint where you spend time each day. This data will be collected using the Life Space app.
+&lt;br /&gt;&lt;br /&gt;
+The app will passively collect your location and will require 5 minutes to complete a survey at the end of each day. You can turn off the app temporarily if you visit a location that you wish to keep private. 
+&lt;br /&gt;&lt;br /&gt;
+The duration of this study will be two weeks (14 days). At the end of the data collection period you will be sent a survey asking about your experiences using the app; this survey will take less than 10 minutes to complete.</string>
 		</dict>
 		<key>DataGathering</key>
 		<dict>
 			<key>Title</key>
 			<string>Data Gathering</string>
+			<key>FormalTitle</key>
+			<string>Data Gathering</string>
 			<key>Summary</key>
-			<string>We will collect the coordinates of your location throughout the day along with the time that you were in that location. We will also collect your name and Apple ID. Risks: The primary risk is a potential loss of privacy, but we have taken all measures to minimize this risk. If for any reason you do not wish to have your location recorded temporarily, click ‘Stop’ and the location will stop recording until you start it again. Your data are stored securely, and your name and Apple ID will be removed from your data when it is downloaded.
-Benefits: We cannot guarantee any benefits to you in this study apart from a deeper understanding of how you have spent your time during the day. We also hope that you will have a sense of satisfaction in participating in an epidemiological study.
-</string>
+			<string>We will collect the coordinates of your location throughout the day along with the time that you were in that location. We will also collect your name and Apple ID. 
+
+Risks: The primary risk is a potential loss of privacy, but we have taken all measures to minimize this risk. If for any reason you do not wish to have your location recorded temporarily, click ‘Stop’ and the location will stop recording until you start it again. Your data are stored securely, and your name and Apple ID will be removed from your data when it is downloaded.
+
+Benefits: We cannot guarantee any benefits to you in this study apart from a deeper understanding of how you have spent your time during the day. We also hope that you will have a sense of satisfaction in participating in an epidemiological study.</string>
 			<key>Content</key>
-			<string>We will collect the coordinates of your location throughout the day along with the time that you were in that location. We will also collect your name and Apple ID. Risks: The primary risk is a potential loss of privacy, but we have taken all measures to minimize this risk. If for any reason you do not wish to have your location recorded temporarily, click ‘Stop’ and the location will stop recording until you start it again. Your data are stored securely, and your name and Apple ID will be removed from your data when it is downloaded.
-Benefits: We cannot guarantee any benefits to you in this study apart from a deeper understanding of how you have spent your time during the day. We also hope that you will have a sense of satisfaction in participating in an epidemiological study.
-</string>
+			<string>We will collect the coordinates of your location throughout the day along with the time that you were in that location. We will also collect your name and Apple ID. 
+&lt;br /&gt;&lt;br /&gt;
+Risks: The primary risk is a potential loss of privacy, but we have taken all measures to minimize this risk. If for any reason you do not wish to have your location recorded temporarily, click ‘Stop’ and the location will stop recording until you start it again. Your data are stored securely, and your name and Apple ID will be removed from your data when it is downloaded.
+&lt;br /&gt;&lt;br /&gt;
+Benefits: We cannot guarantee any benefits to you in this study apart from a deeper understanding of how you have spent your time during the day. We also hope that you will have a sense of satisfaction in participating in an epidemiological study.</string>
 		</dict>
 		<key>Privacy</key>
 		<dict>
 			<key>Title</key>
+			<string>Privacy</string>
+			<key>FormalTitle</key>
 			<string>Privacy</string>
 			<key>Summary</key>
 			<string>The information in this study will be used only for research purposes. This study is not anonymous. This consent form and your data will be visible to study staff from the Odden Lab.
@@ -106,16 +122,18 @@ Benefits: We cannot guarantee any benefits to you in this study apart from a dee
 		<dict>
 			<key>Title</key>
 			<string>Data Use</string>
+			<key>FormalTitle</key>
+			<string>Data Use</string>
 			<key>Summary</key>
-			<string>Your name will be shared with the REGARDS coordinating center so that they know you are participating in this ancillary study. Your data will be used for research within the Odden lab at Stanford University. Your data will be deidentified and returned to the REGARDS coordinating Center for linkage with other data collected as part of REGARDS.
-</string>
+			<string>Your name will be shared with the REGARDS coordinating center so that they know you are participating in this ancillary study. Your data will be used for research within the Odden lab at Stanford University. Your data will be deidentified and returned to the REGARDS coordinating center for linkage with other data collected as part of REGARDS.</string>
 			<key>Content</key>
-			<string>Your name will be shared with the REGARDS coordinating center so that they know you are participating in this ancillary study. Your data will be used for research within the Odden lab at Stanford University. Your data will be deidentified and returned to the REGARDS coordinating Center for linkage with other data collected as part of REGARDS.
-</string>
+			<string>Your name will be shared with the REGARDS coordinating center so that they know you are participating in this ancillary study. Your data will be used for research within the Odden lab at Stanford University. Your data will be deidentified and returned to the REGARDS coordinating center for linkage with other data collected as part of REGARDS.</string>
 		</dict>
 		<key>TimeCommitment</key>
 		<dict>
 			<key>Title</key>
+			<string>Time Commitment</string>
+			<key>FormalTitle</key>
 			<string>Time Commitment</string>
 			<key>Summary</key>
 			<string>This study will take place over the course of 14 days. You will complete one survey at 7pm each day that should take no more than five minutes to complete that will ask you how you are feeling mentally and physically, as well as determine if your life space map is accurate. If it is not accurate, you will be asked to describe how it is inaccurate. The close out survey will take less than 10 minutes to complete.
@@ -128,6 +146,8 @@ Benefits: We cannot guarantee any benefits to you in this study apart from a dee
 		<dict>
 			<key>Title</key>
 			<string>Study Survey</string>
+			<key>FormalTitle</key>
+			<string>Study Survey</string>
 			<key>Summary</key>
 			<string>You will be reminded to take a 5 minute survey at the end of each day at 7pm. The survey will ask you how you are feeling mentally and physically, as well as determine if your life space map is accurate. If it is not accurate, you will be asked how it is inaccurate.
 </string>
@@ -138,6 +158,8 @@ Benefits: We cannot guarantee any benefits to you in this study apart from a dee
 		<key>Withdrawing</key>
 		<dict>
 			<key>Title</key>
+			<string>Withdrawing</string>
+			<key>FormalTitle</key>
 			<string>Withdrawing</string>
 			<key>Summary</key>
 			<string>You may withdraw from the study at any time. You will be compensated for the days that you participate.

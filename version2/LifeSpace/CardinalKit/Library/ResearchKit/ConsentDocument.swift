@@ -43,8 +43,14 @@ class ConsentDocument: ORKConsentDocument {
                 let errorMessage = "We didn't find a consent form for your project. Did you configure the CKConfiguration.plist file already?"
             
                 section.title = NSLocalizedString(consentSection["Title"] ?? ":(", comment: "")
-                section.summary = NSLocalizedString(consentSection["Summary"] ?? errorMessage, comment: "")
-                section.content = NSLocalizedString(consentSection["Content"] ?? errorMessage, comment: "")
+                
+                // if a formal title is defined, use that for the consent document
+                if let formalTitle = consentSection["FormalTitle"] {
+                    section.formalTitle = NSLocalizedString(formalTitle, comment: "")
+                }
+                
+                section.summary = consentSection["Summary"] ?? errorMessage
+                section.htmlContent = NSLocalizedString(consentSection["Content"] ?? errorMessage, comment: "")
                 
                 sections?.append(section)
             }
