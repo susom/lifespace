@@ -12,6 +12,29 @@ import CardinalKit
 
 class OnboardingViewCoordinator: NSObject, ORKTaskViewControllerDelegate {
     
+    public func taskViewController(_ taskViewController: ORKTaskViewController, shouldPresent step: ORKStep) -> Bool {
+        
+        /* The study ID entry comes before the Passcode step, so we will check if the ID is valid before
+         attempting to show the passcode step, and show an alert if it is not. */
+        if(step.identifier == "Passcode"){
+            if let studyIDResult = taskViewController.result.stepResult(forStepIdentifier: "StudyIDEntryStep")?.results {
+                if let studyID = studyIDResult[0] as? ORKTextQuestionResult {
+                    if studyID.textAnswer == "1234" {
+                        return true
+                    } else {
+                        let alert = UIAlertController(title: nil, message: "The ID entered is invalid, please try again", preferredStyle: .alert)
+                        let confirmAction = UIAlertAction(title: "OK", style: .default)
+                        alert.addAction(confirmAction)
+                        taskViewController.present(alert, animated: false, completion: nil)
+                        return false
+                    }
+                }
+            }
+        }
+        
+        return true
+    }
+    
     public func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
         
         let storage = Storage.storage()
