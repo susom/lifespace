@@ -44,29 +44,6 @@ struct OnboardingUIView: View {
         VStack(spacing: 10) {
             Spacer()
             
-            /* Image("SBDLogoGrey")
-                .resizable()
-                .scaledToFit()
-                .padding(.leading, Metrics.PADDING_HORIZONTAL_MAIN*4)
-                .padding(.trailing, Metrics.PADDING_HORIZONTAL_MAIN*4)
-             
-            
-            Spacer(minLength: 2)
-            
-            Text(config.read(query: "Study Title"))
-                .foregroundColor(self.color)
-                .multilineTextAlignment(.center)
-                .font(.system(size: 35, weight: .bold, design: .default))
-                .padding(.leading, Metrics.PADDING_HORIZONTAL_MAIN)
-                .padding(.trailing, Metrics.PADDING_HORIZONTAL_MAIN)
-            
-            Text(config.read(query: "Team Name"))
-                .padding(.leading, Metrics.PADDING_HORIZONTAL_MAIN)
-                .padding(.trailing, Metrics.PADDING_HORIZONTAL_MAIN)
-
-            PageView(self.onboardingElements.map { InfoView(logo: $0.logo, title: $0.title, description: $0.description, color: self.color) })
-             */
-            
             Image("LifeSpace")
                 .resizable()
                 .scaledToFit()
@@ -123,8 +100,6 @@ struct OnboardingUIView: View {
         
                 Spacer()
             }
-            
-            Spacer()
         }
     }
 }

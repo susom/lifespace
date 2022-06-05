@@ -3,7 +3,7 @@
 //  LifeSpace
 //
 //  Created by Vishnu Ravi on 5/18/22.
-//  Copyright © 2022 CocoaPods. All rights reserved.
+//  Copyright © 2022 LifeSpace. All rights reserved.
 //
 
 import SwiftUI

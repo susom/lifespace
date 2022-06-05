@@ -25,14 +25,11 @@ struct ProfileUIView: View {
                 }.listRowBackground(Color.white)
                 
                 Section {
-                    // SendRecordsView()
                     ChangePasscodeView()
-                    //HelpView(site: config.read(query: "Website"))
                 }
                 
                 Section {
                     ReportView(color: self.color, email: config.read(query: "Email"))
-                    //SupportView(color: self.color, phone: config.read(query: "Phone"))
                     DocumentView()
                 }
                 

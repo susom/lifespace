@@ -13,9 +13,6 @@ struct MainUIView: View {
     let color: Color
     let config = CKConfig.shared
     
-//    @State var useCareKit = false
-//    @State var carekitLoaded = false
-    
     init() {
         self.color = Color(config.readColor(query: "Primary Color"))
         
@@ -29,22 +26,6 @@ struct MainUIView: View {
                         .renderingMode(.template)
                     Text("Home")
                 }
-            
-//            if useCareKit && carekitLoaded {
-//                ScheduleViewControllerRepresentable()
-//                    .ignoresSafeArea(edges: .all)
-//                    .tabItem {
-//                        Image("tab_schedule").renderingMode(.template)
-//                        Text("Schedule")
-//                }
-                
-//                CareTeamViewControllerRepresentable()
-//                    .ignoresSafeArea(edges: .all)
-//                    .tabItem {
-//                        Image("tab_care").renderingMode(.template)
-//                        Text("Contact")
-//                }
-//              }
 
             ProfileUIView(color: self.color).tabItem {
                 Image("tab_profile")
@@ -54,14 +35,6 @@ struct MainUIView: View {
             
         }
         .accentColor(self.color)
-//        .onAppear(perform: {
-//            self.useCareKit = config.readBool(query: "Use CareKit")
-            
-//            let lastUpdateDate:Date? = UserDefaults.standard.object(forKey: Constants.prefCareKitCoreDataInitDate) as? Date
-//            CKCareKitManager.shared.coreDataStore.populateSampleData(lastUpdateDate:lastUpdateDate){() in
-//                self.carekitLoaded = true
-//            }
-//        })
     }
 }
 

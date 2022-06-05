@@ -1,5 +1,5 @@
 //
-//  StudyTableItem.swift
+//  LocalTaskItem.swift
 //
 //  Created for the CardinalKit Framework.
 //  Copyright © 2019 Stanford University. All rights reserved.
@@ -11,36 +11,36 @@ import ResearchKit
 import SwiftUI
 
 enum LocalTaskItem: Int {
-
+    
     /*
      * STEP (1) APPEND TABLE ITEMS HERE,
      * Give each item a recognizable name!
      */
     case sampleResearchKitSurvey,
-         sampleLocation
-         
+         sampleResearchKitActiveTask
+    
     /*
      * STEP (2) for each item, what should its
      * title on the list be?
      */
     var title: String {
         switch self {
-        case .sampleLocation:
-            return "Location"
         case .sampleResearchKitSurvey:
             return "Survey (ResearchKit)"
+        case .sampleResearchKitActiveTask:
+            return "Active Task (ResearchKit)"
         }
     }
-        
+    
     /*
      * STEP (3) do you need a subtitle?
      */
     var subtitle: String {
         switch self {
-        case .sampleLocation:
-            return "Track your location"
         case .sampleResearchKitSurvey:
-            return "Daily Survey"
+            return "Sample questions and forms."
+        case .sampleResearchKitActiveTask:
+            return "Sample sensor/data collection activities."
         }
     }
     
@@ -51,8 +51,8 @@ enum LocalTaskItem: Int {
      */
     var image: UIImage? {
         switch self {
-        case .sampleLocation:
-             return getImage(named: "ActivityIcon")
+        case .sampleResearchKitActiveTask:
+            return getImage(named: "ActivityIcon")
         default:
             return getImage(named: "SurveyIcon")
         }
@@ -63,11 +63,11 @@ enum LocalTaskItem: Int {
      */
     var section: String {
         switch self {
-        case .sampleResearchKitSurvey, .sampleLocation:
+        case .sampleResearchKitSurvey, .sampleResearchKitActiveTask:
             return "Current Tasks"
         }
     }
-
+    
     /*
      * STEP (6) when each element is tapped, what should happen?
      * define a SwiftUI View & return as AnyView.
@@ -76,8 +76,8 @@ enum LocalTaskItem: Int {
         switch self {
         case .sampleResearchKitSurvey:
             return AnyView(CKTaskViewController(tasks: TaskSamples.sampleSurveyTask))
-        case .sampleLocation:
-            return AnyView(LocationView())
+        case .sampleResearchKitActiveTask:
+            return AnyView(CKTaskViewController(tasks: TaskSamples.sampleWalkingTask))
         }
     }
     

@@ -10,11 +10,13 @@
 		27653A13272A2E7700D74E83 /* LocalTaskListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27653A12272A2E7700D74E83 /* LocalTaskListItemView.swift */; };
 		276B0253282355A600FF6CA7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 276B0252282355A600FF6CA7 /* GoogleService-Info.plist */; };
 		277DC91928355FC100C12FB2 /* CKReviewConsentDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277DC91828355FC100C12FB2 /* CKReviewConsentDocument.swift */; };
+		27B78918284CE8610006C02F /* LocalTaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B78917284CE8610006C02F /* LocalTaskItem.swift */; };
+		27B7891A284CE86A0006C02F /* CloudTaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B78919284CE86A0006C02F /* CloudTaskItem.swift */; };
+		27B7891C284CE89F0006C02F /* TasksUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B7891B284CE89F0006C02F /* TasksUIView.swift */; };
+		27B7891E284CE9260006C02F /* CloudTaskListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B7891D284CE9260006C02F /* CloudTaskListItemView.swift */; };
 		27FCB9652834A828009B02CD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FCB9642834A828009B02CD /* HomeView.swift */; };
 		2B19DD9226FE1BEB00649CE1 /* JsonToSurvey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B19DD9126FE1BEB00649CE1 /* JsonToSurvey.swift */; };
-		2B19DD9426FE1D2600649CE1 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B19DD9326FE1D2600649CE1 /* TestViewController.swift */; };
 		2BD5328326C2CC4E00C4636E /* CkResearchSurveysManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD5328226C2CC4E00C4636E /* CkResearchSurveysManager.swift */; };
-		2BD5328526C30F2E00C4636E /* TaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD5328426C30F2E00C4636E /* TaskItem.swift */; };
 		2BF6451826C1D0040020C206 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		2BF6452026C1DBE70020C206 /* CK_ORKSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF6451F26C1DBE70020C206 /* CK_ORKSerialization.swift */; };
 		2F94C5F22536543600DF8866 /* SceneDelegate+CardinalKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F94C5F12536543600DF8866 /* SceneDelegate+CardinalKit.swift */; };
@@ -35,7 +37,6 @@
 		8E0A43AF244A4A0400656518 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E0A4388244A4A0400656518 /* Assets.xcassets */; };
 		8E0A43B0244A4A0400656518 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E0A4389244A4A0400656518 /* LaunchScreen.storyboard */; };
 		8E0A43B3244A4A0400656518 /* TaskSamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A438F244A4A0400656518 /* TaskSamples.swift */; };
-		8E0A43B5244A4A0400656518 /* TaskItem_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A4391244A4A0400656518 /* TaskItem_.swift */; };
 		8E0A43B9244A4A0400656518 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A4396244A4A0400656518 /* AppDelegate.swift */; };
 		8E0A43BE244A4A0400656518 /* CKHealthDataStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A439D244A4A0400656518 /* CKHealthDataStepViewController.swift */; };
 		8E0A43C0244A4A0400656518 /* PasswordlessLoginStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A439F244A4A0400656518 /* PasswordlessLoginStep.swift */; };
@@ -58,8 +59,6 @@
 		8E6E1E20253529760024B8DF /* DocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6E1E1F253529760024B8DF /* DocumentView.swift */; };
 		8E6E1E2225352C780024B8DF /* OnboardingUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6E1E2125352C780024B8DF /* OnboardingUIView.swift */; };
 		8E6E1E24253537580024B8DF /* MainUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6E1E23253537580024B8DF /* MainUIView.swift */; };
-		8E6E1E26253537E40024B8DF /* TasksUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6E1E25253537E40024B8DF /* TasksUIView.swift */; };
-		8E6E1E28253538CC0024B8DF /* TaskListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6E1E27253538CC0024B8DF /* TaskListItemView.swift */; };
 		8E6E1E2A2535398D0024B8DF /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6E1E292535398D0024B8DF /* HelpView.swift */; };
 		8E6E1E2C253539AE0024B8DF /* ChangePasscodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6E1E2B253539AE0024B8DF /* ChangePasscodeView.swift */; };
 		8E6E1E2E25353A1E0024B8DF /* StudyIDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6E1E2D25353A1E0024B8DF /* StudyIDView.swift */; };
@@ -70,7 +69,6 @@
 		8E9CDE952591534B00C8A228 /* CareKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8E9CDE942591534B00C8A228 /* CareKit */; };
 		8E9CDE972591534B00C8A228 /* CareKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8E9CDE962591534B00C8A228 /* CareKitUI */; };
 		8E9CDEAD259170AD00C8A228 /* CKCareKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9CDEAC259170AD00C8A228 /* CKCareKitManager.swift */; };
-		8E9CDEB22591739A00C8A228 /* TipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9CDEB12591739A00C8A228 /* TipView.swift */; };
 		8E9CDEBA2591843200C8A228 /* CKConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9CDEB92591843200C8A228 /* CKConfig.swift */; };
 		8E9CDED02591AC4A00C8A228 /* CKHealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9CDECF2591AC4A00C8A228 /* CKHealthKitManager.swift */; };
 		8E9CDF142591B73900C8A228 /* CKHealthRecordsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9CDF132591B73900C8A228 /* CKHealthRecordsManager.swift */; };
@@ -108,11 +106,13 @@
 		27653A12272A2E7700D74E83 /* LocalTaskListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTaskListItemView.swift; sourceTree = "<group>"; };
 		276B0252282355A600FF6CA7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		277DC91828355FC100C12FB2 /* CKReviewConsentDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKReviewConsentDocument.swift; sourceTree = "<group>"; };
+		27B78917284CE8610006C02F /* LocalTaskItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalTaskItem.swift; sourceTree = "<group>"; };
+		27B78919284CE86A0006C02F /* CloudTaskItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudTaskItem.swift; sourceTree = "<group>"; };
+		27B7891B284CE89F0006C02F /* TasksUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksUIView.swift; sourceTree = "<group>"; };
+		27B7891D284CE9260006C02F /* CloudTaskListItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudTaskListItemView.swift; sourceTree = "<group>"; };
 		27FCB9642834A828009B02CD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2B19DD9126FE1BEB00649CE1 /* JsonToSurvey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonToSurvey.swift; sourceTree = "<group>"; };
-		2B19DD9326FE1D2600649CE1 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		2BD5328226C2CC4E00C4636E /* CkResearchSurveysManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CkResearchSurveysManager.swift; sourceTree = "<group>"; };
-		2BD5328426C30F2E00C4636E /* TaskItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItem.swift; sourceTree = "<group>"; };
 		2BF6451F26C1DBE70020C206 /* CK_ORKSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CK_ORKSerialization.swift; sourceTree = "<group>"; };
 		2F94C5F12536543600DF8866 /* SceneDelegate+CardinalKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SceneDelegate+CardinalKit.swift"; sourceTree = "<group>"; };
 		41DC264876E45FE5A3FD8701 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -138,7 +138,6 @@
 		8E0A438A244A4A0400656518 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E0A438B244A4A0400656518 /* LifeSpace.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = LifeSpace.entitlements; sourceTree = "<group>"; };
 		8E0A438F244A4A0400656518 /* TaskSamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskSamples.swift; sourceTree = "<group>"; };
-		8E0A4391244A4A0400656518 /* TaskItem_.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskItem_.swift; sourceTree = "<group>"; };
 		8E0A4396244A4A0400656518 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E0A439D244A4A0400656518 /* CKHealthDataStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKHealthDataStepViewController.swift; sourceTree = "<group>"; };
 		8E0A439F244A4A0400656518 /* PasswordlessLoginStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordlessLoginStep.swift; sourceTree = "<group>"; };
@@ -162,8 +161,6 @@
 		8E6E1E1F253529760024B8DF /* DocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentView.swift; sourceTree = "<group>"; };
 		8E6E1E2125352C780024B8DF /* OnboardingUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingUIView.swift; sourceTree = "<group>"; };
 		8E6E1E23253537580024B8DF /* MainUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUIView.swift; sourceTree = "<group>"; };
-		8E6E1E25253537E40024B8DF /* TasksUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksUIView.swift; sourceTree = "<group>"; };
-		8E6E1E27253538CC0024B8DF /* TaskListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListItemView.swift; sourceTree = "<group>"; };
 		8E6E1E292535398D0024B8DF /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		8E6E1E2B253539AE0024B8DF /* ChangePasscodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasscodeView.swift; sourceTree = "<group>"; };
 		8E6E1E2D25353A1E0024B8DF /* StudyIDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyIDView.swift; sourceTree = "<group>"; };
@@ -171,7 +168,6 @@
 		8E6E1E3325353AFE0024B8DF /* EmailHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailHelper.swift; sourceTree = "<group>"; };
 		8E7FFFB325DCE9B7002982B4 /* CKUploadToGCPTaskViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKUploadToGCPTaskViewControllerDelegate.swift; sourceTree = "<group>"; };
 		8E9CDEAC259170AD00C8A228 /* CKCareKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKCareKitManager.swift; sourceTree = "<group>"; };
-		8E9CDEB12591739A00C8A228 /* TipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipView.swift; sourceTree = "<group>"; };
 		8E9CDEB92591843200C8A228 /* CKConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKConfig.swift; sourceTree = "<group>"; };
 		8E9CDECF2591AC4A00C8A228 /* CKHealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKHealthKitManager.swift; sourceTree = "<group>"; };
 		8E9CDF132591B73900C8A228 /* CKHealthRecordsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKHealthRecordsManager.swift; sourceTree = "<group>"; };
@@ -319,7 +315,7 @@
 			children = (
 				8E9CDF7F2591E62000C8A228 /* Model */,
 				8E6E1E2F25353A550024B8DF /* Views */,
-				8E6E1E25253537E40024B8DF /* TasksUIView.swift */,
+				27B7891B284CE89F0006C02F /* TasksUIView.swift */,
 			);
 			path = Tasks;
 			sourceTree = "<group>";
@@ -394,9 +390,8 @@
 				4F02D97C274871C800F203B5 /* NotificationFetcher.swift */,
 				4F02D97A274871C300F203B5 /* LocationFetcher.swift */,
 				4F02D978274871A200F203B5 /* LocationView.swift */,
-				8E6E1E27253538CC0024B8DF /* TaskListItemView.swift */,
+				27B7891D284CE9260006C02F /* CloudTaskListItemView.swift */,
 				27653A12272A2E7700D74E83 /* LocalTaskListItemView.swift */,
-				63A143E0280F579E001A54BC /* PermissionLocationUIView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -431,6 +426,7 @@
 				8E6E1E23253537580024B8DF /* MainUIView.swift */,
 				27FCB9642834A828009B02CD /* HomeView.swift */,
 				E29143FB24E74AD100EE97B2 /* LaunchUIView.swift */,
+				63A143E0280F579E001A54BC /* PermissionLocationUIView.swift */,
 				8E0A4399244A4A0400656518 /* Onboarding */,
 				8E9CDEA525915F6600C8A228 /* Schedule */,
 				8E0A438D244A4A0400656518 /* Tasks */,
@@ -450,8 +446,6 @@
 		8E9CDEB02591737A00C8A228 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2B19DD9326FE1D2600649CE1 /* TestViewController.swift */,
-				8E9CDEB12591739A00C8A228 /* TipView.swift */,
 				63A8238F280DAD49001D49A8 /* DailySurveyViewController.swift */,
 				63A82391280DAF2F001D49A8 /* JHMapQuestionStep.swift */,
 				63A143DE280F1AAC001A54BC /* DailySurveyStartButton.swift */,
@@ -472,8 +466,8 @@
 			isa = PBXGroup;
 			children = (
 				8E0A438F244A4A0400656518 /* TaskSamples.swift */,
-				8E0A4391244A4A0400656518 /* TaskItem_.swift */,
-				2BD5328426C30F2E00C4636E /* TaskItem.swift */,
+				27B78917284CE8610006C02F /* LocalTaskItem.swift */,
+				27B78919284CE86A0006C02F /* CloudTaskItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -707,12 +701,10 @@
 				E2DF9F0A2500C9CE00A93B93 /* LoginViewController.swift in Sources */,
 				63A143E1280F579E001A54BC /* PermissionLocationUIView.swift in Sources */,
 				8E6E1E14253520440024B8DF /* PasscodeViewController.swift in Sources */,
-				2B19DD9426FE1D2600649CE1 /* TestViewController.swift in Sources */,
 				E29143FC24E74AD100EE97B2 /* LaunchUIView.swift in Sources */,
 				8EA6648725930B6B00B6A45A /* CKHealthRecordsStepViewController.swift in Sources */,
 				8E0A43C0244A4A0400656518 /* PasswordlessLoginStep.swift in Sources */,
 				8EA664AD2593380D00B6A45A /* SendRecordsView.swift in Sources */,
-				8E6E1E28253538CC0024B8DF /* TaskListItemView.swift in Sources */,
 				8E0A43B3244A4A0400656518 /* TaskSamples.swift in Sources */,
 				8E6E1E2225352C780024B8DF /* OnboardingUIView.swift in Sources */,
 				8E6E1E1A253528450024B8DF /* WithdrawView.swift in Sources */,
@@ -732,8 +724,8 @@
 				8E6E1E3225353ABE0024B8DF /* ProfileUIView.swift in Sources */,
 				63A8239C280DD499001D49A8 /* AlternovaLocationFetcher.swift in Sources */,
 				8E6E1E1E253528F50024B8DF /* SupportView.swift in Sources */,
+				27B7891C284CE89F0006C02F /* TasksUIView.swift in Sources */,
 				8E6E1E1C253528D70024B8DF /* ReportView.swift in Sources */,
-				8E6E1E26253537E40024B8DF /* TasksUIView.swift in Sources */,
 				63A143DD280EDBA9001A54BC /* MapboxView.swift in Sources */,
 				8E9CDEAD259170AD00C8A228 /* CKCareKitManager.swift in Sources */,
 				8EA664892593213000B6A45A /* CKSendHelper.swift in Sources */,
@@ -748,8 +740,8 @@
 				8E6E1E20253529760024B8DF /* DocumentView.swift in Sources */,
 				2BF6451826C1D0040020C206 /* (null) in Sources */,
 				27FCB9652834A828009B02CD /* HomeView.swift in Sources */,
+				27B78918284CE8610006C02F /* LocalTaskItem.swift in Sources */,
 				2B19DD9226FE1BEB00649CE1 /* JsonToSurvey.swift in Sources */,
-				8E0A43B5244A4A0400656518 /* TaskItem_.swift in Sources */,
 				277DC91928355FC100C12FB2 /* CKReviewConsentDocument.swift in Sources */,
 				63A143DF280F1AAD001A54BC /* DailySurveyStartButton.swift in Sources */,
 				2BD5328326C2CC4E00C4636E /* CkResearchSurveysManager.swift in Sources */,
@@ -758,15 +750,15 @@
 				8E0A43BE244A4A0400656518 /* CKHealthDataStepViewController.swift in Sources */,
 				2BF6452026C1DBE70020C206 /* CK_ORKSerialization.swift in Sources */,
 				4F02D979274871A200F203B5 /* LocationView.swift in Sources */,
+				27B7891E284CE9260006C02F /* CloudTaskListItemView.swift in Sources */,
+				27B7891A284CE86A0006C02F /* CloudTaskItem.swift in Sources */,
 				8E0A43AE244A4A0400656518 /* ORKESerialization.m in Sources */,
 				63A8239A280DD26E001D49A8 /* MapBoxMap.swift in Sources */,
 				63A823A1280DFCBF001D49A8 /* JHMapDataManager.swift in Sources */,
-				2BD5328526C30F2E00C4636E /* TaskItem.swift in Sources */,
 				D253D132250D1BDB00A363E4 /* CKSignInWithAppleStep.swift in Sources */,
 				8E6E1E0D25351D8F0024B8DF /* PageViewController.swift in Sources */,
 				8E0A43AC244A4A0400656518 /* CKStudyUser.swift in Sources */,
 				8E0A43C3244A4A0400656518 /* LoginCustomWaitStepViewController.swift in Sources */,
-				8E9CDEB22591739A00C8A228 /* TipView.swift in Sources */,
 				E2F1FD7624D61EDA006C39DF /* CKPropertyReader.swift in Sources */,
 				8E6E1E1025351E890024B8DF /* Extensions+UIColor.swift in Sources */,
 				E235077724F7082700CC1899 /* SceneDelegate.swift in Sources */,
