@@ -32,6 +32,15 @@ class OnboardingViewCoordinator: NSObject, ORKTaskViewControllerDelegate {
             }
         }
         
+        // Only allow users to continue the onboarding process if they consent
+        if let consentStepResult = taskViewController.result.stepResult(forStepIdentifier: "ConsentReviewStep")?.results,
+           let signatureResult = consentStepResult[0] as? ORKConsentSignatureResult {
+            if !signatureResult.consented {
+                taskViewController.dismiss(animated: false, completion: nil)
+                return false
+            }
+        }
+        
         return true
     }
     
