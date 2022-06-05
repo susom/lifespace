@@ -31,4 +31,6 @@ class Constants {
     
     static let JHFirstLocationRequest = "JHFirstLocationRequest"
     
+    static let validStudyIDs = ["1234", "1235", "1236"]
+    
 }

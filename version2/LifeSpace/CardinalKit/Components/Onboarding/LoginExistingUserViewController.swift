@@ -27,6 +27,9 @@ struct LoginExistingUserViewController: UIViewControllerRepresentable {
         
         var loginSteps: [ORKStep]
         
+        let studyIDAnswerFormat = ORKAnswerFormat.textAnswerFormat(withMaximumLength: 10)
+        let studyIDEntryStep = ORKQuestionStep(identifier: "StudyIDEntryStep", title: "Study ID", question: "Enter your study ID:", answer: studyIDAnswerFormat)
+        
         if config["Login-Sign-In-With-Apple"]["Enabled"] as? Bool == true {
             let signInWithAppleStep = CKSignInWithAppleStep(identifier: "SignExistingInWithApple")
             loginSteps = [signInWithAppleStep]
@@ -59,7 +62,7 @@ struct LoginExistingUserViewController: UIViewControllerRepresentable {
         let consentReview = CKReviewConsentDocument(identifier: "ConsentReview")
         
         // create a task with each step
-        loginSteps += [consentReview, reviewConsentStep, passcodeStep]
+        loginSteps += [consentReview, reviewConsentStep, studyIDEntryStep, passcodeStep]
         let orderedTask = ORKOrderedTask(identifier: "StudyLoginTask", steps: loginSteps)
         
         // wrap that task on a view controller
