@@ -26,7 +26,7 @@ class CKStudyUser {
      * store your Firebase objects under this path in order to
      * be compatible with CardinalKit GCP rules.
     **************************************************************/
-    let baseCollection = "/com.odden.lifespace"
+    let baseCollection = "/edu.stanford.lifespace"
     
     var authCollection: String? {
         if let userId = currentUser?.uid,
