@@ -45,7 +45,7 @@ public class CKReviewConsentDocumentViewController:ORKQuestionStepViewController
             // Download to the local filesystem
             let downloadTask = DocumentRef.write(toFile: url) { url, error in
               if let error = error {
-                  print(error.localizedDescription)
+                  print("Consent Error: " + error.localizedDescription)
                   self.setAnswer(false)
               } else {
                   self.setAnswer(true)
