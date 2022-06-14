@@ -236,6 +236,8 @@ class OnboardingViewCoordinator: NSObject, ORKTaskViewControllerDelegate {
         case is CKSignInWithAppleStep:
             // handle Sign in with Apple
             return CKSignInWithAppleStepViewController(step: step)
+        case is CKReviewConsentDocument:
+            return CKReviewConsentDocumentViewController(step: step)
         default:
             return nil
         }
