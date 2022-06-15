@@ -30,21 +30,23 @@ struct HomeView: View {
                 
                 Spacer()
                 
-                Button("Take Daily Survey"){
+                Button {
                     if(surveyActive){
                         self.showingSurvey.toggle()
                     } else {
                         self.showingSurveyAlert.toggle()
                     }
+                } label: {
+                    Text("Take Daily Survey")
+                        .frame(maxWidth: .infinity)
+                        .padding()
                 }
-                .frame(maxWidth: .infinity)
-                .padding()
                 .foregroundColor(.white)
                 .background(Color("primaryRed"))
                 .clipShape(RoundedRectangle(cornerRadius: 5))
                 .padding(5)
                 .alert(isPresented: $showingSurveyAlert){
-                    Alert(title: Text("Survey Not Available"), message: Text("Please come back after 7:00 PM to complete your daily survey!"), dismissButton: .default(Text("OK")))
+                    Alert(title: Text("Survey Not Available Yet"), message: Text("Please come back after 7:00 PM to complete your daily survey!"), dismissButton: .default(Text("OK")))
                 }
                 .sheet(isPresented: $showingSurvey){
                     CKTaskViewController(tasks: DailySurveyTask(showInstructions: false))
