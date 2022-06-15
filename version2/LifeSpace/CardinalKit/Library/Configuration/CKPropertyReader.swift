@@ -11,38 +11,38 @@ import UIKit
 import SwiftUI
 
 public class CKPropertyReader {
-    
+
     var data: [String: AnyObject] = [:]
-    
+
     init(file: String) {
-        
+
         // read input plist file
         var propertyListFormat =  PropertyListSerialization.PropertyListFormat.xml
         let plistPath: String? = Bundle.main.path(forResource: file, ofType: "plist")!
         let plistXML = FileManager.default.contents(atPath: plistPath!)!
-        
+       
         // convert plist file into dictionary
         do {
-            self.data = try PropertyListSerialization.propertyList(from: plistXML, options: .mutableContainersAndLeaves, format: &propertyListFormat) as! [String:AnyObject]
+           self.data = try PropertyListSerialization.propertyList(from: plistXML, options: .mutableContainersAndLeaves, format: &propertyListFormat) as! [String:AnyObject]
 
         } catch {
             print("Error reading plist: \(error), format: \(propertyListFormat)")
         }
     }
-    
+   
     // read from stored value
     func read(query: String) -> String {
         return data[query] as! String
     }
-    
+   
     func readBool(query: String) -> Bool {
         return data[query] as! Bool
     }
-    
+   
     func readAny(query: String) -> AnyObject {
         return data[query]!
     }
-    
+   
     // read from stored dictionary
     func readDict(query: String) -> [String:String] {
         return data[query] as! [String:String]

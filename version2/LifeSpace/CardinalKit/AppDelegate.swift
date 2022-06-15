@@ -62,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 // Extensions add new functionality to an existing class, structure, enumeration, or protocol type.
 // https://docs.swift.org/swift-book/LanguageGuide/Extensions.html
-extension AppDelegate: UNUserNotificationCenterDelegate{
+extension AppDelegate: UNUserNotificationCenterDelegate {
     
     /**
      The first time that our app runs we have to make sure that :
@@ -82,7 +82,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
         }
     }
     
-    fileprivate func configureNotifications(){
+    fileprivate func configureNotifications() {
         let center = UNUserNotificationCenter.current()
         center.delegate = self
         if !UserDefaults.standard.bool(forKey: Constants.prefsNotificationsSchedule) {
@@ -90,7 +90,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
                 if granted {
                     center.removeAllPendingNotificationRequests()
                     center.removeAllDeliveredNotifications()
-                    
+
                     UserDefaults.standard.set(true, forKey: Constants.prefsNotificationsSchedule)
                     let content = UNMutableNotificationContent()
                     content.title = "LifeSpace"
@@ -116,7 +116,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
             }
         }
     }
-    
+
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         LaunchModel.sharedinstance.showSurveyAfterPasscode = true
         // you must call the completion handler when you're done

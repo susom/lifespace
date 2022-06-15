@@ -29,7 +29,7 @@ struct OnboardingUIView: View {
     var onComplete: (() -> Void)? = nil
     
     init(onComplete: (() -> Void)? = nil) {
-        let onboardingData = config.readAny(query: "Onboarding") as! [[String:String]]
+        let onboardingData = config.readAny(query: "Onboarding") as! [[String: String]]
         
         
         self.color = Color(config.readColor(query: "Primary Color"))
@@ -122,7 +122,7 @@ struct InfoView: View {
                 )
 
             Text(title).font(.title)
-            
+
             Text(description)
                 .font(.body)
                 .multilineTextAlignment(.center)
