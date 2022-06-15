@@ -1,0 +1,12 @@
+before_install:
+  - echo -e "machine api.mapbox.com\n  login mapbox\n password $MAPBOX_TOKEN" > ~/.netrc
+  - gem install cocoapods
+install:
+  - pod install
+language: swift
+osx_image: xcode13.4
+xcode_workspace: LifeSpace.xcworkspace
+xcode_destination: platform=iOS Simulator,OS=15.5,name=iPhone X
+script: 
+ - cd version2/LifeSpace
+ - xcodebuild test -workspace 'LifeSpace.xcworkspace' -destination 'platform=iOS Simulator,OS=15.5,name=iPhone X'
