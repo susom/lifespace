@@ -21,7 +21,7 @@ struct MainUIView: View {
     var body: some View {
         TabView {
             HomeView()
-                .tabItem{
+                .tabItem {
                     Image(systemName: "house")
                         .renderingMode(.template)
                     Text("Home")

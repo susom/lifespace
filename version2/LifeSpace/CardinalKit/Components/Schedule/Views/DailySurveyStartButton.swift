@@ -29,7 +29,7 @@ struct DailySurveyStartButton: View {
             })
                 .padding()
                 .foregroundColor(.white)
-                .background(Color.red)
+                .background(Color("primaryRed"))
                 .cornerRadius(40)
             .sheet(isPresented: $showingOnboard, onDismiss: {
             }, content: {

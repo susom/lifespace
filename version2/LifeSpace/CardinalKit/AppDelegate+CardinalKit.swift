@@ -13,7 +13,7 @@ import CardinalKit
 // Extensions add new functionality to an existing class, structure, enumeration, or protocol type.
 // https://docs.swift.org/swift-book/LanguageGuide/Extensions.html
 extension AppDelegate {
-    
+
     /**
      Handle special CardinalKit logic for when the app is launched.
     */
@@ -23,7 +23,7 @@ extension AppDelegate {
         options.networkDeliveryDelegate = CKAppNetworkManager()
         options.networkReceiverDelegate = CKAppNetworkManager()
         CKApp.configure(options)
-        
+
         // (2) if we have already logged in, start collecting HealthKit Data
         // *** HEALTHKIT DATA COLLECTION IS DISABLED FOR THIS STUDY ***
         // if CKStudyUser.shared.isLoggedIn {
@@ -37,8 +37,8 @@ extension AppDelegate {
             //   }
             // }
         // }
-        
+
         CKStudyUser.shared.save()
     }
-    
+
 }

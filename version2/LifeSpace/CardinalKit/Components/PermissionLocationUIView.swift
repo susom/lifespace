@@ -70,8 +70,7 @@ struct PermissionLocationUIView: View {
                         Spacer()
                     }
                     Image("secondTime")
-                }
-                else{
+                } else {
                     Text("Please tap the button below and select \"Allow While Using App\" on the window that pops up.")
                         .multilineTextAlignment(.center)
                         .font(.title2)
@@ -81,7 +80,6 @@ struct PermissionLocationUIView: View {
                         Spacer()
                         Button(action: {
                             locationFetcher.requestAuthorizationLocation()
-                            
                         }, label: {
                              Text("Step One")
                                 .padding(Metrics.PADDING_BUTTON_LABEL)
@@ -95,14 +93,11 @@ struct PermissionLocationUIView: View {
                         })
                         .padding(.leading, Metrics.PADDING_HORIZONTAL_MAIN)
                         .padding(.trailing, Metrics.PADDING_HORIZONTAL_MAIN)
-                
+
                         Spacer()
                     }
-                    
                 }
-                
-            }
-            else{
+            } else {
                 Text("Please go to location settings and select \"Always\".")
                     .multilineTextAlignment(.center)
                     .font(.title2)
@@ -128,18 +123,18 @@ struct PermissionLocationUIView: View {
                                 )
                     }).padding(.leading, Metrics.PADDING_HORIZONTAL_MAIN)
                         .padding(.trailing, Metrics.PADDING_HORIZONTAL_MAIN)
-                
+
                         Spacer()
                     
                 }
-                
+
             }
-            
+
             Spacer()
             
         }
     }
-    
+
 }
 
 struct PermissionLocationUIView_Previews: PreviewProvider {

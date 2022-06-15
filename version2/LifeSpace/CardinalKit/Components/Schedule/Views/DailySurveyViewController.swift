@@ -12,10 +12,10 @@ import ResearchKit
 import CareKitUI
 
 class DailySurveyTask:ORKNavigableOrderedTask{
-    init(showInstructions:Bool = true){
+    init(showInstructions: Bool = true) {
         var steps = [ORKStep]()
         
-        if(showInstructions){
+        if showInstructions {
             // Instruction step
             let instructionStep = ORKInstructionStep(identifier: "IntroStep")
             instructionStep.title = "Daily Questionnaire"
@@ -23,27 +23,27 @@ class DailySurveyTask:ORKNavigableOrderedTask{
             steps += [instructionStep]
         }
 
-        //How would you rate your health today?
+        // How would you rate your health today?
         let healthScaleAnswerFormat = ORKAnswerFormat.scale(withMaximumValue: 5, minimumValue: 1, defaultValue: 3, step: 1, vertical: false, maximumValueDescription: "Excellent", minimumValueDescription: "Poor")
         let healthScaleQuestionStep = ORKQuestionStep(identifier: "HealthScaleQuestionStep", title: "Question #1", question: "How would you rate your overall health today:", answer: healthScaleAnswerFormat)
         steps += [healthScaleQuestionStep]
 
-        //How would you rate your mental health today?
+        // How would you rate your mental health today?
         let mentalhealthScaleAnswerFormat = ORKAnswerFormat.scale(withMaximumValue: 5, minimumValue: 1, defaultValue: 3, step: 1, vertical: false, maximumValueDescription: "Excellent", minimumValueDescription: "Poor")
         let mentalhealthScaleQuestionStep = ORKQuestionStep(identifier: "mentalHealthScaleQuestionStep", title: "Question #2", question: "How would you rate your mental health today:", answer: mentalhealthScaleAnswerFormat)
-        
         steps += [mentalhealthScaleQuestionStep]
+
+        // Is this map of your daily activity accurate?
         let booleanAnswer = ORKBooleanAnswerFormat(yesString: "Yes", noString: "No")
         let booleanQuestionStep = JHMapQuestionStep(identifier: "mapstep", title: "Question #3", question: "Is this map of your daily activity accurate? If NO, why not?", answer: booleanAnswer)
         steps += [booleanQuestionStep]
-            
-    
+
+        // Please explain why not
         let textQuestionStep = ORKQuestionStep(identifier: "whyNot", title: "Please explain why not", question: nil, answer: ORKTextAnswerFormat())
         textQuestionStep.isOptional = false
-       
         steps += [textQuestionStep]
 
-        //SUMMARY
+        // Summary step
         let summaryStep = ORKCompletionStep(identifier: "SummaryStep")
         summaryStep.title = "Thank you."
         summaryStep.text = "We appreciate your time."
@@ -97,16 +97,15 @@ class DailySurveyViewController: OCKInstructionsTaskViewController, ORKTaskViewC
    func taskViewController(_ taskViewController: ORKTaskViewController, viewControllerFor step: ORKStep) -> ORKStepViewController? {
        if step.identifier == "mapstep"{
            return JHMapQuestionStepViewController(step: step)
-       }
-       else{
-           switch step{
-               case is ORKInstructionStep:
-                   return ORKInstructionStepViewController(step: step)
-               case is ORKCompletionStep:
-                   return ORKCompletionStepViewController(step: step)
-               default:
-                   return ORKQuestionStepViewController(step: step)
-               }
+       } else {
+           switch step {
+           case is ORKInstructionStep:
+               return ORKInstructionStepViewController(step: step)
+           case is ORKCompletionStep:
+               return ORKCompletionStepViewController(step: step)
+           default:
+               return ORKQuestionStepViewController(step: step)
+           }
        }
    }
 }
@@ -118,7 +117,7 @@ class DailySurveyViewSynchronizer: OCKInstructionsTaskViewSynchronizer {
         instructionsView.completionButton.label.text = "Start"
         return instructionsView
     }
-    
+
     override func updateView(_ view: OCKInstructionsTaskView, context: OCKSynchronizationContext<OCKTaskEvents>) {
         super.updateView(view, context: context)
         view.headerView.detailLabel.text = "Complete Every Day at 7:00 PM"

@@ -43,7 +43,7 @@ struct LoginExistingUserViewController: UIViewControllerRepresentable {
         }
         
         // Step for setting passcode
-        let passcodeStep = ORKPasscodeStep(identifier: "Passcode") //NOTE: requires NSFaceIDUsageDescription in info.plist
+        let passcodeStep = ORKPasscodeStep(identifier: "Passcode")
         let type = config.read(query: "Passcode Type")
         if type == "6" {
             passcodeStep.passcodeType = .type6Digit
@@ -82,6 +82,4 @@ struct LoginExistingUserViewController: UIViewControllerRepresentable {
         taskViewController.delegate = context.coordinator
         return taskViewController
     }
-    
 }
-
