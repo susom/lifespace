@@ -401,7 +401,7 @@ DEPENDENCIES:
   - Firebase/DynamicLinks
   - Firebase/Firestore
   - Firebase/Storage
-  - Granola (from `https://github.com/Alternova-Inc/Granola.git`, branch `Main`)
+  - Granola (from `https://github.com/CardinalKit/Granola.git`, branch `main`)
   - MapboxMaps (= 10.1.0)
   - ResearchKit (from `https://github.com/ResearchKit/ResearchKit.git`, branch `master`)
 
@@ -445,8 +445,8 @@ EXTERNAL SOURCES:
   CardinalKit:
     :path: "../"
   Granola:
-    :branch: Main
-    :git: https://github.com/Alternova-Inc/Granola.git
+    :branch: main
+    :git: https://github.com/CardinalKit/Granola.git
   ResearchKit:
     :branch: master
     :git: https://github.com/ResearchKit/ResearchKit.git
@@ -454,7 +454,7 @@ EXTERNAL SOURCES:
 CHECKOUT OPTIONS:
   Granola:
     :commit: 4b6a421bab81bea5fad4b124b0441b3dd2d82c6b
-    :git: https://github.com/Alternova-Inc/Granola.git
+    :git: https://github.com/CardinalKit/Granola.git
   ResearchKit:
     :commit: 68f9d29b669dd3ac27b548f7c9c28342218cf72e
     :git: https://github.com/ResearchKit/ResearchKit.git
@@ -497,6 +497,6 @@ SPEC CHECKSUMS:
   Turf: d8d52444483c968cf2d65b8b54640f8faf4dda03
   Zip: 8877eede3dda76bcac281225c20e71c25270774c
 
-PODFILE CHECKSUM: 59e497d758e01900db906b20e095126c978a3b67
+PODFILE CHECKSUM: dc1aeca4b8e4001486c00de4e8e9be217cbf13d3
 
 COCOAPODS: 1.11.3
