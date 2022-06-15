@@ -12,13 +12,13 @@ import Firebase
 
 class CKUploadToGCPTaskViewControllerDelegate : NSObject, ORKTaskViewControllerDelegate {
         
-    public func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
+    public func taskViewController(_ taskViewController: ORKTaskViewController,
+                                   didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
         LaunchModel.sharedinstance.showSurvey = false
         switch reason {
         case .completed:
            do {
                 // (1) convert the result of the ResearchKit task into a JSON dictionary
-                //if let json = try CKTaskResultAsJson(taskViewController.result) {
                 if let json = try   CK_ORKSerialization.CKTaskAsJson(result: taskViewController.result,task: taskViewController.task!) {
                     // (2) send using Firebase
                     try CKSendJSON(json)

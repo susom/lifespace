@@ -60,15 +60,20 @@ class CKResearchSurveysManager: NSObject {
                                     }
                                 }
                             }
-                            if questions.count>0 && !deleted{
-                                let taskItem: CloudTaskItem = CloudTaskItem(order: order, title: title, subtitle: subtitle, imageName: imageName, section: section, identifier: identifier, questions: questions)
+                            if !questions.isEmpty && !deleted{
+                                let taskItem: CloudTaskItem = CloudTaskItem(order: order,
+                                                                            title: title,
+                                                                            subtitle: subtitle,
+                                                                            imageName: imageName,
+                                                                            section: section,
+                                                                            identifier: identifier,
+                                                                            questions: questions)
                                 AllItems.append(taskItem)
                             }
                         }
-                        
-                        counter-=1
-                        if(counter<=0){
-                            AllItems=AllItems.sorted(by: {a,b in return a.order<b.order})
+                        counter -= 1
+                        if counter <= 0 {
+                            AllItems = AllItems.sorted(by: {a, b in return a.order < b.order})
                          onCompletion(AllItems)
                         }
                     })

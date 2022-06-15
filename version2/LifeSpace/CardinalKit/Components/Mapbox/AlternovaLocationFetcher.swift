@@ -14,8 +14,8 @@ class AlternovaLocationFetcher: NSObject, ObservableObject {
     
     var allLocations = [CLLocationCoordinate2D]()
     
-    var locationFetcher:LocationFetcher
-    var onLocationsUpdated: (([CLLocationCoordinate2D])-> Void)? = nil
+    var locationFetcher: LocationFetcher
+    var onLocationsUpdated: (([CLLocationCoordinate2D]) -> Void)? = nil
     
     var tracking:Bool = false
     
@@ -34,7 +34,7 @@ class AlternovaLocationFetcher: NSObject, ObservableObject {
         calculeIfCanShowRequestMessage()
     }
     
-    func calculeIfCanShowRequestMessage(){
+    func calculeIfCanShowRequestMessage() {
         let manager = locationFetcher.manager
         
         let previousState = authorizationStatus
@@ -42,24 +42,19 @@ class AlternovaLocationFetcher: NSObject, ObservableObject {
         
         let first = UserDefaults.standard.bool(forKey: Constants.JHFirstLocationRequest)
         
-        if(authorizationStatus == .authorizedWhenInUse && !first && previousState != authorizationStatus){
+        if(authorizationStatus == .authorizedWhenInUse && !first && previousState != authorizationStatus) {
             UserDefaults.standard.set(true, forKey: Constants.JHFirstLocationRequest)
-        }
-        else{
+        } else {
             UserDefaults.standard.set(false, forKey: Constants.JHFirstLocationRequest)
         }
         
-        if authorizationStatus == .authorizedAlways{
+        if authorizationStatus == .authorizedAlways {
             LaunchModel.sharedinstance.showPermissionView = false
         }
-        
-        
-        
-        
+
         if manager.authorizationStatus == .notDetermined || (manager.authorizationStatus == .authorizedWhenInUse && UserDefaults.standard.bool(forKey: Constants.JHFirstLocationRequest)){
             canShowRequestMessage = true
-        }
-        else{
+        } else {
             canShowRequestMessage = false
         }
     }
@@ -78,7 +73,7 @@ class AlternovaLocationFetcher: NSObject, ObservableObject {
         })
     }
     
-    func appendNewLocationPoint(point:CLLocationCoordinate2D) -> Bool{
+    func appendNewLocationPoint(point:CLLocationCoordinate2D) -> Bool {
         var add = true
         if let previousLocation = previousLocation,
            let previousDate = previousDate {
@@ -88,18 +83,18 @@ class AlternovaLocationFetcher: NSObject, ObservableObject {
             var distance = 1000.0
             // Calcule distance
             let d2r = (Double.pi / 180.0)
-            let dlong = (lastLongitude-point.longitude) * d2r;
-            let dlat = (lastLatitude-point.latitude) * d2r;
-            let a = pow(sin(dlat/2.0), 2) + cos(point.latitude*d2r) * cos(lastLongitude*d2r) * pow(sin(dlong/2.0), 2);
-            let c = 2 * atan2(sqrt(a), sqrt(1-a));
-            distance = 6367 * c;
+            let dlong = (lastLongitude-point.longitude) * d2r
+            let dlat = (lastLatitude-point.latitude) * d2r
+            let a = pow(sin(dlat/2.0), 2) + cos(point.latitude*d2r) * cos(lastLongitude*d2r) * pow(sin(dlong/2.0), 2)
+            let c = 2 * atan2(sqrt(a), sqrt(1-a))
+            distance = 6367 * c
 
             if distance>0.1 {
                 add = true
             }
             
             // Reset all points when day change
-            if Date().startOfDay != previousDate.startOfDay{
+            if Date().startOfDay != previousDate.startOfDay {
                 add = true
                 fetchAllTodaypoints()
             }
@@ -111,18 +106,17 @@ class AlternovaLocationFetcher: NSObject, ObservableObject {
             previousLocation = point
             previousDate = Date()
         }
-        
+
         return add
     }
     
-    func startStopTracking(){
-        if(tracking){
+    func startStopTracking() {
+        if(tracking) {
             self.tracking = false
             locationFetcher.manager.stopUpdatingLocation()
             print("Stopping location tracking...")
-        }
-        else{
-            if CLLocationManager.locationServicesEnabled(){
+        } else {
+            if CLLocationManager.locationServicesEnabled() {
                 self.tracking = true
                 locationFetcher.manager.startUpdatingLocation()
                 locationFetcher.manager.startMonitoringSignificantLocationChanges()
@@ -131,7 +125,7 @@ class AlternovaLocationFetcher: NSObject, ObservableObject {
             }
         }
     }
-    
+
     func userAuthorizeAlways() -> Bool {
         let manager = locationFetcher.manager
         return manager.authorizationStatus == .authorizedAlways

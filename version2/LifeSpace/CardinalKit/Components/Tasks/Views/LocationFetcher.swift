@@ -4,7 +4,6 @@
 //
 //  Created by Vishnu Ravi on 8/5/21.
 
-
 import CoreLocation
 import Firebase
 import Foundation
@@ -31,7 +30,6 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate {
                     settings.isPersistenceEnabled = false
 
                     let db = Firestore.firestore()
-                    
                     db.settings = settings
                     
                     db.collection(mapPointsCollection)
@@ -52,7 +50,7 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate {
             }
         }
     }
-    
+
     override init() {
         super.init()
         manager.delegate = self
@@ -63,14 +61,14 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate {
     func start() {
         manager.requestWhenInUseAuthorization()
         manager.requestAlwaysAuthorization()
-        if CLLocationManager.locationServicesEnabled(){
+        if CLLocationManager.locationServicesEnabled() {
             self.manager.startMonitoringSignificantLocationChanges()
             self.manager.startUpdatingLocation()
         }
     }
     
     
-    func stop(){
+    func stop() {
         manager.stopUpdatingLocation()
     }
     
@@ -82,5 +80,3 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate {
         AlternovaLocationFetcher.shared.calculeIfCanShowRequestMessage()
     }
 }
-
-

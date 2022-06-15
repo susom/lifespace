@@ -45,11 +45,7 @@ class OnboardingViewCoordinator: NSObject, ORKTaskViewControllerDelegate {
         
         switch reason {
         case .completed:
-            // if we completed the onboarding task view controller, go to study.
-            // performSegue(withIdentifier: "unwindToStudy", sender: nil)
-            
-            // TODO: where to go next?
-            // trigger "Studies UI"
+            // if we completed the onboarding task view controller, go to home screen
             UserDefaults.standard.set(true, forKey: Constants.onboardingDidComplete)
             
             if let studyIDResult = taskViewController.result.stepResult(forStepIdentifier: "StudyIDEntryStep")?.results {
@@ -209,11 +205,11 @@ class OnboardingViewCoordinator: NSObject, ORKTaskViewControllerDelegate {
                     
                     CKStudyUser.shared.email = email
                 }
-                
+
             }
-            
+
         }
-        
+
     }
     
     func taskViewController(_ taskViewController: ORKTaskViewController, viewControllerFor step: ORKStep) -> ORKStepViewController? {
