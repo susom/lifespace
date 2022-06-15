@@ -13,6 +13,7 @@ struct HomeView: View {
     @State private var showingSurveyAlert = false
     @State private var showingSurvey = false
     @State private var trackingOn = true
+    @State private var optionsPanelOpen = true
     
     var surveyActive: Bool {
         // if it's after 7pm today in the user's local time, the survey is active
@@ -30,37 +31,61 @@ struct HomeView: View {
                 
                 Spacer()
                 
-                Button("Take Daily Survey"){
-                    if(surveyActive){
-                        self.showingSurvey.toggle()
-                    } else {
-                        self.showingSurveyAlert.toggle()
+                GroupBox {
+                    
+                    Button {
+                        withAnimation {
+                            self.optionsPanelOpen.toggle()
+                        }
+                    } label: {
+                        HStack {
+                            Text("Options")
+                            Spacer()
+                            Image(systemName: self.optionsPanelOpen ? "chevron.down" : "chevron.up")
+                        }
+                    }
+                    
+                    
+                    if self.optionsPanelOpen {
+                        GroupBox{
+                            Button {
+                                if(surveyActive){
+                                    self.showingSurvey.toggle()
+                                } else {
+                                    self.showingSurveyAlert.toggle()
+                                }
+                            } label: {
+                                Text("Take Daily Survey")
+                                    .foregroundColor(.white)
+                                    .frame(maxWidth: .infinity)
+                            }
+                            .alert(isPresented: $showingSurveyAlert){
+                                Alert(title: Text("Survey Not Available Yet"), message: Text("Please come back after 7:00 PM to complete your daily survey!"), dismissButton: .default(Text("OK")))
+                            }
+                            .sheet(isPresented: $showingSurvey){
+                                CKTaskViewController(tasks: DailySurveyTask(showInstructions: false))
+                            }
+                        }.groupBoxStyle(ButtonGroupBoxStyle())
+                        
+                        GroupBox{
+                            Toggle("Track My Location", isOn: $trackingOn)
+                                .onChange(of: trackingOn) { value in
+                                    AlternovaLocationFetcher.shared.startStopTracking()
+                                }
+                        }
                     }
                 }
-                .frame(maxWidth: .infinity)
-                .padding()
-                .foregroundColor(.white)
-                .background(Color("primaryRed"))
-                .clipShape(RoundedRectangle(cornerRadius: 5))
-                .padding(5)
-                .alert(isPresented: $showingSurveyAlert){
-                    Alert(title: Text("Survey Not Available"), message: Text("Please come back after 7:00 PM to complete your daily survey!"), dismissButton: .default(Text("OK")))
-                }
-                .sheet(isPresented: $showingSurvey){
-                    CKTaskViewController(tasks: DailySurveyTask(showInstructions: false))
-                }
-                
-                Toggle("Track My Location", isOn: $trackingOn)
-                    .onChange(of: trackingOn) { value in
-                        AlternovaLocationFetcher.shared.startStopTracking()
-                    }
-                    .padding()
-                    .foregroundColor(.white)
-                    .background(Color("primaryRed"))
-                    .clipShape(RoundedRectangle(cornerRadius: 5))
-                    .padding(5)
             }
         }
+    }
+}
+
+struct ButtonGroupBoxStyle: GroupBoxStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.content
+            .frame(maxWidth: .infinity)
+            .padding()
+            .background(RoundedRectangle(cornerRadius: 8).fill(Color("primaryRed")))
     }
 }
 
