@@ -27,6 +27,13 @@ struct MainUIView: View {
                     Text("Home")
                 }
 
+            HistoricalMapView()
+                .tabItem {
+                    Image(systemName: "map")
+                        .renderingMode(.template)
+                    Text("Maps")
+                }
+
             ProfileUIView(color: self.color).tabItem {
                 Image("tab_profile")
                     .renderingMode(.template)

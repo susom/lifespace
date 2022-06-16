@@ -14,6 +14,9 @@
 		27B7891A284CE86A0006C02F /* CloudTaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B78919284CE86A0006C02F /* CloudTaskItem.swift */; };
 		27B7891C284CE89F0006C02F /* TasksUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B7891B284CE89F0006C02F /* TasksUIView.swift */; };
 		27B7891E284CE9260006C02F /* CloudTaskListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B7891D284CE9260006C02F /* CloudTaskListItemView.swift */; };
+		27EBFF12285B5196002B5CED /* HistoricalMapboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EBFF11285B5196002B5CED /* HistoricalMapboxView.swift */; };
+		27EBFF14285B51D5002B5CED /* HistoricalMapboxMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EBFF13285B51D5002B5CED /* HistoricalMapboxMap.swift */; };
+		27EBFF16285B6016002B5CED /* HistoricalMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EBFF15285B6016002B5CED /* HistoricalMapView.swift */; };
 		27FCB9652834A828009B02CD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FCB9642834A828009B02CD /* HomeView.swift */; };
 		2B19DD9226FE1BEB00649CE1 /* JsonToSurvey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B19DD9126FE1BEB00649CE1 /* JsonToSurvey.swift */; };
 		2BD5328326C2CC4E00C4636E /* CkResearchSurveysManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD5328226C2CC4E00C4636E /* CkResearchSurveysManager.swift */; };
@@ -110,6 +113,9 @@
 		27B78919284CE86A0006C02F /* CloudTaskItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudTaskItem.swift; sourceTree = "<group>"; };
 		27B7891B284CE89F0006C02F /* TasksUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksUIView.swift; sourceTree = "<group>"; };
 		27B7891D284CE9260006C02F /* CloudTaskListItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudTaskListItemView.swift; sourceTree = "<group>"; };
+		27EBFF11285B5196002B5CED /* HistoricalMapboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalMapboxView.swift; sourceTree = "<group>"; };
+		27EBFF13285B51D5002B5CED /* HistoricalMapboxMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalMapboxMap.swift; sourceTree = "<group>"; };
+		27EBFF15285B6016002B5CED /* HistoricalMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalMapView.swift; sourceTree = "<group>"; };
 		27FCB9642834A828009B02CD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2B19DD9126FE1BEB00649CE1 /* JsonToSurvey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonToSurvey.swift; sourceTree = "<group>"; };
 		2BD5328226C2CC4E00C4636E /* CkResearchSurveysManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CkResearchSurveysManager.swift; sourceTree = "<group>"; };
@@ -265,6 +271,8 @@
 				63A82399280DD26E001D49A8 /* MapBoxMap.swift */,
 				63A8239B280DD499001D49A8 /* AlternovaLocationFetcher.swift */,
 				63A143DC280EDBA9001A54BC /* MapboxView.swift */,
+				27EBFF11285B5196002B5CED /* HistoricalMapboxView.swift */,
+				27EBFF13285B51D5002B5CED /* HistoricalMapboxMap.swift */,
 			);
 			path = Mapbox;
 			sourceTree = "<group>";
@@ -425,6 +433,7 @@
 				63A82398280DD255001D49A8 /* Mapbox */,
 				8E6E1E23253537580024B8DF /* MainUIView.swift */,
 				27FCB9642834A828009B02CD /* HomeView.swift */,
+				27EBFF15285B6016002B5CED /* HistoricalMapView.swift */,
 				E29143FB24E74AD100EE97B2 /* LaunchUIView.swift */,
 				63A143E0280F579E001A54BC /* PermissionLocationUIView.swift */,
 				8E0A4399244A4A0400656518 /* Onboarding */,
@@ -743,6 +752,7 @@
 				8EA664892593213000B6A45A /* CKSendHelper.swift in Sources */,
 				8E6E1E3425353AFE0024B8DF /* EmailHelper.swift in Sources */,
 				63A82390280DAD49001D49A8 /* DailySurveyViewController.swift in Sources */,
+				27EBFF12285B5196002B5CED /* HistoricalMapboxView.swift in Sources */,
 				8E6E1E24253537580024B8DF /* MainUIView.swift in Sources */,
 				8E6E1E182535263F0024B8DF /* CKTaskViewController.swift in Sources */,
 				8E9CDF142591B73900C8A228 /* CKHealthRecordsManager.swift in Sources */,
@@ -759,6 +769,7 @@
 				2BD5328326C2CC4E00C4636E /* CkResearchSurveysManager.swift in Sources */,
 				8E6E1E2C253539AE0024B8DF /* ChangePasscodeView.swift in Sources */,
 				8E0A43AD244A4A0400656518 /* Constants.swift in Sources */,
+				27EBFF16285B6016002B5CED /* HistoricalMapView.swift in Sources */,
 				8E0A43BE244A4A0400656518 /* CKHealthDataStepViewController.swift in Sources */,
 				2BF6452026C1DBE70020C206 /* CK_ORKSerialization.swift in Sources */,
 				4F02D979274871A200F203B5 /* LocationView.swift in Sources */,
@@ -778,6 +789,7 @@
 				E2680B1B260A72DD00B755EA /* LoginExistingUserViewController.swift in Sources */,
 				8E6E1E2A2535398D0024B8DF /* HelpView.swift in Sources */,
 				8E9CDED02591AC4A00C8A228 /* CKHealthKitManager.swift in Sources */,
+				27EBFF14285B51D5002B5CED /* HistoricalMapboxMap.swift in Sources */,
 				8E0A43C2244A4A0400656518 /* ConsentDocument.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -904,7 +916,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = LifeSpace.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = B2Q3T3P8HP;
 				INFOPLIST_FILE = "CardinalKit/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -913,7 +925,7 @@
 				);
 				MARKETING_VERSION = 0.5.0;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.lifespace;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.odden.lifespace-dev";
 				PRODUCT_NAME = LifeSpace;
 				SWIFT_OBJC_BRIDGING_HEADER = "CardinalKit/Supporting Files/LifeSpace-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -939,7 +951,7 @@
 				);
 				MARKETING_VERSION = 0.5.0;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.lifespace;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.odden.lifespace-dev";
 				PRODUCT_NAME = LifeSpace;
 				SWIFT_OBJC_BRIDGING_HEADER = "CardinalKit/Supporting Files/LifeSpace-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
