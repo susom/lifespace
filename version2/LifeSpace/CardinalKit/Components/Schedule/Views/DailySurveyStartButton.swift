@@ -15,27 +15,39 @@ struct DailySurveyStartButton: View {
     var body: some View {
         VStack(spacing: 10){
             Spacer()
-            Text("Daily Questionnaire")
-                .font(.system(size: 24, weight: .light, design: .default))
-                .bold()
-            Text("Please complete this survey daily to assess your own health.")
-                .font(.system(size: 20, weight: .light, design: .default))
+
+            Image("LifeSpace")
+                .resizable()
+                .scaledToFit()
                 .padding()
-            Spacer()
-            Button(action: {
-                self.showingOnboard.toggle()
-            }, label: {
-                 Text("Get Started")
-            })
+
+            GroupBox {
+                Text("Daily Survey")
+                    .font(.largeTitle)
+                    .bold()
+                Text("Please complete this simple survey daily to assess your own health.")
+                    .font(.body)
+                    .fontWeight(.light)
+                    .multilineTextAlignment(.center)
+                    .padding()
+                Button(action: {
+                    self.showingOnboard.toggle()
+                }, label: {
+                    Text("Start Survey")
+                        .frame(maxWidth: .infinity)
+                })
                 .padding()
                 .foregroundColor(.white)
                 .background(Color("primaryRed"))
-                .cornerRadius(40)
-            .sheet(isPresented: $showingOnboard, onDismiss: {
-            }, content: {
-                AnyView(CKTaskViewController(tasks: DailySurveyTask(showInstructions: false)))
-            })
-            Spacer();
+                .cornerRadius(8)
+                .padding()
+                .sheet(isPresented: $showingOnboard, onDismiss: {
+                }, content: {
+                    AnyView(CKTaskViewController(tasks: DailySurveyTask(showInstructions: false)))
+                })
+            }.padding()
+
+            Spacer()
         }
     }
 }
