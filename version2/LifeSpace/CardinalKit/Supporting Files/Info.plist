@@ -38,10 +38,12 @@
 		<string>https://cs342.page.link</string>
 		<string>https://cs342.page.link/Rdse</string>
 	</array>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MBXAccessToken</key>
-	<string></string>
+	<string>sk.eyJ1IjoidmlzaG51cmF2aSIsImEiOiJjbDJrbm9qODEwNGx1M2lzM2FuaXYzaHVjIn0.gm_Aq57Qm9bMr0dJ4057DA</string>
 	<key>MGLMapboxMetricsEnabledSettingShownInApp</key>
 	<true/>
 	<key>NSBluetoothAlwaysUsageDescription</key>

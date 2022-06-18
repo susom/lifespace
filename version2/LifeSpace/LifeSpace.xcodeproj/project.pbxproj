@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		27653A13272A2E7700D74E83 /* LocalTaskListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27653A12272A2E7700D74E83 /* LocalTaskListItemView.swift */; };
 		277DC91928355FC100C12FB2 /* CKReviewConsentDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277DC91828355FC100C12FB2 /* CKReviewConsentDocument.swift */; };
-		27B6BCDD2856E23300522E54 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27B6BCDC2856E23300522E54 /* GoogleService-Info.plist */; };
 		27B78918284CE8610006C02F /* LocalTaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B78917284CE8610006C02F /* LocalTaskItem.swift */; };
 		27B7891A284CE86A0006C02F /* CloudTaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B78919284CE86A0006C02F /* CloudTaskItem.swift */; };
 		27B7891C284CE89F0006C02F /* TasksUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B7891B284CE89F0006C02F /* TasksUIView.swift */; };
@@ -23,6 +22,7 @@
 		4F02D979274871A200F203B5 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F02D978274871A200F203B5 /* LocationView.swift */; };
 		4F02D97B274871C300F203B5 /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F02D97A274871C300F203B5 /* LocationFetcher.swift */; };
 		4F02D97D274871C800F203B5 /* NotificationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F02D97C274871C800F203B5 /* NotificationFetcher.swift */; };
+		4FD53024285C508E00A39FBF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FD53023285C508E00A39FBF /* GoogleService-Info.plist */; };
 		63A143DD280EDBA9001A54BC /* MapboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A143DC280EDBA9001A54BC /* MapboxView.swift */; };
 		63A143DF280F1AAD001A54BC /* DailySurveyStartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A143DE280F1AAC001A54BC /* DailySurveyStartButton.swift */; };
 		63A143E1280F579E001A54BC /* PermissionLocationUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A143E0280F579E001A54BC /* PermissionLocationUIView.swift */; };
@@ -105,7 +105,6 @@
 		07D78DA16FC9C3C7709EA243 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		27653A12272A2E7700D74E83 /* LocalTaskListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTaskListItemView.swift; sourceTree = "<group>"; };
 		277DC91828355FC100C12FB2 /* CKReviewConsentDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKReviewConsentDocument.swift; sourceTree = "<group>"; };
-		27B6BCDC2856E23300522E54 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		27B78917284CE8610006C02F /* LocalTaskItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalTaskItem.swift; sourceTree = "<group>"; };
 		27B78919284CE86A0006C02F /* CloudTaskItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudTaskItem.swift; sourceTree = "<group>"; };
 		27B7891B284CE89F0006C02F /* TasksUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksUIView.swift; sourceTree = "<group>"; };
@@ -119,6 +118,7 @@
 		4F02D978274871A200F203B5 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		4F02D97A274871C300F203B5 /* LocationFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
 		4F02D97C274871C800F203B5 /* NotificationFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationFetcher.swift; sourceTree = "<group>"; };
+		4FD53023285C508E00A39FBF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* LifeSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifeSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62AA5CD1C2188D392530510F /* CardinalKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CardinalKit.podspec; path = ../CardinalKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		63A143DC280EDBA9001A54BC /* MapboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapboxView.swift; sourceTree = "<group>"; };
@@ -299,12 +299,12 @@
 		8E0A4383244A4A0400656518 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4FD53023285C508E00A39FBF /* GoogleService-Info.plist */,
 				8E0A4388244A4A0400656518 /* Assets.xcassets */,
 				8E0A4389244A4A0400656518 /* LaunchScreen.storyboard */,
 				8E0A4384244A4A0400656518 /* Constants.swift */,
 				8E0A4378244A4A0300656518 /* LifeSpace-Bridging-Header.h */,
 				8E0A43C9244A4C6500656518 /* Info.plist */,
-				27B6BCDC2856E23300522E54 /* GoogleService-Info.plist */,
 				E2F1FD7724D62064006C39DF /* CKConfiguration.plist */,
 			);
 			path = "Supporting Files";
@@ -576,9 +576,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FD53024285C508E00A39FBF /* GoogleService-Info.plist in Resources */,
 				8E0A43AF244A4A0400656518 /* Assets.xcassets in Resources */,
 				8E0A43B0244A4A0400656518 /* LaunchScreen.storyboard in Resources */,
-				27B6BCDD2856E23300522E54 /* GoogleService-Info.plist in Resources */,
 				E2F1FD7824D62064006C39DF /* CKConfiguration.plist in Resources */,
 				8E0A43C1244A4A0400656518 /* LoginCustomWaitStepView.xib in Resources */,
 			);
@@ -903,8 +903,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = LifeSpace.entitlements;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = CQRZ4E7K9U;
 				INFOPLIST_FILE = "CardinalKit/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -929,8 +929,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = LifeSpace.entitlements;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = CQRZ4E7K9U;
 				INFOPLIST_FILE = "CardinalKit/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
