@@ -9,7 +9,7 @@ import CardinalKit
 import Firebase
 
 class CKAppNetworkManager: CKAPIDeliveryDelegate, CKAPIReceiverDelegate {
-    
+
     // MARK: - CKAPIDeliveryDelegate
     func send(file: URL, package: Package, onCompletion: @escaping (Bool) -> Void) {
         DispatchQueue.main.async{
@@ -36,9 +36,9 @@ class CKAppNetworkManager: CKAPIDeliveryDelegate, CKAPIReceiverDelegate {
     // return dict { documentId: data }
     // MARK: - CKAPIReceiverDelegate
     func request(route: String, onCompletion: @escaping (Any) -> Void){
-        var objResult = [String:Any]()
-        let db=firestoreDb()
-        db.collection(route).getDocuments(){ (querySnapshot, err) in
+        var objResult = [String: Any]()
+        let db = firestoreDb()
+        db.collection(route).getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -50,21 +50,20 @@ class CKAppNetworkManager: CKAPIDeliveryDelegate, CKAPIReceiverDelegate {
         }
     }
     
-    func requestFilter(byDate date:Date, route: String, field: String, onCompletion: @escaping (Any)->Void){
+    func requestFilter(byDate date:Date, route: String, field: String, onCompletion: @escaping (Any) -> Void) {
         let startTimestamp: Timestamp = Timestamp(date: date.startOfDay)
         let endTimestamp: Timestamp = Timestamp(date: date.endOfDay!)
         
-        var objResult = [String:Any]()
+        var objResult = [String: Any]()
         let db=firestoreDb()
         db.collection(route)
             .whereField("\(field)", isGreaterThanOrEqualTo: startTimestamp)
             .whereField("\(field)", isLessThanOrEqualTo: endTimestamp)
-            .order(by: "\(field)").getDocuments(){
+            .order(by: "\(field)").getDocuments() {
                 (querySnapshot, err) in
-                if let err = err{
+                if let err = err {
                     print("error \(err)")
-                }
-                else{
+                } else {
                     for document in querySnapshot!.documents {
                         objResult[document.documentID]=document.data()
                     }

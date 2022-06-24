@@ -28,12 +28,11 @@ extension SceneDelegate: ORKPasscodeDelegate {
      Uses `present()` to trigger an `ORKPasscodeViewController`
     */
     func CKLockApp() {
-        //only lock the app if there is a stored passcode and a passcode controller isn't already being shown.
+        // only lock the app if there is a stored passcode and a passcode controller isn't already being shown.
         guard ORKPasscodeViewController.isPasscodeStoredInKeychain() && !(window?.rootViewController?.presentedViewController is ORKPasscodeViewController) else { return }
         
         window?.makeKeyAndVisible()
-        
-        //TODO: make text and passcodeType (?) configurable
+
         let config = CKPropertyReader(file: "CKConfiguration")
         
         let passcodeViewController = ORKPasscodeViewController.passcodeAuthenticationViewController(withText: config.read(query: "Passcode On Return Text"), delegate: self)
@@ -53,7 +52,7 @@ extension SceneDelegate: ORKPasscodeDelegate {
     }
     
     func passcodeViewControllerDidFinish(withSuccess viewController: UIViewController) {
-        if(LaunchModel.sharedinstance.showSurveyAfterPasscode){
+        if LaunchModel.sharedinstance.showSurveyAfterPasscode {
             LaunchModel.sharedinstance.showSurveyAfterPasscode = false
             LaunchModel.sharedinstance.showSurvey = true
         }
@@ -63,7 +62,7 @@ extension SceneDelegate: ORKPasscodeDelegate {
     }
     
     func passcodeViewControllerDidFailAuthentication(_ viewController: UIViewController) {
-        // TODO: handle authentication failure
+
     }
     
 }

@@ -24,7 +24,7 @@ struct MapManagerViewWrapper: UIViewControllerRepresentable {
 
 class MapManagerView: UIViewController {
     internal var mapView: MapView!
-    var trackingButton: UIButton? = nil
+    var trackingButton: UIButton?
     let pointsFetcher = AlternovaLocationFetcher.shared
     
     override public func viewDidLoad() {

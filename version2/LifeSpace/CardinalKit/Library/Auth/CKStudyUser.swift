@@ -10,58 +10,66 @@ import Firebase
 import CardinalKit
 
 class CKStudyUser {
-    
+
     static let shared = CKStudyUser()
     
     /* **************************************************************
      * the current user only resolves if we are logged in
-    **************************************************************/
+     **************************************************************/
     var currentUser: User? {
         // this is a reference to the
         // Firebase + Google Identity User
         return Auth.auth().currentUser
     }
-    
+
     /* **************************************************************
      * store your Firebase objects under this path in order to
      * be compatible with CardinalKit GCP rules.
-    **************************************************************/
-    let baseCollection = "/edu.stanford.lifespace"
-    
-    var authCollection: String? {
-        if let userId = currentUser?.uid,
-            let root = rootAuthCollection {
-            return "\(root)\(userId)/"
+     **************************************************************/
+    fileprivate let prefix = "ls"
+
+    fileprivate var baseCollection: String? {
+        if let bundleId = Bundle.main.bundleIdentifier {
+            return "/\(bundleId)"
         }
-        
         return nil
     }
-    
-    var mapPointsCollection : String? {
-        if let authCollection = authCollection{
-            return "\(authCollection)ls_location_data/"
+
+    fileprivate var rootAuthCollection: String? {
+        if let baseCollection = baseCollection {
+            return "\(baseCollection)/study/\(prefix)_users/"
+        }
+        return nil
+    }
+
+    var authCollection: String? {
+        if let userId = currentUser?.uid,
+           let root = rootAuthCollection {
+            return "\(root)\(userId)/"
+        }
+        return nil
+    }
+
+    var mapPointsCollection: String? {
+        if let authCollection = authCollection {
+            return "\(authCollection)\(prefix)_location_data/"
         }
         return nil
     }
     
     var surveysCollection: String? {
-        return "\(baseCollection)/ls_surveys/"
+        if let baseCollection = baseCollection {
+            return "\(baseCollection)/\(prefix)_surveys/"
+        }
+        return nil
     }
-    
-    var studyCollection: String? {
-        return "\(baseCollection)/"
-    }
-    
+
     var consentCollection: String? {
         if let authCollection = authCollection {
-            return "\(authCollection)ls_consent/"
+            return "\(authCollection)\(prefix)_consent/"
         }
         
         return nil
-    }
-    
-    fileprivate var rootAuthCollection: String? {
-        return "\(baseCollection)/study/ls_users/"
     }
 
     var email: String? {
@@ -80,7 +88,7 @@ class CKStudyUser {
     var isLoggedIn: Bool {
         return (currentUser?.isEmailVerified ?? false) && UserDefaults.standard.bool(forKey: Constants.prefConfirmedLogin)
     }
-    
+
     var studyID: String? {
         get {
             return UserDefaults.standard.string(forKey: Constants.prefStudyID)
@@ -93,17 +101,17 @@ class CKStudyUser {
             }
         }
     }
-    
+
     /**
-    Send a login email to the user.
+     Send a login email to the user.
 
-    At this stage, we do not have a `currentUser` via Google Identity.
+     At this stage, we do not have a `currentUser` via Google Identity.
 
-    - Parameters:
-        - email: validated address that should receive the sign-in link.
-        - completion: callback
-    */
-    func sendLoginLink(email: String, completion: @escaping (Bool)->Void) {
+     - Parameters:
+     - email: validated address that should receive the sign-in link.
+     - completion: callback
+     */
+    func sendLoginLink(email: String, completion: @escaping (Bool) -> Void) {
         guard !email.isEmpty else {
             completion(false)
             return
@@ -113,43 +121,47 @@ class CKStudyUser {
         actionCodeSettings.url = URL(string: "https://cs342.page.link")
         actionCodeSettings.handleCodeInApp = true // The sign-in operation has to always be completed in the app.
         actionCodeSettings.setIOSBundleID(Bundle.main.bundleIdentifier!)
-        
+
         Auth.auth().sendSignInLink(toEmail: email, actionCodeSettings: actionCodeSettings) { (error) in
             if let error = error {
                 print(error.localizedDescription)
                 completion(false)
                 return
             }
-            
             completion(true)
         }
     }
 
     /**
-    Save a snapshot of our current user into Firestore.
-    */
+     Save a snapshot of our current user into Firestore.
+     */
     func save() {
         if let dataBucket = rootAuthCollection,
-            let email = currentUser?.email,
-            let uid = currentUser?.uid {
-            
+           let email = currentUser?.email,
+           let uid = currentUser?.uid {
+
             CKSession.shared.userId = uid
-            CKSendHelper.createNecessaryDocuments(path:dataBucket)
+            CKSendHelper.createNecessaryDocuments(path: dataBucket)
             let settings = FirestoreSettings()
             settings.isPersistenceEnabled = false
             let db = Firestore.firestore()
             db.settings = settings
-            db.collection(dataBucket).document(uid).setData(["userID":uid, "studyID":studyID ?? "", "lastActive":Date().ISOStringFromDate(),"email":email])
+            db.collection(dataBucket).document(uid).setData([
+                "userID": uid,
+                "studyID": studyID ?? "",
+                "lastActive": Date().ISOStringFromDate(),
+                "email": email]
+            )
         }
     }
-    
+
     /**
-    Remove the current user's auth parameters from storage.
-    */
+     Remove the current user's auth parameters from storage.
+     */
     func signOut() throws {
         email = nil
         studyID = nil
         try Auth.auth().signOut()
     }
-    
+
 }

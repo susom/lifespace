@@ -13,7 +13,7 @@ struct DailySurveyStartButton: View {
     @State var showingOnboard = false
     
     var body: some View {
-        VStack(spacing: 10){
+        VStack(spacing: 10) {
             Spacer()
 
             Image("LifeSpace")
@@ -51,7 +51,6 @@ struct DailySurveyStartButton: View {
         }
     }
 }
-
 
 struct DailySurveyStartButton_Previews: PreviewProvider {
     static var previews: some View {

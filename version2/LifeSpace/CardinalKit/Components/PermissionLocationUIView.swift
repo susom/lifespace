@@ -36,7 +36,7 @@ struct PermissionLocationUIView: View {
                 .padding(10)
             
             if locationFetcher.canShowRequestMessage {
-                if locationFetcher.authorizationStatus == .authorizedWhenInUse{
+                if locationFetcher.authorizationStatus == .authorizedWhenInUse {
 
                     Text("Please tap the button below and select \"Change to Always Allow\" on the window that pops up.")
                         .multilineTextAlignment(.center)

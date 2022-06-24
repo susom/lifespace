@@ -18,7 +18,7 @@ class JHMapDataManager: NSObject {
             onCompletion(false)
             return
         }
-
+        
         var allPoints = [CLLocationCoordinate2D]()
         CKActivityManager.shared.fetchFilteredData(byDate: Date(), route: mapPointPath, field: "currentdate", onCompletion: {(results) in
             if let results = results as? [String: Any] {

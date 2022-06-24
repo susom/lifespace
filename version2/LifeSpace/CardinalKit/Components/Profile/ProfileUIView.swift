@@ -18,7 +18,7 @@ struct ProfileUIView: View {
     
     var body: some View {
         VStack {
-            Text("Profile").font(.system(size: 25, weight:.bold))
+            Text("Profile").font(.system(size: 25, weight: .bold))
             List {
                 Section {
                     StudyIDView()
@@ -27,7 +27,7 @@ struct ProfileUIView: View {
                 Section {
                     ChangePasscodeView()
                 }
-                
+
                 Section {
                     ReportView(color: self.color, email: config.read(query: "Email"))
                     DocumentView()
@@ -36,7 +36,7 @@ struct ProfileUIView: View {
                 Section {
                     WithdrawView(color: self.color)
                 }
-                
+
                 Section {
                     Text(config.read(query: "Copyright"))
                 }

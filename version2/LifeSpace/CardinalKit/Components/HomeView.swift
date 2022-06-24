@@ -23,14 +23,14 @@ struct HomeView: View {
     
     var body: some View {
         ZStack {
-            //map on the bottom layer
+            // map on the bottom layer
             MapManagerViewWrapper()
-            
-            //overlay buttons on map
+
+            // overlay buttons on map
             VStack {
                 
                 Spacer()
-                
+
                 GroupBox {
                     
                     Button {
@@ -49,7 +49,7 @@ struct HomeView: View {
                     if self.optionsPanelOpen {
                         GroupBox{
                             Button {
-                                if(surveyActive){
+                                if(surveyActive) {
                                     self.showingSurvey.toggle()
                                 } else {
                                     self.showingSurveyAlert.toggle()
@@ -62,14 +62,14 @@ struct HomeView: View {
                             .alert(isPresented: $showingSurveyAlert){
                                 Alert(title: Text("Survey Not Available Yet"), message: Text("Please come back after 7:00 PM to complete your daily survey!"), dismissButton: .default(Text("OK")))
                             }
-                            .sheet(isPresented: $showingSurvey){
+                            .sheet(isPresented: $showingSurvey) {
                                 CKTaskViewController(tasks: DailySurveyTask(showInstructions: false))
                             }
                         }.groupBoxStyle(ButtonGroupBoxStyle())
                         
-                        GroupBox{
+                        GroupBox {
                             Toggle("Track My Location", isOn: $trackingOn)
-                                .onChange(of: trackingOn) { value in
+                                .onChange(of: trackingOn) { _ in
                                     AlternovaLocationFetcher.shared.startStopTracking()
                                 }
                         }

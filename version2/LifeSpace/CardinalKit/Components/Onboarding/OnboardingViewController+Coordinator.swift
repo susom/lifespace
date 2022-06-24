@@ -78,12 +78,12 @@ class OnboardingViewCoordinator: NSObject, ORKTaskViewControllerDelegate {
                         
                         UserDefaults.standard.set(url.path, forKey: "consentFormURL")
                         print(url.path)
-                        
+
                         let storageRef = storage.reference()
                         
                         if let DocumentCollection = CKStudyUser.shared.consentCollection {
                             let DocumentRef = storageRef.child("\(DocumentCollection)\(consentFileName).pdf")
-                            
+
                             DocumentRef.putFile(from: url, metadata: nil) { metadata, error in
                                 if let error = error {
                                     print(error.localizedDescription)
