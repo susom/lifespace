@@ -14,7 +14,7 @@ class AlternovaLocationFetcher: NSObject, ObservableObject {
     
     var allLocations = [CLLocationCoordinate2D]()
     
-    var locationFetcher: LocationFetcher
+    var locationService: LocationService
     var onLocationsUpdated: (([CLLocationCoordinate2D]) -> Void)? = nil
     
     var tracking:Bool = false
@@ -22,21 +22,19 @@ class AlternovaLocationFetcher: NSObject, ObservableObject {
     var previousLocation:CLLocationCoordinate2D?
     var previousDate:Date?
     
-    @Published var authorizationStatus:CLAuthorizationStatus = CLLocationManager().authorizationStatus
-    @Published var canShowRequestMessage:Bool = true
+    @Published var authorizationStatus: CLAuthorizationStatus = CLLocationManager().authorizationStatus
+    @Published var canShowRequestMessage: Bool = true
     
     override init(){
-        locationFetcher = LocationFetcher()
+        locationService = LocationService()
         super.init()
         startStopTracking()
-        // Get all previous poitnt
         fetchAllTodaypoints()
         calculeIfCanShowRequestMessage()
     }
     
     func calculeIfCanShowRequestMessage() {
-        let manager = locationFetcher.manager
-        
+        let manager = locationService.manager
         let previousState = authorizationStatus
         authorizationStatus = manager.authorizationStatus
         
@@ -60,8 +58,8 @@ class AlternovaLocationFetcher: NSObject, ObservableObject {
     }
     
     func requestAuthorizationLocation() {
-        locationFetcher.manager.requestWhenInUseAuthorization()
-        locationFetcher.manager.requestAlwaysAuthorization()
+        locationService.manager.requestWhenInUseAuthorization()
+        locationService.manager.requestAlwaysAuthorization()
     }
     
     func fetchAllTodaypoints(){
@@ -74,7 +72,12 @@ class AlternovaLocationFetcher: NSObject, ObservableObject {
     }
     
     func appendNewLocationPoint(point:CLLocationCoordinate2D) -> Bool {
+        if !self.tracking {
+            return false
+        }
+
         var add = true
+
         if let previousLocation = previousLocation,
            let previousDate = previousDate {
             add = false
@@ -112,27 +115,25 @@ class AlternovaLocationFetcher: NSObject, ObservableObject {
     
     func startStopTracking() {
         if(tracking) {
+            locationService.stopTracking()
             self.tracking = false
-            locationFetcher.manager.stopUpdatingLocation()
-            locationFetcher.manager.allowsBackgroundLocationUpdates = false
             print("Stopping location tracking...")
         } else {
             if CLLocationManager.locationServicesEnabled() {
+                locationService.startTracking()
                 self.tracking = true
-                locationFetcher.manager.startUpdatingLocation()
-                locationFetcher.manager.allowsBackgroundLocationUpdates = true
                 print("Starting location tracking...")
             }
         }
     }
 
     func userAuthorizeAlways() -> Bool {
-        let manager = locationFetcher.manager
+        let manager = locationService.manager
         return manager.authorizationStatus == .authorizedAlways
     }
     
     func userAuthorizeWhenInUse() -> Bool {
-        let manager = locationFetcher.manager
+        let manager = locationService.manager
         return manager.authorizationStatus == .authorizedWhenInUse
     }
 }
