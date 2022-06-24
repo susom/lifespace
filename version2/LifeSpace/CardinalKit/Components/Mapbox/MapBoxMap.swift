@@ -10,11 +10,11 @@ import Foundation
 import MapboxMaps
 
 class MapboxMap {
-    public static func initialiceMap (mapView: MapView, reload: Bool){
+    public static func initialiceMap (mapView: MapView, reload: Bool) {
         mapView.mapboxMap.onNext(.mapLoaded){ _ in
             var locationsPoints = [CLLocationCoordinate2D]()
             locationsPoints = AlternovaLocationFetcher.shared.allLocations
-            do{
+            do {
                 // GeoJsonSource
                 var source = GeoJSONSource()
                 source.data = .feature(Feature(geometry: .lineString(LineString(locationsPoints))))
@@ -31,9 +31,9 @@ class MapboxMap {
                         zoom: 14.0
                     )
                 )
-                if reload{
+                if reload {
                     AlternovaLocationFetcher.shared.onLocationsUpdated = { locations in
-                        do{
+                        do {
                             try mapView.mapboxMap.style.updateGeoJSONSource(withId: "GEOSOURCE", geoJSON: .feature(Feature(geometry: .lineString(LineString(locations)))))
                             mapView.mapboxMap.setCamera(
                                 to: CameraOptions(
@@ -41,8 +41,7 @@ class MapboxMap {
                                     zoom: 14.0
                                 )
                             )
-                        }
-                        catch{
+                        } catch {
                             print("error updating points")
                         }
                     }

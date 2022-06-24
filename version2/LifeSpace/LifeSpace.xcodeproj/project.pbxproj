@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		27653A13272A2E7700D74E83 /* LocalTaskListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27653A12272A2E7700D74E83 /* LocalTaskListItemView.swift */; };
 		277DC91928355FC100C12FB2 /* CKReviewConsentDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277DC91828355FC100C12FB2 /* CKReviewConsentDocument.swift */; };
-		27B6BCDD2856E23300522E54 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27B6BCDC2856E23300522E54 /* GoogleService-Info.plist */; };
 		27B78918284CE8610006C02F /* LocalTaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B78917284CE8610006C02F /* LocalTaskItem.swift */; };
 		27B7891A284CE86A0006C02F /* CloudTaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B78919284CE86A0006C02F /* CloudTaskItem.swift */; };
 		27B7891C284CE89F0006C02F /* TasksUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B7891B284CE89F0006C02F /* TasksUIView.swift */; };
@@ -105,7 +104,6 @@
 		07D78DA16FC9C3C7709EA243 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		27653A12272A2E7700D74E83 /* LocalTaskListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTaskListItemView.swift; sourceTree = "<group>"; };
 		277DC91828355FC100C12FB2 /* CKReviewConsentDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKReviewConsentDocument.swift; sourceTree = "<group>"; };
-		27B6BCDC2856E23300522E54 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		27B78917284CE8610006C02F /* LocalTaskItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalTaskItem.swift; sourceTree = "<group>"; };
 		27B78919284CE86A0006C02F /* CloudTaskItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudTaskItem.swift; sourceTree = "<group>"; };
 		27B7891B284CE89F0006C02F /* TasksUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksUIView.swift; sourceTree = "<group>"; };
@@ -304,7 +302,6 @@
 				8E0A4384244A4A0400656518 /* Constants.swift */,
 				8E0A4378244A4A0300656518 /* LifeSpace-Bridging-Header.h */,
 				8E0A43C9244A4C6500656518 /* Info.plist */,
-				27B6BCDC2856E23300522E54 /* GoogleService-Info.plist */,
 				E2F1FD7724D62064006C39DF /* CKConfiguration.plist */,
 			);
 			path = "Supporting Files";
@@ -518,6 +515,7 @@
 				607FACCE1AFB9204008FA782 /* Resources */,
 				8E0A43D0244A60D800656518 /* Embed Frameworks */,
 				2F033BEE924949896CCB5DCD /* [CP] Embed Pods Frameworks */,
+				275E587728656F3700799953 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -578,7 +576,6 @@
 			files = (
 				8E0A43AF244A4A0400656518 /* Assets.xcassets in Resources */,
 				8E0A43B0244A4A0400656518 /* LaunchScreen.storyboard in Resources */,
-				27B6BCDD2856E23300522E54 /* GoogleService-Info.plist in Resources */,
 				E2F1FD7824D62064006C39DF /* CKConfiguration.plist in Resources */,
 				8E0A43C1244A4A0400656518 /* LoginCustomWaitStepView.xib in Resources */,
 			);
@@ -587,6 +584,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		275E587728656F3700799953 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		2F033BEE924949896CCB5DCD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

@@ -12,7 +12,7 @@ import SwiftUI
 struct DocumentPreviewViewController: UIViewControllerRepresentable {
     private var isActive: Binding<Bool>
     private let viewController = UIViewController()
-    private var docController: UIDocumentInteractionController? = nil
+    private var docController: UIDocumentInteractionController?
 
     init(_ isActive: Binding<Bool>, url: URL?) {
         self.isActive = isActive

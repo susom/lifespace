@@ -28,10 +28,10 @@ struct DocumentView: View {
             self.documentsURL = URL(fileURLWithPath: url.path, isDirectory: false)
             UserDefaults.standard.set(url.path, forKey: "consentFormURL")
             // Download to the local filesystem
-            let downloadTask = DocumentRef.write(toFile: url) { url, error in
-              if let error = error {
-                  print("error \(error)")
-              }
+            DocumentRef.write(toFile: url) { _, error in
+                if let error = error {
+                    print("error \(error)")
+                }
             }
         }
     }
@@ -55,5 +55,3 @@ struct DDocumentView_Previews: PreviewProvider {
         DocumentView()
     }
 }
-
-

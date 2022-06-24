@@ -24,14 +24,14 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate {
             }
             
             if let lastKnownLocation = lastKnownLocation,
-               AlternovaLocationFetcher.shared.appendNewLocationPoint(point: lastKnownLocation){
+               AlternovaLocationFetcher.shared.appendNewLocationPoint(point: lastKnownLocation) {
                 if let mapPointsCollection = CKStudyUser.shared.mapPointsCollection {
                     let settings = FirestoreSettings()
                     settings.isPersistenceEnabled = false
 
                     let db = Firestore.firestore()
                     db.settings = settings
-                    
+
                     db.collection(mapPointsCollection)
                         .document(UUID().uuidString)
                         .setData([
@@ -67,11 +67,11 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    
+
     func stop() {
         manager.stopUpdatingLocation()
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         lastKnownLocation = locations.first?.coordinate
     }

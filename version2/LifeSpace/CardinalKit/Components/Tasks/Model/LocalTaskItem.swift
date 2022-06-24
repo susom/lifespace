@@ -94,7 +94,7 @@ enum LocalTaskItem: Int {
         return Array (
             AnyIterator {
                 let returnedElement = self.init(rawValue: index)
-                index = index + 1
+                index += index
                 return returnedElement
             }
         )
