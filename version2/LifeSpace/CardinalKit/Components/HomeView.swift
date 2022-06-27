@@ -12,7 +12,7 @@ struct HomeView: View {
     
     @State private var showingSurveyAlert = false
     @State private var showingSurvey = false
-    @State private var trackingOn = true
+    @State private var trackingOn = UserDefaults.standard.bool(forKey: Constants.prefTrackingStatus)
     @State private var optionsPanelOpen = true
     
     var surveyActive: Bool {

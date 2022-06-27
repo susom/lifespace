@@ -28,7 +28,15 @@ class AlternovaLocationFetcher: NSObject, ObservableObject {
     override init(){
         locationService = LocationService()
         super.init()
-        startStopTracking()
+
+        if UserDefaults.standard.value(forKey: Constants.prefTrackingStatus) == nil {
+            UserDefaults.standard.setValue(true, forKey: Constants.prefTrackingStatus)
+        }
+
+        if UserDefaults.standard.bool(forKey: Constants.prefTrackingStatus) {
+            locationService.startTracking()
+        }
+
         fetchAllTodaypoints()
         calculeIfCanShowRequestMessage()
     }
@@ -114,16 +122,16 @@ class AlternovaLocationFetcher: NSObject, ObservableObject {
     }
     
     func startStopTracking() {
-        if(tracking) {
+        if UserDefaults.standard.value(forKey: Constants.prefTrackingStatus) as? Bool == true {
             locationService.stopTracking()
-            self.tracking = false
+            UserDefaults.standard.set(false, forKey: Constants.prefTrackingStatus)
+            //self.tracking = false
             print("Stopping location tracking...")
         } else {
-            if CLLocationManager.locationServicesEnabled() {
-                locationService.startTracking()
-                self.tracking = true
-                print("Starting location tracking...")
-            }
+            locationService.startTracking()
+            UserDefaults.standard.set(true, forKey: Constants.prefTrackingStatus)
+            //self.tracking = true
+            print("Starting location tracking...")
         }
     }
 
