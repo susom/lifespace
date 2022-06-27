@@ -77,6 +77,6 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        AlternovaLocationFetcher.shared.calculeIfCanShowRequestMessage()
+        AlternovaLocationFetcher.shared.calculateIfCanShowRequestMessage()
     }
 }

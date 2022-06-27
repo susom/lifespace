@@ -9,23 +9,21 @@
 import CoreLocation
 import Foundation
 
-class AlternovaLocationFetcher: NSObject, ObservableObject {
+class AlternovaLocationFetcher: ObservableObject {
+
     static let shared = AlternovaLocationFetcher()
-    
+
     var allLocations = [CLLocationCoordinate2D]()
-    
     var locationService: LocationService
     var onLocationsUpdated: (([CLLocationCoordinate2D]) -> Void)?
-    
-    var previousLocation:CLLocationCoordinate2D?
+    var previousLocation: CLLocationCoordinate2D?
     var previousDate: Date?
     
     @Published var authorizationStatus: CLAuthorizationStatus = CLLocationManager().authorizationStatus
     @Published var canShowRequestMessage: Bool = true
     
-    override init(){
+    init() {
         locationService = LocationService()
-        super.init()
 
         if UserDefaults.standard.value(forKey: Constants.prefTrackingStatus) == nil {
             UserDefaults.standard.setValue(true, forKey: Constants.prefTrackingStatus)
@@ -35,11 +33,11 @@ class AlternovaLocationFetcher: NSObject, ObservableObject {
             locationService.startTracking()
         }
 
-        fetchAllTodaypoints()
-        calculeIfCanShowRequestMessage()
+        fetchTodaysPoints()
+        calculateIfCanShowRequestMessage()
     }
     
-    func calculeIfCanShowRequestMessage() {
+    func calculateIfCanShowRequestMessage() {
         let manager = locationService.manager
         let previousState = authorizationStatus
         authorizationStatus = manager.authorizationStatus
@@ -62,22 +60,22 @@ class AlternovaLocationFetcher: NSObject, ObservableObject {
             canShowRequestMessage = false
         }
     }
-    
+
     func requestAuthorizationLocation() {
         locationService.manager.requestWhenInUseAuthorization()
         locationService.manager.requestAlwaysAuthorization()
     }
     
-    func fetchAllTodaypoints() {
+    func fetchTodaysPoints() {
         JHMapDataManager.shared.getAllMapPoints(date: Date(), onCompletion: {(results) in
-            if let results = results as? [CLLocationCoordinate2D]{
+            if let results = results as? [CLLocationCoordinate2D] {
                 self.allLocations = results
                 self.onLocationsUpdated?(self.allLocations)
             }
         })
     }
 
-    func appendNewLocationPoint(point:CLLocationCoordinate2D) -> Bool {
+    func appendNewLocationPoint(point: CLLocationCoordinate2D) -> Bool {
         if !UserDefaults.standard.bool(forKey: Constants.prefTrackingStatus) {
             return false
         }
@@ -90,7 +88,8 @@ class AlternovaLocationFetcher: NSObject, ObservableObject {
             let lastLongitude = previousLocation.longitude
             let lastLatitude = previousLocation.latitude
             var distance = 1000.0
-            // Calcule distance
+
+            // Calculate distance
             let d2r = (Double.pi / 180.0)
             let dlong = (lastLongitude-point.longitude) * d2r
             let dlat = (lastLatitude-point.latitude) * d2r
@@ -102,13 +101,13 @@ class AlternovaLocationFetcher: NSObject, ObservableObject {
                 add = true
             }
 
-            // Reset all points when day change
+            // Reset all points when day changes
             if Date().startOfDay != previousDate.startOfDay {
                 add = true
-                fetchAllTodaypoints()
+                fetchTodaysPoints()
             }
         }
-        
+
         if add {
             allLocations.append(point)
             onLocationsUpdated?(allLocations)
@@ -118,7 +117,7 @@ class AlternovaLocationFetcher: NSObject, ObservableObject {
 
         return add
     }
-    
+
     func startStopTracking() {
         if UserDefaults.standard.value(forKey: Constants.prefTrackingStatus) as? Bool == true {
             locationService.stopTracking()
