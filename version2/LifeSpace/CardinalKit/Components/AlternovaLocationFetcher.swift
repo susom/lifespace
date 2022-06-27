@@ -15,12 +15,10 @@ class AlternovaLocationFetcher: NSObject, ObservableObject {
     var allLocations = [CLLocationCoordinate2D]()
     
     var locationService: LocationService
-    var onLocationsUpdated: (([CLLocationCoordinate2D]) -> Void)? = nil
-    
-    var tracking:Bool = false
+    var onLocationsUpdated: (([CLLocationCoordinate2D]) -> Void)?
     
     var previousLocation:CLLocationCoordinate2D?
-    var previousDate:Date?
+    var previousDate: Date?
     
     @Published var authorizationStatus: CLAuthorizationStatus = CLLocationManager().authorizationStatus
     @Published var canShowRequestMessage: Bool = true
@@ -70,7 +68,7 @@ class AlternovaLocationFetcher: NSObject, ObservableObject {
         locationService.manager.requestAlwaysAuthorization()
     }
     
-    func fetchAllTodaypoints(){
+    func fetchAllTodaypoints() {
         JHMapDataManager.shared.getAllMapPoints(date: Date(), onCompletion: {(results) in
             if let results = results as? [CLLocationCoordinate2D]{
                 self.allLocations = results
@@ -78,9 +76,9 @@ class AlternovaLocationFetcher: NSObject, ObservableObject {
             }
         })
     }
-    
+
     func appendNewLocationPoint(point:CLLocationCoordinate2D) -> Bool {
-        if !self.tracking {
+        if !UserDefaults.standard.bool(forKey: Constants.prefTrackingStatus) {
             return false
         }
 
@@ -103,7 +101,7 @@ class AlternovaLocationFetcher: NSObject, ObservableObject {
             if distance>0.1 {
                 add = true
             }
-            
+
             // Reset all points when day change
             if Date().startOfDay != previousDate.startOfDay {
                 add = true
@@ -125,12 +123,10 @@ class AlternovaLocationFetcher: NSObject, ObservableObject {
         if UserDefaults.standard.value(forKey: Constants.prefTrackingStatus) as? Bool == true {
             locationService.stopTracking()
             UserDefaults.standard.set(false, forKey: Constants.prefTrackingStatus)
-            //self.tracking = false
             print("Stopping location tracking...")
         } else {
             locationService.startTracking()
             UserDefaults.standard.set(true, forKey: Constants.prefTrackingStatus)
-            //self.tracking = true
             print("Starting location tracking...")
         }
     }
@@ -139,7 +135,7 @@ class AlternovaLocationFetcher: NSObject, ObservableObject {
         let manager = locationService.manager
         return manager.authorizationStatus == .authorizedAlways
     }
-    
+
     func userAuthorizeWhenInUse() -> Bool {
         let manager = locationService.manager
         return manager.authorizationStatus == .authorizedWhenInUse
