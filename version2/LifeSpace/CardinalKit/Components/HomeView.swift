@@ -12,7 +12,7 @@ struct HomeView: View {
     
     @State private var showingSurveyAlert = false
     @State private var showingSurvey = false
-    @State private var trackingOn = true
+    @State private var trackingOn = UserDefaults.standard.bool(forKey: Constants.prefTrackingStatus)
     @State private var optionsPanelOpen = true
     
     var surveyActive: Bool {
@@ -49,7 +49,7 @@ struct HomeView: View {
                     if self.optionsPanelOpen {
                         GroupBox{
                             Button {
-                                if(surveyActive) {
+                                if surveyActive {
                                     self.showingSurvey.toggle()
                                 } else {
                                     self.showingSurveyAlert.toggle()
@@ -59,14 +59,14 @@ struct HomeView: View {
                                     .foregroundColor(.white)
                                     .frame(maxWidth: .infinity)
                             }
-                            .alert(isPresented: $showingSurveyAlert){
+                            .alert(isPresented: $showingSurveyAlert) {
                                 Alert(title: Text("Survey Not Available Yet"), message: Text("Please come back after 7:00 PM to complete your daily survey!"), dismissButton: .default(Text("OK")))
                             }
                             .sheet(isPresented: $showingSurvey) {
                                 CKTaskViewController(tasks: DailySurveyTask(showInstructions: false))
                             }
                         }.groupBoxStyle(ButtonGroupBoxStyle())
-                        
+
                         GroupBox {
                             Toggle("Track My Location", isOn: $trackingOn)
                                 .onChange(of: trackingOn) { _ in

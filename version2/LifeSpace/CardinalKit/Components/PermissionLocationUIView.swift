@@ -50,7 +50,7 @@ struct PermissionLocationUIView: View {
                             
                             locationFetcher.requestAuthorizationLocation()
                             UserDefaults.standard.set(false, forKey: Constants.JHFirstLocationRequest)
-                            locationFetcher.calculeIfCanShowRequestMessage()
+                            locationFetcher.calculateIfCanShowRequestMessage()
                             
                         }, label: {
                              Text("Step Two")
