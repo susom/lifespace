@@ -24,6 +24,8 @@ class OnboardingViewCoordinator: NSObject, ORKTaskViewControllerDelegate {
                 alert.addAction(confirmAction)
                 taskViewController.present(alert, animated: false, completion: nil)
                 return false
+            } else {
+                CKStudyUser.shared.studyID = id
             }
         }
         

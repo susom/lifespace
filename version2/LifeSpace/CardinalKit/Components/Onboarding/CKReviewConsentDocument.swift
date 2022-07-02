@@ -40,7 +40,7 @@ public class CKReviewConsentDocumentViewController:ORKQuestionStepViewController
         let storageRef = storage.reference()
         
         // Attempt to download consent document from cloud storage
-        if let DocumentCollection = CKStudyUser.shared.consentCollection {
+        if let consentCollection = CKStudyUser.shared.consentCollection {
             let config = CKPropertyReader(file: "CKConfiguration")
             var consentFileName = config.read(query: "Consent File Name")
 
@@ -49,13 +49,13 @@ public class CKReviewConsentDocumentViewController:ORKQuestionStepViewController
                 consentFileName = "\(studyID)_\(consentFileName)"
             }
 
-            let DocumentRef = storageRef.child("\(DocumentCollection)\(consentFileName).pdf")
+            let DocumentRef = storageRef.child("\(consentCollection)\(consentFileName).pdf")
             
             var docURL = (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)).last as NSURL?
             docURL = docURL?.appendingPathComponent("\(consentFileName).pdf") as NSURL?
             let url = docURL! as URL
             
-            DocumentRef.write(toFile: url) { url, error in
+            DocumentRef.write(toFile: url) { _, error in
                 if let error = error {
                     // Couldn't download consent document
                     print("Error downloading consent document: " + error.localizedDescription)
