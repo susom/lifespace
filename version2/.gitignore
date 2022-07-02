@@ -90,4 +90,7 @@ fastlane/test_output
 iOSInjectionProject/
 
 ## Firebase API Keys
-GoogleService-Info.plist
+**/GoogleService-Info.plist
+
+## .DS_Store
+**/.DS_Store
