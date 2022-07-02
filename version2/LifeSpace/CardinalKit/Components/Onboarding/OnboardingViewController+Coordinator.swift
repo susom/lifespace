@@ -15,6 +15,7 @@ class OnboardingViewCoordinator: NSObject, ORKTaskViewControllerDelegate {
     public func taskViewController(_ taskViewController: ORKTaskViewController, shouldPresent step: ORKStep) -> Bool {
         
         // Check if study ID is valid and show an alert if it is not
+        // If study ID is valid, add it to the current user object
         if let studyIDResult = taskViewController.result.stepResult(forStepIdentifier: "StudyIDEntryStep")?.results,
            let studyID = studyIDResult[0] as? ORKTextQuestionResult,
            let id = studyID.textAnswer {
@@ -24,6 +25,8 @@ class OnboardingViewCoordinator: NSObject, ORKTaskViewControllerDelegate {
                 alert.addAction(confirmAction)
                 taskViewController.present(alert, animated: false, completion: nil)
                 return false
+            } else {
+                CKStudyUser.shared.studyID = id
             }
         }
         
@@ -47,17 +50,9 @@ class OnboardingViewCoordinator: NSObject, ORKTaskViewControllerDelegate {
         case .completed:
             // if we completed the onboarding task view controller, go to home screen
             UserDefaults.standard.set(true, forKey: Constants.onboardingDidComplete)
-            
-            if let studyIDResult = taskViewController.result.stepResult(forStepIdentifier: "StudyIDEntryStep")?.results {
-                
-                let user = CKStudyUser.shared
-                
-                if let studyID = studyIDResult[0] as? ORKTextQuestionResult {
-                    user.studyID = studyID.textAnswer ?? ""
-                }
-                
-                user.save()
-            }
+
+            // Save the current user object to the database
+            CKStudyUser.shared.save()
             
             if let signatureResult = taskViewController.result.stepResult(forStepIdentifier: "ConsentReviewStep")?.results?.first as? ORKConsentSignatureResult {
                 
@@ -65,9 +60,14 @@ class OnboardingViewCoordinator: NSObject, ORKTaskViewControllerDelegate {
                 signatureResult.apply(to: consentDocument)
 
                 consentDocument.makePDF { (data, error) -> Void in
-                    
+
                     let config = CKPropertyReader(file: "CKConfiguration")
-                    let consentFileName = config.read(query: "Consent File Name")
+                    var consentFileName = config.read(query: "Consent File Name")
+
+                    // Adds study ID to consent file name if it exists
+                    if let studyID = CKStudyUser.shared.studyID {
+                        consentFileName = "\(studyID)_\(consentFileName)"
+                    }
                         
                     var docURL = (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)).last as NSURL?
                     docURL = docURL?.appendingPathComponent("\(consentFileName).pdf") as NSURL?

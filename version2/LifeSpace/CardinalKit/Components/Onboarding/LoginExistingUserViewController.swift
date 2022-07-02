@@ -63,9 +63,14 @@ struct LoginExistingUserViewController: UIViewControllerRepresentable {
         reviewConsentStep.text = config.read(query: "Review Consent Step Text")
         reviewConsentStep.reasonForConsent = config.read(query: "Reason for Consent Text")
         let consentReview = CKReviewConsentDocument(identifier: "ConsentReview")
+
+        // Creates a summary step once login is complete
+        let completionStep = ORKCompletionStep(identifier: "CompletionStep")
+        completionStep.title = config.read(query: "Completion Step Title")
+        completionStep.text = config.read(query: "Completion Step Text")
         
         // Creates a navigable task from the above steps
-        loginSteps += [consentReview, reviewConsentStep, passcodeStep]
+        loginSteps += [consentReview, reviewConsentStep, passcodeStep, completionStep]
         let navigableTask = ORKNavigableOrderedTask(identifier: "StudyLoginTask", steps: loginSteps)
         
         // Navigation rule that checks if the user has a consent document in cloud storage
@@ -73,7 +78,7 @@ struct LoginExistingUserViewController: UIViewControllerRepresentable {
         let resultConsent = ORKResultSelector(resultIdentifier: "ConsentReview")
         let booleanAnswerConsent = ORKResultPredicate.predicateForBooleanQuestionResult(with: resultConsent, expectedAnswer: true)
         let predicateRuleConsent = ORKPredicateStepNavigationRule(resultPredicates: [booleanAnswerConsent],
-                                                           destinationStepIdentifiers: ["HealthKit"],
+                                                           destinationStepIdentifiers: ["Passcode"],
                                                            defaultStepIdentifier: "ConsentReviewStep",
                                                            validateArrays: true)
         navigableTask.setNavigationRule(predicateRuleConsent, forTriggerStepIdentifier: "ConsentReview")
