@@ -16,7 +16,7 @@ class CKStudyUser: ObservableObject {
     /* **************************************************************
      * the current user only resolves if we are logged in
      **************************************************************/
-    var currentUser: User?
+    @Published var currentUser: User?
 
     /* **************************************************************
      * store your Firebase objects under this path in order to
