@@ -175,14 +175,11 @@ class CKStudyUser {
         if let dataBucket = rootAuthCollection,
            let uid = currentUser?.uid {
 
+            // Get the date of the last completed survey from the user document in Firestore
             let db = Firestore.firestore()
-
-            // Get the last survey date from the user document in Firestore
             let document = try await db.collection(dataBucket).document(uid).getDocument()
             let lastSurveyDateString = document.get("lastSurveyDate") as? String
-            print(lastSurveyDateString)
             if let lastSurveyDateString = lastSurveyDateString {
-                print("SURVEY DATE STRING: " + lastSurveyDateString)
                 let formatter = ISO8601DateFormatter()
                 let date = formatter.date(from: lastSurveyDateString)
                 lastSurveyDate = date
