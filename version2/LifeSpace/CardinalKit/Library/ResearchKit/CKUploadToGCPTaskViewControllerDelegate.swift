@@ -32,7 +32,7 @@ class CKUploadToGCPTaskViewControllerDelegate: NSObject, ORKTaskViewControllerDe
                 print(error.localizedDescription)
             }
 
-            // Update last survey date in database
+            // Update the last completed survey date
             CKStudyUser.shared.updateLastSurveyDate()
 
             fallthrough

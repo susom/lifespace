@@ -157,15 +157,21 @@ class CKStudyUser {
     }
 
     /**
-        Updates the last survey date in the user document with
+        Updates the last completed survey date in the user document with
         the current date, stored as an ISO 8601 formatted string
      */
     func updateLastSurveyDate() {
+        let today = Date().ISOStringFromDate()
+
+        // Update locally
+        UserDefaults.standard.setValue(today, forKey: Constants.lastSurveyDate)
+
+        // Update in database
         if let dataBucket = rootAuthCollection,
            let uid = currentUser?.uid {
             let db = Firestore.firestore()
             db.collection(dataBucket).document(uid).updateData([
-                "lastSurveyDate": Date().ISOStringFromDate()])
+                "lastSurveyDate": today])
         }
     }
 
