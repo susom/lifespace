@@ -34,6 +34,6 @@ class Constants {
     static let lastSurveyDate = "LAST_SURVEY_DATE"
     
     static let validStudyIDs = ["1234", "1235", "1236"]
-    static let hourToOpenSurvey = 12 // Hour to open survey daily in military time
+    static let hourToOpenSurvey = 19 // Hour to open survey daily in military time
     
 }
