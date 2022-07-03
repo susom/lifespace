@@ -31,6 +31,10 @@ class CKUploadToGCPTaskViewControllerDelegate: NSObject, ORKTaskViewControllerDe
             } catch {
                 print(error.localizedDescription)
             }
+
+            // Update last survey date in database
+            CKStudyUser.shared.updateLastSurveyDate()
+
             fallthrough
         default:
             taskViewController.dismiss(animated: true, completion: nil)

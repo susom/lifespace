@@ -156,6 +156,19 @@ class CKStudyUser {
     }
 
     /**
+        Updates the last survey date in the user document with
+        the current date.
+     */
+    func updateLastSurveyDate() {
+        if let dataBucket = rootAuthCollection,
+           let uid = currentUser?.uid {
+            let db = Firestore.firestore()
+            db.collection(dataBucket).document(uid).updateData([
+                "lastSurveyDate": Date().ISOStringFromDate()])
+        }
+    }
+
+    /**
      Remove the current user's auth parameters from storage.
      */
     func signOut() throws {
