@@ -175,23 +175,18 @@ class CKStudyUser {
         }
     }
 
-    func getLastSurveyDate() async throws -> Date? {
-        var lastSurveyDate: Date?
-
+    func getLastSurveyDate() async throws {
+        // Get the date of the last completed survey from the user document in Firestore
+        // then store the result locally
+        
         if let dataBucket = rootAuthCollection,
            let uid = currentUser?.uid {
 
-            // Get the date of the last completed survey from the user document in Firestore
             let db = Firestore.firestore()
             let document = try await db.collection(dataBucket).document(uid).getDocument()
             let lastSurveyDateString = document.get("lastSurveyDate") as? String
-            if let lastSurveyDateString = lastSurveyDateString {
-                let formatter = ISO8601DateFormatter()
-                let date = formatter.date(from: lastSurveyDateString)
-                lastSurveyDate = date
-            }
+            UserDefaults.standard.setValue(lastSurveyDateString, forKey: Constants.lastSurveyDate)
         }
-        return lastSurveyDate
     }
 
     /**

@@ -26,7 +26,7 @@ struct HomeView: View {
                 Spacer()
 
                 GroupBox {
-                    
+
                     Button {
                         withAnimation {
                             self.optionsPanelOpen.toggle()
@@ -48,7 +48,7 @@ struct HomeView: View {
                                 if !SurveyRules.isAfterStartHour() {
                                     self.alertMessage = SurveyRules.tooEarlyMessage
                                     self.showingSurveyAlert.toggle()
-                                } else if SurveyRules.wasNotTakenToday() {
+                                } else if !SurveyRules.wasNotTakenToday() {
                                     self.alertMessage = SurveyRules.alreadyTookSurveyMessage
                                     self.showingSurveyAlert.toggle()
                                 } else {
@@ -75,6 +75,15 @@ struct HomeView: View {
                                     AlternovaLocationFetcher.shared.startStopTracking()
                                 }
                         }
+                    }
+                }
+            }.onAppear {
+                // Make sure last survey date is updated
+                async {
+                    do {
+                        try await CKStudyUser.shared.getLastSurveyDate()
+                    } catch {
+                        print("Error updating last survey date.")
                     }
                 }
             }

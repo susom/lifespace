@@ -3,7 +3,7 @@
 //  LifeSpace
 //
 //  Created by Vishnu Ravi on 7/3/22.
-//  Copyright © 2022 CocoaPods. All rights reserved.
+//  Copyright © 2022 LifeSpace. All rights reserved.
 //
 
 import Foundation
@@ -33,9 +33,9 @@ class SurveyRules {
     public static func wasNotTakenToday() -> Bool {
         if let lastSurveyDateString = UserDefaults.standard.value(forKey: Constants.lastSurveyDate) as? String {
             let formatter = ISO8601DateFormatter()
-            
+            formatter.formatOptions.insert(.withFractionalSeconds)
+
             if let lastSurveyDate = formatter.date(from: lastSurveyDateString) {
-                print(Calendar.current.isDateInToday(lastSurveyDate))
                 return !(Calendar.current.isDateInToday(lastSurveyDate))
             }
         }
