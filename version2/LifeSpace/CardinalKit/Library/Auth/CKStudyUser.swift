@@ -150,14 +150,15 @@ class CKStudyUser {
                 "userID": uid,
                 "studyID": studyID ?? "",
                 "lastActive": Date().ISOStringFromDate(),
-                "email": email]
+                "email": email],
+                merge: true
             )
         }
     }
 
     /**
         Updates the last survey date in the user document with
-        the current date.
+        the current date, stored as an ISO 8601 formatted string
      */
     func updateLastSurveyDate() {
         if let dataBucket = rootAuthCollection,
@@ -166,6 +167,28 @@ class CKStudyUser {
             db.collection(dataBucket).document(uid).updateData([
                 "lastSurveyDate": Date().ISOStringFromDate()])
         }
+    }
+
+    func getLastSurveyDate() async throws -> Date? {
+        var lastSurveyDate: Date?
+
+        if let dataBucket = rootAuthCollection,
+           let uid = currentUser?.uid {
+
+            let db = Firestore.firestore()
+
+            // Get the last survey date from the user document in Firestore
+            let document = try await db.collection(dataBucket).document(uid).getDocument()
+            let lastSurveyDateString = document.get("lastSurveyDate") as? String
+            print(lastSurveyDateString)
+            if let lastSurveyDateString = lastSurveyDateString {
+                print("SURVEY DATE STRING: " + lastSurveyDateString)
+                let formatter = ISO8601DateFormatter()
+                let date = formatter.date(from: lastSurveyDateString)
+                lastSurveyDate = date
+            }
+        }
+        return lastSurveyDate
     }
 
     /**
