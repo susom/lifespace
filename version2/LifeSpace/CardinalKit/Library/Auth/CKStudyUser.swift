@@ -9,18 +9,14 @@ import Foundation
 import Firebase
 import CardinalKit
 
-class CKStudyUser {
+class CKStudyUser: ObservableObject {
 
     static let shared = CKStudyUser()
     
     /* **************************************************************
      * the current user only resolves if we are logged in
      **************************************************************/
-    var currentUser: User? {
-        // this is a reference to the
-        // Firebase + Google Identity User
-        return Auth.auth().currentUser
-    }
+    @Published var currentUser: User?
 
     /* **************************************************************
      * store your Firebase objects under this path in order to
