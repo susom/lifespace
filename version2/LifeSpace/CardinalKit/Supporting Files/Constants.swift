@@ -32,4 +32,6 @@ class Constants {
     
     static let JHFirstLocationRequest = "JHFirstLocationRequest"
     
+    static let lastSurveyDate = "LAST_SURVEY_DATE"
+    static let hourToOpenSurvey = 19 // Hour to open survey daily in military time
 }
