@@ -16,11 +16,12 @@ struct LaunchUIView: View {
     
     @State var didCompleteOnboarding = false
     @ObservedObject var launchData: LaunchModel = LaunchModel.sharedinstance
+    @ObservedObject var studyUser: CKStudyUser  = CKStudyUser.shared
 
     var body: some View {
         VStack(spacing: 10) {
             
-            if didCompleteOnboarding && (CKStudyUser.shared.currentUser != nil){
+            if didCompleteOnboarding && (studyUser.currentUser != nil) {
                 if launchData.showSurvey {
                     DailySurveyStartButton()
                 } else if launchData.showPermissionView {
@@ -29,7 +30,7 @@ struct LaunchUIView: View {
                     MainUIView()
                 }
             } else {
-                OnboardingUIView() {
+                OnboardingUIView {
                     //on complete
                     if let completed = UserDefaults.standard.object(forKey: Constants.onboardingDidComplete) as? Bool {
                        self.didCompleteOnboarding = completed

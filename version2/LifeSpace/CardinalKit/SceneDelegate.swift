@@ -13,6 +13,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
+    weak var handle: AuthStateDidChangeListenerHandle?
+
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
@@ -27,6 +29,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window.rootViewController = UIHostingController(rootView: contentView)
             self.window = window
             window.makeKeyAndVisible()
+        }
+
+        // Set up auth state listener
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            if(user != nil) {
+                CKStudyUser.shared.currentUser = user
+            } else {
+                CKStudyUser.shared.currentUser = nil
+            }
         }
     }
     

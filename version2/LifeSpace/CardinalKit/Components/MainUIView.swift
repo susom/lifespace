@@ -15,7 +15,6 @@ struct MainUIView: View {
     
     init() {
         self.color = Color(config.readColor(query: "Primary Color"))
-        
     }
     
     var body: some View {
