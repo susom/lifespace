@@ -27,12 +27,7 @@ class LocationService: NSObject, CLLocationManagerDelegate {
                 // Append latest location to the map and then save it to the database
                 if AlternovaLocationFetcher.shared.appendNewLocationPoint(point: lastKnownLocation) {
                     if let mapPointsCollection = CKStudyUser.shared.mapPointsCollection {
-                        let settings = FirestoreSettings()
-                        settings.isPersistenceEnabled = false
-
                         let db = Firestore.firestore()
-                        db.settings = settings
-
                         db.collection(mapPointsCollection)
                             .document(UUID().uuidString)
                             .setData([
@@ -50,7 +45,7 @@ class LocationService: NSObject, CLLocationManagerDelegate {
             }
         }
     }
-
+    
     override init() {
         super.init()
         manager.delegate = self
