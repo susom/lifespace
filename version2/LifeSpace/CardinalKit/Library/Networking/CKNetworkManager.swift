@@ -72,11 +72,8 @@ class CKAppNetworkManager: CKAPIDeliveryDelegate, CKAPIReceiverDelegate {
             }
     }
     
-    private func firestoreDb()->Firestore{
-        let settings = FirestoreSettings()
-        settings.isPersistenceEnabled = false
+    private func firestoreDb() -> Firestore {
         let db = Firestore.firestore()
-        db.settings = settings
         return db
     }
 //    func downloadSurveys(){
@@ -97,11 +94,11 @@ class CKAppNetworkManager: CKAPIDeliveryDelegate, CKAPIReceiverDelegate {
 ////            }
 ////        }
 //    }
-    
+
 }
 
 extension CKAppNetworkManager {
-    
+
     /**
      Send HealthKit data using Firebase
     */
@@ -113,13 +110,13 @@ extension CKAppNetworkManager {
                 onCompletion(false)
                 return
             }
-            
+
             let identifier = Date().startOfDay.shortStringFromDate() + "-\(package.fileName)"
             let trimmedIdentifier = identifier.trimmingCharacters(in: .whitespaces)
-            
+
             let db=firestoreDb()
             db.collection(authPath + "\(Constants.dataBucketHealthKit)").document(trimmedIdentifier).setData(json) { err in
-                
+
                 if let err = err {
                     onCompletion(false)
                     print("Error writing document: \(err)")
@@ -128,34 +125,33 @@ extension CKAppNetworkManager {
                     print("[sendHealthKit] \(trimmedIdentifier) - successfully written!")
                 }
             }
-            
+
         } catch {
             print("Error \(error.localizedDescription)")
             onCompletion(false)
             return
         }
     }
-    
+
     /**
      Send Sensor data using Cloud Storage
     */
     fileprivate func sendSensorData(_ file: URL, _ package: Package, _ onCompletion: @escaping (Bool) -> Void) {
-        
         guard let stanfordRITBucket = CKStudyUser.shared.authCollection else { return }
-        
+
         let storageRef = Storage.storage().reference()
         let ref = storageRef.child("\(stanfordRITBucket)\(Constants.dataBucketStorage)/coremotion/\(package.fileName)/\(file.lastPathComponent)")
-        
+
         let uploadTask = ref.putFile(from: file, metadata: nil)
-        uploadTask.observe(.success) { snapshot in
+        uploadTask.observe(.success) { _ in
             print("[sendSensorData] file uploaded successfully!")
         }
-        
+
         uploadTask.observe(.failure) { snapshot in
             print("[sendSensorData] error uploading file!")
         }
     }
-    
+
     fileprivate func sendMetricsData(_ file: URL, _ package: Package, _ onCompletion: @escaping (Bool) -> Void) {
         do {
             let data = try Data(contentsOf: file)
@@ -164,9 +160,9 @@ extension CKAppNetworkManager {
                 onCompletion(false)
                 return
             }
-            
+
             let identifier:String = (json["date"] as? String ?? Date().shortStringFromDate())+"Activity_index"
-            
+
             let db=firestoreDb()
             db.collection(authPath + "\(Constants.dataBucketMetrics)").document(identifier).setData(json) { err in
                 
@@ -178,12 +174,12 @@ extension CKAppNetworkManager {
                     print("[sendMetrics] \(identifier) - successfully written!")
                 }
             }
-            
+
         } catch {
             print("Error \(error.localizedDescription)")
             onCompletion(false)
             return
         }
     }
-    
+
 }

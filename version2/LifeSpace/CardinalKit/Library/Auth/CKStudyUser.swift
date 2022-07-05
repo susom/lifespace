@@ -11,6 +11,8 @@ import CardinalKit
 
 class CKStudyUser: ObservableObject {
 
+    let db = Firestore.firestore()
+
     static let shared = CKStudyUser()
     
     /* **************************************************************
@@ -52,7 +54,7 @@ class CKStudyUser: ObservableObject {
         }
         return nil
     }
-    
+
     var surveysCollection: String? {
         if let baseCollection = baseCollection {
             return "\(baseCollection)/\(prefix)_surveys/"
@@ -64,7 +66,7 @@ class CKStudyUser: ObservableObject {
         if let authCollection = authCollection {
             return "\(authCollection)\(prefix)_consent/"
         }
-        
+
         return nil
     }
 
@@ -138,10 +140,7 @@ class CKStudyUser: ObservableObject {
 
             CKSession.shared.userId = uid
             CKSendHelper.createNecessaryDocuments(path: dataBucket)
-            let settings = FirestoreSettings()
-            settings.isPersistenceEnabled = false
-            let db = Firestore.firestore()
-            db.settings = settings
+
             db.collection(dataBucket).document(uid).setData([
                 "userID": uid,
                 "studyID": studyID ?? "",
@@ -165,7 +164,7 @@ class CKStudyUser: ObservableObject {
         // Update in database
         if let dataBucket = rootAuthCollection,
            let uid = currentUser?.uid {
-            let db = Firestore.firestore()
+
             db.collection(dataBucket).document(uid).updateData([
                 "lastSurveyDate": today])
         }
@@ -178,7 +177,6 @@ class CKStudyUser: ObservableObject {
         if let dataBucket = rootAuthCollection,
            let uid = currentUser?.uid {
 
-            let db = Firestore.firestore()
             let document = try await db.collection(dataBucket).document(uid).getDocument()
             let lastSurveyDateString = document.get("lastSurveyDate") as? String
             UserDefaults.standard.setValue(lastSurveyDateString, forKey: Constants.lastSurveyDate)

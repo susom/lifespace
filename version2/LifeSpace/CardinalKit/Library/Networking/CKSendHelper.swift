@@ -10,11 +10,8 @@ import Foundation
 import Firebase
 
 class CKSendHelper {
-    private static func firestoreDb() -> Firestore{
-        let settings = FirestoreSettings()
-        settings.isPersistenceEnabled = false
+    private static func firestoreDb() -> Firestore {
         let db = Firestore.firestore()
-        db.settings = settings
         return db
     }
     /**
