@@ -49,13 +49,15 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     override init() {
         super.init()
         manager.delegate = self
+        self.manager.pausesLocationUpdatesAutomatically = false
+        self.manager.allowsBackgroundLocationUpdates = true
+        self.manager.showsBackgroundLocationIndicator = false
     }
     
     func startTracking() {
         if CLLocationManager.locationServicesEnabled() {
             self.manager.startUpdatingLocation()
             self.manager.startMonitoringSignificantLocationChanges()
-            self.manager.allowsBackgroundLocationUpdates = true
         } else {
             print("Cannot start tracking - location services are not enabled.")
         }
@@ -64,7 +66,6 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     func stopTracking() {
         self.manager.stopUpdatingLocation()
         self.manager.stopMonitoringSignificantLocationChanges()
-        self.manager.allowsBackgroundLocationUpdates = false
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
