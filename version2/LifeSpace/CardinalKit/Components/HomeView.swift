@@ -18,7 +18,9 @@ struct HomeView: View {
     var body: some View {
         ZStack {
             // map on the bottom layer
-            MapManagerViewWrapper()
+            MapManagerViewWrapper().onAppear {
+                AlternovaLocationFetcher.shared.fetchTodaysPoints()
+            }
 
             // overlay buttons on map
             VStack {
