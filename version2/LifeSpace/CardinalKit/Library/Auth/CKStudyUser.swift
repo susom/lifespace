@@ -12,11 +12,15 @@ import CardinalKit
 class CKStudyUser: ObservableObject {
 
     static let shared = CKStudyUser()
+
+    private weak var authStateHandle: AuthStateDidChangeListenerHandle?
     
     /* **************************************************************
      * the current user only resolves if we are logged in
      **************************************************************/
-    @Published var currentUser: User?
+    var currentUser: User? {
+        return Auth.auth().currentUser
+    }
 
     /* **************************************************************
      * store your Firebase objects under this path in order to
@@ -95,6 +99,20 @@ class CKStudyUser: ObservableObject {
             } else {
                 UserDefaults.standard.removeObject(forKey: Constants.prefStudyID)
             }
+        }
+    }
+
+    init() {
+        // listen for changes in authentication state from Firebase and update currentUser
+        authStateHandle = Auth.auth().addStateDidChangeListener { [weak self] (_, _) in
+            self?.objectWillChange.send()
+        }
+    }
+
+    deinit {
+        // remove the authentication state handle when the instance is deallocated
+        if let handle = authStateHandle {
+            Auth.auth().removeStateDidChangeListener(handle)
         }
     }
 

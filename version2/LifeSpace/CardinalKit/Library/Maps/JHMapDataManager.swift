@@ -20,12 +20,14 @@ class JHMapDataManager: NSObject {
         }
         
         var allPoints = [CLLocationCoordinate2D]()
-        CKActivityManager.shared.fetchFilteredData(byDate: Date(), route: mapPointPath, field: "currentdate", onCompletion: {(results) in
+        CKActivityManager.shared.fetchFilteredData(byDate: date, route: mapPointPath, field: "currentdate", onCompletion: {(results) in
             if let results = results as? [String: Any] {
                 for (_, item) in results {
                     if let item = item as? [String: Any] {
                         if let latitude = item["latitude"] as? Double,
-                           let longitude = item["longitude"] as? Double {
+                           let longitude = item["longitude"] as? Double,
+                            let date = item["time"] as? Double {
+                            print("timestamp: \(date), latitude: \(latitude), longitude: \(longitude)")
                             allPoints.append(CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
                         }
                     }

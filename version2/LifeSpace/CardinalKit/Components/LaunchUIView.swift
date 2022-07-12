@@ -1,26 +1,22 @@
 //
-//  OnboardingUIView.swift
-//  CardinalKit_Example
+//  LaunchUIView.swift
+//  LifeSpace
 //
-//  Created by Varun Shenoy on 8/14/20.
-//  Copyright © 2020 Stanford University. All rights reserved.
+//  Created by Vishnu Ravi on 7/13/22.
+//  Copyright © 2022 LifeSpace. All rights reserved.
 //
 
 import SwiftUI
-import UIKit
-import ResearchKit
-import CardinalKit
-import Firebase
 
 struct LaunchUIView: View {
-    
-    @State var didCompleteOnboarding = false
+
+    @AppStorage(Constants.onboardingDidComplete) var didCompleteOnboarding = false
     @ObservedObject var launchData: LaunchModel = LaunchModel.sharedinstance
     @ObservedObject var studyUser: CKStudyUser  = CKStudyUser.shared
 
     var body: some View {
         VStack(spacing: 10) {
-            
+
             if didCompleteOnboarding && (studyUser.currentUser != nil) {
                 if launchData.showSurvey {
                     DailySurveyStartButton()
@@ -30,26 +26,11 @@ struct LaunchUIView: View {
                     MainUIView()
                 }
             } else {
-                OnboardingUIView {
-                    //on complete
-                    if let completed = UserDefaults.standard.object(forKey: Constants.onboardingDidComplete) as? Bool {
-                       self.didCompleteOnboarding = completed
-                    }
-                }
+                OnboardingUIView()
             }
         }.onAppear(perform: {
-            launchData.showPermissionView = !AlternovaLocationFetcher.shared.userAuthorizeAlways()
-
-            if let completed = UserDefaults.standard.object(forKey: Constants.onboardingDidComplete) as? Bool {
-               self.didCompleteOnboarding = completed
-            }
-        }).onReceive(NotificationCenter.default.publisher(for: NSNotification.Name(Constants.onboardingDidComplete))) { notification in
-            if let newValue = notification.object as? Bool {
-                self.didCompleteOnboarding = newValue
-            } else if let completed = UserDefaults.standard.object(forKey: Constants.onboardingDidComplete) as? Bool {
-               self.didCompleteOnboarding = completed
-            }
-        }
+            launchData.showPermissionView = !LocationService.shared.userAuthorizeAlways()
+        })
     }
 }
 
@@ -61,12 +42,13 @@ struct LaunchUIView_Previews: PreviewProvider {
 
 class LaunchModel: ObservableObject {
     static let sharedinstance = LaunchModel()
-    @Published var showSurvey:Bool = false
+    @Published var showSurvey: Bool = false
     @Published var showSurveyAfterPasscode: Bool = false
     @Published var showPermissionView: Bool = false
-    init(){
+    init() {
         showSurvey = false
         showSurveyAfterPasscode = false
         showPermissionView = false
     }
 }
+

@@ -30,15 +30,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window = window
             window.makeKeyAndVisible()
         }
-
-        // Set up auth state listener
-        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-            if(user != nil) {
-                CKStudyUser.shared.currentUser = user
-            } else {
-                CKStudyUser.shared.currentUser = nil
-            }
-        }
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {

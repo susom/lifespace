@@ -24,8 +24,6 @@ struct MapManagerViewWrapper: UIViewControllerRepresentable {
 
 class MapManagerView: UIViewController {
     internal var mapView: MapView!
-    var trackingButton: UIButton?
-    let pointsFetcher = AlternovaLocationFetcher.shared
     
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +31,7 @@ class MapManagerView: UIViewController {
         mapView = MapView(frame: view.bounds)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.view.addSubview(mapView)
-        MapboxMap.initialiceMap(mapView: mapView, reload: true)
+        MapboxMap.initializeMap(mapView: mapView, reload: true)
         mapView.location.options.puckType = .puck2D()
 
     }
