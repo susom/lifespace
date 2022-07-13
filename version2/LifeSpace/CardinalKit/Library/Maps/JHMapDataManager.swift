@@ -27,7 +27,6 @@ class JHMapDataManager: NSObject {
                         if let latitude = item["latitude"] as? Double,
                            let longitude = item["longitude"] as? Double,
                             let date = item["time"] as? Double {
-                            print("timestamp: \(date), latitude: \(latitude), longitude: \(longitude)")
                             allPoints.append(CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
                         }
                     }
