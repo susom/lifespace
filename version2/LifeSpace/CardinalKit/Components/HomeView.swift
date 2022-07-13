@@ -12,13 +12,16 @@ struct HomeView: View {
     @State private var showingSurveyAlert = false
     @State private var alertMessage = ""
     @State private var showingSurvey = false
-    @State private var trackingOn = UserDefaults.standard.bool(forKey: Constants.prefTrackingStatus)
+    @AppStorage(Constants.prefTrackingStatus) private var trackingOn = true
     @State private var optionsPanelOpen = true
     
     var body: some View {
         ZStack {
             // map on the bottom layer
             MapManagerViewWrapper()
+                .onAppear {
+                    LocationService.shared.fetchPoints()
+                }
 
             // overlay buttons on map
             VStack {
@@ -72,7 +75,11 @@ struct HomeView: View {
                         GroupBox {
                             Toggle("Track My Location", isOn: $trackingOn)
                                 .onChange(of: trackingOn) { _ in
-                                    AlternovaLocationFetcher.shared.startStopTracking()
+                                    if trackingOn {
+                                        LocationService.shared.startTracking()
+                                    } else {
+                                        LocationService.shared.stopTracking()
+                                    }
                                 }
                         }
                     }

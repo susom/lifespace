@@ -13,7 +13,7 @@ struct PermissionLocationUIView: View {
     let color: Color
     let config = CKPropertyReader(file: "CKConfiguration")
     
-    @ObservedObject var locationFetcher = AlternovaLocationFetcher.shared
+    @ObservedObject var locationFetcher = LocationService.shared
     
     init(onComplete: (() -> Void)? = nil) {
         

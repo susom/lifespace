@@ -57,7 +57,7 @@ public class JHMapQuestionStepViewController: ORKQuestionStepViewController {
         self.view.addSubview(noButton)
 
         self.view.backgroundColor = .white
-        MapboxMap.initialiceMap(mapView: mapView, reload: false)
+        MapboxMap.initializeMap(mapView: mapView, reload: false)
     }
     
     @objc func OnClickYesButton(){
