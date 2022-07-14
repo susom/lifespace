@@ -52,7 +52,7 @@ class CKAppNetworkManager: CKAPIDeliveryDelegate, CKAPIReceiverDelegate {
     
     func requestFilter(byDate date: Date, route: String, field: String, onCompletion: @escaping (Any) -> Void) {
         let startTimestamp: Timestamp = Timestamp(date: date.startOfDay)
-        let endTimestamp: Timestamp = Timestamp(date: date.endOfDay!)
+        let endTimestamp: Timestamp = Timestamp(date: date.endOfDay ?? date)
         
         var objResult = [[String: Any]]()
         let db = firestoreDb()
