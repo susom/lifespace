@@ -18,21 +18,26 @@ class JHMapDataManager: NSObject {
             onCompletion(false)
             return
         }
-        
+
         var allPoints = [CLLocationCoordinate2D]()
-        CKActivityManager.shared.fetchFilteredData(byDate: date, route: mapPointPath, field: "currentdate", onCompletion: {(results) in
-            if let results = results as? [String: Any] {
-                for (_, item) in results {
-                    if let item = item as? [String: Any] {
-                        if let latitude = item["latitude"] as? Double,
-                           let longitude = item["longitude"] as? Double,
-                            let date = item["time"] as? Double {
-                            allPoints.append(CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
-                        }
+
+        CKActivityManager.shared.fetchFilteredData(byDate: date,
+                                                   route: mapPointPath,
+                                                   field: "currentdate",
+                                                   onCompletion: {(results) in
+            if let results = results as? [[String: Any]] {
+                for item in results {
+                       if let latitude = item["latitude"] as? Double,
+                       let longitude = item["longitude"] as? Double {
+
+                        // populate an array with all returned points
+                        let point = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                        allPoints.append(point)
                     }
                 }
             }
             onCompletion(allPoints)
         })
+
     }
 }

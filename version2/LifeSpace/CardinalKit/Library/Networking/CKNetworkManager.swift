@@ -50,22 +50,22 @@ class CKAppNetworkManager: CKAPIDeliveryDelegate, CKAPIReceiverDelegate {
         }
     }
     
-    func requestFilter(byDate date:Date, route: String, field: String, onCompletion: @escaping (Any) -> Void) {
+    func requestFilter(byDate date: Date, route: String, field: String, onCompletion: @escaping (Any) -> Void) {
         let startTimestamp: Timestamp = Timestamp(date: date.startOfDay)
-        let endTimestamp: Timestamp = Timestamp(date: date.endOfDay!)
+        let endTimestamp: Timestamp = Timestamp(date: date.endOfDay ?? date)
         
-        var objResult = [String: Any]()
-        let db=firestoreDb()
+        var objResult = [[String: Any]]()
+        let db = firestoreDb()
         db.collection(route)
             .whereField("\(field)", isGreaterThanOrEqualTo: startTimestamp)
             .whereField("\(field)", isLessThanOrEqualTo: endTimestamp)
-            .order(by: "\(field)").getDocuments() {
-                (querySnapshot, err) in
+            .order(by: "\(field)")
+            .getDocuments { (querySnapshot, err) in
                 if let err = err {
                     print("error \(err)")
                 } else {
                     for document in querySnapshot!.documents {
-                        objResult[document.documentID]=document.data()
+                        objResult.append(document.data())
                     }
                     onCompletion(objResult)
                 }
@@ -79,25 +79,6 @@ class CKAppNetworkManager: CKAPIDeliveryDelegate, CKAPIReceiverDelegate {
         db.settings = settings
         return db
     }
-//    func downloadSurveys(){
-//
-//        guard let authPath = CKStudyUser.shared.authCollection else {
-//            return
-//        }
-//
-//
-//        let db = Firestore.firestore()
-////        let docRef = db.collection("cities").document("SF")
-////        docRef.getDocument { (document, error) in
-////            if let document = document, document.exists {
-////                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-////                print("Document data: \(dataDescription)")
-////            } else {
-////                print("Document does not exist")
-////            }
-////        }
-//    }
-    
 }
 
 extension CKAppNetworkManager {
