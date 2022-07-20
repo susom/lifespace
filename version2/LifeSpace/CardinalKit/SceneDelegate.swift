@@ -89,6 +89,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Refresh map data
         LocationService.shared.fetchPoints()
 
+        // Require passcode when app resumes from background
         CKLockApp()
     }
 

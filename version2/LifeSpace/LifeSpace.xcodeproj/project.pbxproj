@@ -25,9 +25,7 @@
 		2BF6451826C1D0040020C206 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		2BF6452026C1DBE70020C206 /* CK_ORKSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF6451F26C1DBE70020C206 /* CK_ORKSerialization.swift */; };
 		2F94C5F22536543600DF8866 /* SceneDelegate+CardinalKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F94C5F12536543600DF8866 /* SceneDelegate+CardinalKit.swift */; };
-		4F02D979274871A200F203B5 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F02D978274871A200F203B5 /* LocationView.swift */; };
 		4F02D97B274871C300F203B5 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F02D97A274871C300F203B5 /* LocationService.swift */; };
-		4F02D97D274871C800F203B5 /* NotificationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F02D97C274871C800F203B5 /* NotificationFetcher.swift */; };
 		63A143DD280EDBA9001A54BC /* MapboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A143DC280EDBA9001A54BC /* MapboxView.swift */; };
 		63A143DF280F1AAD001A54BC /* DailySurveyStartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A143DE280F1AAC001A54BC /* DailySurveyStartButton.swift */; };
 		63A143E1280F579E001A54BC /* PermissionLocationUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A143E0280F579E001A54BC /* PermissionLocationUIView.swift */; };
@@ -124,9 +122,7 @@
 		2BF6451F26C1DBE70020C206 /* CK_ORKSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CK_ORKSerialization.swift; sourceTree = "<group>"; };
 		2F94C5F12536543600DF8866 /* SceneDelegate+CardinalKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SceneDelegate+CardinalKit.swift"; sourceTree = "<group>"; };
 		41DC264876E45FE5A3FD8701 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		4F02D978274871A200F203B5 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		4F02D97A274871C300F203B5 /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
-		4F02D97C274871C800F203B5 /* NotificationFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationFetcher.swift; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* LifeSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifeSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62AA5CD1C2188D392530510F /* CardinalKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CardinalKit.podspec; path = ../CardinalKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		63A143DC280EDBA9001A54BC /* MapboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapboxView.swift; sourceTree = "<group>"; };
@@ -383,11 +379,11 @@
 				8E9CDF812591E6D000C8A228 /* ResearchKit */,
 				8E9CDEAB25916F6E00C8A228 /* CareKit */,
 				8E6E1E0F25351E890024B8DF /* Extensions+UIColor.swift */,
+				2776F0DF2888233A0060480C /* Extensions+String.swift */,
 				8E6E1E3325353AFE0024B8DF /* EmailHelper.swift */,
 				8E9CDFAD2592B79900C8A228 /* Metrics.swift */,
 				8EA664B32594387900B6A45A /* Errors.swift */,
 				27C789632872366500B84177 /* StudyID.swift */,
-				2776F0DF2888233A0060480C /* Extensions+String.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -404,8 +400,6 @@
 		8E6E1E2F25353A550024B8DF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4F02D97C274871C800F203B5 /* NotificationFetcher.swift */,
-				4F02D978274871A200F203B5 /* LocationView.swift */,
 				27B7891D284CE9260006C02F /* CloudTaskListItemView.swift */,
 				27653A12272A2E7700D74E83 /* LocalTaskListItemView.swift */,
 			);
@@ -427,14 +421,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		8E9CDEA525915F6600C8A228 /* Schedule */ = {
-			isa = PBXGroup;
-			children = (
-				8E9CDEB02591737A00C8A228 /* Views */,
-			);
-			path = Schedule;
-			sourceTree = "<group>";
-		};
 		8E9CDEAA25916F2A00C8A228 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -443,9 +429,11 @@
 				27684BD4287EEBD500140840 /* LaunchUIView.swift */,
 				63A143E0280F579E001A54BC /* PermissionLocationUIView.swift */,
 				2742D7C32871EFE2008B7578 /* SurveyRules.swift */,
+				63A8238F280DAD49001D49A8 /* DailySurveyViewController.swift */,
+				63A82391280DAF2F001D49A8 /* JHMapQuestionStep.swift */,
+				63A143DE280F1AAC001A54BC /* DailySurveyStartButton.swift */,
 				63A82398280DD255001D49A8 /* Map */,
 				8E0A4399244A4A0400656518 /* Onboarding */,
-				8E9CDEA525915F6600C8A228 /* Schedule */,
 				8E0A438D244A4A0400656518 /* Tasks */,
 				8E0A4379244A4A0400656518 /* Profile */,
 			);
@@ -458,16 +446,6 @@
 				8E9CDEAC259170AD00C8A228 /* CKCareKitManager.swift */,
 			);
 			path = CareKit;
-			sourceTree = "<group>";
-		};
-		8E9CDEB02591737A00C8A228 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				63A8238F280DAD49001D49A8 /* DailySurveyViewController.swift */,
-				63A82391280DAF2F001D49A8 /* JHMapQuestionStep.swift */,
-				63A143DE280F1AAC001A54BC /* DailySurveyStartButton.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		8E9CDECE2591ABDF00C8A228 /* HealthKit */ = {
@@ -783,7 +761,6 @@
 				8E6E1E24253537580024B8DF /* MainUIView.swift in Sources */,
 				8E6E1E182535263F0024B8DF /* CKTaskViewController.swift in Sources */,
 				8E9CDF142591B73900C8A228 /* CKHealthRecordsManager.swift in Sources */,
-				4F02D97D274871C800F203B5 /* NotificationFetcher.swift in Sources */,
 				8EA664B42594387900B6A45A /* Errors.swift in Sources */,
 				8E6E1E1225351F830024B8DF /* DocumentPreviewViewController.swift in Sources */,
 				8E6E1E20253529760024B8DF /* DocumentView.swift in Sources */,
@@ -798,7 +775,6 @@
 				8E0A43AD244A4A0400656518 /* Constants.swift in Sources */,
 				8E0A43BE244A4A0400656518 /* CKHealthDataStepViewController.swift in Sources */,
 				2BF6452026C1DBE70020C206 /* CK_ORKSerialization.swift in Sources */,
-				4F02D979274871A200F203B5 /* LocationView.swift in Sources */,
 				27B7891E284CE9260006C02F /* CloudTaskListItemView.swift in Sources */,
 				27B7891A284CE86A0006C02F /* CloudTaskItem.swift in Sources */,
 				8E0A43AE244A4A0400656518 /* ORKESerialization.m in Sources */,
@@ -944,7 +920,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "CardinalKit/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -970,7 +946,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "CardinalKit/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

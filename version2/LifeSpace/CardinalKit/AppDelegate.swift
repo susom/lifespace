@@ -111,7 +111,11 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
                                 content: content, trigger: trigger)
                     
                     // Schedule the request with the system.
-                    center.add(request) { (error) in }
+                    center.add(request) { (error) in
+                        if let error = error {
+                            print(error.localizedDescription)
+                        }
+                    }
                 }
             }
         }

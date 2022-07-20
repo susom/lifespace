@@ -33,11 +33,6 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
-	<key>FirebaseDynamicLinksCustomDomains</key>
-	<array>
-		<string>https://cs342.page.link</string>
-		<string>https://cs342.page.link/Rdse</string>
-	</array>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
@@ -46,35 +41,19 @@
 	<string></string>
 	<key>MGLMapboxMetricsEnabledSettingShownInApp</key>
 	<true/>
-	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>Used for sensor collection demo tasks.</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Used In ResearchKit Active Tasks.</string>
 	<key>NSFaceIDUsageDescription</key>
 	<string>Used for data security purposes.</string>
-	<key>NSHealthClinicalHealthRecordsShareUsageDescription</key>
-	<string>Used for CareKit collection sample.</string>
-	<key>NSHealthShareUsageDescription</key>
-	<string>Used for data security purposes.</string>
-	<key>NSHealthUpdateUsageDescription</key>
-	<string>Used for data security purposes.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Used for sensor collection demo tasks.</string>
+	<string>The LifeSpace app collects location data for use in a research study.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Used for sensor collection demo tasks.</string>
+	<string>The LifeSpace app collects location data for use in a research study.</string>
 	<key>NSLocationTemporaryUsageDescriptionDictionary</key>
 	<dict>
 		<key>LocationAccuracyAuthorizationDescription</key>
-		<string>Please enable precise location. Turn-by-turn directions only work when precise location data is available.</string>
+		<string>The LifeSpace app collects location data for use in a research study.</string>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Your precise location is used to calculate turn-by-turn directions, show your location on the map, and help improve the map.</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Used In ResearchKit Active Tasks.</string>
-	<key>NSMotionUsageDescription</key>
-	<string>Used In ResearchKit Active Tasks.</string>
-	<key>NSSpeechRecognitionUsageDescription</key>
-	<string>Used In ResearchKit Active Tasks.</string>
+	<string>The LifeSpace app collects location data for use in a research study.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -94,10 +73,8 @@
 	</dict>
 	<key>UIBackgroundModes</key>
 	<array>
-		<string>audio</string>
 		<string>fetch</string>
 		<string>location</string>
-		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
