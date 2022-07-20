@@ -84,6 +84,14 @@
 	</array>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleDefault</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Used in ResearchKit Active Tasks.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Used in ResearchKit Active Tasks.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Used in ResearchKit Active Tasks.</string>
+	<key>NSMotionUsageDescription</key>
+	<string>Used in ResearchKit Active Tasks.</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
