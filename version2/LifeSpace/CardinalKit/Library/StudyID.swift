@@ -15,12 +15,18 @@ class StudyID {
      newline characters and checks if the list contains the given ID.
      */
     public static func validate(id: String) -> Bool {
-        var allStudyIDs = [String]()
+        var validStudyIDs = [String]()
 
         if let studyIDsURL = Bundle.main.url(forResource: "studyIDs", withExtension: ".csv"),
            let studyIDs = try? String(contentsOf: studyIDsURL) {
-            allStudyIDs = studyIDs.components(separatedBy: "\n")
-            return allStudyIDs.contains(id)
+
+            let allStudyIDs = studyIDs.components(separatedBy: "\n")
+
+            for studyID in allStudyIDs {
+                validStudyIDs.append(studyID.removingAllWhitespace)
+            }
+
+            return validStudyIDs.contains(id)
         }
 
         return false
