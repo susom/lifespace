@@ -20,11 +20,11 @@ struct TasksUIView: View {
     @State var useCloudSurveys = false
     
     @State var listItems = [CloudTaskItem]()
-    @State var listItemsPerHeader = [String:[CloudTaskItem]]()
+    @State var listItemsPerHeader = [String: [CloudTaskItem]]()
     @State var listItemsSections = [String]()
     
     let localListItems = LocalTaskItem.allValues
-    var localListItemsPerHeader = [String:[LocalTaskItem]]()
+    var localListItemsPerHeader = [String: [LocalTaskItem]]()
     var localListItemsSections = [String]()
     
     init(color: Color) {
@@ -33,27 +33,24 @@ struct TasksUIView: View {
         formatter.dateFormat = "MMM. d, YYYY"
         date = formatter.string(from: Date())
         
-        if localListItemsPerHeader.count <= 0 { // init
+        if localListItemsPerHeader.isEmpty { // init
             for item in localListItems {
                 if localListItemsPerHeader[item.section] == nil {
                     localListItemsPerHeader[item.section] = [LocalTaskItem]()
                     localListItemsSections.append(item.section)
                 }
-                
                 localListItemsPerHeader[item.section]?.append(item)
             }
         }
     }
     
-    func getRemoteItems(){
-        CKResearchSurveysManager.shared.getTaskItems(onCompletion: {
-            (results) in
-            
+    func getRemoteItems() {
+        CKResearchSurveysManager.shared.getTaskItems(onCompletion: { (results) in
             if let results = results as? [CloudTaskItem]{
                 listItems = results
                 var headerCopy = listItemsPerHeader
                 var sectionsCopy = listItemsSections
-                if listItemsPerHeader.count <= 0 { // init
+                if listItemsPerHeader.isEmpty { // init
                     for item in results {
                         if headerCopy[item.section] == nil {
                             headerCopy[item.section] = [CloudTaskItem]()
@@ -69,17 +66,17 @@ struct TasksUIView: View {
             }
         })
     }
-    
+
     var body: some View {
         VStack {
             Text(config.read(query: "Study Title"))
-                .font(.system(size: 25, weight:.bold))
+                .font(.system(size: 25, weight: .bold))
                 .foregroundColor(self.color)
                 .padding(.top, 10)
-            Text(config.read(query: "Team Name")).font(.system(size: 15, weight:.light))
+            Text(config.read(query: "Team Name")).font(.system(size: 15, weight: .light))
             Text(date).font(.system(size: 18, weight: .regular)).padding()
             
-            if (useCloudSurveys){
+            if (useCloudSurveys) {
                 List {
                     ForEach(listItemsSections, id: \.self) { key in
                         Section(header: Text(key)) {
@@ -103,8 +100,7 @@ struct TasksUIView: View {
         }
         .onAppear(perform: {
             self.useCloudSurveys = config.readBool(query: "Use Cloud Surveys")
-            
-            if(self.useCloudSurveys){
+            if self.useCloudSurveys {
                 getRemoteItems()
             }
         })

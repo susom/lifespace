@@ -51,10 +51,10 @@ struct WithdrawalViewController: UIViewControllerRepresentable {
             case .completed:
                 
                 do {
-                    try CKCareKitManager.shared.wipe()
+                    // try CKCareKitManager.shared.wipe() -- CareKit is disabled
                     try CKStudyUser.shared.signOut()
                     
-                    if (ORKPasscodeViewController.isPasscodeStoredInKeychain()) {
+                    if ORKPasscodeViewController.isPasscodeStoredInKeychain() {
                         ORKPasscodeViewController.removePasscodeFromKeychain()
                     }
                     
@@ -70,12 +70,12 @@ struct WithdrawalViewController: UIViewControllerRepresentable {
                 
                 fallthrough
             default:
-                
+
                 // otherwise dismiss onboarding without proceeding.
                 taskViewController.dismiss(animated: true, completion: nil)
-                
+
             }
         }
     }
-    
+
 }

@@ -13,6 +13,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
+    weak var handle: AuthStateDidChangeListenerHandle?
+
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
@@ -63,7 +65,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }
 
-
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.
@@ -84,6 +85,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
+
+        // Refresh map data
+        LocationService.shared.fetchPoints()
+
         CKLockApp()
     }
 
@@ -94,6 +99,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         CKLockDidEnterBackground()
     }
 
-
 }
-

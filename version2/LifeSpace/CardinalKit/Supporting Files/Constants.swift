@@ -15,6 +15,7 @@ class Constants {
     static let prefUserEmail = "PREF_USER_EMAIL"
     static let prefStudyID = "PREF_STUDY_ID"
     static let prefsNotificationsSchedule = "PREFS_NOTIFICATIONS_SCHEDULE"
+    static let prefTrackingStatus = "PREF_TRACKING_STATUS"
     
     static let prefCareKitCoreDataInitDate = "PREF_CORE_DATA_INIT_DATE"
     static let prefHealthRecordsLastUploaded = "PREF_HEALTH_LAST_UPLOAD"
@@ -31,6 +32,8 @@ class Constants {
     
     static let JHFirstLocationRequest = "JHFirstLocationRequest"
     
-    static let validStudyIDs = ["1234", "1235", "1236"]
-    
+    static let lastSurveyDate = "LAST_SURVEY_DATE"
+    static let hourToOpenSurvey = 19 // Hour to open survey daily in military time
+
+    static let minDistanceBetweenPoints = 100.0 // minimum distance between location points to record
 }

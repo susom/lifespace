@@ -17,13 +17,13 @@ struct CloudTaskItem: Hashable {
     }
     
     var order: String
-    var title:String
-    var subtitle:String
+    var title: String
+    var subtitle: String
     var imageName: String
     var section: String
     var identifier: String
     
-    var image: UIImage?{
+    var image: UIImage? {
         return UIImage(named: imageName) ?? UIImage(systemName: "questionmark.square")
     }
     
@@ -33,7 +33,7 @@ struct CloudTaskItem: Hashable {
         var questionAsObj: [[String: Any]] = []
         for question in questions {
             let data = question.data(using: .utf8)!
-            do{
+            do {
                 if let jsonArray = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as? [String:Any]
                 {
                     questionAsObj.append(jsonArray)

@@ -11,7 +11,7 @@ import CareKit
 import ResearchKit
 import CareKitUI
 
-class DailySurveyTask:ORKNavigableOrderedTask{
+class DailySurveyTask: ORKNavigableOrderedTask {
     init(showInstructions: Bool = true) {
         var steps = [ORKStep]()
         

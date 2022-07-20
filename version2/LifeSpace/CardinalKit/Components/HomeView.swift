@@ -9,30 +9,27 @@
 import SwiftUI
 
 struct HomeView: View {
-    
     @State private var showingSurveyAlert = false
+    @State private var alertMessage = ""
     @State private var showingSurvey = false
-    @State private var trackingOn = true
+    @AppStorage(Constants.prefTrackingStatus) private var trackingOn = true
     @State private var optionsPanelOpen = true
-    
-    var surveyActive: Bool {
-        // if it's after 7pm today in the user's local time, the survey is active
-        let hour = Calendar.current.component(.hour, from: Date())
-        return hour >= 19
-    }
     
     var body: some View {
         ZStack {
-            //map on the bottom layer
+            // map on the bottom layer
             MapManagerViewWrapper()
-            
-            //overlay buttons on map
+                .onAppear {
+                    LocationService.shared.fetchPoints()
+                }
+
+            // overlay buttons on map
             VStack {
                 
                 Spacer()
-                
+
                 GroupBox {
-                    
+
                     Button {
                         withAnimation {
                             self.optionsPanelOpen.toggle()
@@ -44,35 +41,56 @@ struct HomeView: View {
                             Image(systemName: self.optionsPanelOpen ? "chevron.down" : "chevron.up")
                         }
                     }
-                    
-                    
+
                     if self.optionsPanelOpen {
-                        GroupBox{
+                        GroupBox {
                             Button {
-                                if(surveyActive){
-                                    self.showingSurvey.toggle()
-                                } else {
+                                // First check if it's too early to take the survey,
+                                // and if not, then check to make sure it hasn't been
+                                // taken already today.
+                                if !SurveyRules.isAfterStartHour() {
+                                    self.alertMessage = SurveyRules.tooEarlyMessage
                                     self.showingSurveyAlert.toggle()
+                                } else if !SurveyRules.wasNotTakenToday() {
+                                    self.alertMessage = SurveyRules.alreadyTookSurveyMessage
+                                    self.showingSurveyAlert.toggle()
+                                } else {
+                                    self.showingSurvey.toggle()
                                 }
                             } label: {
                                 Text("Take Daily Survey")
                                     .foregroundColor(.white)
                                     .frame(maxWidth: .infinity)
                             }
-                            .alert(isPresented: $showingSurveyAlert){
-                                Alert(title: Text("Survey Not Available Yet"), message: Text("Please come back after 7:00 PM to complete your daily survey!"), dismissButton: .default(Text("OK")))
+                            .alert(isPresented: $showingSurveyAlert) {
+                                Alert(title: Text("Survey Not Available"),
+                                      message: Text(self.alertMessage),
+                                      dismissButton: .default(Text("OK")))
                             }
-                            .sheet(isPresented: $showingSurvey){
+                            .sheet(isPresented: $showingSurvey) {
                                 CKTaskViewController(tasks: DailySurveyTask(showInstructions: false))
                             }
                         }.groupBoxStyle(ButtonGroupBoxStyle())
-                        
-                        GroupBox{
+
+                        GroupBox {
                             Toggle("Track My Location", isOn: $trackingOn)
-                                .onChange(of: trackingOn) { value in
-                                    AlternovaLocationFetcher.shared.startStopTracking()
+                                .onChange(of: trackingOn) { _ in
+                                    if trackingOn {
+                                        LocationService.shared.startTracking()
+                                    } else {
+                                        LocationService.shared.stopTracking()
+                                    }
                                 }
                         }
+                    }
+                }
+            }.onAppear {
+                // Make sure last survey date is updated
+                async {
+                    do {
+                        try await CKStudyUser.shared.getLastSurveyDate()
+                    } catch {
+                        print("Error updating last survey date.")
                     }
                 }
             }

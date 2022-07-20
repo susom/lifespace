@@ -19,7 +19,13 @@ struct DocumentView: View {
         let storageRef = storage.reference()
         if let DocumentCollection = CKStudyUser.shared.consentCollection {
             let config = CKPropertyReader(file: "CKConfiguration")
-            let consentFileName = config.read(query: "Consent File Name")
+            var consentFileName = config.read(query: "Consent File Name")
+
+            // Adds study ID to consent file name if it exists
+            if let studyID = CKStudyUser.shared.studyID {
+                consentFileName = "\(studyID)_\(consentFileName)"
+            }
+
             let DocumentRef = storageRef.child("\(DocumentCollection)\(consentFileName).pdf")
             // Create local filesystem URL
             var docURL = (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)).last as NSURL?
@@ -28,10 +34,10 @@ struct DocumentView: View {
             self.documentsURL = URL(fileURLWithPath: url.path, isDirectory: false)
             UserDefaults.standard.set(url.path, forKey: "consentFormURL")
             // Download to the local filesystem
-            let downloadTask = DocumentRef.write(toFile: url) { url, error in
-              if let error = error {
-                  print("error \(error)")
-              }
+            DocumentRef.write(toFile: url) { _, error in
+                if let error = error {
+                    print("error \(error)")
+                }
             }
         }
     }
@@ -55,5 +61,3 @@ struct DDocumentView_Previews: PreviewProvider {
         DocumentView()
     }
 }
-
-

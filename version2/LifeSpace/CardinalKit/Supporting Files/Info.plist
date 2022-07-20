@@ -43,7 +43,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MBXAccessToken</key>
-	<string>sk.eyJ1IjoidmlzaG51cmF2aSIsImEiOiJjbDJrbm9qODEwNGx1M2lzM2FuaXYzaHVjIn0.gm_Aq57Qm9bMr0dJ4057DA</string>
+	<string></string>
 	<key>MGLMapboxMetricsEnabledSettingShownInApp</key>
 	<true/>
 	<key>NSBluetoothAlwaysUsageDescription</key>

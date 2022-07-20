@@ -13,7 +13,7 @@ struct PermissionLocationUIView: View {
     let color: Color
     let config = CKPropertyReader(file: "CKConfiguration")
     
-    @ObservedObject var locationFetcher = AlternovaLocationFetcher.shared
+    @ObservedObject var locationFetcher = LocationService.shared
     
     init(onComplete: (() -> Void)? = nil) {
         
@@ -36,7 +36,7 @@ struct PermissionLocationUIView: View {
                 .padding(10)
             
             if locationFetcher.canShowRequestMessage {
-                if locationFetcher.authorizationStatus == .authorizedWhenInUse{
+                if locationFetcher.authorizationStatus == .authorizedWhenInUse {
 
                     Text("Please tap the button below and select \"Change to Always Allow\" on the window that pops up.")
                         .multilineTextAlignment(.center)
@@ -50,7 +50,7 @@ struct PermissionLocationUIView: View {
                             
                             locationFetcher.requestAuthorizationLocation()
                             UserDefaults.standard.set(false, forKey: Constants.JHFirstLocationRequest)
-                            locationFetcher.calculeIfCanShowRequestMessage()
+                            locationFetcher.calculateIfCanShowRequestMessage()
                             
                         }, label: {
                              Text("Step Two")
