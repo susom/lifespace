@@ -21,7 +21,7 @@ class LocationService: NSObject, CLLocationManagerDelegate, ObservableObject {
 
     @Published var authorizationStatus: CLAuthorizationStatus = CLLocationManager().authorizationStatus
     @Published var canShowRequestMessage: Bool = true
-    
+
     private var lastKnownLocation: CLLocationCoordinate2D? {
         didSet {
             guard let lastKnownLocation = lastKnownLocation else {
@@ -37,14 +37,17 @@ class LocationService: NSObject, CLLocationManagerDelegate, ObservableObject {
 
         calculateIfCanShowRequestMessage()
 
-        // If the user's tracking preference is not set or set to true, then start tracking
-        if UserDefaults.standard.value(forKey: Constants.prefTrackingStatus) == nil ||
-            UserDefaults.standard.bool(forKey: Constants.prefTrackingStatus) {
+        // If user doesn't have a tracking preference, default to true
+        if UserDefaults.standard.value(forKey: Constants.prefTrackingStatus) == nil {
+            UserDefaults.standard.set(true, forKey: Constants.prefTrackingStatus)
+        }
+
+        // If tracking status is true, start tracking
+        if UserDefaults.standard.bool(forKey: Constants.prefTrackingStatus) {
             self.startTracking()
         }
     }
     
-
     func startTracking() {
         if CLLocationManager.locationServicesEnabled() {
             self.manager.startUpdatingLocation()
@@ -153,16 +156,16 @@ class LocationService: NSObject, CLLocationManagerDelegate, ObservableObject {
         return self.manager.authorizationStatus == .authorizedAlways
     }
 
-    private func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        // An additional check that we only append points if location tracking is turned on.
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        // An additional check that we only append points if location tracking is turned on
         guard UserDefaults.standard.bool(forKey: Constants.prefTrackingStatus) else {
             return
         }
-        
+
         lastKnownLocation = locations.first?.coordinate
     }
 
-    private func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        LocationService.shared.calculateIfCanShowRequestMessage()
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        self.calculateIfCanShowRequestMessage()
     }
 }
