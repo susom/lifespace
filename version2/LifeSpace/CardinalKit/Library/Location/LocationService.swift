@@ -134,7 +134,9 @@ class LocationService: NSObject, CLLocationManagerDelegate, ObservableObject {
             previousDate = Date()
 
             // write this location to the database
-            if let mapPointsCollection = CKStudyUser.shared.mapPointsCollection {
+            if let mapPointsCollection = CKStudyUser.shared.mapPointsCollection,
+               let user = CKStudyUser.shared.currentUser,
+               let studyID = CKStudyUser.shared.studyID {
                 let db = Firestore.firestore()
                 db.collection(mapPointsCollection)
                     .document(UUID().uuidString)
@@ -142,12 +144,16 @@ class LocationService: NSObject, CLLocationManagerDelegate, ObservableObject {
                         "currentdate": NSDate(),
                         "time": NSDate().timeIntervalSince1970,
                         "latitude": point.latitude,
-                        "longitude": point.longitude
+                        "longitude": point.longitude,
+                        "studyID": studyID,
+                        "UpdatedBy": user.uid
                     ]) { err in
                         if let err = err {
                             print("[LIFESPACE] Error writing location to database: \(err)")
                         }
                     }
+            } else {
+                print("[LIFESPACE] Unable to save point due to missing metadata.")
             }
         }
     }
