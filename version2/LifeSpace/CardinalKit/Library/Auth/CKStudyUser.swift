@@ -58,8 +58,8 @@ class CKStudyUser: ObservableObject {
     }
     
     var surveysCollection: String? {
-        if let baseCollection = baseCollection {
-            return "\(baseCollection)/\(prefix)_surveys/"
+        if let authCollection = authCollection {
+            return "\(authCollection)\(prefix)_surveys/"
         }
         return nil
     }

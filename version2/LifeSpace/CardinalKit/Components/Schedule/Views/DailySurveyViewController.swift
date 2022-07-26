@@ -25,7 +25,7 @@ class DailySurveyTask: ORKNavigableOrderedTask {
 
         // How would you rate your health today?
         let healthScaleAnswerFormat = ORKAnswerFormat.scale(withMaximumValue: 5, minimumValue: 1, defaultValue: 3, step: 1, vertical: false, maximumValueDescription: "Excellent", minimumValueDescription: "Poor")
-        let healthScaleQuestionStep = ORKQuestionStep(identifier: "HealthScaleQuestionStep", title: "Question #1", question: "How would you rate your overall health today:", answer: healthScaleAnswerFormat)
+        let healthScaleQuestionStep = ORKQuestionStep(identifier: "healthScaleQuestionStep", title: "Question #1", question: "How would you rate your overall health today:", answer: healthScaleAnswerFormat)
         steps += [healthScaleQuestionStep]
 
         // How would you rate your mental health today?

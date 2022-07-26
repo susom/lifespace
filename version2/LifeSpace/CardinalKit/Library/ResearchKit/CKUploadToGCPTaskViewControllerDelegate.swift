@@ -17,23 +17,82 @@ class CKUploadToGCPTaskViewControllerDelegate: NSObject, ORKTaskViewControllerDe
         LaunchModel.sharedinstance.showSurvey = false
         switch reason {
         case .completed:
-            do {
-                // (1) convert the result of the ResearchKit task into a JSON dictionary
-                if let json = try CK_ORKSerialization.CKTaskAsJson(result: taskViewController.result, task: taskViewController.task!) {
-                    // (2) send using Firebase
-                    try CKSendJSON(json)
+            guard let surveyID = taskViewController.task?.identifier else { return }
 
-                    // (3) if we have any files, send those using Google Storage
-                    if let associatedFiles = taskViewController.outputDirectory {
-                        try CKSendFiles(associatedFiles, result: json)
-                    }
+            if surveyID == "DailySurveyTask" {
+                // When the daily survey is completed, extract answers and send them to firebase
+                var resultData = [String: Any]()
+
+                // Add metadata
+                if let studyID = CKStudyUser.shared.studyID,
+                   let userID = CKStudyUser.shared.currentUser?.uid {
+                    resultData["surveyName"] = surveyID
+                    resultData["studyID"] = studyID
+                    resultData["UpdatedBy"] = userID
+                    resultData["timestamp"] = Date()
                 }
-            } catch {
-                print(error.localizedDescription)
-            }
 
-            // Update the last completed survey date
-            CKStudyUser.shared.updateLastSurveyDate()
+                // Question 1 - Health Scale Question
+                if let healthScaleQuestionStepResult = taskViewController.result.stepResult(forStepIdentifier: "healthScaleQuestionStep")?.results {
+                    let answer = healthScaleQuestionStepResult[0] as? ORKScaleQuestionResult
+                    let result = answer?.scaleAnswer
+                    resultData["healthScale"] = result
+                }
+
+                // Question 2 - Mental Health Scale Question
+                if let mentalHealthScaleQuestionStepResult = taskViewController.result.stepResult(forStepIdentifier: "mentalHealthScaleQuestionStep")?.results {
+                    let answer = mentalHealthScaleQuestionStepResult[0] as? ORKScaleQuestionResult
+                    let result = answer?.scaleAnswer
+                    resultData["mentalHealthScale"] = result
+                }
+
+                // Question 3 - Map Accuracy Question
+                if let mapstepQuestionResult = taskViewController.result.stepResult(forStepIdentifier: "mapstep")?.results {
+                    let answer = mapstepQuestionResult[0] as? ORKBooleanQuestionResult
+                    let result = answer?.booleanAnswer
+                    resultData["isMapAccurate"] = result
+                }
+
+                // Question 4 - Why map isn't accurate
+                if let whynotQuestionResult = taskViewController.result.stepResult(forStepIdentifier: "whyNot")?.results {
+                    let answer = whynotQuestionResult[0] as? ORKTextQuestionResult
+                    let result = answer?.textAnswer
+                    resultData["whyNotAccurate"] = result
+
+                }
+
+                // Write the results to firebase
+                if let surveysCollection = CKStudyUser.shared.surveysCollection {
+                    let db = Firestore.firestore()
+                    db.collection(surveysCollection)
+                        .document()
+                        .setData(resultData) { err in
+                            if err != nil {
+                                print("[LIFESPACE] There was an error uploading the survey results.")
+                            }
+                        }
+                }
+
+                // Update the last completed survey date
+                CKStudyUser.shared.updateLastSurveyDate()
+
+            } else {
+                // Process generic RK surveys and tasks
+                do {
+                    // (1) convert the result of the ResearchKit task into a JSON dictionary
+                    if let json = try CK_ORKSerialization.CKTaskAsJson(result: taskViewController.result, task: taskViewController.task!) {
+                        // (2) send using Firebase
+                        try CKSendJSON(json)
+
+                        // (3) if we have any files, send those using Google Storage
+                        if let associatedFiles = taskViewController.outputDirectory {
+                            try CKSendFiles(associatedFiles, result: json)
+                        }
+                    }
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
 
             fallthrough
         default:
@@ -45,8 +104,8 @@ class CKUploadToGCPTaskViewControllerDelegate: NSObject, ORKTaskViewControllerDe
     func taskViewController(_ taskViewController: ORKTaskViewController, viewControllerFor step: ORKStep) -> ORKStepViewController? {
         if step.identifier == "mapstep"{
             return JHMapQuestionStepViewController(step: step)
-        } else{
-            switch step{
+        } else {
+            switch step {
             case is ORKInstructionStep:
                 return ORKInstructionStepViewController(step: step)
             case is ORKCompletionStep:
