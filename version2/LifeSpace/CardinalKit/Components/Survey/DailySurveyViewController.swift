@@ -19,7 +19,7 @@ class DailySurveyTask: ORKNavigableOrderedTask {
             // Instruction step
             let instructionStep = ORKInstructionStep(identifier: "IntroStep")
             instructionStep.title = "Daily Questionnaire"
-            instructionStep.text = "Please complete this survey daily after 7 pm."
+            instructionStep.text = "Please complete this survey once daily."
             steps += [instructionStep]
         }
 

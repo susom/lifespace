@@ -25,7 +25,7 @@ struct DailySurveyStartButton: View {
                 Text("Daily Survey")
                     .font(.largeTitle)
                     .bold()
-                Text("Please complete this simple survey daily to assess your own health.")
+                Text("Please complete this simple survey once daily.")
                     .font(.body)
                     .fontWeight(.light)
                     .multilineTextAlignment(.center)
