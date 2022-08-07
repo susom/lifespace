@@ -56,7 +56,7 @@ class OnboardingViewCoordinator: NSObject, ORKTaskViewControllerDelegate {
             
             if let signatureResult = taskViewController.result.stepResult(forStepIdentifier: "ConsentReviewStep")?.results?.first as? ORKConsentSignatureResult {
                 
-                let consentDocument = ConsentDocument()
+                let consentDocument = LifeSpaceConsent()
                 signatureResult.apply(to: consentDocument)
 
                 consentDocument.makePDF { (data, error) -> Void in
