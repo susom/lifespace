@@ -17,7 +17,6 @@ class LifeSpaceConsent: ORKConsentDocument {
         sections = []
 
         // SECTION 1 - Description
-
         let descriptionSection = ORKConsentSection(type: .custom)
         descriptionSection.title = "Description"
         descriptionSection.formalTitle = "Description"
@@ -27,12 +26,11 @@ class LifeSpaceConsent: ORKConsentDocument {
         To participate in this study, you will download the LifeSpace App and complete the consent form. The LifeSpace App will passively capture your location for two weeks. Each evening, you will complete a brief survey of three questions. At the end of the data collection period, you will be sent an anonymous survey asking about your experiences using the app.
         """
         descriptionSection.summary = descriptionText
-        descriptionSection.htmlContent = descriptionText
+        descriptionSection.content = descriptionText
 
         sections?.append(descriptionSection)
 
         // SECTION 2 - RISKS AND BENEFITS
-
         let risksAndBenefitsSection = ORKConsentSection(type: .custom)
         risksAndBenefitsSection.title = "Risks and Benefits"
         risksAndBenefitsSection.formalTitle = "Risks and Benefits"
@@ -42,12 +40,11 @@ class LifeSpaceConsent: ORKConsentDocument {
         We cannot and do not guarantee or promise that you will receive any benefits from this study.
         """
         risksAndBenefitsSection.summary = risksAndBenefitsText
-        risksAndBenefitsSection.htmlContent = risksAndBenefitsText
+        risksAndBenefitsSection.content = risksAndBenefitsText
 
         sections?.append(risksAndBenefitsSection)
 
         // SECTION 3 - TIME INVOLVEMENT
-
         let timeInvolvementSection = ORKConsentSection(type: .custom)
         timeInvolvementSection.title = "Time Involvement"
         let timeInvolvementText = """
@@ -59,7 +56,6 @@ class LifeSpaceConsent: ORKConsentDocument {
         sections?.append(timeInvolvementSection)
 
         // SECTION 4 - PAYMENTS
-
         let paymentsSection = ORKConsentSection(type: .custom)
         paymentsSection.title = "Payments"
         let paymentsText = """
@@ -71,7 +67,6 @@ class LifeSpaceConsent: ORKConsentDocument {
         sections?.append(paymentsSection)
 
         // SECTION 5 - PRIVACY AND DATA USE
-
         let privacyAndDataUseSection = ORKConsentSection(type: .custom)
         privacyAndDataUseSection.title = "Privacy And Data Use"
         let privacyAndDataUseText = """
@@ -83,7 +78,6 @@ class LifeSpaceConsent: ORKConsentDocument {
         sections?.append(privacyAndDataUseSection)
 
         // SECTION 6 - FUTURE USE OF PRIVATE INFORMATION
-
         let futureUseOfPrivateInformationSection = ORKConsentSection(type: .custom)
         futureUseOfPrivateInformationSection.title = "Future Use of Private Information"
         let futureUseOfPrivateInformationText = """
@@ -96,7 +90,6 @@ class LifeSpaceConsent: ORKConsentDocument {
         sections?.append(futureUseOfPrivateInformationSection)
 
         // SECTION 7 - PARTICIPANT'S RIGHTS
-
         let participantsRightsSection = ORKConsentSection(type: .custom)
         participantsRightsSection.title = "Participant's Rights"
         let participantsRightsText =  """
@@ -108,12 +101,11 @@ class LifeSpaceConsent: ORKConsentDocument {
 
         """
         participantsRightsSection.summary = participantsRightsText
-        participantsRightsSection.htmlContent = participantsRightsText
+        participantsRightsSection.content = participantsRightsText
 
         sections?.append(participantsRightsSection)
 
         // SECTION 8 - WITHDRAWAL FROM STUDY
-
         let withdrawalFromStudySection = ORKConsentSection(type: .custom)
         withdrawalFromStudySection.title = "Withdrawal from Study"
         let withdrawalFromStudyText = """
@@ -130,7 +122,6 @@ class LifeSpaceConsent: ORKConsentDocument {
         sections?.append(withdrawalFromStudySection)
 
         // SECTION 9 - SPONSOR
-
         let sponsorSection = ORKConsentSection(type: .onlyInDocument)
         sponsorSection.title = "Sponsor"
         sponsorSection.formalTitle = "Sponsor"
@@ -138,12 +129,11 @@ class LifeSpaceConsent: ORKConsentDocument {
         Stanford University is providing financial support and/or material for this study.
         """
         sponsorSection.summary = sponsorSectionText
-        sponsorSection.htmlContent = sponsorSectionText
+        sponsorSection.content = sponsorSectionText
 
         sections?.append(sponsorSection)
 
         // SECTION 10 - CONTACT INFORMATION
-
         let contactSection = ORKConsentSection(type: .onlyInDocument)
         contactSection.title = "Contact Information"
         let contactSectionText =  """
@@ -153,11 +143,9 @@ class LifeSpaceConsent: ORKConsentDocument {
         contactSection.summary = contactSectionText
         contactSection.content = contactSectionText
 
-
         sections?.append(contactSection)
 
         // SECTION 11 - SUMMARY
-
         let summarySection = ORKConsentSection(type: .onlyInDocument)
         summarySection.title = "Summary"
         summarySection.formalTitle = ""
@@ -169,7 +157,6 @@ class LifeSpaceConsent: ORKConsentDocument {
         sections?.append(summarySection)
 
         // SIGNATURE
-
         let signature = ORKConsentSignature(forPersonWithTitle: nil, dateFormatString: nil, identifier: "ConsentDocumentParticipantSignature")
         signature.title = title
         signaturePageTitle = title
