@@ -224,6 +224,14 @@
 			path = Location;
 			sourceTree = "<group>";
 		};
+		277C3A0928A0412A00533405 /* Consent */ = {
+			isa = PBXGroup;
+			children = (
+				277C3A0528A0215700533405 /* LifeSpaceConsent.swift */,
+			);
+			path = Consent;
+			sourceTree = "<group>";
+		};
 		2C45A885E8BD0CAC5349997A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -449,8 +457,8 @@
 				27FCB9642834A828009B02CD /* HomeView.swift */,
 				27684BD4287EEBD500140840 /* LaunchUIView.swift */,
 				63A143E0280F579E001A54BC /* PermissionLocationUIView.swift */,
-				277C3A0528A0215700533405 /* LifeSpaceConsent.swift */,
 				2742D7C32871EFE2008B7578 /* SurveyRules.swift */,
+				277C3A0928A0412A00533405 /* Consent */,
 				63A82398280DD255001D49A8 /* Map */,
 				8E0A4399244A4A0400656518 /* Onboarding */,
 				8E9CDEA525915F6600C8A228 /* Survey */,
