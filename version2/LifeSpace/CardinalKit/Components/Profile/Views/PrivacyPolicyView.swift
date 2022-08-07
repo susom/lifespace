@@ -31,6 +31,6 @@ struct PrivacyPolicyView: View {
 
 struct PrivacyPolicyView_Previews: PreviewProvider {
     static var previews: some View {
-        PrivacyPolicyView(site: "CardinalKit.org")
+        PrivacyPolicyView(site: "https://michelleodden.com/cardinal-lifespace-privacy-policy/")
     }
 }
