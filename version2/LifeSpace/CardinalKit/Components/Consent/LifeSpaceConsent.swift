@@ -82,6 +82,7 @@ class LifeSpaceConsent: ORKConsentDocument {
         futureUseOfPrivateInformationSection.title = "Future Use of Private Information"
         let futureUseOfPrivateInformationText = """
         Research using private information is an important way to try to understand human health.  You are being given this information because the investigators want to save private information for future research.
+
         Identifiers will be removed from identifiable private information and, after such removal, the information could be used for future research studies or distributed to another investigator for future research studies without additional informed consent from you.
         """
         futureUseOfPrivateInformationSection.summary = futureUseOfPrivateInformationText
@@ -94,9 +95,13 @@ class LifeSpaceConsent: ORKConsentDocument {
         participantsRightsSection.title = "Participant's Rights"
         let participantsRightsText =  """
         If you have read this form and have decided to participate in this project, please understand your participation is voluntary and you have the right to withdraw your consent or discontinue participation at any time without penalty or loss of benefits to which you are otherwise entitled.
+
         Your decision whether or not to participate in this study will not affect your participation in the REGARDS study.
+
         You have the right to refuse to answer particular questions.
+
         The alternative to participating in this study is not to participate.
+
         The results of this research study may be presented at scientific or professional meetings or published in scientific journals.  However, your identity will not be disclosed.
 
         """
@@ -110,9 +115,13 @@ class LifeSpaceConsent: ORKConsentDocument {
         withdrawalFromStudySection.title = "Withdrawal from Study"
         let withdrawalFromStudyText = """
         If you first agree to participate and then you change your mind, you are free to withdraw your consent and discontinue your participation at any time.
+
         If you decide to withdraw your consent to participate in this study, you should notify Annabel Tan (annabelxtan@stanford.edu) or Michelle Odden (650-721-0230, modden@stanford.edu).
+
         If you decide to withdraw from the study, you can delete the LifeSpace App from your phone.
+
         The Protocol Director may also withdraw you from the study without your consent for one or more of the following reasons:
+
         • Failure to follow the instructions of the Protocol Director and study staff.
         • Unanticipated circumstances.
         """
@@ -138,6 +147,7 @@ class LifeSpaceConsent: ORKConsentDocument {
         contactSection.title = "Contact Information"
         let contactSectionText =  """
         Questions, Concerns, or Complaints: If you have any questions, concerns or complaints about this research study, its procedures, risks and benefits, you should ask the Protocol Director, Michelle Odden, (650) 721-0230. You should also contact her at any time if you feel you have been hurt by being a part of this study.
+
         Independent Contact:  If you are not satisfied with how this study is being conducted, or if you have any concerns, complaints, or general questions about the research or your rights as a participant, please contact the Stanford Institutional Review Board (IRB) to speak to someone independent of the research team at (650)-723-5244 or toll free at 1-866-680-2906.  You can also write to the Stanford IRB, Stanford University, 1705 El Camino Real, Palo Alto, CA 94306.
         """
         contactSection.summary = contactSectionText
