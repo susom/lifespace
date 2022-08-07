@@ -57,7 +57,7 @@ struct LoginExistingUserViewController: UIViewControllerRepresentable {
         // let healthRecordsStep = CKHealthRecordsStep(identifier: "HealthRecords")
         
         // Steps to get consent if user doesn't have a consent document in cloud storage
-        let consentDocument = ConsentDocument()
+        let consentDocument = LifeSpaceConsent()
         let signature = consentDocument.signatures?.first
         let reviewConsentStep = ORKConsentReviewStep(identifier: "ConsentReviewStep", signature: signature, in: consentDocument)
         reviewConsentStep.text = config.read(query: "Review Consent Step Text")

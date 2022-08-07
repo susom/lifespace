@@ -31,6 +31,7 @@ struct ProfileUIView: View {
                 Section {
                     ReportView(color: self.color, email: config.read(query: "Email"))
                     DocumentView()
+                    PrivacyPolicyView(site: Constants.privacyPolicyURL)
                 }
                 
                 Section {
