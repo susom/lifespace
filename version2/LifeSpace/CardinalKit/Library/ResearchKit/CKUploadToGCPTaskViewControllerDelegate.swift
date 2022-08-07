@@ -20,7 +20,7 @@ class CKUploadToGCPTaskViewControllerDelegate: NSObject, ORKTaskViewControllerDe
             guard let surveyID = taskViewController.task?.identifier else { return }
 
             if surveyID == "DailySurveyTask" {
-                // When the daily survey is completed, extract answers and send them to firebase
+                // When the daily survey is completed, extract answers and send them to Cloud Firestore
                 var resultData = [String: Any]()
 
                 // Add metadata
@@ -32,36 +32,39 @@ class CKUploadToGCPTaskViewControllerDelegate: NSObject, ORKTaskViewControllerDe
                     resultData["timestamp"] = Date()
                 }
 
-                // Question 1 - Health Scale Question
-                if let healthScaleQuestionStepResult = taskViewController.result.stepResult(forStepIdentifier: "healthScaleQuestionStep")?.results {
-                    let answer = healthScaleQuestionStepResult[0] as? ORKScaleQuestionResult
+
+                // Extract results from each question:
+
+                // Question 1 - How would you rate your day?
+                if let dayRatingQuestionStepResult = taskViewController.result.stepResult(forStepIdentifier: "DayRatingQuestionStep")?.results {
+                    let answer = dayRatingQuestionStepResult[0] as? ORKScaleQuestionResult
                     let result = answer?.scaleAnswer
-                    resultData["healthScale"] = result
+                    resultData["dayRatingScale"] = result
                 }
 
-                // Question 2 - Mental Health Scale Question
-                if let mentalHealthScaleQuestionStepResult = taskViewController.result.stepResult(forStepIdentifier: "mentalHealthScaleQuestionStep")?.results {
-                    let answer = mentalHealthScaleQuestionStepResult[0] as? ORKScaleQuestionResult
+                // Question 2 - How would generally rate your enjoyment of the physical environments in which you spent time today?
+                if let environmentScaleQuestionStepResult = taskViewController.result.stepResult(forStepIdentifier: "EnvironmentScaleQuestionStep")?.results {
+                    let answer = environmentScaleQuestionStepResult[0] as? ORKScaleQuestionResult
                     let result = answer?.scaleAnswer
-                    resultData["mentalHealthScale"] = result
+                    resultData["environmentScale"] = result
                 }
 
-                // Question 3 - Map Accuracy Question
-                if let mapstepQuestionResult = taskViewController.result.stepResult(forStepIdentifier: "mapstep")?.results {
-                    let answer = mapstepQuestionResult[0] as? ORKBooleanQuestionResult
+                // Question 3 - Is this map of your daily activity accurate?
+                if let mapAccuracyBooleanQuestionResult = taskViewController.result.stepResult(forStepIdentifier: "MapAccuracyBooleanQuestionStep")?.results {
+                    let answer = mapAccuracyBooleanQuestionResult[0] as? ORKBooleanQuestionResult
                     let result = answer?.booleanAnswer
                     resultData["isMapAccurate"] = result
                 }
 
-                // Question 4 - Why map isn't accurate
-                if let whynotQuestionResult = taskViewController.result.stepResult(forStepIdentifier: "whyNot")?.results {
-                    let answer = whynotQuestionResult[0] as? ORKTextQuestionResult
+                // Question 4 - Please explain why not (please do not disclose any health information)
+                if let explainMapInaccuracyQuestionResult = taskViewController.result.stepResult(forStepIdentifier: "ExplainMapInaccuracyQuestionStep")?.results {
+                    let answer = explainMapInaccuracyQuestionResult[0] as? ORKTextQuestionResult
                     let result = answer?.textAnswer
-                    resultData["whyNotAccurate"] = result
+                    resultData["explainMapInaccuracy"] = result
 
                 }
 
-                // Write the results to firebase
+                // Write the extracted results to firebase
                 if let surveysCollection = CKStudyUser.shared.surveysCollection {
                     let db = Firestore.firestore()
                     db.collection(surveysCollection)
@@ -97,13 +100,12 @@ class CKUploadToGCPTaskViewControllerDelegate: NSObject, ORKTaskViewControllerDe
             fallthrough
         default:
             taskViewController.dismiss(animated: true, completion: nil)
-            
         }
     }
 
     func taskViewController(_ taskViewController: ORKTaskViewController, viewControllerFor step: ORKStep) -> ORKStepViewController? {
-        if step.identifier == "mapstep"{
-            return JHMapQuestionStepViewController(step: step)
+        if step.identifier == "MapAccuracyBooleanQuestionStep"{
+            return MapQuestionStepViewController(step: step)
         } else {
             switch step {
             case is ORKInstructionStep:

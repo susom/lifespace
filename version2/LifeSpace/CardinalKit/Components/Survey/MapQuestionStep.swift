@@ -12,19 +12,19 @@ import UIKit
 import SwiftUI
 import MapboxMaps
 
-public class JHMapQuestionStep: ORKQuestionStep{
+public class MapQuestionStep: ORKQuestionStep{
     public override init(identifier: String) {
         super.init(identifier: identifier)
         self.answerFormat = ORKAnswerFormat.booleanAnswerFormat()
     }
-    
+
     @available(*, unavailable)
     public required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
 
-public class JHMapQuestionStepViewController: ORKQuestionStepViewController {
+public class MapQuestionStepViewController: ORKQuestionStepViewController {
     internal var mapView: MapView!
     public override func viewDidLoad() {
         let QuestionLabel = UILabel(frame: CGRect(x: 0, y: 60, width: 450, height: 50 ))
