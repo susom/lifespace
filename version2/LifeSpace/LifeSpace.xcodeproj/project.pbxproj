@@ -12,6 +12,7 @@
 		27684BD5287EEBD500140840 /* LaunchUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27684BD4287EEBD500140840 /* LaunchUIView.swift */; };
 		2776F0E02888233A0060480C /* Extensions+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2776F0DF2888233A0060480C /* Extensions+String.swift */; };
 		277C39FE28A01C3500533405 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277C39FD28A01C3500533405 /* PrivacyPolicyView.swift */; };
+		277C3A0628A0215700533405 /* LifeSpaceConsent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277C3A0528A0215700533405 /* LifeSpaceConsent.swift */; };
 		277DC91928355FC100C12FB2 /* CKReviewConsentDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277DC91828355FC100C12FB2 /* CKReviewConsentDocument.swift */; };
 		27B78918284CE8610006C02F /* LocalTaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B78917284CE8610006C02F /* LocalTaskItem.swift */; };
 		27B7891A284CE86A0006C02F /* CloudTaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B78919284CE86A0006C02F /* CloudTaskItem.swift */; };
@@ -112,6 +113,7 @@
 		27684BD4287EEBD500140840 /* LaunchUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchUIView.swift; sourceTree = "<group>"; };
 		2776F0DF2888233A0060480C /* Extensions+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+String.swift"; sourceTree = "<group>"; };
 		277C39FD28A01C3500533405 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
+		277C3A0528A0215700533405 /* LifeSpaceConsent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeSpaceConsent.swift; sourceTree = "<group>"; };
 		277DC91828355FC100C12FB2 /* CKReviewConsentDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKReviewConsentDocument.swift; sourceTree = "<group>"; };
 		27B78917284CE8610006C02F /* LocalTaskItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalTaskItem.swift; sourceTree = "<group>"; };
 		27B78919284CE86A0006C02F /* CloudTaskItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudTaskItem.swift; sourceTree = "<group>"; };
@@ -447,6 +449,7 @@
 				27FCB9642834A828009B02CD /* HomeView.swift */,
 				27684BD4287EEBD500140840 /* LaunchUIView.swift */,
 				63A143E0280F579E001A54BC /* PermissionLocationUIView.swift */,
+				277C3A0528A0215700533405 /* LifeSpaceConsent.swift */,
 				2742D7C32871EFE2008B7578 /* SurveyRules.swift */,
 				63A82398280DD255001D49A8 /* Map */,
 				8E0A4399244A4A0400656518 /* Onboarding */,
@@ -793,6 +796,7 @@
 				8E0A43AD244A4A0400656518 /* Constants.swift in Sources */,
 				8E0A43BE244A4A0400656518 /* CKHealthDataStepViewController.swift in Sources */,
 				2BF6452026C1DBE70020C206 /* CK_ORKSerialization.swift in Sources */,
+				277C3A0628A0215700533405 /* LifeSpaceConsent.swift in Sources */,
 				4F02D979274871A200F203B5 /* LocationView.swift in Sources */,
 				27B7891E284CE9260006C02F /* CloudTaskListItemView.swift in Sources */,
 				27B7891A284CE86A0006C02F /* CloudTaskItem.swift in Sources */,
