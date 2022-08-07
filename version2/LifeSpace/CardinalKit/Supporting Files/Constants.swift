@@ -36,4 +36,6 @@ class Constants {
     static let hourToOpenSurvey = 19 // Hour to open survey daily in military time
 
     static let minDistanceBetweenPoints = 100.0 // minimum distance between location points to record
+
+    static let privacyPolicyURL = "https://michelleodden.com/cardinal-lifespace-privacy-policy/"
 }

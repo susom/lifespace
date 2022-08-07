@@ -29,7 +29,7 @@ struct OnboardingViewController: UIViewControllerRepresentable {
         *  STEP (1): get user consent
         **************************************************************/
         // use the `ORKVisualConsentStep` from ResearchKit
-        let consentDocument = ConsentDocument()
+        let consentDocument = LifeSpaceConsent()
         let consentStep = ORKVisualConsentStep(identifier: "VisualConsentStep", document: consentDocument)
         
         /* **************************************************************

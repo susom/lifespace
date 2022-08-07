@@ -3,7 +3,7 @@
 //  LifeSpace
 //
 //  Created by Vishnu Ravi on 8/7/22.
-//  Copyright © 2022 CocoaPods. All rights reserved.
+//  Copyright © 2022 LifeSpace. All rights reserved.
 //
 
 import SwiftUI
@@ -31,6 +31,6 @@ struct PrivacyPolicyView: View {
 
 struct PrivacyPolicyView_Previews: PreviewProvider {
     static var previews: some View {
-        PrivacyPolicyView(site: "https://michelleodden.com/cardinal-lifespace-privacy-policy/")
+        PrivacyPolicyView(site: Constants.privacyPolicyURL)
     }
 }
