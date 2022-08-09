@@ -30,6 +30,8 @@ struct LoginExistingUserViewController: UIViewControllerRepresentable {
         // Step for verifying study ID
         let studyIDAnswerFormat = ORKAnswerFormat.textAnswerFormat(withMaximumLength: 10)
         let studyIDEntryStep = ORKQuestionStep(identifier: "StudyIDEntryStep", title: "Study ID", question: "Enter your study ID:", answer: studyIDAnswerFormat)
+        studyIDEntryStep.isOptional = false
+
         loginSteps = [studyIDEntryStep]
         
         // Login step

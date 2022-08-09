@@ -60,6 +60,7 @@ struct OnboardingViewController: UIViewControllerRepresentable {
         
         let studyIDAnswerFormat = ORKAnswerFormat.textAnswerFormat(withMaximumLength: 10)
         let studyIDEntryStep = ORKQuestionStep(identifier: "StudyIDEntryStep", title: "Study ID", question: "Enter your study ID:", answer: studyIDAnswerFormat)
+        studyIDEntryStep.isOptional = false
 
         var loginSteps: [ORKStep]
         if config["Login-Sign-In-With-Apple"]["Enabled"] as? Bool == true {
