@@ -56,11 +56,20 @@ public class MapQuestionStepViewController: ORKQuestionStepViewController {
         noButton.addTarget(self, action: #selector(OnClickNoButton), for: .touchUpInside)
         self.view.addSubview(noButton)
 
+        let skipButton = UIButton(frame: CGRect(x: 0, y: 555, width: 350, height: 50))
+        skipButton.center.x = view.center.x
+        skipButton.setTitle("Skip", for: .normal)
+        skipButton.setTitleColor(.systemBlue, for: .normal)
+        skipButton.layer.cornerRadius = 10
+        skipButton.backgroundColor = .white
+        skipButton.addTarget(self, action: #selector(OnClickSkipButton), for: .touchUpInside)
+        self.view.addSubview(skipButton)
+
         self.view.backgroundColor = .white
         MapboxMap.initializeMap(mapView: mapView, reload: false)
     }
     
-    @objc func OnClickYesButton(){
+    @objc func OnClickYesButton() {
       self.setAnswer(true)
       super.goForward()
     }
@@ -68,5 +77,9 @@ public class MapQuestionStepViewController: ORKQuestionStepViewController {
     @objc func OnClickNoButton() {
         self.setAnswer(false)
         super.goForward()
+    }
+
+    @objc func OnClickSkipButton() {
+        super.skipForward()
     }
 }
