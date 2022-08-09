@@ -47,34 +47,34 @@
 	<key>MGLMapboxMetricsEnabledSettingShownInApp</key>
 	<true/>
 	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>Used for sensor collection demo tasks.</string>
+	<string>Used by the CardinalKit library to connect to bluetooth devices, but disabled in this app.</string>
 	<key>NSCameraUsageDescription</key>
-	<string>Used In ResearchKit Active Tasks.</string>
+	<string>Used by the ResearchKit library for Active Tasks, but not currently implemented in this app.</string>
 	<key>NSFaceIDUsageDescription</key>
 	<string>Used for data security purposes.</string>
 	<key>NSHealthClinicalHealthRecordsShareUsageDescription</key>
-	<string>Used for CareKit collection sample.</string>
+	<string>Used by the CardinalKit library to access health data, but disabled in this app.</string>
 	<key>NSHealthShareUsageDescription</key>
-	<string>Used for data security purposes.</string>
+	<string>Used by the CardinalKit library to access health data, but disabled in this app.</string>
 	<key>NSHealthUpdateUsageDescription</key>
-	<string>Used for data security purposes.</string>
+	<string>Used by the CardinalKit library to access health data, but disabled in this app.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Used for sensor collection demo tasks.</string>
+	<string>Your precise location is used to collect data for our research study.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Used for sensor collection demo tasks.</string>
+	<string>Your precise location is used to collect data for our research study.</string>
 	<key>NSLocationTemporaryUsageDescriptionDictionary</key>
 	<dict>
 		<key>LocationAccuracyAuthorizationDescription</key>
-		<string>Please enable precise location. Turn-by-turn directions only work when precise location data is available.</string>
+		<string>Please enable precise location, so accurate data can be collected for our research study.</string>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Your precise location is used to calculate turn-by-turn directions, show your location on the map, and help improve the map.</string>
+	<string>Your precise location is used to collect data for our research study.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Used In ResearchKit Active Tasks.</string>
+	<string>Used by the ResearchKit library for Active Tasks, but not currently implemented in this app.</string>
 	<key>NSMotionUsageDescription</key>
-	<string>Used In ResearchKit Active Tasks.</string>
+	<string>Used by the ResearchKit library for Active Tasks, but not currently implemented in this app.</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
-	<string>Used In ResearchKit Active Tasks.</string>
+	<string>Used by the ResearchKit library for Active Tasks, but not currently implemented in this app.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -94,7 +94,6 @@
 	</dict>
 	<key>UIBackgroundModes</key>
 	<array>
-		<string>audio</string>
 		<string>fetch</string>
 		<string>location</string>
 		<string>remote-notification</string>
