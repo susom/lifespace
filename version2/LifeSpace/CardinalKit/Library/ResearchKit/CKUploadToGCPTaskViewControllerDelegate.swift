@@ -21,7 +21,10 @@ class CKUploadToGCPTaskViewControllerDelegate: NSObject, ORKTaskViewControllerDe
 
             if surveyID == "DailySurveyTask" {
                 // When the daily survey is completed, extract answers and send them to Cloud Firestore
-                var resultData = [String: Any]()
+                var resultData: [String: Any] = [:]
+
+                // Since all questions are optional, the survey could be empty
+                var isSurveyEmpty = true
 
                 // Add metadata
                 if let studyID = CKStudyUser.shared.studyID,
@@ -32,7 +35,6 @@ class CKUploadToGCPTaskViewControllerDelegate: NSObject, ORKTaskViewControllerDe
                     resultData["timestamp"] = Date()
                 }
 
-
                 // Extract results from each question:
 
                 // Question 1 - How would you rate your day?
@@ -40,6 +42,7 @@ class CKUploadToGCPTaskViewControllerDelegate: NSObject, ORKTaskViewControllerDe
                     let answer = dayRatingQuestionStepResult[0] as? ORKScaleQuestionResult
                     let result = answer?.scaleAnswer
                     resultData["dayRatingScale"] = result
+                    isSurveyEmpty = false
                 }
 
                 // Question 2 - How would generally rate your enjoyment of the physical environments in which you spent time today?
@@ -47,6 +50,7 @@ class CKUploadToGCPTaskViewControllerDelegate: NSObject, ORKTaskViewControllerDe
                     let answer = environmentScaleQuestionStepResult[0] as? ORKScaleQuestionResult
                     let result = answer?.scaleAnswer
                     resultData["environmentScale"] = result
+                    isSurveyEmpty = false
                 }
 
                 // Question 3 - Is this map of your daily activity accurate?
@@ -54,6 +58,7 @@ class CKUploadToGCPTaskViewControllerDelegate: NSObject, ORKTaskViewControllerDe
                     let answer = mapAccuracyBooleanQuestionResult[0] as? ORKBooleanQuestionResult
                     let result = answer?.booleanAnswer
                     resultData["isMapAccurate"] = result
+                    isSurveyEmpty = false
                 }
 
                 // Question 4 - Please explain why not (please do not disclose any health information)
@@ -61,8 +66,11 @@ class CKUploadToGCPTaskViewControllerDelegate: NSObject, ORKTaskViewControllerDe
                     let answer = explainMapInaccuracyQuestionResult[0] as? ORKTextQuestionResult
                     let result = answer?.textAnswer
                     resultData["explainMapInaccuracy"] = result
-
+                    isSurveyEmpty = false
                 }
+
+                // If the survey is empty at this point, do not try to save it.
+                if (isSurveyEmpty) { return }
 
                 // Write the extracted results to firebase
                 if let surveysCollection = CKStudyUser.shared.surveysCollection {

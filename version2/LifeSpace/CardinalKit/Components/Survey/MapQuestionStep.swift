@@ -33,20 +33,23 @@ public class MapQuestionStepViewController: ORKQuestionStepViewController {
         QuestionLabel.textAlignment = NSTextAlignment.center
         self.view.addSubview(QuestionLabel)
 
+        // Map of today's points
         mapView = MapView(frame: CGRect(x: 0, y: 120, width: 400, height: 400))
         mapView.center.x = view.center.x
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.view.addSubview(mapView)
-        
-        let button = UIButton(frame: CGRect(x: 0, y: 450, width: 350, height: 50))
-        button.center.x = view.center.x
-        button.setTitle("Yes", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 10
-        button.backgroundColor = .systemBlue
-        button.addTarget(self, action: #selector(OnClickYesButton), for: .touchUpInside)
-        self.view.addSubview(button)
-        
+
+        // "Yes" button
+        let yesButton = UIButton(frame: CGRect(x: 0, y: 450, width: 350, height: 50))
+        yesButton.center.x = view.center.x
+        yesButton.setTitle("Yes", for: .normal)
+        yesButton.setTitleColor(.white, for: .normal)
+        yesButton.layer.cornerRadius = 10
+        yesButton.backgroundColor = .systemBlue
+        yesButton.addTarget(self, action: #selector(OnClickYesButton), for: .touchUpInside)
+        self.view.addSubview(yesButton)
+
+        // "No" button
         let noButton = UIButton(frame: CGRect(x: 0, y: 505, width: 350, height: 50))
         noButton.center.x = view.center.x
         noButton.setTitle("No", for: .normal)
@@ -56,6 +59,7 @@ public class MapQuestionStepViewController: ORKQuestionStepViewController {
         noButton.addTarget(self, action: #selector(OnClickNoButton), for: .touchUpInside)
         self.view.addSubview(noButton)
 
+        // "Skip" button
         let skipButton = UIButton(frame: CGRect(x: 0, y: 555, width: 350, height: 50))
         skipButton.center.x = view.center.x
         skipButton.setTitle("Skip", for: .normal)
