@@ -33,7 +33,7 @@ class Constants {
     static let JHFirstLocationRequest = "JHFirstLocationRequest"
     
     static let lastSurveyDate = "LAST_SURVEY_DATE"
-    static let hourToOpenSurvey = 12 // Hour to open survey daily in military time
+    static let hourToOpenSurvey = 19 // Hour to open survey daily in military time
 
     static let minDistanceBetweenPoints = 100.0 // minimum distance between location points to record
 
