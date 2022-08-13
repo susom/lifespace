@@ -37,12 +37,16 @@ class CKUploadToGCPTaskViewControllerDelegate: NSObject, ORKTaskViewControllerDe
 
                 // Extract results from each question:
 
+                let SKIP_VALUE = -1 // value that represents a skipped question
+
                 // Question 1 - How would you rate your day?
                 if let dayRatingQuestionStepResult = taskViewController.result.stepResult(forStepIdentifier: "DayRatingQuestionStep")?.results {
                     let answer = dayRatingQuestionStepResult[0] as? ORKScaleQuestionResult
                     let result = answer?.scaleAnswer
                     resultData["dayRatingScale"] = result
                     isSurveyEmpty = false
+                } else {
+                    resultData["dayRatingScale"] = SKIP_VALUE
                 }
 
                 // Question 2 - How would generally rate your enjoyment of the physical environments in which you spent time today?
@@ -51,14 +55,18 @@ class CKUploadToGCPTaskViewControllerDelegate: NSObject, ORKTaskViewControllerDe
                     let result = answer?.scaleAnswer
                     resultData["environmentScale"] = result
                     isSurveyEmpty = false
+                } else {
+                    resultData["environmentScale"] = SKIP_VALUE
                 }
 
                 // Question 3 - Is this map of your daily activity accurate?
                 if let mapAccuracyBooleanQuestionResult = taskViewController.result.stepResult(forStepIdentifier: "MapAccuracyBooleanQuestionStep")?.results {
                     let answer = mapAccuracyBooleanQuestionResult[0] as? ORKBooleanQuestionResult
                     let result = answer?.booleanAnswer
-                    resultData["isMapAccurate"] = result
+                    resultData["isMapAccurate"] = Int(truncating: result ?? SKIP_VALUE as NSNumber)
                     isSurveyEmpty = false
+                } else {
+                    resultData["isMapAccurate"] = SKIP_VALUE
                 }
 
                 // Question 4 - Please explain why not (please do not disclose any health information)
@@ -70,7 +78,7 @@ class CKUploadToGCPTaskViewControllerDelegate: NSObject, ORKTaskViewControllerDe
                 }
 
                 // If the survey is empty at this point, do not try to save it.
-                if (isSurveyEmpty) { return }
+                if isSurveyEmpty { return }
 
                 // Write the extracted results to firebase
                 if let surveysCollection = CKStudyUser.shared.surveysCollection {
