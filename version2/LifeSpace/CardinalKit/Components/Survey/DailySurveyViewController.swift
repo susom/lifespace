@@ -28,9 +28,9 @@ class DailySurveyTask: ORKNavigableOrderedTask {
         let dayRatingQuestionStep = ORKQuestionStep(identifier: "DayRatingQuestionStep", title: "Question #1", question: "How would you rate your day?", answer: dayRatingAnswerFormat)
         steps += [dayRatingQuestionStep]
 
-        // Question 2 - How would generally rate your enjoyment of the physical environments in which you spent time today?
+        // Question 2 - How would you generally rate your enjoyment of the physical environments in which you spent time today?
         let environmentScaleAnswerFormat = ORKAnswerFormat.scale(withMaximumValue: 5, minimumValue: 1, defaultValue: 3, step: 1, vertical: false, maximumValueDescription: "Excellent", minimumValueDescription: "Poor")
-        let environmentScaleQuestionStep = ORKQuestionStep(identifier: "EnvironmentScaleQuestionStep", title: "Question #2", question: "How would generally rate your enjoyment of the physical environments in which you spent time today?", answer: environmentScaleAnswerFormat)
+        let environmentScaleQuestionStep = ORKQuestionStep(identifier: "EnvironmentScaleQuestionStep", title: "Question #2", question: "How would you generally rate your enjoyment of the physical environments in which you spent time today?", answer: environmentScaleAnswerFormat)
         steps += [environmentScaleQuestionStep]
 
         // Question 3 - Is this map of your daily activity accurate?
