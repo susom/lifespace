@@ -50,7 +50,7 @@ class CKUploadToGCPTaskViewControllerDelegate: NSObject, ORKTaskViewControllerDe
                     isSurveyEmpty = false
                 }
 
-                // Question 2 - How would generally rate your enjoyment of the physical environments in which you spent time today?
+                // Question 2 - How would you generally rate your enjoyment of the physical environments in which you spent time today?
                 if let environmentScaleQuestionStepResult = taskViewController.result.stepResult(forStepIdentifier: "EnvironmentScaleQuestionStep")?.results {
                     let answer = environmentScaleQuestionStepResult[0] as? ORKScaleQuestionResult
                     if let result = answer?.scaleAnswer {
