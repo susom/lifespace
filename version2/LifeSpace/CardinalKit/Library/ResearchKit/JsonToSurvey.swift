@@ -12,7 +12,6 @@ import ResearchKit
 class JsonToSurvey {
     static let shared = JsonToSurvey()
     func GetSurvey(from jsonData:[[String: Any]], identifier: String) -> ORKOrderedTask {
-        
         var steps = [ORKStep]()
         for question in jsonData {
             if let type = question["type"] as? String,
@@ -228,7 +227,7 @@ class JsonToSurvey {
             if let text = option["text"],
                let value = option["value"] {
                 textChoices+=[
-                    ORKTextChoice(text: text, value: value as NSCoding & NSCopying & NSObjectProtocol)
+                    ORKTextChoice(text: text, value: value as NSSecureCoding & NSCopying & NSObjectProtocol)
                 ]
             }
         }
@@ -241,10 +240,11 @@ class JsonToSurvey {
             if let text = option["text"],
                let value = option["value"] {
                 imageChoicer += [
-                    ORKImageChoice(normalImage: nil,
-                                   selectedImage: nil,
-                                   text: text,
-                                   value: value as NSCoding & NSCopying & NSObjectProtocol)
+                    ORKImageChoice(
+                        normalImage: nil,
+                        selectedImage: nil,
+                        text: text,
+                        value: value as NSSecureCoding & NSCopying & NSObjectProtocol)
                 ]
             }
         }
