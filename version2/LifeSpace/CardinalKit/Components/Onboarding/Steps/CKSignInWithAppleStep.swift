@@ -5,11 +5,12 @@
 //  Copyright © 2020 Stanford University. All rights reserved.
 //
 
-import ResearchKit
+
+import AuthenticationServices
 import CardinalKit
 import CryptoKit
 import FirebaseAuth
-import AuthenticationServices
+import ResearchKit
 
 /// A step that presents information about and performes
 /// [Sign in with Apple](https://developer.apple.com/sign-in-with-apple/).
@@ -77,15 +78,20 @@ public class CKSignInWithAppleStep: ORKInstructionStep {
     ///   Defaults to the value of "Sign in with Apple Text" entry from `CKConfiguration.plist`.
     ///   - requestedScopes: The contact information to be requested from the user during authentication.
     ///   Defaults to email only.
-    public init(identifier: String,
-         title: String! = nil,
-         text: String! = nil,
-         requestedScopes: [ASAuthorization.Scope] = [.email]) {
-        let config = CKPropertyReader(file: "CKConfiguration")
-        self.requestedScopes = requestedScopes
-        super.init(identifier: identifier)
-        self.title = title ?? config["Login-Sign-In-With-Apple"]["Title"] as! String
-        self.text = text ?? config["Login-Sign-In-With-Apple"]["Text"] as! String
+    public init(
+        identifier: String,
+        title: String? = nil,
+        text: String? = nil,
+        requestedScopes: [ASAuthorization.Scope] = [.email]) {
+            let config = CKPropertyReader(file: "CKConfiguration")
+            self.requestedScopes = requestedScopes
+            super.init(identifier: identifier)
+            self.title = title
+                ?? config["Login-Sign-In-With-Apple"]?["Title"] as? String
+                ?? "Sign in with Apple"
+            self.text = text
+                ?? config["Login-Sign-In-With-Apple"]?["Text"] as? String
+                ?? "Sign in using your Apple ID is fast and easy, and Apple will not track any of your activities."
     }
 
     @available(*, unavailable)
@@ -147,7 +153,7 @@ public class CKSignInWithAppleStepViewController: ORKInstructionStepViewControll
                                                   idToken: idTokenString,
                                                   rawNonce: nonce)
         // Sign in with Firebase.
-        Auth.auth().signIn(with: credential) { (authResult, error) in
+        Auth.auth().signIn(with: credential) { (_, error) in
             if let error = error {
                 self.showError(error)
             } else {

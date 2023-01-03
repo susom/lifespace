@@ -11,7 +11,7 @@ import SwiftUI
 struct ProfileUIView: View {
     let color: Color
     let config = CKPropertyReader(file: "CKConfiguration")
-    
+
     init(color: Color) {
         self.color = color
     }
@@ -23,23 +23,23 @@ struct ProfileUIView: View {
                 Section {
                     StudyIDView()
                 }.listRowBackground(Color.white)
-                
+
                 Section {
                     ChangePasscodeView()
                 }
 
                 Section {
-                    ReportView(color: self.color, email: config.read(query: "Email"))
+                    ReportView(color: self.color, email: config.read(query: "Email") ?? "cardinalkit@stanford.edu")
                     DocumentView()
                     PrivacyPolicyView(site: Constants.privacyPolicyURL)
                 }
-                
+
                 Section {
                     WithdrawView(color: self.color)
                 }
 
                 Section {
-                    Text(config.read(query: "Copyright"))
+                    Text(config.read(query: "Copyright") ?? "Made at Stanford University")
                 }
             }.listStyle(GroupedListStyle())
         }

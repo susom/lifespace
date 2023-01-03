@@ -1,9 +1,8 @@
 //
 //  PageViewController.swift
-//  CardinalKit_Example
+//  LifeSpace
 //
-//  Created by Santiago Gutierrez on 10/12/20.
-//  Copyright © 2020 CocoaPods. All rights reserved.
+//  Copyright © 2022 LifeSpace. All rights reserved.
 //
 
 import UIKit

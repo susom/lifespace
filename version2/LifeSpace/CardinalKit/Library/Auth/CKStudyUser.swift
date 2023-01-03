@@ -10,11 +10,9 @@ import Firebase
 import CardinalKit
 
 class CKStudyUser: ObservableObject {
-
     static let shared = CKStudyUser()
-
     private weak var authStateHandle: AuthStateDidChangeListenerHandle?
-    
+
     /* **************************************************************
      * the current user only resolves if we are logged in
      **************************************************************/
@@ -56,7 +54,7 @@ class CKStudyUser: ObservableObject {
         }
         return nil
     }
-    
+
     var surveysCollection: String? {
         if let authCollection = authCollection {
             return "\(authCollection)\(prefix)_surveys/"
@@ -68,7 +66,6 @@ class CKStudyUser: ObservableObject {
         if let authCollection = authCollection {
             return "\(authCollection)\(prefix)_consent/"
         }
-        
         return nil
     }
 
@@ -84,7 +81,7 @@ class CKStudyUser: ObservableObject {
             }
         }
     }
-    
+
     var isLoggedIn: Bool {
         return (currentUser?.isEmailVerified ?? false) && UserDefaults.standard.bool(forKey: Constants.prefConfirmedLogin)
     }
@@ -113,36 +110,6 @@ class CKStudyUser: ObservableObject {
         // remove the authentication state handle when the instance is deallocated
         if let handle = authStateHandle {
             Auth.auth().removeStateDidChangeListener(handle)
-        }
-    }
-
-    /**
-     Send a login email to the user.
-
-     At this stage, we do not have a `currentUser` via Google Identity.
-
-     - Parameters:
-     - email: validated address that should receive the sign-in link.
-     - completion: callback
-     */
-    func sendLoginLink(email: String, completion: @escaping (Bool) -> Void) {
-        guard !email.isEmpty else {
-            completion(false)
-            return
-        }
-        
-        let actionCodeSettings = ActionCodeSettings()
-        actionCodeSettings.url = URL(string: "https://cs342.page.link")
-        actionCodeSettings.handleCodeInApp = true // The sign-in operation has to always be completed in the app.
-        actionCodeSettings.setIOSBundleID(Bundle.main.bundleIdentifier!)
-
-        Auth.auth().sendSignInLink(toEmail: email, actionCodeSettings: actionCodeSettings) { (error) in
-            if let error = error {
-                print(error.localizedDescription)
-                completion(false)
-                return
-            }
-            completion(true)
         }
     }
 
@@ -192,7 +159,7 @@ class CKStudyUser: ObservableObject {
     func getLastSurveyDate() async throws {
         // Get the date of the last completed survey from the user document in Firestore
         // then store the result locally
-        
+
         if let dataBucket = rootAuthCollection,
            let uid = currentUser?.uid {
 
@@ -211,5 +178,4 @@ class CKStudyUser: ObservableObject {
         studyID = nil
         try Auth.auth().signOut()
     }
-
 }

@@ -14,7 +14,7 @@ struct MainUIView: View {
     let config = CKConfig.shared
     
     init() {
-        self.color = Color(config.readColor(query: "Primary Color"))
+        self.color = Color(config.readColor(query: "Primary Color") ?? UIColor.primaryColor())
     }
     
     var body: some View {
