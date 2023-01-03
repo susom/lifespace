@@ -26,16 +26,9 @@ struct OnboardingViewController: UIViewControllerRepresentable {
         let config = CKPropertyReader(file: "CKConfiguration")
             
         /* **************************************************************
-        *  STEP (1): get user consent
+        *  STEP (1+2): Ask user to review, then sign consent form
         **************************************************************/
-        // use the `ORKVisualConsentStep` from ResearchKit
         let consentDocument = LifeSpaceConsent()
-        let consentStep = ORKVisualConsentStep(identifier: "VisualConsentStep", document: consentDocument)
-        
-        /* **************************************************************
-        *  STEP (2): ask user to review and sign consent document
-        **************************************************************/
-        // use the `ORKConsentReviewStep` from ResearchKit
         let signature = consentDocument.signatures?.first
         let reviewConsentStep = ORKConsentReviewStep(identifier: "ConsentReviewStep", signature: signature, in: consentDocument)
         reviewConsentStep.text = config.read(query: "Review Consent Step Text")
@@ -109,7 +102,7 @@ struct OnboardingViewController: UIViewControllerRepresentable {
         **************************************************************/
 
         // given intro steps that the user should review and consent to
-        let introSteps: [ORKStep] = [studyIDEntryStep, consentStep, reviewConsentStep]
+        let introSteps: [ORKStep] = [studyIDEntryStep, reviewConsentStep]
         
         // and steps regarding login / security
         let emailVerificationSteps = loginSteps + [passcodeStep, completionStep]
