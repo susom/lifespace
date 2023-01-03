@@ -1,57 +1,48 @@
 //
 //  PermissionLocationUIView.swift
-//  CardinalKit_Example
+//  LifeSpace
 //
-//  Created by Esteban Ramos on 19/04/22.
-//  Copyright © 2022 CocoaPods. All rights reserved.
+//  Copyright © 2022 LifeSpace. All rights reserved.
 //
 
 import SwiftUI
 
 struct PermissionLocationUIView: View {
-    
     let color: Color
     let config = CKPropertyReader(file: "CKConfiguration")
     
     @ObservedObject var locationFetcher = LocationService.shared
     
     init(onComplete: (() -> Void)? = nil) {
-        
-        self.color = Color(config.readColor(query: "Primary Color"))
-        
+        self.color = Color(config.readColor(query: "Primary Color") ?? UIColor.primaryColor())
     }
     
     var body: some View {
-        
         VStack(spacing: 10) {
             Image("LifeSpace")
                 .resizable()
                 .scaledToFit()
                 .padding(.leading, Metrics.PADDING_HORIZONTAL_MAIN*4)
                 .padding(.trailing, Metrics.PADDING_HORIZONTAL_MAIN*4)
-            
+
             Text("To participate in the study, please allow LifeSpace to access your location.")
                 .multilineTextAlignment(.center)
                 .font(.title)
                 .padding(10)
-            
+
             if locationFetcher.canShowRequestMessage {
                 if locationFetcher.authorizationStatus == .authorizedWhenInUse {
-
                     Text("Please tap the button below and select \"Change to Always Allow\" on the window that pops up.")
                         .multilineTextAlignment(.center)
                         .font(.title2)
                         .padding(10)
-                    
+
                     HStack {
-                        
                         Spacer()
                         Button(action: {
-                            
                             locationFetcher.requestAuthorizationLocation()
                             UserDefaults.standard.set(false, forKey: Constants.JHFirstLocationRequest)
                             locationFetcher.calculateIfCanShowRequestMessage()
-                            
                         }, label: {
                              Text("Step Two")
                                 .padding(Metrics.PADDING_BUTTON_LABEL)
@@ -59,14 +50,17 @@ struct PermissionLocationUIView: View {
                                 .foregroundColor(self.color)
                                 .font(.system(size: 20, weight: .bold, design: .default))
                                 .overlay(
-                                            RoundedRectangle(cornerRadius: Metrics.RADIUS_CORNER_BUTTON)
-                                                .stroke(self.color, lineWidth: 2)
+                                    RoundedRectangle(
+                                        cornerRadius: Metrics.RADIUS_CORNER_BUTTON
+                                    ).stroke(
+                                        self.color, lineWidth: 2
                                     )
-
-                        })
+                                )
+                            }
+                        )
                         .padding(.leading, Metrics.PADDING_HORIZONTAL_MAIN)
                         .padding(.trailing, Metrics.PADDING_HORIZONTAL_MAIN)
-                
+
                         Spacer()
                     }
                     Image("secondTime")
@@ -75,7 +69,7 @@ struct PermissionLocationUIView: View {
                         .multilineTextAlignment(.center)
                         .font(.title2)
                         .padding(10)
-                    
+
                     HStack {
                         Spacer()
                         Button(action: {
@@ -125,13 +119,10 @@ struct PermissionLocationUIView: View {
                         .padding(.trailing, Metrics.PADDING_HORIZONTAL_MAIN)
 
                         Spacer()
-                    
                 }
-
             }
 
             Spacer()
-            
         }
     }
 

@@ -15,6 +15,10 @@
 		277C39FE28A01C3500533405 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277C39FD28A01C3500533405 /* PrivacyPolicyView.swift */; };
 		277C3A0628A0215700533405 /* LifeSpaceConsent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277C3A0528A0215700533405 /* LifeSpaceConsent.swift */; };
 		277DC91928355FC100C12FB2 /* CKReviewConsentDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277DC91828355FC100C12FB2 /* CKReviewConsentDocument.swift */; };
+		27A6A0222964D0CD00C5B5B9 /* OnboardingViewController+Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A6A0212964D0CD00C5B5B9 /* OnboardingViewController+Coordinator.swift */; };
+		27A6A0242964D2B500C5B5B9 /* LoginExistingUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A6A0232964D2B500C5B5B9 /* LoginExistingUserViewController.swift */; };
+		27A6A0262964D33500C5B5B9 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A6A0252964D33500C5B5B9 /* OnboardingViewController.swift */; };
+		27A6A0282964DB0E00C5B5B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27A6A0272964DB0E00C5B5B9 /* GoogleService-Info.plist */; };
 		27B78918284CE8610006C02F /* LocalTaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B78917284CE8610006C02F /* LocalTaskItem.swift */; };
 		27B7891A284CE86A0006C02F /* CloudTaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B78919284CE86A0006C02F /* CloudTaskItem.swift */; };
 		27B7891C284CE89F0006C02F /* TasksUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B7891B284CE89F0006C02F /* TasksUIView.swift */; };
@@ -25,7 +29,7 @@
 		27FCB9652834A828009B02CD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FCB9642834A828009B02CD /* HomeView.swift */; };
 		2B19DD9226FE1BEB00649CE1 /* JsonToSurvey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B19DD9126FE1BEB00649CE1 /* JsonToSurvey.swift */; };
 		2BD5328326C2CC4E00C4636E /* CkResearchSurveysManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD5328226C2CC4E00C4636E /* CkResearchSurveysManager.swift */; };
-		2BF6451826C1D0040020C206 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		2BF6451826C1D0040020C206 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		2BF6452026C1DBE70020C206 /* CK_ORKSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF6451F26C1DBE70020C206 /* CK_ORKSerialization.swift */; };
 		2F94C5F22536543600DF8866 /* SceneDelegate+CardinalKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F94C5F12536543600DF8866 /* SceneDelegate+CardinalKit.swift */; };
 		4F02D979274871A200F203B5 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F02D978274871A200F203B5 /* LocationView.swift */; };
@@ -46,14 +50,9 @@
 		8E0A43B3244A4A0400656518 /* TaskSamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A438F244A4A0400656518 /* TaskSamples.swift */; };
 		8E0A43B9244A4A0400656518 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A4396244A4A0400656518 /* AppDelegate.swift */; };
 		8E0A43BE244A4A0400656518 /* CKHealthDataStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A439D244A4A0400656518 /* CKHealthDataStepViewController.swift */; };
-		8E0A43C0244A4A0400656518 /* PasswordlessLoginStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A439F244A4A0400656518 /* PasswordlessLoginStep.swift */; };
-		8E0A43C1244A4A0400656518 /* LoginCustomWaitStepView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E0A43A1244A4A0400656518 /* LoginCustomWaitStepView.xib */; };
 		8E0A43C2244A4A0400656518 /* ConsentDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A43A2244A4A0400656518 /* ConsentDocument.swift */; };
-		8E0A43C3244A4A0400656518 /* LoginCustomWaitStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A43A3244A4A0400656518 /* LoginCustomWaitStepViewController.swift */; };
 		8E0A43D5244A693D00656518 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E0A43D4244A693D00656518 /* HealthKit.framework */; };
 		8E40DC042471E5940027536B /* CKNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E40DC032471E5940027536B /* CKNetworkManager.swift */; };
-		8E6E1E092534F4100024B8DF /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6E1E082534F4100024B8DF /* OnboardingViewController.swift */; };
-		8E6E1E0B2534FF640024B8DF /* OnboardingViewController+Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6E1E0A2534FF640024B8DF /* OnboardingViewController+Coordinator.swift */; };
 		8E6E1E0D25351D8F0024B8DF /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6E1E0C25351D8F0024B8DF /* PageViewController.swift */; };
 		8E6E1E1025351E890024B8DF /* Extensions+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6E1E0F25351E890024B8DF /* Extensions+UIColor.swift */; };
 		8E6E1E1225351F830024B8DF /* DocumentPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6E1E1125351F830024B8DF /* DocumentPreviewViewController.swift */; };
@@ -87,7 +86,6 @@
 		8EBE6F9C24B3C0E60093D07C /* AppDelegate+CardinalKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBE6F9B24B3C0E60093D07C /* AppDelegate+CardinalKit.swift */; };
 		D253D132250D1BDB00A363E4 /* CKSignInWithAppleStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253D131250D1BDB00A363E4 /* CKSignInWithAppleStep.swift */; };
 		E235077724F7082700CC1899 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E235077624F7082700CC1899 /* SceneDelegate.swift */; };
-		E2680B1B260A72DD00B755EA /* LoginExistingUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2680B1A260A72DD00B755EA /* LoginExistingUserViewController.swift */; };
 		E2DF9F0A2500C9CE00A93B93 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DF9F092500C9CE00A93B93 /* LoginViewController.swift */; };
 		E2F1FD7624D61EDA006C39DF /* CKPropertyReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F1FD7524D61EDA006C39DF /* CKPropertyReader.swift */; };
 		E2F1FD7824D62064006C39DF /* CKConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2F1FD7724D62064006C39DF /* CKConfiguration.plist */; };
@@ -115,6 +113,10 @@
 		277C39FD28A01C3500533405 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		277C3A0528A0215700533405 /* LifeSpaceConsent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeSpaceConsent.swift; sourceTree = "<group>"; };
 		277DC91828355FC100C12FB2 /* CKReviewConsentDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKReviewConsentDocument.swift; sourceTree = "<group>"; };
+		27A6A0212964D0CD00C5B5B9 /* OnboardingViewController+Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OnboardingViewController+Coordinator.swift"; sourceTree = "<group>"; };
+		27A6A0232964D2B500C5B5B9 /* LoginExistingUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginExistingUserViewController.swift; sourceTree = "<group>"; };
+		27A6A0252964D33500C5B5B9 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		27A6A0272964DB0E00C5B5B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		27B78917284CE8610006C02F /* LocalTaskItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalTaskItem.swift; sourceTree = "<group>"; };
 		27B78919284CE86A0006C02F /* CloudTaskItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudTaskItem.swift; sourceTree = "<group>"; };
 		27B7891B284CE89F0006C02F /* TasksUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksUIView.swift; sourceTree = "<group>"; };
@@ -152,15 +154,10 @@
 		8E0A438F244A4A0400656518 /* TaskSamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskSamples.swift; sourceTree = "<group>"; };
 		8E0A4396244A4A0400656518 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E0A439D244A4A0400656518 /* CKHealthDataStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKHealthDataStepViewController.swift; sourceTree = "<group>"; };
-		8E0A439F244A4A0400656518 /* PasswordlessLoginStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordlessLoginStep.swift; sourceTree = "<group>"; };
-		8E0A43A1244A4A0400656518 /* LoginCustomWaitStepView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginCustomWaitStepView.xib; sourceTree = "<group>"; };
 		8E0A43A2244A4A0400656518 /* ConsentDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentDocument.swift; sourceTree = "<group>"; };
-		8E0A43A3244A4A0400656518 /* LoginCustomWaitStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCustomWaitStepViewController.swift; sourceTree = "<group>"; };
 		8E0A43C9244A4C6500656518 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E0A43D4244A693D00656518 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		8E40DC032471E5940027536B /* CKNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKNetworkManager.swift; sourceTree = "<group>"; };
-		8E6E1E082534F4100024B8DF /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
-		8E6E1E0A2534FF640024B8DF /* OnboardingViewController+Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OnboardingViewController+Coordinator.swift"; sourceTree = "<group>"; };
 		8E6E1E0C25351D8F0024B8DF /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		8E6E1E0F25351E890024B8DF /* Extensions+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIColor.swift"; sourceTree = "<group>"; };
 		8E6E1E1125351F830024B8DF /* DocumentPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPreviewViewController.swift; sourceTree = "<group>"; };
@@ -193,7 +190,6 @@
 		D205F35186F37B767D4ED303 /* Pods-LifeSpace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LifeSpace.release.xcconfig"; path = "Target Support Files/Pods-LifeSpace/Pods-LifeSpace.release.xcconfig"; sourceTree = "<group>"; };
 		D253D131250D1BDB00A363E4 /* CKSignInWithAppleStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKSignInWithAppleStep.swift; sourceTree = "<group>"; };
 		E235077624F7082700CC1899 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E2680B1A260A72DD00B755EA /* LoginExistingUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginExistingUserViewController.swift; sourceTree = "<group>"; };
 		E2DF9F092500C9CE00A93B93 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E2F1FD7524D61EDA006C39DF /* CKPropertyReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKPropertyReader.swift; sourceTree = "<group>"; };
 		E2F1FD7724D62064006C39DF /* CKConfiguration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CKConfiguration.plist; sourceTree = "<group>"; };
@@ -330,6 +326,7 @@
 				8E0A4384244A4A0400656518 /* Constants.swift */,
 				8E0A4378244A4A0300656518 /* LifeSpace-Bridging-Header.h */,
 				8E0A43C9244A4C6500656518 /* Info.plist */,
+				27A6A0272964DB0E00C5B5B9 /* GoogleService-Info.plist */,
 				E2F1FD7724D62064006C39DF /* CKConfiguration.plist */,
 				27C789652872377500B84177 /* studyIDs.csv */,
 			);
@@ -351,12 +348,12 @@
 			children = (
 				8E0A439C244A4A0400656518 /* Steps */,
 				8E6E1E2125352C780024B8DF /* OnboardingUIView.swift */,
-				8E6E1E082534F4100024B8DF /* OnboardingViewController.swift */,
-				8E6E1E0A2534FF640024B8DF /* OnboardingViewController+Coordinator.swift */,
+				27A6A0252964D33500C5B5B9 /* OnboardingViewController.swift */,
+				27A6A0212964D0CD00C5B5B9 /* OnboardingViewController+Coordinator.swift */,
 				8E6E1E0C25351D8F0024B8DF /* PageViewController.swift */,
 				8E6E1E13253520440024B8DF /* PasscodeViewController.swift */,
-				E2680B1A260A72DD00B755EA /* LoginExistingUserViewController.swift */,
 				277DC91828355FC100C12FB2 /* CKReviewConsentDocument.swift */,
+				27A6A0232964D2B500C5B5B9 /* LoginExistingUserViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -364,23 +361,12 @@
 		8E0A439C244A4A0400656518 /* Steps */ = {
 			isa = PBXGroup;
 			children = (
-				8E0A43A0244A4A0400656518 /* Views */,
 				D253D131250D1BDB00A363E4 /* CKSignInWithAppleStep.swift */,
 				8E0A439D244A4A0400656518 /* CKHealthDataStepViewController.swift */,
 				8EA6648625930B6B00B6A45A /* CKHealthRecordsStepViewController.swift */,
-				8E0A439F244A4A0400656518 /* PasswordlessLoginStep.swift */,
-				8E0A43A3244A4A0400656518 /* LoginCustomWaitStepViewController.swift */,
 				E2DF9F092500C9CE00A93B93 /* LoginViewController.swift */,
 			);
 			path = Steps;
-			sourceTree = "<group>";
-		};
-		8E0A43A0244A4A0400656518 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				8E0A43A1244A4A0400656518 /* LoginCustomWaitStepView.xib */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		8E0A43C5244A4A5700656518 /* Library */ = {
@@ -602,9 +588,9 @@
 			files = (
 				27C789662872377500B84177 /* studyIDs.csv in Resources */,
 				8E0A43AF244A4A0400656518 /* Assets.xcassets in Resources */,
+				27A6A0282964DB0E00C5B5B9 /* GoogleService-Info.plist in Resources */,
 				8E0A43B0244A4A0400656518 /* LaunchScreen.storyboard in Resources */,
 				E2F1FD7824D62064006C39DF /* CKConfiguration.plist in Resources */,
-				8E0A43C1244A4A0400656518 /* LoginCustomWaitStepView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -756,22 +742,20 @@
 				63A143E1280F579E001A54BC /* PermissionLocationUIView.swift in Sources */,
 				8E6E1E14253520440024B8DF /* PasscodeViewController.swift in Sources */,
 				8EA6648725930B6B00B6A45A /* CKHealthRecordsStepViewController.swift in Sources */,
-				8E0A43C0244A4A0400656518 /* PasswordlessLoginStep.swift in Sources */,
 				8EA664AD2593380D00B6A45A /* SendRecordsView.swift in Sources */,
 				8E0A43B3244A4A0400656518 /* TaskSamples.swift in Sources */,
 				8E6E1E2225352C780024B8DF /* OnboardingUIView.swift in Sources */,
 				8E6E1E1A253528450024B8DF /* WithdrawView.swift in Sources */,
 				8E6E1E2E25353A1E0024B8DF /* StudyIDView.swift in Sources */,
-				8E6E1E0B2534FF640024B8DF /* OnboardingViewController+Coordinator.swift in Sources */,
 				8E40DC042471E5940027536B /* CKNetworkManager.swift in Sources */,
 				63A82392280DAF2F001D49A8 /* MapQuestionStep.swift in Sources */,
 				8E9CDEBA2591843200C8A228 /* CKConfig.swift in Sources */,
 				2F94C5F22536543600DF8866 /* SceneDelegate+CardinalKit.swift in Sources */,
+				27A6A0222964D0CD00C5B5B9 /* OnboardingViewController+Coordinator.swift in Sources */,
 				27C789642872366500B84177 /* StudyID.swift in Sources */,
 				8E9CDFAE2592B79900C8A228 /* Metrics.swift in Sources */,
 				2742D7C42871EFE2008B7578 /* SurveyRules.swift in Sources */,
 				27653A13272A2E7700D74E83 /* LocalTaskListItemView.swift in Sources */,
-				8E6E1E092534F4100024B8DF /* OnboardingViewController.swift in Sources */,
 				8E7FFFB425DCE9B7002982B4 /* CKUploadToGCPTaskViewControllerDelegate.swift in Sources */,
 				8EBE6F9C24B3C0E60093D07C /* AppDelegate+CardinalKit.swift in Sources */,
 				8E0A43B9244A4A0400656518 /* AppDelegate.swift in Sources */,
@@ -783,6 +767,7 @@
 				8E6E1E1C253528D70024B8DF /* ReportView.swift in Sources */,
 				63A143DD280EDBA9001A54BC /* MapboxView.swift in Sources */,
 				8E9CDEAD259170AD00C8A228 /* CKCareKitManager.swift in Sources */,
+				27A6A0242964D2B500C5B5B9 /* LoginExistingUserViewController.swift in Sources */,
 				8EA664892593213000B6A45A /* CKSendHelper.swift in Sources */,
 				8E6E1E3425353AFE0024B8DF /* EmailHelper.swift in Sources */,
 				63A82390280DAD49001D49A8 /* DailySurveyViewController.swift in Sources */,
@@ -793,7 +778,7 @@
 				8EA664B42594387900B6A45A /* Errors.swift in Sources */,
 				8E6E1E1225351F830024B8DF /* DocumentPreviewViewController.swift in Sources */,
 				8E6E1E20253529760024B8DF /* DocumentView.swift in Sources */,
-				2BF6451826C1D0040020C206 /* BuildFile in Sources */,
+				2BF6451826C1D0040020C206 /* (null) in Sources */,
 				27FCB9652834A828009B02CD /* HomeView.swift in Sources */,
 				27B78918284CE8610006C02F /* LocalTaskItem.swift in Sources */,
 				2B19DD9226FE1BEB00649CE1 /* JsonToSurvey.swift in Sources */,
@@ -805,6 +790,7 @@
 				8E0A43BE244A4A0400656518 /* CKHealthDataStepViewController.swift in Sources */,
 				2BF6452026C1DBE70020C206 /* CK_ORKSerialization.swift in Sources */,
 				277C3A0628A0215700533405 /* LifeSpaceConsent.swift in Sources */,
+				27A6A0262964D33500C5B5B9 /* OnboardingViewController.swift in Sources */,
 				4F02D979274871A200F203B5 /* LocationView.swift in Sources */,
 				27B7891E284CE9260006C02F /* CloudTaskListItemView.swift in Sources */,
 				27B7891A284CE86A0006C02F /* CloudTaskItem.swift in Sources */,
@@ -815,12 +801,10 @@
 				8E6E1E0D25351D8F0024B8DF /* PageViewController.swift in Sources */,
 				277C39FE28A01C3500533405 /* PrivacyPolicyView.swift in Sources */,
 				8E0A43AC244A4A0400656518 /* CKStudyUser.swift in Sources */,
-				8E0A43C3244A4A0400656518 /* LoginCustomWaitStepViewController.swift in Sources */,
 				E2F1FD7624D61EDA006C39DF /* CKPropertyReader.swift in Sources */,
 				8E6E1E1025351E890024B8DF /* Extensions+UIColor.swift in Sources */,
 				E235077724F7082700CC1899 /* SceneDelegate.swift in Sources */,
 				8E6E1E16253524500024B8DF /* WithdrawalViewController.swift in Sources */,
-				E2680B1B260A72DD00B755EA /* LoginExistingUserViewController.swift in Sources */,
 				2776F0E02888233A0060480C /* Extensions+String.swift in Sources */,
 				8E6E1E2A2535398D0024B8DF /* HelpView.swift in Sources */,
 				8E9CDED02591AC4A00C8A228 /* CKHealthKitManager.swift in Sources */,

@@ -1,8 +1,7 @@
 //
 //  OnboardingUIView.swift
-//  CardinalKit_Example
 //
-//  Created by Varun Shenoy on 8/14/20.
+//  Created for the CardinalKit framework.
 //  Copyright © 2020 Stanford University. All rights reserved.
 //
 
@@ -19,38 +18,44 @@ struct OnboardingElement {
 }
 
 struct OnboardingUIView: View {
-    
     var onboardingElements: [OnboardingElement] = []
     let color: Color
     let config = CKPropertyReader(file: "CKConfiguration")
     @State var showingOnboard = false
     @State var showingLogin = false
     
-    var onComplete: (() -> Void)? = nil
-    
+    var onComplete: (() -> Void)?
+
     init(onComplete: (() -> Void)? = nil) {
-        let onboardingData = config.readAny(query: "Onboarding") as! [[String: String]]
-        
-        
-        self.color = Color(config.readColor(query: "Primary Color"))
+        self.color = Color(config.readColor(query: "Primary Color") ?? UIColor.primaryColor())
         self.onComplete = onComplete
-        
-        for data in onboardingData {
-            self.onboardingElements.append(OnboardingElement(logo: data["Logo"]!, title: data["Title"]!, description: data["Description"]!))
+
+        if let onboardingData = config.readAny(query: "Onboarding") as? [[String: String]] {
+            for data in onboardingData {
+                guard let logo = data["Logo"],
+                      let title = data["Title"],
+                      let description = data["Description"] else {
+                    continue
+                }
+                let element = OnboardingElement(
+                    logo: logo,
+                    title: title,
+                    description: description
+                )
+                self.onboardingElements.append(element)
+            }
         }
     }
 
     var body: some View {
         VStack(spacing: 10) {
             Spacer()
-            
             Image("LifeSpace")
                 .resizable()
                 .scaledToFit()
                 .padding()
 
             Spacer()
-            
             HStack {
                 Spacer()
                 Button(action: {
@@ -71,10 +76,8 @@ struct OnboardingUIView: View {
                 }, content: {
                     OnboardingViewController().ignoresSafeArea(edges: .all)
                 })
-        
                 Spacer()
             }
-            
             HStack {
                 Spacer()
                 Button(action: {
@@ -86,9 +89,12 @@ struct OnboardingUIView: View {
                         .foregroundColor(self.color)
                         .font(.system(size: 20, weight: .bold, design: .default))
                         .overlay(
-                                    RoundedRectangle(cornerRadius: Metrics.RADIUS_CORNER_BUTTON)
-                                        .stroke(self.color, lineWidth: 2)
+                            RoundedRectangle(
+                                cornerRadius: Metrics.RADIUS_CORNER_BUTTON
+                            ).stroke(
+                                self.color, lineWidth: 2
                             )
+                        )
                 })
                 .padding(.leading, Metrics.PADDING_HORIZONTAL_MAIN)
                 .padding(.trailing, Metrics.PADDING_HORIZONTAL_MAIN)
@@ -97,7 +103,6 @@ struct OnboardingUIView: View {
                 }, content: {
                     LoginExistingUserViewController().ignoresSafeArea(edges: .all)
                 })
-        
                 Spacer()
             }
         }
