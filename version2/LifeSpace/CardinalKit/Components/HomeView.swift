@@ -68,6 +68,8 @@ struct HomeView: View {
                             }
                             .sheet(isPresented: $showingSurvey) {
                                 CKTaskViewController(tasks: DailySurveyTask(showInstructions: false))
+                                    .ignoresSafeArea(.container, edges: .bottom)
+                                    .ignoresSafeArea(.keyboard, edges: .bottom)
                             }
                         }.groupBoxStyle(ButtonGroupBoxStyle())
 
