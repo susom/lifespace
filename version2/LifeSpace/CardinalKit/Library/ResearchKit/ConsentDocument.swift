@@ -8,12 +8,13 @@
 import ResearchKit
 
 class ConsentDocument: ORKConsentDocument {
+    // MARK: Properties
+
     override init() {
         super.init()
 
         let config = CKConfig.shared
-        let consentTitle = config.read(query: "Consent Title") ?? "Study Consent"
-        title = NSLocalizedString(consentTitle, comment: "")
+        title = config.read(query: "Consent Title") ?? "Consent Form"
         sections = []
 
         let sectionTypes: [ORKConsentSectionType] = [
@@ -36,29 +37,25 @@ class ConsentDocument: ORKConsentDocument {
             let section = ORKConsentSection(type: type)
 
             if let consentSection = consentForm[type.description] {
-
                 let errorMessage = "We didn't find a consent form for your project. Did you configure the CKConfiguration.plist file already?"
-
-                section.title = NSLocalizedString(consentSection["Title"] ?? ":(", comment: "")
-
-                // if a formal title is defined, use that for the consent document
-                if let formalTitle = consentSection["FormalTitle"] {
-                    section.formalTitle = NSLocalizedString(formalTitle, comment: "")
-                }
-
+                section.title = consentSection["Title"] ?? ":("
                 section.summary = consentSection["Summary"] ?? errorMessage
-                section.htmlContent = NSLocalizedString(consentSection["Content"] ?? errorMessage, comment: "")
-
+                section.content = consentSection["Content"] ?? errorMessage
                 sections?.append(section)
             }
         }
 
-        let signature = ORKConsentSignature(forPersonWithTitle: nil, dateFormatString: nil, identifier: "ConsentDocumentParticipantSignature")
+        let signature = ORKConsentSignature(
+            forPersonWithTitle: nil,
+            dateFormatString: nil,
+            identifier: "ConsentDocumentParticipantSignature"
+        )
         signature.title = title
         signaturePageTitle = title
         addSignature(signature)
     }
 
+    @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

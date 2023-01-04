@@ -10,13 +10,13 @@ import SwiftUI
 struct PermissionLocationUIView: View {
     let color: Color
     let config = CKPropertyReader(file: "CKConfiguration")
-    
+
     @ObservedObject var locationFetcher = LocationService.shared
-    
+
     init(onComplete: (() -> Void)? = nil) {
         self.color = Color(config.readColor(query: "Primary Color") ?? UIColor.primaryColor())
     }
-    
+
     var body: some View {
         VStack(spacing: 10) {
             Image("LifeSpace")
@@ -44,7 +44,7 @@ struct PermissionLocationUIView: View {
                             UserDefaults.standard.set(false, forKey: Constants.JHFirstLocationRequest)
                             locationFetcher.calculateIfCanShowRequestMessage()
                         }, label: {
-                             Text("Step Two")
+                            Text("Step Two")
                                 .padding(Metrics.PADDING_BUTTON_LABEL)
                                 .frame(maxWidth: .infinity)
                                 .foregroundColor(self.color)
@@ -56,7 +56,7 @@ struct PermissionLocationUIView: View {
                                         self.color, lineWidth: 2
                                     )
                                 )
-                            }
+                        }
                         )
                         .padding(.leading, Metrics.PADDING_HORIZONTAL_MAIN)
                         .padding(.trailing, Metrics.PADDING_HORIZONTAL_MAIN)
@@ -75,15 +75,15 @@ struct PermissionLocationUIView: View {
                         Button(action: {
                             locationFetcher.requestAuthorizationLocation()
                         }, label: {
-                             Text("Step One")
+                            Text("Step One")
                                 .padding(Metrics.PADDING_BUTTON_LABEL)
                                 .frame(maxWidth: .infinity)
                                 .foregroundColor(self.color)
                                 .font(.system(size: 18, weight: .bold, design: .default))
                                 .overlay(
-                                            RoundedRectangle(cornerRadius: Metrics.RADIUS_CORNER_BUTTON)
-                                                .stroke(self.color, lineWidth: 2)
-                                    )
+                                    RoundedRectangle(cornerRadius: Metrics.RADIUS_CORNER_BUTTON)
+                                        .stroke(self.color, lineWidth: 2)
+                                )
                         })
                         .padding(.leading, Metrics.PADDING_HORIZONTAL_MAIN)
                         .padding(.trailing, Metrics.PADDING_HORIZONTAL_MAIN)
@@ -103,8 +103,8 @@ struct PermissionLocationUIView: View {
                             return
                         }
                         if UIApplication.shared.canOpenURL(settingsUrl) {
-                            UIApplication.shared.open(settingsUrl, completionHandler: { (success) in })
-                         }
+                            UIApplication.shared.open(settingsUrl)
+                        }
                     }, label: {
                         Text("Location Settings")
                             .padding(Metrics.PADDING_BUTTON_LABEL)
@@ -112,16 +112,17 @@ struct PermissionLocationUIView: View {
                             .foregroundColor(self.color)
                             .font(.system(size: 18, weight: .bold, design: .default))
                             .overlay(
-                                        RoundedRectangle(cornerRadius: Metrics.RADIUS_CORNER_BUTTON)
-                                            .stroke(self.color, lineWidth: 2)
-                                )
-                    }).padding(.leading, Metrics.PADDING_HORIZONTAL_MAIN)
-                        .padding(.trailing, Metrics.PADDING_HORIZONTAL_MAIN)
-
-                        Spacer()
+                                RoundedRectangle(
+                                    cornerRadius: Metrics.RADIUS_CORNER_BUTTON
+                                ).stroke(self.color, lineWidth: 2)
+                            )
+                    }
+                    )
+                    .padding(.leading, Metrics.PADDING_HORIZONTAL_MAIN)
+                    .padding(.trailing, Metrics.PADDING_HORIZONTAL_MAIN)
+                    Spacer()
                 }
             }
-
             Spacer()
         }
     }

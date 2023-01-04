@@ -14,7 +14,7 @@ struct HomeView: View {
     @State private var showingSurvey = false
     @AppStorage(Constants.prefTrackingStatus) private var trackingOn = true
     @State private var optionsPanelOpen = true
-    
+
     var body: some View {
         ZStack {
             // map on the bottom layer
@@ -25,7 +25,6 @@ struct HomeView: View {
 
             // overlay buttons on map
             VStack {
-                
                 Spacer()
 
                 GroupBox {

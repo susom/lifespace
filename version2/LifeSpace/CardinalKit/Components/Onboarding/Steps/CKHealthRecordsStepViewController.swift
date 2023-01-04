@@ -16,7 +16,6 @@ class CKHealthRecordsStep: ORKInstructionStep {
          * customize the instruction text that user sees when
          * requesting health data permissions.
         **************************************************************/
-
         let config = CKConfig.shared
 
         let recordsConfig = config["Health Records"]

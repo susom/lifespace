@@ -1,9 +1,9 @@
 //
 //  DailySurveyStartButton.swift
-//  CardinalKit_Example
+//  LifeSpace
 //
 //  Created by Esteban Ramos on 19/04/22.
-//  Copyright © 2022 CocoaPods. All rights reserved.
+//  Copyright © 2022 LifeSpace. All rights reserved.
 //
 
 import Foundation
@@ -11,7 +11,7 @@ import SwiftUI
 
 struct DailySurveyStartButton: View {
     @State var showingOnboard = false
-    
+
     var body: some View {
         VStack(spacing: 10) {
             Spacer()

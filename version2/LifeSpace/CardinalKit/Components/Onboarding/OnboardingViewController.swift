@@ -71,7 +71,7 @@ struct OnboardingViewController: UIViewControllerRepresentable {
                 identifier: "LoginStep",
                 title: "Login",
                 text: "Log into this study.",
-                loginViewControllerClass: LoginViewController.self
+                loginViewControllerClass: CKLoginStepViewController.self
             )
             loginSteps = [registerStep, loginStep]
         }

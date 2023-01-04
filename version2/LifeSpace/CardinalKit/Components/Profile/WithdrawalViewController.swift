@@ -17,7 +17,7 @@ struct WithdrawalViewController: UIViewControllerRepresentable {
     }
 
     typealias UIViewControllerType = ORKTaskViewController
-    
+
     func updateUIViewController(_ taskViewController: ORKTaskViewController, context: Context) {}
 
     func makeUIViewController(context: Context) -> ORKTaskViewController {

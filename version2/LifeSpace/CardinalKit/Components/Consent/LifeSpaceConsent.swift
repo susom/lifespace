@@ -8,7 +8,6 @@
 import ResearchKit
 
 class LifeSpaceConsent: ORKConsentDocument {
-
     override init() {
         super.init()
 
@@ -16,7 +15,7 @@ class LifeSpaceConsent: ORKConsentDocument {
         title = NSLocalizedString(consentTitle, comment: "")
         sections = []
 
-        // SECTION 1 - Description
+        // MARK: SECTION 1 - Description
         let descriptionSection = ORKConsentSection(type: .custom)
         descriptionSection.title = "Description"
         descriptionSection.formalTitle = "Description"
@@ -30,7 +29,7 @@ class LifeSpaceConsent: ORKConsentDocument {
 
         sections?.append(descriptionSection)
 
-        // SECTION 2 - RISKS AND BENEFITS
+        // MARK: SECTION 2 - RISKS AND BENEFITS
         let risksAndBenefitsSection = ORKConsentSection(type: .custom)
         risksAndBenefitsSection.title = "Risks and Benefits"
         risksAndBenefitsSection.formalTitle = "Risks and Benefits"
@@ -44,7 +43,7 @@ class LifeSpaceConsent: ORKConsentDocument {
 
         sections?.append(risksAndBenefitsSection)
 
-        // SECTION 3 - TIME INVOLVEMENT
+        // MARK: SECTION 3 - TIME INVOLVEMENT
         let timeInvolvementSection = ORKConsentSection(type: .custom)
         timeInvolvementSection.title = "Time Involvement"
         let timeInvolvementText = """
@@ -55,7 +54,7 @@ class LifeSpaceConsent: ORKConsentDocument {
 
         sections?.append(timeInvolvementSection)
 
-        // SECTION 4 - PAYMENTS
+        // MARK: SECTION 4 - PAYMENTS
         let paymentsSection = ORKConsentSection(type: .custom)
         paymentsSection.title = "Payments"
         let paymentsText = """
@@ -66,7 +65,7 @@ class LifeSpaceConsent: ORKConsentDocument {
 
         sections?.append(paymentsSection)
 
-        // SECTION 5 - PRIVACY AND DATA USE
+        // MARK: SECTION 5 - PRIVACY AND DATA USE
         let privacyAndDataUseSection = ORKConsentSection(type: .custom)
         privacyAndDataUseSection.title = "Privacy And Data Use"
         let privacyAndDataUseText = """
@@ -77,7 +76,7 @@ class LifeSpaceConsent: ORKConsentDocument {
 
         sections?.append(privacyAndDataUseSection)
 
-        // SECTION 6 - FUTURE USE OF PRIVATE INFORMATION
+        // MARK: SECTION 6 - FUTURE USE OF PRIVATE INFORMATION
         let futureUseOfPrivateInformationSection = ORKConsentSection(type: .custom)
         futureUseOfPrivateInformationSection.title = "Future Use of Private Information"
         let futureUseOfPrivateInformationText = """
@@ -90,7 +89,7 @@ class LifeSpaceConsent: ORKConsentDocument {
 
         sections?.append(futureUseOfPrivateInformationSection)
 
-        // SECTION 7 - PARTICIPANT'S RIGHTS
+        // MARK: SECTION 7 - PARTICIPANT'S RIGHTS
         let participantsRightsSection = ORKConsentSection(type: .custom)
         participantsRightsSection.title = "Participant's Rights"
         let participantsRightsText =  """
@@ -110,7 +109,7 @@ class LifeSpaceConsent: ORKConsentDocument {
 
         sections?.append(participantsRightsSection)
 
-        // SECTION 8 - WITHDRAWAL FROM STUDY
+        // MARK: SECTION 8 - WITHDRAWAL FROM STUDY
         let withdrawalFromStudySection = ORKConsentSection(type: .custom)
         withdrawalFromStudySection.title = "Withdrawal from Study"
         let withdrawalFromStudyText = """
@@ -130,7 +129,7 @@ class LifeSpaceConsent: ORKConsentDocument {
 
         sections?.append(withdrawalFromStudySection)
 
-        // SECTION 9 - SPONSOR
+        // MARK: SECTION 9 - SPONSOR
         let sponsorSection = ORKConsentSection(type: .onlyInDocument)
         sponsorSection.title = "Sponsor"
         sponsorSection.formalTitle = "Sponsor"
@@ -142,7 +141,7 @@ class LifeSpaceConsent: ORKConsentDocument {
 
         sections?.append(sponsorSection)
 
-        // SECTION 10 - CONTACT INFORMATION
+        // MARK: SECTION 10 - CONTACT INFORMATION
         let contactSection = ORKConsentSection(type: .onlyInDocument)
         contactSection.title = "Contact Information"
         let contactSectionText =  """
@@ -155,7 +154,7 @@ class LifeSpaceConsent: ORKConsentDocument {
 
         sections?.append(contactSection)
 
-        // SECTION 11 - SUMMARY
+        // MARK: SECTION 11 - SUMMARY
         let summarySection = ORKConsentSection(type: .onlyInDocument)
         summarySection.title = "Summary"
         summarySection.formalTitle = ""
@@ -166,8 +165,12 @@ class LifeSpaceConsent: ORKConsentDocument {
 
         sections?.append(summarySection)
 
-        // SIGNATURE
-        let signature = ORKConsentSignature(forPersonWithTitle: nil, dateFormatString: nil, identifier: "ConsentDocumentParticipantSignature")
+        // MARK: SIGNATURE
+        let signature = ORKConsentSignature(
+            forPersonWithTitle: nil,
+            dateFormatString: nil,
+            identifier: "ConsentDocumentParticipantSignature"
+        )
         signature.title = title
         signaturePageTitle = title
         addSignature(signature)

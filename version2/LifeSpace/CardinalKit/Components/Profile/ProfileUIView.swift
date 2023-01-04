@@ -15,7 +15,7 @@ struct ProfileUIView: View {
     init(color: Color) {
         self.color = color
     }
-    
+
     var body: some View {
         VStack {
             Text("Profile").font(.system(size: 25, weight: .bold))

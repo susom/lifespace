@@ -1,9 +1,9 @@
 //
 //  MapBoxMap.swift
-//  CardinalKit_Example
+//  LifeSpace
 //
-//  Created by Esteban Ramos on 18/04/22.
-//  Copyright © 2022 CocoaPods. All rights reserved.
+//  Created for the LifeSpace project
+//  Copyright © 2022 LifeSpace. All rights reserved.
 //
 
 import Foundation
@@ -11,11 +11,10 @@ import MapboxMaps
 
 class MapboxMap {
     public static func initializeMap (mapView: MapView, reload: Bool) {
-        mapView.mapboxMap.onNext(.mapLoaded){ _ in
+        mapView.mapboxMap.onNext(.mapLoaded) { _ in
             var locationsPoints = [CLLocationCoordinate2D]()
             locationsPoints = LocationService.shared.allLocations
             do {
-                // GeoJsonSource
                 var source = GeoJSONSource()
                 source.data = .feature(Feature(geometry: .multiPoint(MultiPoint(locationsPoints))))
                 try mapView.mapboxMap.style.addSource(source, id: "GEOSOURCE")
@@ -36,7 +35,14 @@ class MapboxMap {
                 if reload {
                     LocationService.shared.onLocationsUpdated = { locations in
                         do {
-                            try mapView.mapboxMap.style.updateGeoJSONSource(withId: "GEOSOURCE", geoJSON: .feature(Feature(geometry: .lineString(LineString(locations)))))
+                            try mapView.mapboxMap.style.updateGeoJSONSource(
+                                withId: "GEOSOURCE",
+                                geoJSON: .feature(
+                                    Feature(
+                                        geometry: .lineString(LineString(locations))
+                                    )
+                                )
+                            )
                             mapView.mapboxMap.setCamera(
                                 to: CameraOptions(
                                     center: LocationService.shared.allLocations.last,

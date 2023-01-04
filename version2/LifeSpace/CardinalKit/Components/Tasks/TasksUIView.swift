@@ -10,7 +10,6 @@ import ResearchKit
 import SwiftUI
 
 struct TasksUIView: View {
-
     var date = ""
 
     let color: Color

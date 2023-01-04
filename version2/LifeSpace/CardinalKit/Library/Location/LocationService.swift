@@ -47,7 +47,7 @@ class LocationService: NSObject, CLLocationManagerDelegate, ObservableObject {
             self.startTracking()
         }
     }
-    
+
     func startTracking() {
         if CLLocationManager.locationServicesEnabled() {
             self.manager.startUpdatingLocation()

@@ -51,4 +51,3 @@ class LaunchModel: ObservableObject {
         showPermissionView = false
     }
 }
-
