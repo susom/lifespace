@@ -36,10 +36,16 @@ struct DocumentView: View {
     init() {
         let storage = Storage.storage()
         let storageRef = storage.reference()
-        if let documentCollection = CKStudyUser.shared.authCollection {
+        if let documentCollection = CKStudyUser.shared.consentCollection {
             // download consent document from Firebase Cloud Storage and display it to the user
             let config = CKPropertyReader(file: "CKConfiguration")
-            let consentFileName = config.read(query: "Consent File Name") ?? "consent"
+            var consentFileName = config.read(query: "Consent File Name") ?? "consent"
+
+            // Adds study ID to consent file name if it exists
+            if let studyID = CKStudyUser.shared.studyID {
+                consentFileName = "\(studyID)_\(consentFileName)"
+            }
+            
             let documentRef = storageRef.child("\(documentCollection)/\(consentFileName).pdf")
 
             guard let docURL = (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)).last else {
