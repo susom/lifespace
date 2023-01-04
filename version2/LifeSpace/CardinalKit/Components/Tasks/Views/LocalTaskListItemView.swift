@@ -10,15 +10,14 @@ import SwiftUI
 import ResearchKit
 
 struct LocalTaskListItemView: View {
-    
     let item: LocalTaskItem
 
     @State var showingDetail = false
-    
+
     init(item: LocalTaskItem) {
         self.item = item
     }
-    
+
     var body: some View {
         HStack {
             if item.image != nil {

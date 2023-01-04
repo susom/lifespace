@@ -11,7 +11,7 @@ import MessageUI
 class EmailHelper: NSObject, MFMailComposeViewControllerDelegate {
     public static let shared = EmailHelper()
 
-    func sendEmail(subject: String, body: String, to: String){
+    func sendEmail(subject: String, body: String, to: String) {
         if !MFMailComposeViewController.canSendMail() {
             return
         }
@@ -22,7 +22,7 @@ class EmailHelper: NSObject, MFMailComposeViewControllerDelegate {
         picker.setMessageBody(body, isHTML: true)
         picker.setToRecipients([to])
         picker.mailComposeDelegate = self
-        
+
         EmailHelper.getRootViewController()?.present(picker, animated: true, completion: nil)
     }
 

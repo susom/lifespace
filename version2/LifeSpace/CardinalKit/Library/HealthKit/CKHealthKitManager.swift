@@ -3,7 +3,7 @@
 //  CardinalKit_Example
 //
 //  Created by Santiago Gutierrez on 12/21/20.
-//  Copyright © 2020 CocoaPods. All rights reserved.
+//  Copyright © 2020 CardinalKit. All rights reserved.
 //
 
 import Foundation
@@ -11,15 +11,13 @@ import HealthKit
 import CardinalKit
 
 class CKHealthKitManager : NSObject {
-    
     static let shared = CKHealthKitManager()
-    
-    // TODO: save as configurable element
+
     fileprivate var hkTypesToReadInBackground: Set<HKSampleType> = []
-    
+
     fileprivate let config = CKConfig.shared
-    
-    private let quantyTypes = [
+
+    private let quantityTypes = [
         HKQuantityTypeIdentifier.bodyMassIndex,
         .bodyFatPercentage,
         .height,
@@ -102,9 +100,9 @@ class CKHealthKitManager : NSObject {
         .dietaryPotassium,
         .dietaryCaffeine,
         .dietaryWater,
-        .uvExposure,
+        .uvExposure
     ]
-    
+
     private let categoryTypes = [
         HKCategoryTypeIdentifier.sleepAnalysis,
         .appleStandHour,
@@ -118,22 +116,21 @@ class CKHealthKitManager : NSObject {
         .lowHeartRateEvent,
         .irregularHeartRhythmEvent,
         .audioExposureEvent,
-        .toothbrushingEvent,
-        
+        .toothbrushingEvent
     ]
            
     override init() {
-        for quantiType in quantyTypes{
-            hkTypesToReadInBackground.insert(HKObjectType.quantityType(forIdentifier: quantiType)!)
+        for quantityType in quantityTypes {
+            hkTypesToReadInBackground.insert(HKObjectType.quantityType(forIdentifier: quantityType)!)
         }
         
-        for categoryType in categoryTypes{
+        for categoryType in categoryTypes {
             hkTypesToReadInBackground.insert(HKObjectType.categoryType(forIdentifier: categoryType)!)
         }
-                
+
         hkTypesToReadInBackground.insert(HKObjectType.documentType(forIdentifier: .CDA)!)
         if #available(iOS 14.3, *) {
-            let quantyType14Available = [
+            let quantityType14Available = [
                 HKQuantityTypeIdentifier.walkingSpeed,
                 .walkingDoubleSupportPercentage,
                 .walkingAsymmetryPercentage,
@@ -143,7 +140,7 @@ class CKHealthKitManager : NSObject {
                 .stairDescentSpeed
             ]
             
-            let categoryTypes14Available=[
+            let categoryTypes14Available = [
                 HKCategoryTypeIdentifier.pregnancy,
                 .lactation,
                 .contraceptive,
@@ -193,10 +190,10 @@ class CKHealthKitManager : NSObject {
                 .wheezing
             ]
             hkTypesToReadInBackground.insert(HKElectrocardiogramType.electrocardiogramType())
-            for quantiType in quantyType14Available{
-                hkTypesToReadInBackground.insert(HKObjectType.quantityType(forIdentifier: quantiType)!)
+            for quantityType in quantityType14Available {
+                hkTypesToReadInBackground.insert(HKObjectType.quantityType(forIdentifier: quantityType)!)
             }
-            for categoryType in categoryTypes14Available{
+            for categoryType in categoryTypes14Available {
                 hkTypesToReadInBackground.insert(HKObjectType.categoryType(forIdentifier: categoryType)!)
             }
         }
@@ -206,7 +203,6 @@ class CKHealthKitManager : NSObject {
         hkTypesToReadInBackground.insert(HKAudiogramSampleType.audiogramSampleType())
         hkTypesToReadInBackground.insert(HKSeriesType.workoutRoute())
         hkTypesToReadInBackground.insert(HKSeriesType.heartbeat())
-        
     }
     
     /// Query for HealthKit Authorization

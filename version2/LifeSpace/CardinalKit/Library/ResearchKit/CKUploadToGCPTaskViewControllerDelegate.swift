@@ -1,6 +1,6 @@
 //
 //  CKTaskViewControllerDelegate.swift
-//  CareKit Sample
+//  LifeSpace
 //
 //  Created by Santiago Gutierrez on 2/14/21.
 //
@@ -12,8 +12,11 @@ import Firebase
 
 class CKUploadToGCPTaskViewControllerDelegate: NSObject, ORKTaskViewControllerDelegate {
 
-    public func taskViewController(_ taskViewController: ORKTaskViewController,
-                                   didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
+    public func taskViewController(
+        _ taskViewController: ORKTaskViewController,
+        didFinishWith reason: ORKTaskViewControllerFinishReason,
+        error: Error?
+    ) {
         LaunchModel.sharedinstance.showSurvey = false
         switch reason {
         case .completed:
@@ -99,7 +102,7 @@ class CKUploadToGCPTaskViewControllerDelegate: NSObject, ORKTaskViewControllerDe
                 // Process generic RK surveys and tasks
                 do {
                     // (1) convert the result of the ResearchKit task into a JSON dictionary
-                    if let json = try CK_ORKSerialization.CKTaskAsJson(result: taskViewController.result, task: taskViewController.task!) {
+                    if let json = try CKORKSerialization.CKTaskAsJson(result: taskViewController.result, task: taskViewController.task!) {
                         // (2) send using Firebase
                         try CKSendJSON(json)
 

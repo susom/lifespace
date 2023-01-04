@@ -39,7 +39,12 @@ struct LoginExistingUserViewController: UIViewControllerRepresentable {
             let signInWithAppleStep = CKSignInWithAppleStep(identifier: "SignExistingInWithApple")
             loginSteps += [signInWithAppleStep]
         } else {
-            let loginStep = ORKLoginStep(identifier: "LoginExistingStep", title: "Login", text: "Log into this study.", loginViewControllerClass: LoginViewController.self)
+            let loginStep = ORKLoginStep(
+                identifier: "LoginExistingStep",
+                title: "Login",
+                text: "Log into this study.",
+                loginViewControllerClass: CKLoginStepViewController.self
+            )
             loginSteps += [loginStep]
         }
 

@@ -15,26 +15,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+
         // Disable mapbox telemetry
         UserDefaults.standard.set(false, forKey: "MGLMapboxMetricsEnabled")
-        
+
         // Override point for customization after application launch.
-        
+
         // (1) initialize Firebase SDK
         FirebaseApp.configure()
         configureNotifications()
-        
+
         // (2) check if this is the first time
         // that the app runs!
         cleanIfFirstRun()
-        
+
         // (3) initialize CardinalKit API
         CKAppLaunch()
-        
+
         let config = CKPropertyReader(file: "CKConfiguration")
         UIView.appearance(whenContainedInInstancesOf: [ORKTaskViewController.self]).tintColor = config.readColor(query: "Tint Color")
-        
+
         // Fix transparent navbar in iOS 15
         if #available(iOS 15, *) {
             let appearance = UINavigationBarAppearance()
@@ -42,10 +42,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UINavigationBar.appearance().standardAppearance = appearance
             UINavigationBar.appearance().scrollEdgeAppearance = appearance
         }
-        
+
         return true
     }
-    
+
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
@@ -57,13 +57,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
     }
-    
 }
 
 // Extensions add new functionality to an existing class, structure, enumeration, or protocol type.
 // https://docs.swift.org/swift-book/LanguageGuide/Extensions.html
 extension AppDelegate: UNUserNotificationCenterDelegate {
-    
+
     /**
      The first time that our app runs we have to make sure that :
      (1) no passcode remains stored in the keychain &
@@ -81,7 +80,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             UserDefaults.standard.set(true, forKey: Constants.prefFirstRunWasMarked)
         }
     }
-    
+
     fileprivate func configureNotifications() {
         let center = UNUserNotificationCenter.current()
         center.delegate = self
@@ -109,7 +108,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
                     let uuidString = UUID().uuidString
                     let request = UNNotificationRequest(identifier: uuidString,
                                 content: content, trigger: trigger)
-                    
+
                     // Schedule the request with the system.
                     center.add(request) { (error) in }
                 }
@@ -122,9 +121,4 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         // you must call the completion handler when you're done
         completionHandler()
     }
-    
 }
-
-
-
-

@@ -5,7 +5,6 @@
 //  Copyright © 2020 Stanford University. All rights reserved.
 //
 
-
 import AuthenticationServices
 import CardinalKit
 import CryptoKit

@@ -9,11 +9,9 @@
 import SwiftUI
 
 struct SendRecordsView: View {
-    
-    @State var isSending: Bool = false
-    
-    @State var lastSentString: String? = nil
-    @State var lastSentDate: Date? = nil {
+    @State var isSending = false
+    @State var lastSentString: String?
+    @State var lastSentDate: Date? {
         didSet {
             if let lastSentDate = lastSentDate {
                 let formatter = DateFormatter()
@@ -22,24 +20,24 @@ struct SendRecordsView: View {
             }
         }
     }
-    
+
     fileprivate var recordsLastUploaded: Date? {
-        get {
-            return UserDefaults.standard.object(forKey: Constants.prefHealthRecordsLastUploaded) as? Date
-        }
+        UserDefaults.standard.object(forKey: Constants.prefHealthRecordsLastUploaded) as? Date
     }
-    
+
     fileprivate func onPress() {
-        guard !isSending else { return }
-        
+        guard !isSending else {
+            return
+        }
+
         isSending = true
-        CKHealthRecordsManager.shared.getAuth { (success, _) in
+        CKHealthRecordsManager.shared.getAuth { success, _ in
             guard success else {
                 isSending = false
                 return
             }
-            
-            CKHealthRecordsManager.shared.collectAndUploadAll() { success, _ in
+
+            CKHealthRecordsManager.shared.collectAndUploadAll { success, _ in
                 isSending = false
                 if success {
                     lastSentDate = recordsLastUploaded
@@ -47,7 +45,7 @@ struct SendRecordsView: View {
             }
         }
     }
-    
+
     var body: some View {
         HStack {
             VStack(alignment: .leading) {

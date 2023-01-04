@@ -1,9 +1,9 @@
 //
 //  JHMapQuestionStep.swift
-//  CardinalKit_Example
+//  LifeSpace
 //
 //  Created by Esteban Ramos on 18/04/22.
-//  Copyright © 2022 CocoaPods. All rights reserved.
+//  Copyright © 2022 LifeSpace. All rights reserved.
 //
 
 import Foundation
@@ -72,7 +72,7 @@ public class MapQuestionStepViewController: ORKQuestionStepViewController {
         self.view.backgroundColor = .white
         MapboxMap.initializeMap(mapView: mapView, reload: false)
     }
-    
+
     @objc func OnClickYesButton() {
       self.setAnswer(true)
       super.goForward()

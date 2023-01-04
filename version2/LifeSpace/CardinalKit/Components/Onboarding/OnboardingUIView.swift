@@ -23,7 +23,7 @@ struct OnboardingUIView: View {
     let config = CKPropertyReader(file: "CKConfiguration")
     @State var showingOnboard = false
     @State var showingLogin = false
-    
+
     var onComplete: (() -> Void)?
 
     init(onComplete: (() -> Void)? = nil) {

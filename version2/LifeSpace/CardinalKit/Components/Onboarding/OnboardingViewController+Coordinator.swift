@@ -59,45 +59,43 @@ class OnboardingViewCoordinator: NSObject, ORKTaskViewControllerDelegate {
             // Save the current user object to the database
             CKStudyUser.shared.save()
 
-            if let signatureResult = taskViewController.result.stepResult(forStepIdentifier: "ConsentReviewStep")?.results?.first as? ORKConsentSignatureResult {
-
+            if let signatureResult = taskViewController.result.stepResult(
+                forStepIdentifier: "ConsentReviewStep"
+            )?.results?.first as? ORKConsentSignatureResult {
                 let consentDocument = LifeSpaceConsent()
                 signatureResult.apply(to: consentDocument)
 
-                consentDocument.makePDF { (data, error) -> Void in
+                consentDocument.makePDF { data, error -> Void in
                     let config = CKPropertyReader(file: "CKConfiguration")
-                    var consentFileName = config.read(query: "Consent File Name")
+                    var consentFileName = config.read(query: "Consent File Name") ?? "consent"
 
                     // Adds study ID to consent file name if it exists
                     if let studyID = CKStudyUser.shared.studyID {
                         consentFileName = "\(studyID)_\(consentFileName)"
                     }
 
-                    var docURL = (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)).last as NSURL?
-                    docURL = docURL?.appendingPathComponent("\(consentFileName).pdf") as NSURL?
+                    var docURL = (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)).first
+                    docURL = docURL?.appendingPathComponent("\(consentFileName).pdf")
 
                     do {
-                        let url = docURL! as URL
-                        try data?.write(to: url)
+                        guard let url = docURL else {
+                            return
+                        }
 
+                        try data?.write(to: url)
                         UserDefaults.standard.set(url.path, forKey: "consentFormURL")
                         print(url.path)
 
                         let storageRef = storage.reference()
-
-                        if let DocumentCollection = CKStudyUser.shared.consentCollection {
-                            let DocumentRef = storageRef.child("\(DocumentCollection)\(consentFileName).pdf")
-
-                            DocumentRef.putFile(from: url, metadata: nil) { _, error in
+                        if let documentCollection = CKStudyUser.shared.consentCollection {
+                            let documentRef = storageRef.child("\(documentCollection)\(consentFileName).pdf")
+                            documentRef.putFile(from: url, metadata: nil) { _, error in
                                 if let error = error {
                                     print(error.localizedDescription)
-                                } else {
-                                    print("Consent form uploaded successfully!")
                                 }
                             }
                         }
-
-                    } catch let error {
+                    } catch {
                         print(error.localizedDescription)
                     }
                 }
@@ -107,7 +105,6 @@ class OnboardingViewCoordinator: NSObject, ORKTaskViewControllerDelegate {
 
             fallthrough
         default:
-            // otherwise dismiss onboarding without proceeding.
             taskViewController.dismiss(animated: true, completion: nil)
         }
     }

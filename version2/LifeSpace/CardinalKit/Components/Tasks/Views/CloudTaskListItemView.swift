@@ -10,15 +10,14 @@ import SwiftUI
 import ResearchKit
 
 struct CloudTaskListItemView: View {
-    
     let item: CloudTaskItem
 
     @State var showingDetail = false
-    
+
     init(item: CloudTaskItem) {
         self.item = item
     }
-    
+
     var body: some View {
         HStack {
             if item.image != nil {
@@ -35,7 +34,6 @@ struct CloudTaskListItemView: View {
             self.showingDetail.toggle()
         }))
         .sheet(isPresented: $showingDetail, onDismiss: {}, content: {
-//                item.action
             item.View()
         })
     }
@@ -43,6 +41,16 @@ struct CloudTaskListItemView: View {
 
 struct CloudTaskListItemView_Previews: PreviewProvider {
     static var previews: some View {
-        CloudTaskListItemView(item: CloudTaskItem(order: "1", title: "Title", subtitle: "Subtitle", imageName: "ImageName", section: "Seccion", identifier:"identifier" , questions: ["Question"]))
+        CloudTaskListItemView(
+            item: CloudTaskItem(
+                order: "1",
+                title: "Title",
+                subtitle: "Subtitle",
+                imageName: "ImageName",
+                section: "Section",
+                identifier: "Identifier",
+                questions: ["Question"]
+            )
+        )
     }
 }

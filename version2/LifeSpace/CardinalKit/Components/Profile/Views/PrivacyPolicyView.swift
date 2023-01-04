@@ -20,12 +20,16 @@ struct PrivacyPolicyView: View {
             Text("Privacy Policy")
             Spacer()
             Text("›")
-        }.frame(height: 70).contentShape(Rectangle())
-            .gesture(TapGesture().onEnded({
+        }
+        .frame(height: 70)
+        .contentShape(Rectangle())
+        .gesture(
+            TapGesture().onEnded {
                 if let url = URL(string: self.site) {
-                UIApplication.shared.open(url)
+                    UIApplication.shared.open(url)
+                }
             }
-        }))
+        )
     }
 }
 

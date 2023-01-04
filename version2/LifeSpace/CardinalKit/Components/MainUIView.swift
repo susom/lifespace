@@ -9,14 +9,13 @@
 import SwiftUI
 
 struct MainUIView: View {
-    
     let color: Color
     let config = CKConfig.shared
-    
+
     init() {
         self.color = Color(config.readColor(query: "Primary Color") ?? UIColor.primaryColor())
     }
-    
+
     var body: some View {
         TabView {
             HomeView()
@@ -31,7 +30,6 @@ struct MainUIView: View {
                     .renderingMode(.template)
                 Text("Profile")
             }
-            
         }
         .accentColor(self.color)
     }
