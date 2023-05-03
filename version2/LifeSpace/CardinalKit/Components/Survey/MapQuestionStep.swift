@@ -26,6 +26,7 @@ public class MapQuestionStep: ORKQuestionStep{
 
 public class MapQuestionStepViewController: ORKQuestionStepViewController {
     internal var mapView: MapView!
+
     public override func viewDidLoad() {
         let QuestionLabel = UILabel(frame: CGRect(x: 0, y: 60, width: 450, height: 50 ))
         QuestionLabel.center.x = view.center.x

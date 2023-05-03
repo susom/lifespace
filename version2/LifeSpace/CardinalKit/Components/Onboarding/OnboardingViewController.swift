@@ -30,6 +30,11 @@ struct OnboardingViewController: UIViewControllerRepresentable {
         reviewConsentStep.text = config.read(query: "Review Consent Step Text")
         reviewConsentStep.reasonForConsent = config.read(query: "Reason for Consent Text")
 
+        // Add a notice regarding battery usage
+        let batteryUsageNoticeStep = ORKInstructionStep(identifier: "BatteryUsageNoticeStep")
+        batteryUsageNoticeStep.title = "Battery Usage"
+        batteryUsageNoticeStep.detailText = "Please note that running the LifeSpace app in the background may result in more rapid discharge of battery power."
+
         /* **************************************************************
         *  STEP (2): get permission to collect HealthKit data - DISABLED
         **************************************************************/
@@ -45,7 +50,12 @@ struct OnboardingViewController: UIViewControllerRepresentable {
         *  STEP (4): ask user to enter their study ID
         **************************************************************/
         let studyIDAnswerFormat = ORKAnswerFormat.textAnswerFormat(withMaximumLength: 10)
-        let studyIDEntryStep = ORKQuestionStep(identifier: "StudyIDEntryStep", title: "Study ID", question: "Enter your study ID:", answer: studyIDAnswerFormat)
+        let studyIDEntryStep = ORKQuestionStep(
+            identifier: "StudyIDEntryStep",
+            title: "Study ID",
+            question: "Enter your study ID:",
+            answer: studyIDAnswerFormat
+        )
         studyIDEntryStep.isOptional = false
 
         /* **************************************************************
@@ -102,7 +112,7 @@ struct OnboardingViewController: UIViewControllerRepresentable {
         * finally, CREATE an array with the steps to show the user
         **************************************************************/
         // given intro steps that the user should review and consent to
-        let introSteps: [ORKStep] = [studyIDEntryStep, reviewConsentStep]
+        let introSteps: [ORKStep] = [studyIDEntryStep, reviewConsentStep, batteryUsageNoticeStep]
 
         // and steps regarding login / security
         let securitySteps = loginSteps + [passcodeStep]
