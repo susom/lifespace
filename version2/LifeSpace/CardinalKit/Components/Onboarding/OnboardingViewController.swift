@@ -10,6 +10,7 @@ import ResearchKit
 import CardinalKit
 import Firebase
 
+/// Onboarding workflow for new users
 struct OnboardingViewController: UIViewControllerRepresentable {
     func makeCoordinator() -> OnboardingViewCoordinator {
         OnboardingViewCoordinator()
@@ -21,34 +22,20 @@ struct OnboardingViewController: UIViewControllerRepresentable {
 
     func makeUIViewController(context: Context) -> ORKTaskViewController {
         let config = CKPropertyReader(file: "CKConfiguration")
-        /* **************************************************************
-        *  STEP (1): Ask user to review, then sign consent form
-        **************************************************************/
+
+        /// Ask user to review, then sign consent form
         let consentDocument = LifeSpaceConsent()
         let signature = consentDocument.signatures?.first
         let reviewConsentStep = ORKConsentReviewStep(identifier: "ConsentReviewStep", signature: signature, in: consentDocument)
         reviewConsentStep.text = config.read(query: "Review Consent Step Text")
         reviewConsentStep.reasonForConsent = config.read(query: "Reason for Consent Text")
 
-        // Add a notice regarding battery usage
+        /// Show the user a notice regarding battery usage
         let batteryUsageNoticeStep = ORKInstructionStep(identifier: "BatteryUsageNoticeStep")
         batteryUsageNoticeStep.title = "Battery Usage"
         batteryUsageNoticeStep.detailText = "Please note that running the LifeSpace app in the background may result in more rapid discharge of battery power."
 
-        /* **************************************************************
-        *  STEP (2): get permission to collect HealthKit data - DISABLED
-        **************************************************************/
-        // see `HealthDataStep` to configure!
-        // let healthDataStep = CKHealthDataStep(identifier: "Healthkit")
-
-        /* **************************************************************
-        *  STEP (3): get permission to collect HealthKit health records data - DISABLED
-        **************************************************************/
-        // let healthRecordsStep = CKHealthRecordsStep(identifier: "HealthRecords")
-
-        /* **************************************************************
-        *  STEP (4): ask user to enter their study ID
-        **************************************************************/
+        /// Ask user to enter their study ID
         let studyIDAnswerFormat = ORKAnswerFormat.textAnswerFormat(withMaximumLength: 10)
         let studyIDEntryStep = ORKQuestionStep(
             identifier: "StudyIDEntryStep",
@@ -58,9 +45,7 @@ struct OnboardingViewController: UIViewControllerRepresentable {
         )
         studyIDEntryStep.isOptional = false
 
-        /* **************************************************************
-        *  STEP (5): ask user to sign up with Apple or their email address
-        **************************************************************/
+        /// Ask user to sign up with their Apple ID or e-mail address and password
         var loginSteps: [ORKStep]
         if config["Login-Sign-In-With-Apple"]?["Enabled"] as? Bool == true {
             let signInWithAppleStep = CKSignInWithAppleStep(identifier: "SignInWithApple")
@@ -85,12 +70,13 @@ struct OnboardingViewController: UIViewControllerRepresentable {
             )
             loginSteps = [registerStep, loginStep]
         }
-        /* **************************************************************
-        *  STEP (6): ask the user to create a security passcode
-        *  that will be required to use this app!
-        **************************************************************/
-        // use the `ORKPasscodeStep` from ResearchKit.
-        // NOTE: requires NSFaceIDUsageDescription in info.plist
+
+        /// Ask the user to create a security passcode that will be used to access the app
+        /// Please note, this requires `NSFaceIDUsageDescription`to be set  in Info.plist
+        let passcodeInstructionStep = ORKInstructionStep(identifier: "PasscodeInstructionStep")
+        passcodeInstructionStep.title = "Set a Passcode"
+        passcodeInstructionStep.detailText = "In the next step, you'll be asked to create a passcode to protect access to your data in the app. You'll need to remember this passcode and enter it every time you open the app. Note that your passcode is different from your Study ID."
+
         let passcodeStep = ORKPasscodeStep(identifier: "Passcode")
         let type = config.read(query: "Passcode Type")
         if type == "6" {
@@ -100,38 +86,24 @@ struct OnboardingViewController: UIViewControllerRepresentable {
         }
         passcodeStep.text = config.read(query: "Passcode Text")
 
-        /* **************************************************************
-        *  STEP (7): inform the user that they are done with sign-up!
-        **************************************************************/
-        // use the `ORKCompletionStep` from ResearchKit
+        let passcodeSteps = [passcodeInstructionStep, passcodeStep]
+
+        /// Inform the user that they are done with onboarding
         let completionStep = ORKCompletionStep(identifier: "CompletionStep")
         completionStep.title = config.read(query: "Completion Step Title")
         completionStep.text = config.read(query: "Completion Step Text")
 
-        /* **************************************************************
-        * finally, CREATE an array with the steps to show the user
-        **************************************************************/
-        // given intro steps that the user should review and consent to
+        /// Create an array with the steps to show the user
         let introSteps: [ORKStep] = [studyIDEntryStep, reviewConsentStep, batteryUsageNoticeStep]
-
-        // and steps regarding login / security
-        let securitySteps = loginSteps + [passcodeStep]
-
-        // guide the user through ALL steps
+        let securitySteps = loginSteps + passcodeSteps
         let fullSteps = introSteps + securitySteps + [completionStep]
 
-        /* **************************************************************
-        * and SHOW the user these steps!
-        **************************************************************/
-        // create a task with each step
+        /// Create a ResearchKit task from the array of steps
         let orderedTask = ORKOrderedTask(identifier: "StudyOnboardingTask", steps: fullSteps)
 
-        // wrap that task on a view controller
+        /// Present the task to the user
         let taskViewController = ORKTaskViewController(task: orderedTask, taskRun: nil)
-        taskViewController.delegate = context.coordinator // enables `ORKTaskViewControllerDelegate` below
-
-        // & present the VC!
+        taskViewController.delegate = context.coordinator
         return taskViewController
     }
 }
-

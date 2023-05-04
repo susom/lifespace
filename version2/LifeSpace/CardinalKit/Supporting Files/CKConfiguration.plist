@@ -25,7 +25,7 @@
 	<key>Consent File Name</key>
 	<string>consent</string>
 	<key>Passcode Text</key>
-	<string>Now you will create a passcode to identify yourself to the app and protect access to information you&apos;ve entered.</string>
+	<string>Now you will create a passcode to identify yourself to the app and protect access to information you&apos;ve entered. This is different from your Study ID.</string>
 	<key>Passcode Type</key>
 	<string>4</string>
 	<key>Completion Step Title</key>
