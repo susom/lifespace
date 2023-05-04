@@ -4,7 +4,7 @@ target 'LifeSpace' do
   pod 'CardinalKit', :path => '../'
   
   # CK Sample Pods
-  pod 'ResearchKit', :git => 'https://github.com/ResearchKit/ResearchKit.git', :tag => '2.1.1-dev'
+  pod 'ResearchKit', :git => 'https://github.com/ResearchKit/ResearchKit.git', :tag => '2.2.9-dev'
   pod 'Granola', :git => 'https://github.com/CardinalKit/Granola.git', :branch => 'main'
   
   pod 'Firebase/Firestore'
@@ -15,4 +15,15 @@ target 'LifeSpace' do
   
   pod 'MapboxMaps', '10.1.0'
 
+end
+
+  post_install do |installer|
+    installer.generated_projects.each do |project|
+          project.targets.each do |target|
+              target.build_configurations.each do |config|
+                  config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
+                  config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
+               end
+          end
+   end
 end
