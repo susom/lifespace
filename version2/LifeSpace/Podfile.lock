@@ -826,7 +826,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - Granola (from `https://github.com/CardinalKit/Granola.git`, branch `main`)
   - MapboxMaps (= 10.1.0)
-  - ResearchKit (from `https://github.com/ResearchKit/ResearchKit.git`, tag `2.1.1-dev`)
+  - ResearchKit (from `https://github.com/ResearchKit/ResearchKit.git`, tag `2.2.9-dev`)
 
 SPEC REPOS:
   trunk:
@@ -875,7 +875,7 @@ EXTERNAL SOURCES:
     :git: https://github.com/CardinalKit/Granola.git
   ResearchKit:
     :git: https://github.com/ResearchKit/ResearchKit.git
-    :tag: 2.1.1-dev
+    :tag: 2.2.9-dev
 
 CHECKOUT OPTIONS:
   Granola:
@@ -883,7 +883,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/CardinalKit/Granola.git
   ResearchKit:
     :git: https://github.com/ResearchKit/ResearchKit.git
-    :tag: 2.1.1-dev
+    :tag: 2.2.9-dev
 
 SPEC CHECKSUMS:
   abseil: ebe5b5529fb05d93a8bdb7951607be08b7fa71bc
@@ -920,12 +920,12 @@ SPEC CHECKSUMS:
   ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
   Realm: d4f810e161fa2c2c589b9860b6eb09238deacd73
   RealmSwift: cef9946f09f2333a8f2ac8bac4f8de52fb9f5ac3
-  ResearchKit: 6cd1fafe8cc4558287d63b9f8d9133aa258dbfd1
+  ResearchKit: 70c28052fabb418069ab0dcea9888edf364edfe3
   SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   Turf: 469ce2c3d22e5e8e4818d5a3b254699a5c89efa4
   Zip: 8877eede3dda76bcac281225c20e71c25270774c
 
-PODFILE CHECKSUM: 00235fed1b12222ac710ac911b031ebb807af624
+PODFILE CHECKSUM: 11aedbeff907b6090165f855a668e73f9c9c49f9
 
 COCOAPODS: 1.11.3
