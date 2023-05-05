@@ -75,7 +75,7 @@ struct OnboardingViewController: UIViewControllerRepresentable {
         /// Please note, this requires `NSFaceIDUsageDescription`to be set  in Info.plist
         let passcodeInstructionStep = ORKInstructionStep(identifier: "PasscodeInstructionStep")
         passcodeInstructionStep.title = "Set a Passcode"
-        passcodeInstructionStep.detailText = "In the next step, you'll be asked to create a passcode to protect access to your data in the app. You'll need to remember this passcode and enter it every time you open the app. Note that your passcode is different from your Study ID."
+        passcodeInstructionStep.detailText = "In the next step, you’ll be asked to create a passcode to protect access to the LifeSpace app.  You'll need to remember this passcode and enter it every time you open the app. Note that your passcode is different from your Study ID."
 
         let passcodeStep = ORKPasscodeStep(identifier: "Passcode")
         let type = config.read(query: "Passcode Type")
