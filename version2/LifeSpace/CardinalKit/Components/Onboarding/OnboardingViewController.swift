@@ -84,7 +84,6 @@ struct OnboardingViewController: UIViewControllerRepresentable {
         } else {
             passcodeStep.passcodeType = .type4Digit
         }
-        passcodeStep.text = config.read(query: "Passcode Text")
 
         let passcodeSteps = [passcodeInstructionStep, passcodeStep]
 
