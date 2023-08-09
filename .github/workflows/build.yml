@@ -28,6 +28,7 @@ jobs:
         echo "machine api.mapbox.com" >> ~/.netrc
         echo "login mapbox" >> ~/.netrc
         echo "password ${{ secrets.MAPBOX_TOKEN }}" >> ~/.netrc
+        chmod 0600 ~/.netrc
     - name: Install Dependencies
       run: |
         gem install cocoapods
